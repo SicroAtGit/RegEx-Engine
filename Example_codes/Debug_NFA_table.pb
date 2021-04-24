@@ -1,5 +1,5 @@
 ﻿
-IncludePath ".." + #PS$
+IncludePath ".."
 IncludeFile "RegExEngine.pbi"
 
 Procedure$ GetSymbolAsString(symbol)

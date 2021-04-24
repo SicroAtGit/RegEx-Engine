@@ -1,5 +1,5 @@
 ﻿
-IncludePath ".." + #PS$
+IncludePath ".."
 IncludeFile "RegExEngine.pbi"
 
 Define.Character *string
