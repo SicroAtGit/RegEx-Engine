@@ -41,7 +41,7 @@ More example codes can be found in the [`Example_codes`](Example_codes) director
 
 ```purebasic
 Enumeration SpecialSymbols 0 Step -1
-  #Symbol_Move ; Used for NFA epsilon moves
+  #Symbol_Move  ; Used for NFA epsilon moves
   #Symbol_Split ; Used for NFA unions
   #Symbol_Final ; Used for NFA final state
 EndEnumeration
@@ -51,7 +51,7 @@ EndEnumeration
 
 ```purebasic
 Structure NfaStateStruc
-  symbol.i ; Unicode number or special symbol number
+  symbol.i    ; Unicode number or special symbol number
   *nextState1 ; Pointer to the first next NFA state
   *nextState2 ; Pointer to the second next NFA state
 EndStructure
@@ -59,9 +59,9 @@ EndStructure
 
 ```purebasic
 Structure RegExEngineStruc
-  *regExString.Character ; Pointer to the RegEx string
+  *regExString.Character             ; Pointer to the RegEx string
   List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
-  *initialNfaState ; Pointer to the NFA initial state
+  *initialNfaState                   ; Pointer to the NFA initial state
 EndStructure
 ```
 

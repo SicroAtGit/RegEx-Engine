@@ -4,19 +4,19 @@ DeclareModule RegEx
   EnableExplicit
   
   Enumeration SpecialSymbols 0 Step -1
-    #Symbol_Move ; Used for epsilon moves
-    #Symbol_Split; Used for unions
-    #Symbol_Final; Used for final state
+    #Symbol_Move  ; Used for epsilon moves
+    #Symbol_Split ; Used for unions
+    #Symbol_Final ; Used for final state
   EndEnumeration
   
   Structure NfaStateStruc
-    symbol.i ; Unicode number or special symbol number
+    symbol.i    ; Unicode number or special symbol number
     *nextState1 ; Pointer to the first next NFA state
     *nextState2 ; Pointer to the second next NFA state
   EndStructure
   
   Structure RegExEngineStruc
-    *regExString.Character ; Pointer to the RegEx string
+    *regExString.Character             ; Pointer to the RegEx string
     List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
     *initialNfaState                   ; Pointer to the NFA initial state
   EndStructure
