@@ -161,10 +161,8 @@ Module RegEx
         *regExEngine\regExString + SizeOf(Character)
         *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
         *regExEngine\regExString + SizeOf(Character)
-      Case '*', '+', '?', ')'
+      Case '*', '+', '?', ')', '|', ''
         ProcedureReturn 0
-      Case ''
-        *base = CreateNfaSymbol(*regExEngine, #Symbol_Move)
       Default
         *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
         *regExEngine\regExString + SizeOf(Character)
@@ -230,7 +228,11 @@ Module RegEx
     If *term And *regExEngine\regExString\c = '|'
       *regExEngine\regExString + SizeOf(Character)
       *regEx = ParseRegEx(*regExEngine)
-      *union = CreateNfaUnion(*regExEngine, *term, *regEx)
+      If *regEx
+        *union = CreateNfaUnion(*regExEngine, *term, *regEx)
+      Else
+        *union = 0
+      EndIf
       FreeStructure(*term)
       FreeStructure(*regEx)
       ProcedureReturn *union
@@ -242,6 +244,10 @@ Module RegEx
   Procedure Create(regExString$)
     Protected.RegExEngineStruc *regExEngine
     Protected.NfaStruc *resultNfa
+    
+    If regExString$ = ""
+      ProcedureReturn 0
+    EndIf
     
     *regExEngine = AllocateStructure(RegExEngineStruc)
     If *regExEngine
