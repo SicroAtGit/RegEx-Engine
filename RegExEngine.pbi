@@ -159,8 +159,13 @@ Module RegEx
         *regExEngine\regExString + SizeOf(Character)
       Case '\'
         *regExEngine\regExString + SizeOf(Character)
-        *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
-        *regExEngine\regExString + SizeOf(Character)
+        Select *regExEngine\regExString\c
+          Case '*', '+', '?', '|', '(', ')', '\'
+            *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
+            *regExEngine\regExString + SizeOf(Character)
+          Default
+            ProcedureReturn 0
+        EndSelect
       Case '*', '+', '?', ')', '|', ''
         ProcedureReturn 0
       Default
