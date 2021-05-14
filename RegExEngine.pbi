@@ -217,6 +217,11 @@ Module RegEx
           *regExEngine\regExString\c <> '|'
       
       *nextFactor = ParseRegExFactor(*regExEngine)
+      
+      If *nextFactor = 0
+        ProcedureReturn 0
+      EndIf
+      
       *newFactor = CreateNfaConcatenation(*regExEngine, *factor, *nextFactor)
       FreeStructure(*factor)
       FreeStructure(*nextFactor)
