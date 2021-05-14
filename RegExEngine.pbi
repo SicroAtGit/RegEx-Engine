@@ -266,6 +266,12 @@ Module RegEx
       EndIf
     EndIf
     
+    If *regExEngine And *regExEngine\regExString\c <> 0
+      ; If the regex string could not be parsed completely, there are syntax
+      ; errors
+      *regExEngine = 0
+    EndIf
+    
     ProcedureReturn *regExEngine
   EndProcedure
   
