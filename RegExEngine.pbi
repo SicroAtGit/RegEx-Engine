@@ -127,11 +127,19 @@ Module RegEx
   EndProcedure
   
   Procedure CreateNfaOneOrMore(*regExEngine.RegExEngineStruc, *nfa.NfaStruc)
-    Protected *nfa2, *resultNfa
+    Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
-    *nfa2 = CreateNfaZeroOrMore(*regExEngine, *nfa)
-    *resultNfa = CreateNfaConcatenation(*regExEngine, *nfa, *nfa2)
-    FreeStructure(*nfa2)
+    *resultNfa\startState = CreateNfaState(*regExEngine)
+    *resultNfa\startState\symbol = #Symbol_Move
+    
+    *resultNfa\endState = CreateNfaState(*regExEngine)
+    *resultNfa\endState\symbol = #Symbol_Final
+    
+    *resultNfa\startState\nextState1 = *nfa\startState
+    
+    *nfa\endState\symbol = #Symbol_Split
+    *nfa\endState\nextState1 = *resultNfa\endState
+    *nfa\endState\nextState2 = *nfa\startState
     
     ProcedureReturn *resultNfa
   EndProcedure
