@@ -4,7 +4,7 @@
 
 ## About
 
-This RegEx engine compiles a regular expression into an NFA with epsilon ([Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction)) and can execute the NFA against a string.
+This RegEx engine compiles a regular expression into an NFA with epsilon and can execute the NFA against a string. The NFA is built with the [Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction) and with two extra constructions for `x+` and `x?`.
 
 When matching, the RegEx engine matches always the longest match among several possible matches (POSIX-compliant). During this process, no backtracking is required, because all alternations are checked simultaneously.
 
