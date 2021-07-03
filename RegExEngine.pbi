@@ -292,41 +292,41 @@ Module RegEx
     FreeStructure(*regExEngine)
   EndProcedure
   
-  Procedure AddState(*state.NfaStateStruc, List states())
+  Procedure AddState(*state.NfaStateStruc, List *states())
     If *state\symbol = #Symbol_Split
-      AddState(*state\nextState1, states())
-      AddState(*state\nextState2, states())
+      AddState(*state\nextState1, *states())
+      AddState(*state\nextState2, *states())
     ElseIf *state\symbol = #Symbol_Move
-      AddState(*state\nextState1, states())
+      AddState(*state\nextState1, *states())
     Else
-      AddElement(states())
-      states() = *state
+      AddElement(*states())
+      *states() = *state
     EndIf
   EndProcedure
   
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Character)
     Protected.NfaStateStruc *state
     Protected matchLength, lastFinalStateMatchLength
-    Protected NewList currentStates(), NewList nextStates()
+    Protected NewList *currentStates(), NewList *nextStates()
     
-    AddState(*regExEngine\initialNfaState, currentStates())
+    AddState(*regExEngine\initialNfaState, *currentStates())
     
     Repeat
-      ForEach currentStates()
-        *state = currentStates()
+      ForEach *currentStates()
+        *state = *currentStates()
         If *state\symbol = *string\c
-          AddState(*state\nextState1, nextStates())
+          AddState(*state\nextState1, *nextStates())
         ElseIf *state\symbol = #Symbol_Final
           lastFinalStateMatchLength = matchLength
         EndIf
       Next
       
-      If ListSize(nextStates()) = 0
+      If ListSize(*nextStates()) = 0
         Break
       EndIf
       
-      ClearList(currentStates())
-      MergeLists(nextStates(), currentStates())
+      ClearList(*currentStates())
+      MergeLists(*nextStates(), *currentStates())
       
       *string + SizeOf(Character)
       matchLength + 1
