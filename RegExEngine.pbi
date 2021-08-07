@@ -77,10 +77,20 @@ Module RegEx
   Procedure CreateNfaSymbol(*regExEngine.RegExEngineStruc, symbol)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
+    If *resultNfa = 0
+      ProcedureReturn 0
+    EndIf
+    
     *resultNfa\startState = CreateNfaState(*regExEngine)
+    If *resultNfa\startState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\startState\symbol = symbol
     
     *resultNfa\endState = CreateNfaState(*regExEngine)
+    If *resultNfa\endState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\endState\symbol = #Symbol_Final
     
     *resultNfa\startState\nextState1 = *resultNfa\endState
@@ -90,6 +100,10 @@ Module RegEx
   
   Procedure CreateNfaConcatenation(*regExEngine.RegExEngineStruc, *nfa1.NfaStruc, *nfa2.NfaStruc)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
+    
+    If *resultNfa = 0
+      ProcedureReturn 0
+    EndIf
     
     *nfa1\endState\symbol = *nfa2\startState\symbol
     *nfa1\endState\nextState1 = *nfa2\startState\nextState1
@@ -106,12 +120,22 @@ Module RegEx
   Procedure CreateNfaUnion(*regExEngine.RegExEngineStruc, *nfa1.NfaStruc, *nfa2.NfaStruc)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
+    If *resultNfa = 0
+      ProcedureReturn 0
+    EndIf
+    
     *resultNfa\startState = CreateNfaState(*regExEngine)
+    If *resultNfa\startState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\startState\symbol = #Symbol_Split
     *resultNfa\startState\nextState1 = *nfa1\startState
     *resultNfa\startState\nextState2 = *nfa2\startState
     
     *resultNfa\endState = CreateNfaState(*regExEngine)
+    If *resultNfa\endState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\endState\symbol = #Symbol_Final
     
     *nfa1\endState\symbol = #Symbol_Move
@@ -126,10 +150,20 @@ Module RegEx
   Procedure CreateNfaZeroOrMore(*regExEngine.RegExEngineStruc, *nfa.NfaStruc)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
+    If *resultNfa = 0
+      ProcedureReturn 0
+    EndIf
+    
     *resultNfa\startState = CreateNfaState(*regExEngine)
+    If *resultNfa\startState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\startState\symbol = #Symbol_Split
     
     *resultNfa\endState = CreateNfaState(*regExEngine)
+    If *resultNfa\endState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\endState\symbol = #Symbol_Final
     
     *resultNfa\startState\nextState1 = *nfa\startState
@@ -145,10 +179,20 @@ Module RegEx
   Procedure CreateNfaOneOrMore(*regExEngine.RegExEngineStruc, *nfa.NfaStruc)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
+    If *resultNfa = 0
+      ProcedureReturn 0
+    EndIf
+    
     *resultNfa\startState = CreateNfaState(*regExEngine)
+    If *resultNfa\startState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\startState\symbol = #Symbol_Move
     
     *resultNfa\endState = CreateNfaState(*regExEngine)
+    If *resultNfa\endState = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa\endState\symbol = #Symbol_Final
     
     *resultNfa\startState\nextState1 = *nfa\startState
@@ -164,6 +208,9 @@ Module RegEx
     Protected *nfa2, *resultNfa
     
     *nfa2 = CreateNfaSymbol(*regExEngine, #Symbol_Move)
+    If *nfa2 = 0
+      ProcedureReturn 0
+    EndIf
     *resultNfa = CreateNfaUnion(*regExEngine, *nfa, *nfa2)
     FreeStructure(*nfa2)
     
