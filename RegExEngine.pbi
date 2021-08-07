@@ -345,6 +345,7 @@ Module RegEx
     If *regExEngine And *regExEngine\regExString\c <> 0
       ; If the regex string could not be parsed completely, there are syntax
       ; errors
+      FreeStructure(*regExEngine)
       *regExEngine = 0
     EndIf
     
