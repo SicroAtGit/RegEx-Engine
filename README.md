@@ -87,3 +87,6 @@ Frees the memory of the RegEx engine created by the function `Create()`.
 
 - `Match(*regExEngine, *string)`  
 Runs the Regex engine against the string. The function requires the pointer to the string, which can be determined with `@variable$` or `@"text"`. The match search will start from the beginning of the string. If you want to start from a different position, you have to move the pointer of the string, e.g. `*string + SizeOf(Character)` to search from the second character in the string. If a match is found, the character length of the match is returned, otherwise zero.
+
+- `GetLastErrorMessages()`  
+Returns the error messages of the last `Create()` call as a human-readable string.

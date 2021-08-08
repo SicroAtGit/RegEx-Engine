@@ -49,6 +49,10 @@ DeclareModule RegEx
   ; match is returned, otherwise zero.
   Declare Match(*regExEngine, *string)
   
+  ; Returns the error messages of the last `Create()` call as a human-readable
+  ; string.
+  Declare$ GetLastErrorMessages()
+  
 EndDeclareModule
 
 Module RegEx
@@ -66,6 +70,8 @@ Module RegEx
     *startPosition
     *currentPosition.Character
   EndStructure
+  
+  Global lastErrorMessages$
   
   Declare ParseRegEx(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
   
@@ -221,7 +227,13 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
-  Procedure ParseRegExBase(*regExEngine.RegExEngineStruc)
+  Procedure GetCurrentCharacterPosition(*regExString.RegExStringStruc)
+    Protected position = *regExString\currentPosition
+    position - *regExString\startPosition
+    position / SizeOf(Character)
+    ProcedureReturn position + 1
+  EndProcedure
+  
   Procedure ParseRegExBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *base, *nfa1, *nfa2
     
@@ -230,6 +242,9 @@ Module RegEx
         *regExString\currentPosition + SizeOf(Character)
         *base = ParseRegEx(*regExEngine, *regExString)
         If *regExString\currentPosition\c <> ')'
+          lastErrorMessages$ + "Missing closing round bracket [Pos: " +
+                               Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                               #CRLF$
           ProcedureReturn 0
         EndIf
         *regExString\currentPosition + SizeOf(Character)
@@ -242,7 +257,21 @@ Module RegEx
           Default
             ProcedureReturn 0
         EndSelect
-      Case '*', '+', '?', ')', '|', ''
+      Case '*', '+', '?', '|'
+        lastErrorMessages$ + "Symbol not allowed here: '" +
+                             Chr(*regExString\currentPosition\c) + "' [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        ProcedureReturn 0
+      Case ''
+        lastErrorMessages$ + "Empty RegEx not allowed [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        ProcedureReturn 0
+      Case ')'
+        lastErrorMessages$ + "Empty groups are not allowed [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
         ProcedureReturn 0
       Default
         *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
@@ -332,7 +361,10 @@ Module RegEx
     Protected.NfaStruc *resultNfa
     Protected.RegExStringStruc *regExString
     
+    lastErrorMessages$ = ""
+    
     If regExString$ = ""
+      lastErrorMessages$ + "Empty RegEx not allowed" + #CRLF$
       ProcedureReturn 0
     EndIf
     
@@ -358,6 +390,9 @@ Module RegEx
     If *regExEngine And *regExString\currentPosition\c <> 0
       ; If the regex string could not be parsed completely, there are syntax
       ; errors
+      lastErrorMessages$ + "Missing opening round bracket [Pos: " +
+                           Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                           #CRLF$
       FreeStructure(*regExEngine)
       *regExEngine = 0
     EndIf
@@ -516,6 +551,10 @@ Module RegEx
     Else
       ProcedureReturn NfaMatch(*regExEngine, *string)
     EndIf
+  EndProcedure
+  
+  Procedure$ GetLastErrorMessages()
+    ProcedureReturn lastErrorMessages$
   EndProcedure
   
 EndModule
