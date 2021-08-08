@@ -68,7 +68,6 @@ EndStructure
 
 ```purebasic
 Structure RegExEngineStruc
-  *regExString.Character               ; Pointer to the RegEx string
   List nfaStatesPool.NfaStateStruc()   ; Holds all NFA states
   *initialNfaState                     ; Pointer to the NFA initial state
   Array dfaStatesPool.DfaStateStruc(0) ; Holds all DFA states

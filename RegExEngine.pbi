@@ -21,7 +21,6 @@ DeclareModule RegEx
   EndStructure
   
   Structure RegExEngineStruc
-    *regExString.Character               ; Pointer to the RegEx string
     List nfaStatesPool.NfaStateStruc()   ; Holds all NFA states
     *initialNfaState                     ; Pointer to the NFA initial state
     Array dfaStatesPool.DfaStateStruc(0) ; Holds all DFA states
@@ -63,7 +62,12 @@ Module RegEx
     List *nfaStates()
   EndStructure
   
-  Declare ParseRegEx(*regExEngine.RegExEngineStruc)
+  Structure RegExStringStruc
+    *startPosition
+    *currentPosition.Character
+  EndStructure
+  
+  Declare ParseRegEx(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
   
   Procedure CreateNfaState(*regExEngine.RegExEngineStruc)
     ProcedureReturn AddElement(*regExEngine\nfaStatesPool())
@@ -218,54 +222,55 @@ Module RegEx
   EndProcedure
   
   Procedure ParseRegExBase(*regExEngine.RegExEngineStruc)
+  Procedure ParseRegExBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *base, *nfa1, *nfa2
     
-    Select *regExEngine\regExString\c
+    Select *regExString\currentPosition\c
       Case '('
-        *regExEngine\regExString + SizeOf(Character)
-        *base = ParseRegEx(*regExEngine)
-        If *regExEngine\regExString\c <> ')'
+        *regExString\currentPosition + SizeOf(Character)
+        *base = ParseRegEx(*regExEngine, *regExString)
+        If *regExString\currentPosition\c <> ')'
           ProcedureReturn 0
         EndIf
-        *regExEngine\regExString + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Character)
       Case '\'
-        *regExEngine\regExString + SizeOf(Character)
-        Select *regExEngine\regExString\c
+        *regExString\currentPosition + SizeOf(Character)
+        Select *regExString\currentPosition\c
           Case '*', '+', '?', '|', '(', ')', '\'
-            *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
-            *regExEngine\regExString + SizeOf(Character)
+            *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
+            *regExString\currentPosition + SizeOf(Character)
           Default
             ProcedureReturn 0
         EndSelect
       Case '*', '+', '?', ')', '|', ''
         ProcedureReturn 0
       Default
-        *base = CreateNfaSymbol(*regExEngine, *regExEngine\regExString\c)
-        *regExEngine\regExString + SizeOf(Character)
+        *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
+        *regExString\currentPosition + SizeOf(Character)
     EndSelect
     
     ProcedureReturn *base
   EndProcedure
   
-  Procedure ParseRegExFactor(*regExEngine.RegExEngineStruc)
-    Protected *base = ParseRegExBase(*regExEngine)
+  Procedure ParseRegExFactor(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
+    Protected *base = ParseRegExBase(*regExEngine, *regExString)
     Protected *factor
     
     If *base = 0
       ProcedureReturn 0
     EndIf
     
-    Select *regExEngine\regExString\c
+    Select *regExString\currentPosition\c
       Case '*'
-        *regExEngine\regExString + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Character)
         *factor = CreateNfaZeroOrMore(*regExEngine, *base)
         FreeStructure(*base)
       Case '+'
-        *regExEngine\regExString + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Character)
         *factor = CreateNfaOneOrMore(*regExEngine, *base)
         FreeStructure(*base)
       Case '?'
-        *regExEngine\regExString + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Character)
         *factor = CreateNfaZeroOrOne(*regExEngine, *base)
         FreeStructure(*base)
       Default
@@ -275,19 +280,19 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
-  Procedure ParseRegExTerm(*regExEngine.RegExEngineStruc)
+  Procedure ParseRegExTerm(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *factor, *newFactor, *nextFactor
     
-    *factor = ParseRegExFactor(*regExEngine)
+    *factor = ParseRegExFactor(*regExEngine, *regExString)
     
     If *factor = 0
       ProcedureReturn 0
     EndIf
     
-    While *regExEngine\regExString\c <> 0 And *regExEngine\regExString\c <> ')' And
-          *regExEngine\regExString\c <> '|'
+    While *regExString\currentPosition\c <> 0 And *regExString\currentPosition\c <> ')' And
+          *regExString\currentPosition\c <> '|'
       
-      *nextFactor = ParseRegExFactor(*regExEngine)
+      *nextFactor = ParseRegExFactor(*regExEngine, *regExString)
       
       If *nextFactor = 0
         ProcedureReturn 0
@@ -302,13 +307,13 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
-  Procedure ParseRegEx(*regExEngine.RegExEngineStruc)
-    Protected *term = ParseRegExTerm(*regExEngine)
+  Procedure ParseRegEx(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
+    Protected *term = ParseRegExTerm(*regExEngine, *regExString)
     Protected *regEx, *union
     
-    If *term And *regExEngine\regExString\c = '|'
-      *regExEngine\regExString + SizeOf(Character)
-      *regEx = ParseRegEx(*regExEngine)
+    If *term And *regExString\currentPosition\c = '|'
+      *regExString\currentPosition + SizeOf(Character)
+      *regEx = ParseRegEx(*regExEngine, *regExString)
       If *regEx
         *union = CreateNfaUnion(*regExEngine, *term, *regEx)
       Else
@@ -325,15 +330,23 @@ Module RegEx
   Procedure Create(regExString$)
     Protected.RegExEngineStruc *regExEngine
     Protected.NfaStruc *resultNfa
+    Protected.RegExStringStruc *regExString
     
     If regExString$ = ""
       ProcedureReturn 0
     EndIf
     
+    *regExString = AllocateStructure(RegExStringStruc)
+    If *regExString
+      *regExString\startPosition = @regExString$
+      *regExString\currentPosition = @regExString$
+    Else
+      ProcedureReturn 0
+    EndIf
+    
     *regExEngine = AllocateStructure(RegExEngineStruc)
     If *regExEngine
-      *regExEngine\regExString = @regExString$
-      *resultNfa = ParseRegEx(*regExEngine)
+      *resultNfa = ParseRegEx(*regExEngine, *regExString)
       If *resultNfa
         *regExEngine\initialNfaState = *resultNfa\startState
       Else
@@ -342,12 +355,14 @@ Module RegEx
       EndIf
     EndIf
     
-    If *regExEngine And *regExEngine\regExString\c <> 0
+    If *regExEngine And *regExString\currentPosition\c <> 0
       ; If the regex string could not be parsed completely, there are syntax
       ; errors
       FreeStructure(*regExEngine)
       *regExEngine = 0
     EndIf
+    
+    FreeStructure(*regExString)
     
     ProcedureReturn *regExEngine
   EndProcedure
