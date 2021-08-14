@@ -39,6 +39,7 @@
 
 ## Documentation Files
 ######################
+*.asc        text
 *.adoc       text
 *.asciidoc   text
 *.md         text

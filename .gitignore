@@ -1,4 +1,64 @@
 
+## PureBasic
+############
+*.pb.cfg
+*.pbi.cfg
+*.pbp
+project.cfg
+
+
+## Binary files
+###############
+
+# Object files
+# ------------
+*.elf
+*.ko
+*.o
+*.obj
+
+# Static libraries
+# ----------------
+*.a
+*.la
+*.lib
+*.lo
+
+# Shared objects
+# --------------
+*.dll
+*.dylib
+*.so
+*.so.*
+
+# Executables
+# -----------
+*.app
+*.exe
+*.out
+
+## Misc Work Files
+##################
+
+# Temporary/backup or removed files and folders:
+___*
+___*.*
+
+# Links and URLs
+*.lnk
+*.url
+
+
+## Apps Local Settings & Temp Files
+###################################
+
+# Chrome's debug logs for local HTML pages:
+debug.log
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+
 # Created by https://www.toptal.com/developers/gitignore/api/windows,linux,macos,purebasic
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,linux,macos,purebasic
 
@@ -46,23 +106,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### PureBasic ###
-# PureBasic
-
-# Settings files
-*.pb.cfg
-*.pbi.cfg
-project.cfg
-
-# Shared libraries
-*.so
-*.dylib
-*.dll
-
-# Binary executables
-*.exe
-*.app
-*.out
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -87,7 +130,5 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
-*.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,macos,purebasic
