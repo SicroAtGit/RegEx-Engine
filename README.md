@@ -37,7 +37,7 @@ Else
   Debug "Error!"
 EndIf
 ```
-More example codes can be found in the [`Example_codes`](Example_codes) directory.
+More code examples can be found in the [`examples`](examples) directory.
 
 ## Public Enumerations
 
