@@ -76,17 +76,17 @@ EndStructure
 
 ## Public Functions
 
-- `Create(regExString$)`  
+- `Create(regExString$)`<br>
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred (RegEx syntax error or memory could not be allocated) null is returned.
 
-- `CreateDfa(*regExEngine, freeNfa = #True)`  
+- `CreateDfa(*regExEngine, freeNfa = #True)`<br>
 Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is freed by default. The freeing can be turned off by setting `freeNfa` to `#False`.
 
-- `Free(*regExEngine)`  
+- `Free(*regExEngine)`<br>
 Frees the memory of the RegEx engine created by the function `Create()`.
 
-- `Match(*regExEngine, *string)`  
+- `Match(*regExEngine, *string)`<br>
 Runs the Regex engine against the string. The function requires the pointer to the string, which can be determined with `@variable$` or `@"text"`. The match search will start from the beginning of the string. If you want to start from a different position, you have to move the pointer of the string, e.g. `*string + SizeOf(Character)` to search from the second character in the string. If a match is found, the character length of the match is returned, otherwise zero.
 
-- `GetLastErrorMessages()`  
+- `GetLastErrorMessages()`<br>
 Returns the error messages of the last `Create()` call as a human-readable string.
