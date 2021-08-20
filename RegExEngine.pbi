@@ -255,6 +255,10 @@ Module RegEx
             *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
             *regExString\currentPosition + SizeOf(Character)
           Default
+            lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
+                                 Chr(*regExString\currentPosition\c) + "' [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
             ProcedureReturn 0
         EndSelect
       Case '*', '+', '?', '|'
