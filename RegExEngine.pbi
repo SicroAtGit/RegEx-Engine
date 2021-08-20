@@ -413,6 +413,11 @@ Module RegEx
     ElseIf *state\symbol = #Symbol_Move
       AddState(*state\nextState1, *states())
     Else
+      ForEach *states()
+        If *states() = *state
+          ProcedureReturn
+        EndIf
+      Next
       AddElement(*states())
       *states() = *state
     EndIf
