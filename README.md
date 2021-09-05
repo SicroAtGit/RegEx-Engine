@@ -20,7 +20,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `x+`    | One or more of `x` |
 | `x?`    | Zero or one of `x` |
 | `(` `)` | Groups a regular expression |
-| `\*`    | Escapes the meta-symbol `*` to use it as a normal character.<br>Works also with the other meta-symbols: `\|` `+` `?` `(` `)` `\` |
+| `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
 
 ## Example
 
