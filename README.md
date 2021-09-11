@@ -79,8 +79,8 @@ EndStructure
 - `Create(regExString$)`<br>
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred (RegEx syntax error or memory could not be allocated) null is returned.
 
-- `CreateDfa(*regExEngine, freeNfa = #True)`<br>
-Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is freed by default. The freeing can be turned off by setting `freeNfa` to `#False`.
+- `CreateDfa(*regExEngine, clearNfa = #True)`<br>
+Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`.
 
 - `Free(*regExEngine)`<br>
 Frees the memory of the RegEx engine created by the function `Create()`.

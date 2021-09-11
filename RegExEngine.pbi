@@ -33,9 +33,9 @@ DeclareModule RegEx
   
   ; Creates a DFA in the RegEx engine from the NFA created by `Create()`.
   ; `Match()` then always uses the DFA and is much faster.
-  ; Because the NFA is no longer used after this, it is freed by default.
-  ; The freeing can be turned off by setting `freeNfa` to `#False`.
-  Declare CreateDfa(*regExEngine, freeNfa = #True)
+  ; Because the NFA is no longer used after this, it is cleared by default.
+  ; The clearing can be turned off by setting `clearNfa` to `#False`.
+  Declare CreateDfa(*regExEngine, clearNfa = #True)
   
   ; Frees the memory of the RegEx engine created by the function `Create`.
   Declare Free(*regExEngine)
@@ -456,7 +456,7 @@ Module RegEx
     ProcedureReturn result
   EndProcedure
   
-  Procedure CreateDfa(*regExEngine.RegExEngineStruc, freeNfa = #True)
+  Procedure CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)
     Protected.EClosureStruc Dim eClosures(0), NewMap symbols()
     Protected.NfaStateStruc *state
     Protected sizeOfArray, dfaState, result
@@ -492,9 +492,9 @@ Module RegEx
       
     Next
     
-    If freeNfa
+    If clearNfa
       *regExEngine\initialNfaState = 0
-      FreeList(*regExEngine\nfaStatesPool())
+      ClearList(*regExEngine\nfaStatesPool())
     EndIf
   EndProcedure
   
