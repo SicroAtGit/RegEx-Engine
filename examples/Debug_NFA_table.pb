@@ -11,7 +11,7 @@ Procedure$ GetSymbolAsString(symbol)
     Case RegEx::#Symbol_Split
       ProcedureReturn "Split"
     Default
-      ProcedureReturn Chr(symbol)
+      ProcedureReturn RSet(Hex(symbol), 2, "0")
   EndSelect
 EndProcedure
 

@@ -3,20 +3,20 @@ DeclareModule RegEx
   
   EnableExplicit
   
-  Enumeration SpecialSymbols 0 Step -1
+  Enumeration NfaSpecialSymbols 256
     #Symbol_Move  ; Used for NFA epsilon moves
     #Symbol_Split ; Used for NFA unions
     #Symbol_Final ; Used for NFA final state
   EndEnumeration
   
   Structure NfaStateStruc
-    symbol.i    ; Unicode number or special symbol number
+    symbol.i    ; Symbol (0-255) or special symbol
     *nextState1 ; Pointer to the first next NFA state
     *nextState2 ; Pointer to the second next NFA state
   EndStructure
   
   Structure DfaStateStruc
-    Map symbols.i() ; Key is the symbol and the value is the next DFA state
+    Map symbols.i() ; Key is the symbol (0-255) and the value is the next DFA state
     isFinalState.i  ; `#True` if the DFA state is a final state, otherwise `#False`
   EndStructure
   
@@ -66,9 +66,16 @@ Module RegEx
     List *nfaStates()
   EndStructure
   
+  Structure CharacterStruc
+    StructureUnion
+      u.u
+      a.a[2]
+    EndStructureUnion
+  EndStructure
+  
   Structure RegExStringStruc
     *startPosition
-    *currentPosition.Character
+    *currentPosition.CharacterStruc
   EndStructure
   
   Global lastErrorMessages$
@@ -230,40 +237,42 @@ Module RegEx
   Procedure GetCurrentCharacterPosition(*regExString.RegExStringStruc)
     Protected position = *regExString\currentPosition
     position - *regExString\startPosition
-    position / SizeOf(Character)
+    position >> 1 ; Fast division by 2
     ProcedureReturn position + 1
   EndProcedure
   
   Procedure ParseRegExBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *base, *nfa1, *nfa2
     
-    Select *regExString\currentPosition\c
+    Select *regExString\currentPosition\u
       Case '('
-        *regExString\currentPosition + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Unicode)
         *base = ParseRegEx(*regExEngine, *regExString)
-        If *regExString\currentPosition\c <> ')'
+        If *regExString\currentPosition\u <> ')'
           lastErrorMessages$ + "Missing closing round bracket [Pos: " +
                                Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                #CRLF$
           ProcedureReturn 0
         EndIf
-        *regExString\currentPosition + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Unicode)
       Case '\'
-        *regExString\currentPosition + SizeOf(Character)
-        Select *regExString\currentPosition\c
+        *regExString\currentPosition + SizeOf(Unicode)
+        Select *regExString\currentPosition\u
           Case '*', '+', '?', '|', '(', ')', '\'
-            *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
-            *regExString\currentPosition + SizeOf(Character)
+            *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
+            *nfa2 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[1])
+            *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
+            *regExString\currentPosition + SizeOf(Unicode)
           Default
             lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
-                                 Chr(*regExString\currentPosition\c) + "' [Pos: " +
+                                 Chr(*regExString\currentPosition\u) + "' [Pos: " +
                                  Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                  #CRLF$
             ProcedureReturn 0
         EndSelect
       Case '*', '+', '?', '|'
         lastErrorMessages$ + "Symbol not allowed here: '" +
-                             Chr(*regExString\currentPosition\c) + "' [Pos: " +
+                             Chr(*regExString\currentPosition\u) + "' [Pos: " +
                              Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                              #CRLF$
         ProcedureReturn 0
@@ -278,8 +287,10 @@ Module RegEx
                              #CRLF$
         ProcedureReturn 0
       Default
-        *base = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\c)
-        *regExString\currentPosition + SizeOf(Character)
+        *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
+        *nfa2 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[1])
+        *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
+        *regExString\currentPosition + SizeOf(Unicode)
     EndSelect
     
     ProcedureReturn *base
@@ -293,17 +304,17 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     
-    Select *regExString\currentPosition\c
+    Select *regExString\currentPosition\u
       Case '*'
-        *regExString\currentPosition + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Unicode)
         *factor = CreateNfaZeroOrMore(*regExEngine, *base)
         FreeStructure(*base)
       Case '+'
-        *regExString\currentPosition + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Unicode)
         *factor = CreateNfaOneOrMore(*regExEngine, *base)
         FreeStructure(*base)
       Case '?'
-        *regExString\currentPosition + SizeOf(Character)
+        *regExString\currentPosition + SizeOf(Unicode)
         *factor = CreateNfaZeroOrOne(*regExEngine, *base)
         FreeStructure(*base)
       Default
@@ -322,8 +333,8 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     
-    While *regExString\currentPosition\c <> 0 And *regExString\currentPosition\c <> ')' And
-          *regExString\currentPosition\c <> '|'
+    While *regExString\currentPosition\u <> 0 And *regExString\currentPosition\u <> ')' And
+          *regExString\currentPosition\u <> '|'
       
       *nextFactor = ParseRegExFactor(*regExEngine, *regExString)
       
@@ -344,8 +355,8 @@ Module RegEx
     Protected *term = ParseRegExTerm(*regExEngine, *regExString)
     Protected *regEx, *union
     
-    If *term And *regExString\currentPosition\c = '|'
-      *regExString\currentPosition + SizeOf(Character)
+    If *term And *regExString\currentPosition\u = '|'
+      *regExString\currentPosition + SizeOf(Unicode)
       *regEx = ParseRegEx(*regExEngine, *regExString)
       If *regEx
         *union = CreateNfaUnion(*regExEngine, *term, *regEx)
@@ -391,7 +402,7 @@ Module RegEx
       EndIf
     EndIf
     
-    If *regExEngine And *regExString\currentPosition\c <> 0
+    If *regExEngine And *regExString\currentPosition\u <> 0
       ; If the RegEx string could not be parsed completely, there are syntax
       ; errors
       lastErrorMessages$ + "Missing opening round bracket [Pos: " +
@@ -502,7 +513,7 @@ Module RegEx
     FreeStructure(*regExEngine)
   EndProcedure
   
-  Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Character)
+  Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii)
     Protected.NfaStateStruc *state
     Protected matchLength, lastFinalStateMatchLength
     Protected NewList *currentStates(), NewList *nextStates()
@@ -512,7 +523,7 @@ Module RegEx
     Repeat
       ForEach *currentStates()
         *state = *currentStates()
-        If *state\symbol = *string\c
+        If *state\symbol = *string\a
           AddState(*state\nextState1, *nextStates())
         ElseIf *state\symbol = #Symbol_Final
           lastFinalStateMatchLength = matchLength
@@ -526,32 +537,32 @@ Module RegEx
       ClearList(*currentStates())
       MergeLists(*nextStates(), *currentStates())
       
-      *string + SizeOf(Character)
+      *string + SizeOf(Ascii)
       matchLength + 1
     ForEver
     
-    ProcedureReturn lastFinalStateMatchLength
+    ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
   EndProcedure
   
-  Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Character)
+  Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii)
     Protected dfaState, matchLength, lastFinalStateMatchLength
     
-    While *string\c
+    Repeat
       
-      If Not FindMapElement(*regExEngine\dfaStatesPool(dfaState)\symbols(), Chr(*string\c))
+      If Not FindMapElement(*regExEngine\dfaStatesPool(dfaState)\symbols(), Chr(*string\a))
         Break
       EndIf
       dfaState = *regExEngine\dfaStatesPool(dfaState)\symbols()
       
       matchLength + 1
-      *string + SizeOf(Character)
+      *string + SizeOf(Ascii)
       
       If *regExEngine\dfaStatesPool(dfaState)\isFinalState
         lastFinalStateMatchLength = matchLength
       EndIf
-    Wend
+    ForEver
     
-    ProcedureReturn lastFinalStateMatchLength
+    ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
   EndProcedure
   
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Character)

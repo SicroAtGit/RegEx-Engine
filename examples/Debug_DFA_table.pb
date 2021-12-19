@@ -4,6 +4,7 @@ IncludeFile "RegExEngine.pbi"
 
 Define.RegEx::RegExEngineStruc *regEx
 Define sizeOfArray, i
+Define hex$
 
 *regEx = RegEx::Create("ab*")
 If *regEx = 0
@@ -25,9 +26,10 @@ For i = 0 To sizeOfArray
   EndIf
   
   ForEach *regEx\dfaStatesPool(i)\symbols()
+    hex$ = RSet(Hex(Asc(MapKey(*regEx\dfaStatesPool(i)\symbols()))), 2, "0")
     Debug "| " + Space(19) +
-        " | " + LSet("'" + MapKey(*regEx\dfaStatesPool(i)\symbols()) + "'", 6) +
-        " | " + LSet(Str(*regEx\dfaStatesPool(i)\symbols()), 19) + " |"
+          " | " + LSet(hex$, 6) +
+          " | " + LSet(Str(*regEx\dfaStatesPool(i)\symbols()), 19) + " |"
   Next
   Debug "| ------------------- | ------ | ------------------- |"
 Next

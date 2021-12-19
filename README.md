@@ -48,7 +48,7 @@ All characters that PureBasic supports in Unicode mode are supported, i.e. `[\u0
 ## Public Enumerations
 
 ```purebasic
-Enumeration SpecialSymbols 0 Step -1
+Enumeration NfaSpecialSymbols 256
   #Symbol_Move  ; Used for NFA epsilon moves
   #Symbol_Split ; Used for NFA unions
   #Symbol_Final ; Used for NFA final state
@@ -59,7 +59,7 @@ EndEnumeration
 
 ```purebasic
 Structure NfaStateStruc
-  symbol.i    ; Unicode number or special symbol number
+  symbol.i    ; Symbol (0-255) or special symbol
   *nextState1 ; Pointer to the first next NFA state
   *nextState2 ; Pointer to the second next NFA state
 EndStructure
@@ -67,7 +67,7 @@ EndStructure
 
 ```purebasic
 Structure DfaStateStruc
-  Map symbols.i() ; Key is the symbol and the value is the next DFA state
+  Map symbols.i() ; Key is the symbol (0-255) and the value is the next DFA state
   isFinalState.i  ; `#True` if the DFA state is a final state, otherwise `#False`
 EndStructure
 ```
