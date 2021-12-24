@@ -64,7 +64,7 @@ EndStructure
 ```purebasic
 Structure DfaStateStruc
   Map symbols.i() ; Key is the symbol and the value is the next DFA state
-  isFinalState.i  ; #True if the DFA state is a final state, otherwise #False
+  isFinalState.i  ; `#True` if the DFA state is a final state, otherwise `#False`
 EndStructure
 ```
 

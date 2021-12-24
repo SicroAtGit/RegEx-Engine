@@ -16,7 +16,7 @@ RegEx::CreateDfa(*regEx)
 Debug "| State               | Symbol | Next state          |"
 Debug "| =================== | ====== | =================== |"
 sizeOfArray = ArraySize(*regEx\dfaStatesPool())
-For i = 0 To sizeofArray
+For i = 0 To sizeOfArray
   If *regEx\dfaStatesPool(i)\isFinalState
     Debug "| " + LSet(Str(i) + " (final)", 19) + " | " + Space(6) + " | " +
           Space(19) + " |"

@@ -17,7 +17,7 @@ DeclareModule RegEx
   
   Structure DfaStateStruc
     Map symbols.i() ; Key is the symbol and the value is the next DFA state
-    isFinalState.i  ; #True if the DFA state is a final state, otherwise #False
+    isFinalState.i  ; `#True` if the DFA state is a final state, otherwise `#False`
   EndStructure
   
   Structure RegExEngineStruc
@@ -37,10 +37,10 @@ DeclareModule RegEx
   ; The clearing can be turned off by setting `clearNfa` to `#False`.
   Declare CreateDfa(*regExEngine, clearNfa = #True)
   
-  ; Frees the memory of the RegEx engine created by the function `Create`.
+  ; Frees the memory of the RegEx engine created by the function `Create()`.
   Declare Free(*regExEngine)
   
-  ; Runs the Regex engine against the string. The function requires the pointer
+  ; Runs the RegEx engine against the string. The function requires the pointer
   ; to the string, which can be determined with `@variable$` or `@"text"`.
   ; The match search will start from the beginning of the string. If you want
   ; to start from a different position, you have to move the pointer of the
@@ -392,7 +392,7 @@ Module RegEx
     EndIf
     
     If *regExEngine And *regExString\currentPosition\c <> 0
-      ; If the regex string could not be parsed completely, there are syntax
+      ; If the RegEx string could not be parsed completely, there are syntax
       ; errors
       lastErrorMessages$ + "Missing opening round bracket [Pos: " +
                            Str(GetCurrentCharacterPosition(*regExString)) + "]" +
