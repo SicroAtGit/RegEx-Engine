@@ -9,6 +9,8 @@ DeclareModule RegEx
     #Symbol_Final ; Used for NFA final state
   EndEnumeration
   
+  #State_DfaDeadState = 0 ; Index number of the DFA dead state
+  
   Structure NfaStateStruc
     symbol.i    ; Symbol (0-255) or special symbol
     *nextState1 ; Pointer to the first next NFA state
@@ -16,8 +18,8 @@ DeclareModule RegEx
   EndStructure
   
   Structure DfaStateStruc
-    Map symbols.i() ; Key is the symbol (0-255) and the value is the next DFA state
-    isFinalState.i  ; `#True` if the DFA state is a final state, otherwise `#False`
+    symbols.i[256] ; Index is the symbol (0-255) and the value is the next DFA state
+    isFinalState.i ; `#True` if the DFA state is a final state, otherwise `#False`
   EndStructure
   
   Structure RegExEngineStruc
@@ -440,7 +442,9 @@ Module RegEx
     sizeOfArray = ArraySize(eClosures())
     countOfStates = ListSize(*states())
     
-    For dfaState = 0 To sizeOfArray
+    ; dfaState '0' is the dead state, so it will be skipped.
+    
+    For dfaState = 1 To sizeOfArray
       
       isFound = #True
       
@@ -468,13 +472,18 @@ Module RegEx
   EndProcedure
   
   Procedure CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)
-    Protected.EClosureStruc Dim eClosures(0), NewMap symbols()
+    Protected.EClosureStruc Dim eClosures(1), NewMap symbols()
     Protected.NfaStateStruc *state
     Protected sizeOfArray, dfaState, result
     
+    dfaState = 1
+    
+    ; dfaState '0' is the dead state, so it will be skipped.
+    ; eClosures(0) is then always unused, but it is easier that way.
+    
     AddState(*regExEngine\initialNfaState, eClosures(dfaState)\nfaStates())
     
-    For dfaState = 0 To ArraySize(eClosures())
+    For dfaState = 1 To ArraySize(eClosures())
       
       ClearMap(symbols())
       
@@ -491,13 +500,13 @@ Module RegEx
       ForEach symbols()
         result = FindStatesSet(eClosures(), symbols()\nfaStates())
         If result
-          *regExEngine\dfaStatesPool(dfaState)\symbols(MapKey(symbols())) = result
+          *regExEngine\dfaStatesPool(dfaState)\symbols[Asc(MapKey(symbols()))] = result
         Else
           sizeOfArray = ArraySize(eClosures())
           ReDim eClosures(sizeOfArray + 1)
           ReDim *regExEngine\dfaStatesPool(sizeOfArray + 1)
           CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
-          *regExEngine\dfaStatesPool(dfaState)\symbols(MapKey(symbols())) = sizeOfArray + 1
+          *regExEngine\dfaStatesPool(dfaState)\symbols[Asc(MapKey(symbols()))] = sizeOfArray + 1
         EndIf
       Next
       
@@ -547,12 +556,15 @@ Module RegEx
   Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii)
     Protected dfaState, matchLength, lastFinalStateMatchLength
     
+    dfaState = 1
+    
+    ; dfaState '0' is the dead state, so it will be skipped.
+    
     Repeat
-      
-      If Not FindMapElement(*regExEngine\dfaStatesPool(dfaState)\symbols(), Chr(*string\a))
+      dfaState = *regExEngine\dfaStatesPool(dfaState)\symbols[*string\a]
+      If dfaState = #State_DfaDeadState
         Break
       EndIf
-      dfaState = *regExEngine\dfaStatesPool(dfaState)\symbols()
       
       matchLength + 1
       *string + SizeOf(Ascii)
@@ -566,7 +578,7 @@ Module RegEx
   EndProcedure
   
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Character)
-    If MapSize(*regExEngine\dfaStatesPool(0)\symbols())
+    If ArraySize(*regExEngine\dfaStatesPool())
       ProcedureReturn DfaMatch(*regExEngine, *string)
     Else
       ProcedureReturn NfaMatch(*regExEngine, *string)
