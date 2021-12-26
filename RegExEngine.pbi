@@ -22,10 +22,14 @@ DeclareModule RegEx
     isFinalState.i ; `#True` if the DFA state is a final state, otherwise `#False`
   EndStructure
   
+  Structure DfaStatesArrayStruc
+    states.DfaStateStruc[0] ; Array pointer to the DFA states
+  EndStructure
+  
   Structure RegExEngineStruc
-    List nfaStatesPool.NfaStateStruc()   ; Holds all NFA states
-    *initialNfaState                     ; Pointer to the NFA initial state
-    Array dfaStatesPool.DfaStateStruc(0) ; Holds all DFA states
+    List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
+    *initialNfaState                   ; Pointer to the NFA initial state
+    *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
   EndStructure
   
   ; Creates a new RegEx engine and returns the pointer to the
@@ -37,10 +41,20 @@ DeclareModule RegEx
   ; `Match()` then always uses the DFA and is much faster.
   ; Because the NFA is no longer used after this, it is cleared by default.
   ; The clearing can be turned off by setting `clearNfa` to `#False`.
+  ; On success `#True` is returned, otherwise `#False`.
   Declare CreateDfa(*regExEngine, clearNfa = #True)
   
   ; Frees the memory of the RegEx engine created by the function `Create()`.
   Declare Free(*regExEngine)
+  
+  ; Frees the memory of the DFA created by the function `CreateDfa()`.
+  Declare FreeDfa(*regExEngine)
+  
+  ; Assigns an existing DFA stored in external memory to the RegEx engine.
+  ; After that the RegEx engine is directly ready to use; no call of `Create()`
+  ; and `CreateDfa()` is necessary. But the call of `Free()` is still necessary.
+  ; On success the pointer to `RegExEngineStruc` is returned, otherwise null.
+  Declare UseDfaFromMemory(*dfaMemory)
   
   ; Runs the RegEx engine against the string. The function requires the pointer
   ; to the string, which can be determined with `@variable$` or `@"text"`.
@@ -475,6 +489,12 @@ Module RegEx
     Protected.EClosureStruc Dim eClosures(1), NewMap symbols()
     Protected.NfaStateStruc *state
     Protected sizeOfArray, dfaState, result
+    Protected *newMemory
+    
+    *regExEngine\dfaStatesPool = AllocateMemory(SizeOf(DfaStateStruc) << 1)
+    If *regExEngine\dfaStatesPool = 0
+      ProcedureReturn #False
+    EndIf
     
     dfaState = 1
     
@@ -491,7 +511,7 @@ Module RegEx
         *state = eClosures(dfaState)\nfaStates()
         Select *state\symbol
           Case #Symbol_Final
-            *regExEngine\dfaStatesPool(dfaState)\isFinalState = #True
+            *regExEngine\dfaStatesPool\states[dfaState]\isFinalState = #True
           Default
             AddState(*state\nextState1, symbols(Chr(*state\symbol))\nfaStates())
         EndSelect
@@ -500,13 +520,22 @@ Module RegEx
       ForEach symbols()
         result = FindStatesSet(eClosures(), symbols()\nfaStates())
         If result
-          *regExEngine\dfaStatesPool(dfaState)\symbols[Asc(MapKey(symbols()))] = result
+          *regExEngine\dfaStatesPool\states[dfaState]\symbols[Asc(MapKey(symbols()))] = result
         Else
           sizeOfArray = ArraySize(eClosures())
           ReDim eClosures(sizeOfArray + 1)
-          ReDim *regExEngine\dfaStatesPool(sizeOfArray + 1)
+          *newMemory = ReAllocateMemory(*regExEngine\dfaStatesPool,
+                                        MemorySize(*regExEngine\dfaStatesPool) +
+                                        SizeOf(DfaStateStruc))
+          If *newMemory
+            *regExEngine\dfaStatesPool = *newMemory
+          Else
+            FreeMemory(*regExEngine\dfaStatesPool)
+            *regExEngine\dfaStatesPool = 0
+            ProcedureReturn #False
+          EndIf
           CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
-          *regExEngine\dfaStatesPool(dfaState)\symbols[Asc(MapKey(symbols()))] = sizeOfArray + 1
+          *regExEngine\dfaStatesPool\states[dfaState]\symbols[Asc(MapKey(symbols()))] = sizeOfArray + 1
         EndIf
       Next
       
@@ -516,10 +545,27 @@ Module RegEx
       *regExEngine\initialNfaState = 0
       ClearList(*regExEngine\nfaStatesPool())
     EndIf
+    
+    ProcedureReturn #True
   EndProcedure
   
   Procedure Free(*regExEngine.RegExEngineStruc)
     FreeStructure(*regExEngine)
+  EndProcedure
+  
+  Procedure FreeDfa(*regExEngine.RegExEngineStruc)
+    FreeMemory(*regExEngine\dfaStatesPool)
+  EndProcedure
+  
+  Procedure UseDfaFromMemory(*dfaMemory)
+    Protected.RegExEngineStruc *regExEngine
+    
+    *regExEngine = AllocateStructure(RegExEngineStruc)
+    If *regExEngine
+      *regExEngine\dfaStatesPool = *dfaMemory
+    EndIf
+    
+    ProcedureReturn *regExEngine
   EndProcedure
   
   Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii)
@@ -561,7 +607,7 @@ Module RegEx
     ; dfaState '0' is the dead state, so it will be skipped.
     
     Repeat
-      dfaState = *regExEngine\dfaStatesPool(dfaState)\symbols[*string\a]
+      dfaState = *regExEngine\dfaStatesPool\states[dfaState]\symbols[*string\a]
       If dfaState = #State_DfaDeadState
         Break
       EndIf
@@ -569,7 +615,7 @@ Module RegEx
       matchLength + 1
       *string + SizeOf(Ascii)
       
-      If *regExEngine\dfaStatesPool(dfaState)\isFinalState
+      If *regExEngine\dfaStatesPool\states[dfaState]\isFinalState
         lastFinalStateMatchLength = matchLength
       EndIf
     ForEver
@@ -578,7 +624,7 @@ Module RegEx
   EndProcedure
   
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Character)
-    If ArraySize(*regExEngine\dfaStatesPool())
+    If *regExEngine\dfaStatesPool <> 0
       ProcedureReturn DfaMatch(*regExEngine, *string)
     Else
       ProcedureReturn NfaMatch(*regExEngine, *string)

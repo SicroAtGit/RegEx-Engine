@@ -16,9 +16,9 @@ RegEx::CreateDfa(*regEx)
 
 Debug "| State               | Symbol | Next state          |"
 Debug "| =================== | ====== | =================== |"
-sizeOfArray = ArraySize(*regEx\dfaStatesPool())
+sizeOfArray = MemorySize(*regEx\dfaStatesPool) / SizeOf(RegEx::DfaStateStruc) - 1
 For i = 1 To sizeOfArray
-  If *regEx\dfaStatesPool(i)\isFinalState
+  If *regEx\dfaStatesPool\states[i]\isFinalState
     Debug "| " + LSet(Str(i) + " (final)", 19) + " | " + Space(6) + " | " +
           Space(19) + " |"
   Else
@@ -26,14 +26,15 @@ For i = 1 To sizeOfArray
   EndIf
   
   For i2 = 0 To 255
-    If *regEx\dfaStatesPool(i)\symbols[i2] <> RegEx::#State_DfaDeadState
+    If *regEx\dfaStatesPool\states[i]\symbols[i2] <> RegEx::#State_DfaDeadState
       hex$ = RSet(Hex(i2), 2, "0")
       Debug "| " + Space(19) +
             " | " + LSet(hex$, 6) +
-            " | " + LSet(Str(*regEx\dfaStatesPool(i)\symbols[i2]), 19) + " |"
+            " | " + LSet(Str(*regEx\dfaStatesPool\states[i]\symbols[i2]), 19) + " |"
     EndIf
   Next
   Debug "| ------------------- | ------ | ------------------- |"
 Next
 
+RegEx::FreeDfa(*regEx)
 RegEx::Free(*regEx)

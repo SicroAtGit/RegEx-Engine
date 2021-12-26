@@ -77,10 +77,16 @@ EndStructure
 ```
 
 ```purebasic
+Structure DfaStatesArrayStruc
+  states.DfaStateStruc[0] ; Array pointer to the DFA states
+EndStructure
+```
+
+```purebasic
 Structure RegExEngineStruc
-  List nfaStatesPool.NfaStateStruc()   ; Holds all NFA states
-  *initialNfaState                     ; Pointer to the NFA initial state
-  Array dfaStatesPool.DfaStateStruc(0) ; Holds all DFA states
+  List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
+  *initialNfaState                   ; Pointer to the NFA initial state
+  *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
 EndStructure
 ```
 
@@ -90,10 +96,16 @@ EndStructure
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred (RegEx syntax error or memory could not be allocated) null is returned.
 
 - `CreateDfa(*regExEngine, clearNfa = #True)`<br>
-Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`.
+Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`.
 
 - `Free(*regExEngine)`<br>
 Frees the memory of the RegEx engine created by the function `Create()`.
+
+- `FreeDfa(*regExEngine)`<br>
+Frees the memory of the DFA created by the function `CreateDfa()`.
+
+- `UseDfaFromMemory(*dfaMemory)`<br>
+Assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Create()` and `CreateDfa()` is necessary. But the call of `Free()` is still necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
 
 - `Match(*regExEngine, *string)`<br>
 Runs the Regex engine against the string. The function requires the pointer to the string, which can be determined with `@variable$` or `@"text"`. The match search will start from the beginning of the string. If you want to start from a different position, you have to move the pointer of the string, e.g. `*string + SizeOf(Character)` to search from the second character in the string. If a match is found, the character length of the match is returned, otherwise zero.
