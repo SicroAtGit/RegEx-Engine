@@ -112,3 +112,6 @@ Runs the Regex engine against the string. The function requires the pointer to t
 
 - `GetLastErrorMessages()`<br>
 Returns the error messages of the last `Create()` call as a human-readable string.
+
+- `ExportDfa(*regExEngine, filePath$, labelName$ = "dfaTable")`<br>
+Exports the created DFA as a `DataSection` block in a PureBasic include file. On success `#True` is returned, otherwise `#False`.

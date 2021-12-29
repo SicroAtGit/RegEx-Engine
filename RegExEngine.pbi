@@ -69,6 +69,10 @@ DeclareModule RegEx
   ; string.
   Declare$ GetLastErrorMessages()
   
+  ; Exports the created DFA as a `DataSection` block in a PureBasic include file.
+  ; On success `#True` is returned, otherwise `#False`.
+  Declare ExportDfa(*regExEngine, filePath$, labelName$ = "dfaTable")
+  
 EndDeclareModule
 
 Module RegEx
@@ -633,6 +637,44 @@ Module RegEx
   
   Procedure$ GetLastErrorMessages()
     ProcedureReturn lastErrorMessages$
+  EndProcedure
+  
+  Procedure ExportDfa(*regExEngine.RegExEngineStruc, filePath$, labelName$ = "dfaTable")
+    Protected file, sizeOfArray, i, i2
+    
+    file = CreateFile(#PB_Any, filePath$)
+    If file = 0
+      ProcedureReturn #False
+    EndIf
+    
+    WriteStringN(file, "DataSection")
+    WriteString(file, Space(2) + labelName$ + ":")
+    
+    sizeOfArray = MemorySize(*regExEngine\dfaStatesPool) / SizeOf(DfaStateStruc) - 1
+    
+    For i = 0 To sizeOfArray
+      
+      For i2 = 0 To 255
+        If i2 % 35 = 0
+          WriteStringN(file, "")
+          WriteString(file, Space(2) + "Data.i ")
+        ElseIf i2 <> 0
+          WriteString(file, ",")
+        EndIf
+        WriteString(file, Str(*regExEngine\dfaStatesPool\states[i]\symbols[i2]))
+      Next
+      
+      If *regExEngine\dfaStatesPool\states[i]\isFinalState
+        WriteString(file, ",#True")
+      Else
+        WriteString(file, ",#False")
+      EndIf
+    Next
+    
+    WriteStringN(file, "")
+    WriteStringN(file, "EndDataSection")
+    CloseFile(file)
+    ProcedureReturn #True
   EndProcedure
   
 EndModule
