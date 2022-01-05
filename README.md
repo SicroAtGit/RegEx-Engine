@@ -26,6 +26,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `\r`    | Matches the carriage return character |
 | `\n`    | Matches the line feed character |
 | `\t`    | Matches the horizontal tab character |
+| `\f`    | Matches the form feed character |
 
 ## Example
 
