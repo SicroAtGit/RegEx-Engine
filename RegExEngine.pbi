@@ -288,6 +288,11 @@ Module RegEx
             *nfa2 = CreateNfaSymbol(*regExEngine, 0)
             *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
+          Case 't'
+            *nfa1 = CreateNfaSymbol(*regExEngine, #TAB)
+            *nfa2 = CreateNfaSymbol(*regExEngine, 0)
+            *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
+            *regExString\currentPosition + SizeOf(Unicode)
           Case '*', '+', '?', '|', '(', ')', '\'
             *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
             *nfa2 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[1])

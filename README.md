@@ -25,6 +25,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
 | `\r`    | Matches the carriage return character |
 | `\n`    | Matches the line feed character |
+| `\t`    | Matches the horizontal tab character |
 
 ## Example
 
