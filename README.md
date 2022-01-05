@@ -23,6 +23,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `x?`    | Zero or one of `x` |
 | `(` `)` | Groups a regular expression |
 | `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
+| `\r`    | Matches the carriage return character |
 
 ## Example
 
