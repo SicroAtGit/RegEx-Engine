@@ -41,6 +41,10 @@ EndIf
 ```
 More code examples can be found in the [`examples`](examples) directory.
 
+## Unicode Support
+
+All characters that PureBasic supports in Unicode mode are supported, i.e. `[\u0001-\uFFFF]`.
+
 ## Public Enumerations
 
 ```purebasic
