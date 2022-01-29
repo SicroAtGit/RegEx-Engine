@@ -88,4 +88,19 @@
   Data.i 65306, $FFFF
   Data.i -1
   
+  ; https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=
+  WhiteSpaceByteSequences:
+  Data.i 9, 13
+  Data.i 32, 32
+  Data.i 133, 133
+  Data.i 160, 160
+  Data.i 5760, 5760
+  Data.i 8192, 8202
+  Data.i 8232, 8232
+  Data.i 8233, 8233
+  Data.i 8239, 8239
+  Data.i 8287, 8287
+  Data.i 12288, 12288
+  Data.i -1
+  
 EndDataSection

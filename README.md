@@ -31,6 +31,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `.`     | Matches any character up to `\uFFFF` except `\r` and `\n` |
 | `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
 | `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
+| `\s`    | Matches Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
 
 ## Example
 
