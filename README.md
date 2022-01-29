@@ -30,6 +30,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `[x]`   | `x` can be several mixes of: single character, escape sequence or range (`a-c`) |
 | `.`     | Matches any character up to `\uFFFF` except `\r` and `\n` |
 | `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
+| `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
 
 ## Example
 
