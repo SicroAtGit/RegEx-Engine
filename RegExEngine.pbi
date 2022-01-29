@@ -379,7 +379,7 @@ Module RegEx
           Case '\', ']', '-'
             result$ = Chr(*regExString\currentPosition\u)
             *regExString\currentPosition + SizeOf(Unicode)
-          Case 'd', 'D', 's', 'S', 'w'
+          Case 'd', 'D', 's', 'S', 'w', 'W'
             lastErrorMessages$ + "Predefined character classes inside of character classes are not allowed [Pos: " +
                                  Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                  #CRLF$
@@ -535,6 +535,11 @@ Module RegEx
           Case 'w'
             ClearMap(byte1())
             AddPredefinedByteSequences(byte1(), ?WordByteSequences)
+            *base = CreateNfaByteSequences(*regExEngine, byte1())
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case 'W'
+            ClearMap(byte1())
+            AddPredefinedByteSequences(byte1(), ?NoWordByteSequences)
             *base = CreateNfaByteSequences(*regExEngine, byte1())
             *regExString\currentPosition + SizeOf(Unicode)
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
