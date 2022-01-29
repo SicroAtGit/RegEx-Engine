@@ -77,6 +77,8 @@ EndDeclareModule
 
 Module RegEx
   
+  IncludeFile "UnicodeTables" + #PS$ + "PredefinedCharacterClasses.pbi"
+  
   Structure NfaStruc
     *startState.NfaStateStruc
     *endState.NfaStateStruc
@@ -338,6 +340,21 @@ Module RegEx
       char\u = i
       byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
     Next
+  EndProcedure
+  
+  Procedure AddPredefinedByteSequences(Map byte1.Byte1Struc(), *label)
+    Protected offset, startValue, endValue
+    
+    Repeat
+      startValue = PeekI(*label + offset)
+      If startValue = -1
+        Break
+      EndIf
+      offset + SizeOf(Integer)
+      endValue = PeekI(*label + offset)
+      offset + SizeOf(Integer)
+      AddByteSequence(byte1(), startValue, endValue)
+    ForEver
   EndProcedure
   
   Procedure$ ParseRegExCharacterClassBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
