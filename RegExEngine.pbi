@@ -519,6 +519,11 @@ Module RegEx
                                  #CRLF$
             ProcedureReturn 0
         EndSelect
+      Case '.'
+        ClearMap(byte1())
+        AddPredefinedByteSequences(byte1(), ?DotByteSequences)
+        *base = CreateNfaByteSequences(*regExEngine, byte1())
+        *regExString\currentPosition + SizeOf(Unicode)
       Case '*', '+', '?', '|'
         lastErrorMessages$ + "Symbol not allowed here: '" +
                              Chr(*regExString\currentPosition\u) + "' [Pos: " +
