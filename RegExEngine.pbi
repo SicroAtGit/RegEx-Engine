@@ -379,6 +379,11 @@ Module RegEx
           Case '\', ']', '-'
             result$ = Chr(*regExString\currentPosition\u)
             *regExString\currentPosition + SizeOf(Unicode)
+          Case 'd'
+            lastErrorMessages$ + "Predefined character classes inside of character classes are not allowed [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
+            result$ = "" 
           Default
             lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
                                  Chr(*regExString\currentPosition\u) + "' [Pos: " +
@@ -506,6 +511,11 @@ Module RegEx
             *nfa1 = CreateNfaSymbol(*regExEngine, #FF)
             *nfa2 = CreateNfaSymbol(*regExEngine, 0)
             *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case 'd'
+            ClearMap(byte1())
+            AddPredefinedByteSequences(byte1(), ?DigitByteSequences)
+            *base = CreateNfaByteSequences(*regExEngine, byte1())
             *regExString\currentPosition + SizeOf(Unicode)
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
