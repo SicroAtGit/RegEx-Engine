@@ -98,6 +98,10 @@ Module RegEx
     *currentPosition.CharacterStruc
   EndStructure
   
+  Structure Byte1Struc
+    Map byte2.i()
+  EndStructure
+  
   Global lastErrorMessages$
   
   Declare ParseRegEx(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
@@ -261,8 +265,189 @@ Module RegEx
     ProcedureReturn position + 1
   EndProcedure
   
+  Procedure CreateNfaByteSequences(*regExEngine.RegExEngineStruc, Map byte1.Byte1Struc(), isNegated = #False)
+    Protected NewMap *nfa1Cache()
+    Protected *nfa2, *base
+    Protected byte1, byte2
+    
+    If Not isNegated
+      ResetMap(byte1())
+      While NextMapElement(byte1())
+        
+        If Not FindMapElement(*nfa1Cache(), MapKey(byte1()))
+          *nfa1Cache(MapKey(byte1())) = CreateNfaSymbol(*regExEngine, Asc(MapKey(byte1())))
+        EndIf
+        
+        ResetMap(byte1()\byte2())
+        NextMapElement(byte1()\byte2())
+        *nfa2 = CreateNfaSymbol(*regExEngine, Asc(MapKey(byte1()\byte2())))
+        While NextMapElement(byte1()\byte2())
+          *nfa2 = CreateNfaUnion(*regExEngine, *nfa2,
+                                 CreateNfaSymbol(*regExEngine, Asc(MapKey(byte1()\byte2()))))
+        Wend
+        
+        If *base
+          *base = CreateNfaUnion(*regExEngine, *base,
+                                 CreateNfaConcatenation(*regExEngine, *nfa1Cache(), *nfa2))
+        Else
+          *base = CreateNfaConcatenation(*regExEngine, *nfa1Cache(), *nfa2)
+        EndIf
+      Wend
+    Else
+      For byte1 = 0 To 255
+        *nfa2 = 0
+        For byte2 = 0 To 255
+          
+          If byte1 = 0 And byte2 = 0
+            Continue ; Skip null character
+          EndIf
+          
+          If FindMapElement(byte1(), Chr(byte1)) And FindMapElement(byte1()\byte2(), Chr(byte2))
+            Continue
+          EndIf
+          
+          If Not FindMapElement(*nfa1Cache(), Chr(byte1))
+            *nfa1Cache(Chr(byte1)) = CreateNfaSymbol(*regExEngine, byte1)
+          EndIf
+          
+          If *nfa2
+            *nfa2 = CreateNfaUnion(*regExEngine, *nfa2,
+                                   CreateNfaSymbol(*regExEngine, byte2))
+          Else
+            *nfa2 = CreateNfaSymbol(*regExEngine, byte2)
+          EndIf
+        Next
+        
+        If *base
+          *base = CreateNfaUnion(*regExEngine, *base,
+                                 CreateNfaConcatenation(*regExEngine, *nfa1Cache(), *nfa2))
+        Else
+          *base = CreateNfaConcatenation(*regExEngine, *nfa1Cache(), *nfa2)
+        EndIf
+      Next
+    EndIf
+    
+    ProcedureReturn *base
+  EndProcedure
+  
+  Procedure AddByteSequence(Map byte1.Byte1Struc(), startValue, endValue)
+    Protected i
+    Protected.CharacterStruc char
+    
+    For i = startValue To endValue
+      char\u = i
+      byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
+    Next
+  EndProcedure
+  
+  Procedure$ ParseRegExCharacterClassBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
+    Protected result$
+    
+    Select *regExString\currentPosition\u
+      Case '\'
+        *regExString\currentPosition + SizeOf(Unicode)
+        Select *regExString\currentPosition\u
+          Case 'r'
+            result$ = #CR$
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case 'n'
+            result$ = #LF$
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case 't'
+            result$ = #TAB$
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case 'f'
+            result$ = #FF$
+            *regExString\currentPosition + SizeOf(Unicode)
+          Case '\', ']', '-'
+            result$ = Chr(*regExString\currentPosition\u)
+            *regExString\currentPosition + SizeOf(Unicode)
+          Default
+            lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
+                                 Chr(*regExString\currentPosition\u) + "' [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
+            result$ = ""
+        EndSelect
+      Case '['
+        lastErrorMessages$ + "Opening square bracket not allowed here [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        result$ = ""
+      Case ']'
+        lastErrorMessages$ + "Closing square bracket not allowed here [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        result$ = ""
+      Case '-'
+        lastErrorMessages$ + "Character range is incomplete here [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        result$ = ""
+      Default
+        result$ = Chr(*regExString\currentPosition\u)
+        *regExString\currentPosition + SizeOf(Unicode)
+    EndSelect
+    
+    ProcedureReturn result$
+  EndProcedure
+  
+  Procedure ParseRegExCharacterClass(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
+    Protected base$, base2$
+    Protected base, base2
+    Protected.Byte1Struc NewMap byte1()
+    Protected isNegated
+    
+    If *regExString\currentPosition\u = '^'
+      *regExString\currentPosition + SizeOf(Unicode)
+      isNegated = #True
+    EndIf
+    
+    If *regExString\currentPosition\u = ']'
+      lastErrorMessages$ + "Empty classes are not allowed [Pos: " +
+                           Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                           #CRLF$
+      ProcedureReturn 0
+    EndIf
+    
+    While *regExString\currentPosition\u <> 0 And *regExString\currentPosition\u <> ']'
+      base$ = ParseRegExCharacterClassBase(*regExEngine, *regExString)
+      base = Asc(base$)
+      If base = 0
+        ProcedureReturn 0
+      EndIf
+      If *regExString\currentPosition\u = '-'
+        *regExString\currentPosition + SizeOf(Unicode)
+        base2$ = ParseRegExCharacterClassBase(*regExEngine, *regExString)
+        base2 = Asc(base2$)
+        If base2 = 0
+          ProcedureReturn 0
+        EndIf
+        If base > base2
+          lastErrorMessages$ + "Range out of order (`[z-a]` must be `[a-z]`, for example) [Pos: " +
+                               Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                               #CRLF$
+          ProcedureReturn 0
+        EndIf
+        AddByteSequence(byte1(), base, base2)
+      Else
+        AddByteSequence(byte1(), base, base)
+      EndIf
+    Wend
+    
+    If *regExString\currentPosition\u <> ']'
+      lastErrorMessages$ + "Missing closing square bracket [Pos: " +
+                           Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                           #CRLF$
+      ProcedureReturn 0
+    EndIf
+    
+    ProcedureReturn CreateNfaByteSequences(*regExEngine, byte1(), isNegated)
+  EndProcedure
+  
   Procedure ParseRegExBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *base, *nfa1, *nfa2
+    Protected.Byte1Struc NewMap byte1()
     
     Select *regExString\currentPosition\u
       Case '('
@@ -272,6 +457,13 @@ Module RegEx
           lastErrorMessages$ + "Missing closing round bracket [Pos: " +
                                Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                #CRLF$
+          ProcedureReturn 0
+        EndIf
+        *regExString\currentPosition + SizeOf(Unicode)
+      Case '['
+        *regExString\currentPosition + SizeOf(Unicode)
+        *base = ParseRegExCharacterClass(*regExEngine, *regExString)
+        If *base = 0
           ProcedureReturn 0
         EndIf
         *regExString\currentPosition + SizeOf(Unicode)
@@ -298,7 +490,7 @@ Module RegEx
             *nfa2 = CreateNfaSymbol(*regExEngine, 0)
             *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
-          Case '*', '+', '?', '|', '(', ')', '\'
+          Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
             *nfa2 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[1])
             *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
@@ -323,6 +515,11 @@ Module RegEx
         ProcedureReturn 0
       Case ')'
         lastErrorMessages$ + "Empty groups are not allowed [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        ProcedureReturn 0
+      Case ']'
+        lastErrorMessages$ + "Missing opening square bracket [Pos: " +
                              Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                              #CRLF$
         ProcedureReturn 0

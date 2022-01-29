@@ -27,6 +27,7 @@ When matching, the RegEx engine matches always the longest match among several p
 | `\n`    | Matches the line feed character |
 | `\t`    | Matches the horizontal tab character |
 | `\f`    | Matches the form feed character |
+| `[x]`   | `x` can be several mixes of: single character, escape sequence or range (`a-c`) |
 
 ## Example
 
