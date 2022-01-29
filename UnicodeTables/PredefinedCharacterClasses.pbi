@@ -103,4 +103,18 @@
   Data.i 12288, 12288
   Data.i -1
   
+  NoWhiteSpaceByteSequences:
+  Data.i 1, 8
+  Data.i 14, 31
+  Data.i 33, 132
+  Data.i 134, 159
+  Data.i 161, 5759
+  Data.i 5761, 8191
+  Data.i 8203, 8231
+  Data.i 8234, 8238
+  Data.i 8240, 8286
+  Data.i 8288, 12287
+  Data.i 12288, $FFFF
+  Data.i -1
+  
 EndDataSection
