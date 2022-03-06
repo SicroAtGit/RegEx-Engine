@@ -357,6 +357,51 @@ Module RegEx
     ForEver
   EndProcedure
   
+  Procedure DecodeHexCode(*regExString.RegExStringStruc, requiredLength)
+    Protected hexCode$
+    
+    Select requiredLength
+      Case 2
+        If *regExString\currentPosition\u <> 0
+          hexCode$ = Chr(*regExString\currentPosition\u)
+        EndIf
+        *regExString\currentPosition + SizeOf(Unicode)
+        If *regExString\currentPosition\u <> 0
+          hexCode$ + Chr(*regExString\currentPosition\u)
+          *regExString\currentPosition + SizeOf(Unicode)
+        Else
+          hexCode$ = ""
+        EndIf
+      Case 4
+        If *regExString\currentPosition\u <> 0
+          hexCode$ = Chr(*regExString\currentPosition\u)
+        EndIf
+        *regExString\currentPosition + SizeOf(Unicode)
+        If *regExString\currentPosition\u <> 0
+          hexCode$ + Chr(*regExString\currentPosition\u)
+          *regExString\currentPosition + SizeOf(Unicode)
+        Else
+          hexCode$ = ""
+        EndIf
+        If *regExString\currentPosition\u <> 0
+          hexCode$ + Chr(*regExString\currentPosition\u)
+          *regExString\currentPosition + SizeOf(Unicode)
+        Else
+          hexCode$ = ""
+        EndIf
+        If *regExString\currentPosition\u <> 0
+          hexCode$ + Chr(*regExString\currentPosition\u)
+          *regExString\currentPosition + SizeOf(Unicode)
+        Else
+          hexCode$ = ""
+        EndIf
+      Default
+        hexCode$ = ""
+    EndSelect
+    
+    ProcedureReturn Val("$" + hexCode$)
+  EndProcedure
+  
   Procedure$ ParseRegExCharacterClassBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected result$
     
@@ -384,6 +429,22 @@ Module RegEx
                                  Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                  #CRLF$
             result$ = "" 
+          Case 'x'
+            *regExString\currentPosition + SizeOf(Unicode)
+            result$ = Chr(DecodeHexCode(*regExString, 2))
+            If result$ = ""
+              lastErrorMessages$ + "Escape sequence is invalid [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+            EndIf
+          Case 'u'
+            *regExString\currentPosition + SizeOf(Unicode)
+            result$ = Chr(DecodeHexCode(*regExString, 4))
+            If result$ = ""
+              lastErrorMessages$ + "Escape sequence is invalid [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+            EndIf
           Default
             lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
                                  Chr(*regExString\currentPosition\u) + "' [Pos: " +
@@ -470,6 +531,7 @@ Module RegEx
   Procedure ParseRegExBase(*regExEngine.RegExEngineStruc, *regExString.RegExStringStruc)
     Protected *base, *nfa1, *nfa2
     Protected.Byte1Struc NewMap byte1()
+    Protected.CharacterStruc char
     
     Select *regExString\currentPosition\u
       Case '('
@@ -542,6 +604,30 @@ Module RegEx
             AddPredefinedByteSequences(byte1(), ?NoWordByteSequences)
             *base = CreateNfaByteSequences(*regExEngine, byte1())
             *regExString\currentPosition + SizeOf(Unicode)
+          Case 'x'
+            *regExString\currentPosition + SizeOf(Unicode)
+            char\u = DecodeHexCode(*regExString, 2)
+            If char\u = 0
+              lastErrorMessages$ + "Escape sequence is invalid [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+              ProcedureReturn 0
+            EndIf
+            *nfa1 = CreateNfaSymbol(*regExEngine, char\a[0])
+            *nfa2 = CreateNfaSymbol(*regExEngine, char\a[1])
+            *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
+          Case 'u'
+            *regExString\currentPosition + SizeOf(Unicode)
+            char\u = DecodeHexCode(*regExString, 4)
+            If char\u = 0
+              lastErrorMessages$ + "Escape sequence is invalid [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+              ProcedureReturn 0
+            EndIf
+            *nfa1 = CreateNfaSymbol(*regExEngine, char\a[0])
+            *nfa2 = CreateNfaSymbol(*regExEngine, char\a[1])
+            *base = CreateNfaConcatenation(*regExEngine, *nfa1, *nfa2)
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[0])
             *nfa2 = CreateNfaSymbol(*regExEngine, *regExString\currentPosition\a[1])

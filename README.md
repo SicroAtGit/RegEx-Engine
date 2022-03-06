@@ -35,6 +35,8 @@ When matching, the RegEx engine matches always the longest match among several p
 | `\S`    | Matches any character except the Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
 | `\w`    | Matches Unicode's character classes [Alphabetic, M, Nd, Pc and Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=), but not those exceeding `\uFFFF` |
 | `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
+| `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
+| `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
 
 ## Example
 
