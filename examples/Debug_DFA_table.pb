@@ -6,21 +6,28 @@ Define.RegEx::RegExEngineStruc *regEx
 Define sizeOfArray, i, i2
 Define hex$
 
-*regEx = RegEx::Create("ab*")
+*regEx = RegEx::Init()
 If *regEx = 0
   Debug "Error"
   End
 EndIf
 
-RegEx::CreateDfa(*regEx)
+If RegEx::AddNfa(*regEx, "ab*") = #False Or RegEx::CreateDfa(*regEx) = #False
+  Debug RegEx::GetLastErrorMessages()
+  RegEx::Free(*regEx)
+  End
+EndIf
 
 Debug "| State               | Symbol | Next state          |"
 Debug "| =================== | ====== | =================== |"
 sizeOfArray = MemorySize(*regEx\dfaStatesPool) / SizeOf(RegEx::DfaStateStruc) - 1
 For i = 1 To sizeOfArray
   If *regEx\dfaStatesPool\states[i]\isFinalState
-    Debug "| " + LSet(Str(i) + " (final)", 19) + " | " + Space(6) + " | " +
-          Space(19) + " |"
+    Debug "| " + LSet(Str(i) + " (final:" +
+                      Str(*regEx\dfaStatesPool\states[i]\isFinalState - RegEx::#Symbol_Final) +
+                      ")", 19) +
+          " | " + Space(6) +
+          " | " + Space(19) + " |"
   Else
     Debug "| " + LSet(Str(i), 19) + " | " + Space(6) + " | " + Space(19) + " |"
   EndIf

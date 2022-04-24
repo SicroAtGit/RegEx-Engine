@@ -9,9 +9,15 @@ Define string$
 
 string$ = "123_123x12 1"
 
-*regEx = RegEx::Create("1|123|12")
+*regEx = RegEx::Init()
 If *regEx = 0
   Debug "Error"
+  End
+EndIf
+
+If RegEx::AddNfa(*regEx, "1|123|12") = #False
+  Debug RegEx::GetLastErrorMessages()
+  RegEx::Free(*regEx)
   End
 EndIf
 

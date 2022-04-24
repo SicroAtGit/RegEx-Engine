@@ -38,11 +38,12 @@ When matching, the RegEx engine matches always the longest match among several p
 | `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
 | `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
 
-## Example
+## Examples
 
 ```purebasic
-*regEx = RegEx::Create("test|example")
+*regEx = RegEx::Init()
 If *regEx
+  RegEx::AddNfa(*regEx, "test|example")
   If RegEx::Match(*regEx, @"example")
     Debug "Match!"
   Else
@@ -53,6 +54,31 @@ Else
   Debug "Error!"
 EndIf
 ```
+
+```purebasic
+Enumeration
+  #RegExId_Word
+  #RegExId_Number
+EndEnumeration
+
+*regEx = RegEx::Init()
+If *regEx
+  RegEx::AddNfa(*regEx, "\w+", #RegExId_Word)
+  RegEx::AddNfa(*regEx, "\d+", #RegExId_Number)
+  If RegEx::Match(*regEx, @"example", @regExId)
+    Select regExId
+      Case #RegExId_Word:   Debug "Match is a word!"
+      Case #RegExId_Number: Debug "Match is a number!"
+    EndSelect
+  Else
+    Debug "No match!"
+  EndIf
+  RegEx::Free(*regEx)
+Else
+  Debug "Error!"
+EndIf
+```
+
 More code examples can be found in the [`examples`](examples) directory.
 
 ## Unicode Support
@@ -86,7 +112,7 @@ EndStructure
 ```purebasic
 Structure DfaStateStruc
   symbols.i[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.i ; `#True` if the DFA state is a final state, otherwise `#False`
+  isFinalState.i ; Positive number if the DFA state is a final state, otherwise null
 EndStructure
 ```
 
@@ -97,9 +123,15 @@ EndStructure
 ```
 
 ```purebasic
+Structure NfaPoolStruc
+  List nfaStates.NfaStateStruc() ; Holds all NFA states of the NFA pool
+  *initialNfaState               ; Pointer to the NFA initial state
+EndStructure
+```
+
+```purebasic
 Structure RegExEngineStruc
-  List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
-  *initialNfaState                   ; Pointer to the NFA initial state
+  List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
   *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
   isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
 EndStructure
@@ -107,23 +139,26 @@ EndStructure
 
 ## Public Functions
 
-- `Create(regExString$)`<br>
-Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred (RegEx syntax error or memory could not be allocated) null is returned.
+- `Init()`<br>
+Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
+
+- `AddNfa(*regExEngine, regExString$, regExId = 0)`<br>
+Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched.
 
 - `CreateDfa(*regExEngine, clearNfa = #True)`<br>
-Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`.
+Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` then always uses the DFA and is much faster. Because the NFAs are no longer used after this, they are cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`. If a DFA already exists, the DFA will be freed before creating a new DFA.
 
 - `Free(*regExEngine)`<br>
 Frees the RegEx engine.
 
 - `UseDfaFromMemory(*dfaMemory)`<br>
-Assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Create()` and `CreateDfa()` is necessary. But the call of `Free()` is still necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
+Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Init()`, `AddNfa()` or `CreateDfa()` is necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
 
-- `Match(*regExEngine, *string)`<br>
-Runs the Regex engine against the string. The function requires the pointer to the string, which can be determined with `@variable$` or `@"text"`. The match search will start from the beginning of the string. If you want to start from a different position, you have to move the pointer of the string, e.g. `*string + SizeOf(Character)` to search from the second character in the string. If a match is found, the character length of the match is returned, otherwise zero.
+- `Match(*regExEngine, *string, *regExId.Integer = 0)`<br>
+Runs the RegEx engine against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the character length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function.
 
 - `GetLastErrorMessages()`<br>
-Returns the error messages of the last `Create()` call as a human-readable string.
+Returns the error messages of the last `AddNfa()` call as a human-readable string.
 
 - `ExportDfa(*regExEngine, filePath$, labelName$ = "dfaTable")`<br>
 Exports the created DFA as a `DataSection` block in a PureBasic include file. On success `#True` is returned, otherwise `#False`.
