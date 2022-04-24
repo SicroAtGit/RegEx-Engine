@@ -76,6 +76,10 @@ EndDeclareModule
 
 Module RegEx
   
+  CompilerIf #PB_Compiler_Debugger
+    DisableDebugger
+  CompilerEndIf
+  
   IncludeFile "UnicodeTables" + #PS$ + "PredefinedCharacterClasses.pbi"
   
   Structure NfaStruc
@@ -1040,5 +1044,9 @@ Module RegEx
     CloseFile(file)
     ProcedureReturn #True
   EndProcedure
+  
+  CompilerIf #PB_Compiler_Debugger
+    EnableDebugger
+  CompilerEndIf
   
 EndModule
