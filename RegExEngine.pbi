@@ -30,6 +30,7 @@ DeclareModule RegEx
     List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
     *initialNfaState                   ; Pointer to the NFA initial state
     *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
+    isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
   EndStructure
   
   ; Creates a new RegEx engine and returns the pointer to the
@@ -44,11 +45,8 @@ DeclareModule RegEx
   ; On success `#True` is returned, otherwise `#False`.
   Declare CreateDfa(*regExEngine, clearNfa = #True)
   
-  ; Frees the memory of the RegEx engine created by the function `Create()`.
+  ; Frees the RegEx engine
   Declare Free(*regExEngine)
-  
-  ; Frees the memory of the DFA created by the function `CreateDfa()`.
-  Declare FreeDfa(*regExEngine)
   
   ; Assigns an existing DFA stored in external memory to the RegEx engine.
   ; After that the RegEx engine is directly ready to use; no call of `Create()`
@@ -856,6 +854,7 @@ Module RegEx
     Protected *newMemory
     
     *regExEngine\dfaStatesPool = AllocateMemory(SizeOf(DfaStateStruc) << 1)
+    *regExEngine\isUseDfaFromMemory = #False
     If *regExEngine\dfaStatesPool = 0
       ProcedureReturn #False
     EndIf
@@ -914,11 +913,10 @@ Module RegEx
   EndProcedure
   
   Procedure Free(*regExEngine.RegExEngineStruc)
+    If *regExEngine\isUseDfaFromMemory = #False And *regExEngine\dfaStatesPool
+      FreeMemory(*regExEngine\dfaStatesPool)
+    EndIf
     FreeStructure(*regExEngine)
-  EndProcedure
-  
-  Procedure FreeDfa(*regExEngine.RegExEngineStruc)
-    FreeMemory(*regExEngine\dfaStatesPool)
   EndProcedure
   
   Procedure UseDfaFromMemory(*dfaMemory)
@@ -927,6 +925,7 @@ Module RegEx
     *regExEngine = AllocateStructure(RegExEngineStruc)
     If *regExEngine
       *regExEngine\dfaStatesPool = *dfaMemory
+      *regExEngine\isUseDfaFromMemory = #True
     EndIf
     
     ProcedureReturn *regExEngine

@@ -41,5 +41,4 @@ While *string\c
   *string + SizeOf(Character)
 Wend
 
-RegEx::FreeDfa(*regEx)
 RegEx::Free(*regEx)

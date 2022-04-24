@@ -36,5 +36,4 @@ For i = 1 To sizeOfArray
   Debug "| ------------------- | ------ | ------------------- |"
 Next
 
-RegEx::FreeDfa(*regEx)
 RegEx::Free(*regEx)

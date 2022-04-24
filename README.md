@@ -101,6 +101,7 @@ Structure RegExEngineStruc
   List nfaStatesPool.NfaStateStruc() ; Holds all NFA states
   *initialNfaState                   ; Pointer to the NFA initial state
   *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
+  isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
 EndStructure
 ```
 
@@ -113,10 +114,7 @@ Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` str
 Creates a DFA in the RegEx engine from the NFA created by `Create()`. `Match()` then always uses the DFA and is much faster. Because the NFA is no longer used after this, it is cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`.
 
 - `Free(*regExEngine)`<br>
-Frees the memory of the RegEx engine created by the function `Create()`.
-
-- `FreeDfa(*regExEngine)`<br>
-Frees the memory of the DFA created by the function `CreateDfa()`.
+Frees the RegEx engine.
 
 - `UseDfaFromMemory(*dfaMemory)`<br>
 Assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Create()` and `CreateDfa()` is necessary. But the call of `Free()` is still necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
