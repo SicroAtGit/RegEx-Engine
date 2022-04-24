@@ -43,6 +43,7 @@ DeclareModule RegEx
   ; Because the NFA is no longer used after this, it is cleared by default.
   ; The clearing can be turned off by setting `clearNfa` to `#False`.
   ; On success `#True` is returned, otherwise `#False`.
+  ; If a DFA already exists, the DFA will be freed before creating a new DFA.
   Declare CreateDfa(*regExEngine, clearNfa = #True)
   
   ; Frees the RegEx engine
@@ -852,6 +853,10 @@ Module RegEx
     Protected.NfaStateStruc *state
     Protected sizeOfArray, dfaState, result
     Protected *newMemory
+    
+    If *regExEngine\isUseDfaFromMemory = #False And *regExEngine\dfaStatesPool
+      FreeMemory(*regExEngine\dfaStatesPool)
+    EndIf
     
     *regExEngine\dfaStatesPool = AllocateMemory(SizeOf(DfaStateStruc) << 1)
     *regExEngine\isUseDfaFromMemory = #False
