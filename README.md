@@ -40,6 +40,8 @@ When matching, the RegEx engine matches always the longest match among several p
 
 ## Examples
 
+### Simple Match
+
 ```purebasic
 *regEx = RegEx::Init()
 If *regEx
@@ -54,6 +56,8 @@ Else
   Debug "Error!"
 EndIf
 ```
+
+### Multiple RegExes Simultaneously
 
 ```purebasic
 Enumeration
