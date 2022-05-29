@@ -6,11 +6,11 @@ https://github.com/SicroAtGit/PB-RegEx-Engine
 
 ## About
 
-This RegEx engine compiles a regular expression into an E-NFA, optionally then into a very fast DFA, and can execute the E-NFA/DFA against a string.
+This RegEx engine compiles a regular expression into an NFA, optionally then into a very fast DFA, and can execute the NFA/DFA against a string.
 
-The E-NFA is built with the [Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction) and with two extra constructions for `x+` and `x?`.
+The NFA is built with the [Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction) and with two extra constructions for `x+` and `x?`.
 
-When matching, the RegEx engine matches always the longest match among several possible matches (POSIX-compliant). During this process, no backtracking is required, because all alternations are checked simultaneously.
+When matching, the RegEx engine matches always the longest match among several possible matches. During this process, no backtracking is required, because all alternations are checked simultaneously.
 
 ## Supported Syntax
 
