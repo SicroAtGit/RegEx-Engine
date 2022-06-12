@@ -30,7 +30,7 @@ While *string\c
   If result
     Debug PeekS(*string, result)
   EndIf
-  *string + SizeOf(Character)
+  RegEx::MoveStringPointer(*string, 1)
 Wend
 
 Debug ""
@@ -44,7 +44,7 @@ While *string\c
   If result
     Debug PeekS(*string, result)
   EndIf
-  *string + SizeOf(Character)
+  RegEx::MoveStringPointer(*string, 1)
 Wend
 
 RegEx::Free(*regEx)

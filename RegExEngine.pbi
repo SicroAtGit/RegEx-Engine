@@ -37,6 +37,12 @@ DeclareModule RegEx
     isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
   EndStructure
   
+  ; Simplifies moving the string pointer. The new calculated memory address is
+  ; written directly to the `_stringPointer_` passed variable.
+  Macro MoveStringPointer(_stringPointer_, _offsetInCharacterLength_)
+    _stringPointer_ = _stringPointer_ + (_offsetInCharacterLength_) << 1
+  EndMacro
+  
   ; Creates a new RegEx engine and returns the pointer to the
   ; `RegExEngineStruc` structure. If an error occurred null is returned.
   Declare Init()

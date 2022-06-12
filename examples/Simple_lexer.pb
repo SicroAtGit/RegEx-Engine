@@ -56,7 +56,7 @@ Repeat
       Debug "[" + GetTokenTypeName(tokenType) + "]: " + PeekS(*stringPointer, matchLength)
       Debug ""
     EndIf
-    *stringPointer + matchLength << 1
+    RegEx::MoveStringPointer(*stringPointer, matchLength)
   EndIf
 Until matchLength = 0
 

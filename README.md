@@ -141,6 +141,11 @@ Structure RegExEngineStruc
 EndStructure
 ```
 
+## Public Macros
+
+- `MoveStringPointer(_stringPointer_, _offsetInCharacterLength_)`<br>
+Simplifies moving the string pointer. The new calculated memory address is written directly to the `_stringPointer_` passed variable.
+
 ## Public Functions
 
 - `Init()`<br>
