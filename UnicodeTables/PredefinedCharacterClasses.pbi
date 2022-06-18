@@ -1,4 +1,7 @@
-﻿DataSection
+﻿
+; Unicode version: 14.0.0, September 2021
+
+DataSection
   
   DotByteSequences:
   Data.i 1, 9
