@@ -171,3 +171,7 @@ Returns the error messages of the last `AddNfa()` call as a human-readable strin
 
 - `ExportDfa(*regExEngine, filePath$, labelName$ = "dfaTable")`<br>
 Exports the created DFA as a `DataSection` block in a PureBasic include file. On success `#True` is returned, otherwise `#False`.
+
+## License
+
+The project is licensed under the MIT license.
