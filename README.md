@@ -12,32 +12,6 @@ The NFA is built with the [Thompson's construction](https://en.wikipedia.org/wik
 
 When matching, the RegEx engine matches always the longest match among several possible matches. During this process, no backtracking is required, because all alternations are checked simultaneously.
 
-## Supported Syntax
-
-| Syntax  | Meaning |
-| ------- | ------- |
-| `xy`    | `x` followed by `y` (Concatenation) |
-| `x\|y`  | `x` or `y` (Alternation) |
-| `x*`    | Zero or more of `x` |
-| `x+`    | One or more of `x` |
-| `x?`    | Zero or one of `x` |
-| `(` `)` | Groups a regular expression |
-| `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
-| `\r`    | Matches the carriage return character |
-| `\n`    | Matches the line feed character |
-| `\t`    | Matches the horizontal tab character |
-| `\f`    | Matches the form feed character |
-| `[x]`   | `x` can be several mixes of: single character, escape sequence or range (`a-c`) |
-| `.`     | Matches any character up to `\uFFFF` except `\r` and `\n` |
-| `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
-| `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\s`    | Matches Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
-| `\S`    | Matches any character except the Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\w`    | Matches Unicode's character classes [Alphabetic, M, Nd, Pc and Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=), but not those exceeding `\uFFFF` |
-| `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
-| `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
-
 ## Examples
 
 ### Simple Match
@@ -84,6 +58,32 @@ EndIf
 ```
 
 More code examples can be found in the [`examples`](examples) directory.
+
+## Supported Syntax
+
+| Syntax  | Meaning |
+| ------- | ------- |
+| `xy`    | `x` followed by `y` (Concatenation) |
+| `x\|y`  | `x` or `y` (Alternation) |
+| `x*`    | Zero or more of `x` |
+| `x+`    | One or more of `x` |
+| `x?`    | Zero or one of `x` |
+| `(` `)` | Groups a regular expression |
+| `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
+| `\r`    | Matches the carriage return character |
+| `\n`    | Matches the line feed character |
+| `\t`    | Matches the horizontal tab character |
+| `\f`    | Matches the form feed character |
+| `[x]`   | `x` can be several mixes of: single character, escape sequence or range (`a-c`) |
+| `.`     | Matches any character up to `\uFFFF` except `\r` and `\n` |
+| `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
+| `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
+| `\s`    | Matches Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
+| `\S`    | Matches any character except the Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
+| `\w`    | Matches Unicode's character classes [Alphabetic, M, Nd, Pc and Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=), but not those exceeding `\uFFFF` |
+| `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
+| `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
+| `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
 
 ## Unicode Support
 
