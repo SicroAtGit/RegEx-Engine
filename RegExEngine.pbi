@@ -12,14 +12,14 @@ DeclareModule RegEx
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure NfaStateStruc
-    symbol.i    ; Symbol (0-255) or special symbol
+    symbol.u    ; Symbol (0-255) or special symbol
     *nextState1 ; Pointer to the first next NFA state
     *nextState2 ; Pointer to the second next NFA state
   EndStructure
   
   Structure DfaStateStruc
-    symbols.i[256] ; Index is the symbol (0-255) and the value is the next DFA state
-    isFinalState.i ; Positive number if the DFA state is a final state, otherwise null
+    symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+    isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
   EndStructure
   
   Structure DfaStatesArrayStruc
@@ -34,7 +34,7 @@ DeclareModule RegEx
   Structure RegExEngineStruc
     List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
     *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
-    isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
+    isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
   EndStructure
   
   ; Simplifies moving the string pointer. The new calculated memory address is
@@ -121,7 +121,7 @@ Module RegEx
   EndStructure
   
   Structure Byte1Struc
-    Map byte2.i()
+    Map byte2.b()
   EndStructure
   
   Global lastErrorMessages$
@@ -363,13 +363,13 @@ Module RegEx
     Protected offset, startValue, endValue
     
     Repeat
-      startValue = PeekI(*label + offset)
-      If startValue = -1
+      startValue = PeekU(*label + offset)
+      If startValue = 0
         Break
       EndIf
-      offset + SizeOf(Integer)
-      endValue = PeekI(*label + offset)
-      offset + SizeOf(Integer)
+      offset + SizeOf(Unicode)
+      endValue = PeekU(*label + offset)
+      offset + SizeOf(Unicode)
       AddByteSequence(byte1(), startValue, endValue)
     ForEver
   EndProcedure
@@ -1060,7 +1060,7 @@ Module RegEx
       For i2 = 0 To 255
         If i2 % 35 = 0
           WriteStringN(file, "")
-          WriteString(file, Space(2) + "Data.i ")
+          WriteString(file, Space(2) + "Data.u ")
         ElseIf i2 <> 0
           WriteString(file, ",")
         EndIf

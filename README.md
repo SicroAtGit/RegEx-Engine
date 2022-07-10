@@ -107,7 +107,7 @@ EndEnumeration
 
 ```purebasic
 Structure NfaStateStruc
-  symbol.i    ; Symbol (0-255) or special symbol
+  symbol.u    ; Symbol (0-255) or special symbol
   *nextState1 ; Pointer to the first next NFA state
   *nextState2 ; Pointer to the second next NFA state
 EndStructure
@@ -115,8 +115,8 @@ EndStructure
 
 ```purebasic
 Structure DfaStateStruc
-  symbols.i[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.i ; Positive number if the DFA state is a final state, otherwise null
+  symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+  isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
 EndStructure
 ```
 
@@ -137,7 +137,7 @@ EndStructure
 Structure RegExEngineStruc
   List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
   *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
-  isUseDfaFromMemory.i               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
+  isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
 EndStructure
 ```
 
