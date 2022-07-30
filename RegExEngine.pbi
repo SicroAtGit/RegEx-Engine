@@ -90,9 +90,9 @@ DeclareModule RegEx
   ; string.
   Declare$ GetLastErrorMessages()
   
-  ; Exports the created DFA as a `DataSection` block in a PureBasic include file.
-  ; On success `#True` is returned, otherwise `#False`.
-  Declare ExportDfa(*regExEngine, filePath$, labelName$ = "dfaTable")
+  ; Exports the created DFA as a binary file. On success `#True` is returned,
+  ; otherwise `#False`.
+  Declare ExportDfa(*regExEngine, filePath$)
   
 EndDeclareModule
 
@@ -1162,36 +1162,15 @@ Module RegEx
     ProcedureReturn lastErrorMessages$
   EndProcedure
   
-  Procedure ExportDfa(*regExEngine.RegExEngineStruc, filePath$, labelName$ = "dfaTable")
-    Protected file, sizeOfArray, i, i2
+  Procedure ExportDfa(*regExEngine.RegExEngineStruc, filePath$)
+    Protected file
     
     file = CreateFile(#PB_Any, filePath$)
     If file = 0
       ProcedureReturn #False
     EndIf
     
-    WriteStringN(file, "DataSection")
-    WriteString(file, Space(2) + labelName$ + ":")
-    
-    sizeOfArray = MemorySize(*regExEngine\dfaStatesPool) / SizeOf(DfaStateStruc) - 1
-    
-    For i = 0 To sizeOfArray
-      
-      For i2 = 0 To 255
-        If i2 % 35 = 0
-          WriteStringN(file, "")
-          WriteString(file, Space(2) + "Data.u ")
-        ElseIf i2 <> 0
-          WriteString(file, ",")
-        EndIf
-        WriteString(file, Str(*regExEngine\dfaStatesPool\states[i]\symbols[i2]))
-      Next
-      
-      WriteString(file, "," + Str(*regExEngine\dfaStatesPool\states[i]\isFinalState))
-    Next
-    
-    WriteStringN(file, "")
-    WriteStringN(file, "EndDataSection")
+    WriteData(file, *regExEngine\dfaStatesPool, MemorySize(*regExEngine\dfaStatesPool))
     CloseFile(file)
     ProcedureReturn #True
   EndProcedure
