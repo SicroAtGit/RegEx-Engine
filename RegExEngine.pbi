@@ -1089,8 +1089,11 @@ Module RegEx
   
   Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
     Protected.NfaStateStruc *state
-    Protected matchLength, lastFinalStateMatchLength
+    Protected *stringStartPos
+    Protected lastFinalStateMatchLength
     Protected NewList *currentStates(), NewList *nextStates()
+    
+    *stringStartPos = *string
     
     ForEach *regExEngine\nfaPools()
       AddState(*regExEngine\nfaPools()\initialNfaState, *currentStates())
@@ -1102,7 +1105,7 @@ Module RegEx
         If *state\symbol = *string\a
           AddState(*state\nextState1, *nextStates())
         ElseIf *state\symbol => #Symbol_Final
-          lastFinalStateMatchLength = matchLength
+          lastFinalStateMatchLength = *string - *stringStartPos
           If *regExId
             *regExId\i = *state\symbol - #Symbol_Final
           EndIf
@@ -1117,15 +1120,16 @@ Module RegEx
       MergeLists(*nextStates(), *currentStates())
       
       *string + SizeOf(Ascii)
-      matchLength + 1
     ForEver
     
     ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
   EndProcedure
   
   Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
-    Protected dfaState, matchLength, lastFinalStateMatchLength
+    Protected dfaState, lastFinalStateMatchLength
+    Protected *stringStartPos
     
+    *stringStartPos = *string
     dfaState = 1
     
     ; dfaState '0' is the dead state, so it will be skipped.
@@ -1136,11 +1140,10 @@ Module RegEx
         Break
       EndIf
       
-      matchLength + 1
       *string + SizeOf(Ascii)
       
       If *regExEngine\dfaStatesPool\states[dfaState]\isFinalState
-        lastFinalStateMatchLength = matchLength
+        lastFinalStateMatchLength = *string - *stringStartPos
         If *regExId
           *regExId\i = *regExEngine\dfaStatesPool\states[dfaState]\isFinalState - #Symbol_Final
         EndIf
