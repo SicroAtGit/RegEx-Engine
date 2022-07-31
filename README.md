@@ -68,7 +68,7 @@ More code examples can be found in the [`examples`](examples) directory.
 | `x*`    | Zero or more of `x` |
 | `x+`    | One or more of `x` |
 | `x?`    | Zero or one of `x` |
-| `(` `)` | Groups a regular expression |
+| `(` `)` | Groups a regular expression. Groups inherit the active modes of the context outside. Mode changes within a group has no effect on the context outside this group |
 | `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
 | `\r`    | Matches the carriage return character |
 | `\n`    | Matches the line feed character |
@@ -84,12 +84,24 @@ More code examples can be found in the [`examples`](examples) directory.
 | `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
 | `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
 | `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
+| `(?i)`  | Activates the case-insensitive mode |
+| `(?-i)` | Deactivates the case-insensitive mode |
 
 ## Unicode Support
 
 All characters that PureBasic supports in Unicode mode are supported, i.e. `[\u0001-\uFFFF]`.
 
+## Case-Insensitive Mode
+
+The implementation uses Unicode's Simple Case Folding variant (single character code point to single character code point), but in reverse: Instead of mapping all character variations to a single character (folding), a single character is mapped to all character variations (unfolding). This is necessary because the DFA must know all valid characters.
+
 ## Public Constants
+
+```purebasic
+EnumerationBinary RegExModes
+  #RegExMode_NoCase ; Activates case-insensitive mode
+EndEnumeration
+```
 
 ```purebasic
 Enumeration NfaSpecialSymbols 256
@@ -151,8 +163,8 @@ Simplifies moving the string pointer. The new calculated memory address is writt
 - `Init()`<br>
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
 
-- `AddNfa(*regExEngine, regExString$, regExId = 0)`<br>
-Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched.
+- `AddNfa(*regExEngine, regExString$, regExId = 0, regExModes = 0)`<br>
+Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched. With the optional `regExModes` parameter it can be defined which RegEx modes should be activated at the beginning.
 
 - `CreateDfa(*regExEngine, clearNfa = #True)`<br>
 Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` then always uses the DFA and is much faster. Because the NFAs are no longer used after this, they are cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`. If a DFA already exists, the DFA will be freed before creating a new DFA.

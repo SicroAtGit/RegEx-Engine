@@ -3,6 +3,10 @@ DeclareModule RegEx
   
   EnableExplicit
   
+  EnumerationBinary RegExModes
+    #RegExMode_NoCase ; Activates case-insensitive mode
+  EndEnumeration
+  
   Enumeration NfaSpecialSymbols 256
     #Symbol_Move  ; Used for NFA epsilon moves
     #Symbol_Split ; Used for NFA unions
@@ -49,9 +53,10 @@ DeclareModule RegEx
   
   ; Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the
   ; RegEx engine. On success `#True` is returned, otherwise `#False`.
-  Declare AddNfa(*regExEngine, regExString$, regExId = 0)
   ; A unique number can be passed to `regExId` to determine later which RegEx
-  ; has matched.
+  ; has matched. With the optional `regExModes` parameter it can be defined
+  ; which RegEx modes should be activated at the beginning.
+  Declare AddNfa(*regExEngine, regExString$, regExId = 0, regExModes = 0)
   
   ; Creates a single DFA from the existing NFAs in the RegEx engine. `Match()`
   ; then always uses the DFA and is much faster. Because the NFAs are no longer
@@ -98,6 +103,7 @@ Module RegEx
   CompilerEndIf
   
   IncludeFile "UnicodeTables" + #PS$ + "PredefinedCharacterClasses.pbi"
+  IncludeFile "UnicodeTables" + #PS$ + "SimpleCaseUnfolding.pbi"
   
   Structure NfaStruc
     *startState.NfaStateStruc
@@ -126,7 +132,7 @@ Module RegEx
   
   Global lastErrorMessages$
   
-  Declare ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
+  Declare ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
   
   Procedure CreateNfaState(List nfaPool.NfaStateStruc())
     ProcedureReturn AddElement(nfaPool())
@@ -349,13 +355,21 @@ Module RegEx
     ProcedureReturn *base
   EndProcedure
   
-  Procedure AddByteSequence(Map byte1.Byte1Struc(), startValue, endValue)
+  Procedure AddByteSequence(Map byte1.Byte1Struc(), startValue, endValue, *regExModes.Integer = 0)
     Protected i
     Protected.CharacterStruc char
     
     For i = startValue To endValue
       char\u = i
       byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
+      If *regExModes And *regExModes\i & #RegExMode_NoCase
+        If FindMapElement(caseUnfold(), Chr(char\u))
+          ForEach caseUnfold()\chars()
+            char\u = caseUnfold()\chars()
+            byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
+          Next
+        EndIf
+      EndIf
     Next
   EndProcedure
   
@@ -492,7 +506,7 @@ Module RegEx
     ProcedureReturn result$
   EndProcedure
   
-  Procedure ParseRegExCharacterClass(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
+  Procedure ParseRegExCharacterClass(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected base$, base2$
     Protected base, base2
     Protected.Byte1Struc NewMap byte1()
@@ -529,9 +543,9 @@ Module RegEx
                                #CRLF$
           ProcedureReturn 0
         EndIf
-        AddByteSequence(byte1(), base, base2)
+        AddByteSequence(byte1(), base, base2, *regExModes)
       Else
-        AddByteSequence(byte1(), base, base)
+        AddByteSequence(byte1(), base, base, *regExModes)
       EndIf
     Wend
     
@@ -545,15 +559,86 @@ Module RegEx
     ProcedureReturn CreateNfaByteSequences(nfaPool(), byte1(), finalStateValue, isNegated)
   EndProcedure
   
-  Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
+  Procedure ParseRegExModes(*regExString.RegExStringStruc, *regExModes.Integer)
+    Protected oldPosition = *regExString\currentPosition
+    
+    Repeat
+      If *regExString\currentPosition\u <> '('
+        Break
+      EndIf
+      *regExString\currentPosition + SizeOf(Unicode)
+      If *regExString\currentPosition\u <> '?'
+        *regExString\currentPosition = oldPosition
+        Break
+      EndIf
+      *regExString\currentPosition + SizeOf(Unicode)
+      If *regExString\currentPosition\u = ')'
+        lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
+                             Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                             #CRLF$
+        ProcedureReturn #False
+      EndIf
+      Repeat
+        Select *regExString\currentPosition\u
+          Case 'i'
+            *regExString\currentPosition + SizeOf(Unicode)
+            *regExModes\i | #RegExMode_NoCase
+          Case '-'
+            *regExString\currentPosition + SizeOf(Unicode)
+            If *regExString\currentPosition\u = ')'
+              lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+              ProcedureReturn #False
+            EndIf
+            Repeat
+              Select *regExString\currentPosition\u
+                Case 'i'
+                  *regExString\currentPosition + SizeOf(Unicode)
+                  *regExModes\i & ~#RegExMode_NoCase
+                Case ')'
+                  *regExString\currentPosition + SizeOf(Unicode)
+                  oldPosition = *regExString\currentPosition
+                  Break 2
+                Default
+                  lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
+                                       Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                       #CRLF$
+                  ProcedureReturn #False
+              EndSelect
+            ForEver
+          Case ')'
+            *regExString\currentPosition + SizeOf(Unicode)
+            oldPosition = *regExString\currentPosition
+            Break
+          Default
+            lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
+            ProcedureReturn #False
+        EndSelect
+      ForEver
+    ForEver
+    
+    ProcedureReturn #True
+  EndProcedure
+  
+  Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected *base, *nfa1, *nfa2
     Protected.Byte1Struc NewMap byte1()
     Protected.CharacterStruc char
+    Protected regExModes
+    
+    If ParseRegExModes(*regExString, *regExModes) = #False
+      ProcedureReturn 0
+    EndIf
+    
+    regExModes = *regExModes\i
     
     Select *regExString\currentPosition\u
       Case '('
         *regExString\currentPosition + SizeOf(Unicode)
-        *base = ParseRegEx(nfaPool(), *regExString, finalStateValue)
+        *base = ParseRegEx(nfaPool(), *regExString, finalStateValue, @regExModes)
         If *regExString\currentPosition\u <> ')'
           lastErrorMessages$ + "Missing closing round bracket [Pos: " +
                                Str(GetCurrentCharacterPosition(*regExString)) + "]" +
@@ -563,7 +648,7 @@ Module RegEx
         *regExString\currentPosition + SizeOf(Unicode)
       Case '['
         *regExString\currentPosition + SizeOf(Unicode)
-        *base = ParseRegExCharacterClass(nfaPool(), *regExString, finalStateValue)
+        *base = ParseRegExCharacterClass(nfaPool(), *regExString, finalStateValue, *regExModes)
         If *base = 0
           ProcedureReturn 0
         EndIf
@@ -633,6 +718,16 @@ Module RegEx
             *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
             *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            If *regExModes\i & #RegExMode_NoCase
+              If FindMapElement(caseUnfold(), Chr(char\u))
+                ForEach caseUnfold()\chars()
+                  char\u = caseUnfold()\chars()
+                  *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+                  *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+                  *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                Next
+              EndIf
+            EndIf
           Case 'u'
             *regExString\currentPosition + SizeOf(Unicode)
             char\u = DecodeHexCode(*regExString, 4)
@@ -645,6 +740,16 @@ Module RegEx
             *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
             *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            If *regExModes\i & #RegExMode_NoCase
+              If FindMapElement(caseUnfold(), Chr(char\u))
+                ForEach caseUnfold()\chars()
+                  char\u = caseUnfold()\chars()
+                  *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+                  *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+                  *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                Next
+              EndIf
+            EndIf
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaSymbol(nfaPool(), *regExString\currentPosition\a[0], finalStateValue)
             *nfa2 = CreateNfaSymbol(nfaPool(), *regExString\currentPosition\a[1], finalStateValue)
@@ -684,17 +789,32 @@ Module RegEx
                              #CRLF$
         ProcedureReturn 0
       Default
-        *nfa1 = CreateNfaSymbol(nfaPool(), *regExString\currentPosition\a[0], finalStateValue)
-        *nfa2 = CreateNfaSymbol(nfaPool(), *regExString\currentPosition\a[1], finalStateValue)
+        char\u = *regExString\currentPosition\u
+        *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+        *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+        If *regExModes\i & #RegExMode_NoCase
+          If FindMapElement(caseUnfold(), Chr(char\u))
+            ForEach caseUnfold()\chars()
+              char\u = caseUnfold()\chars()
+              *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+              *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+              *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+            Next
+          EndIf
+        EndIf
         *regExString\currentPosition + SizeOf(Unicode)
     EndSelect
+    
+    If ParseRegExModes(*regExString, *regExModes) = #False
+      ProcedureReturn 0
+    EndIf
     
     ProcedureReturn *base
   EndProcedure
   
-  Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
-    Protected *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue)
+  Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+    Protected *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes)
     Protected *factor
     
     If *base = 0
@@ -721,10 +841,10 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
-  Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
+  Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected *factor, *newFactor, *nextFactor
     
-    *factor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue)
+    *factor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes)
     
     If *factor = 0
       ProcedureReturn 0
@@ -733,7 +853,7 @@ Module RegEx
     While *regExString\currentPosition\u <> 0 And *regExString\currentPosition\u <> ')' And
           *regExString\currentPosition\u <> '|'
       
-      *nextFactor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue)
+      *nextFactor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes)
       
       If *nextFactor = 0
         ProcedureReturn 0
@@ -748,13 +868,13 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
-  Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue)
-    Protected *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue)
+  Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+    Protected *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes)
     Protected *regEx, *union
     
     If *term And *regExString\currentPosition\u = '|'
       *regExString\currentPosition + SizeOf(Unicode)
-      *regEx = ParseRegEx(nfaPool(), *regExString, finalStateValue)
+      *regEx = ParseRegEx(nfaPool(), *regExString, finalStateValue, *regExModes)
       If *regEx
         *union = CreateNfaUnion(nfaPool(), *term, *regEx, finalStateValue)
       Else
@@ -776,7 +896,7 @@ Module RegEx
     ProcedureReturn *regExEngine
   EndProcedure
   
-  Procedure AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0)
+  Procedure AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)
     Protected.NfaStruc *resultNfa
     Protected.RegExStringStruc *regExString
     
@@ -796,7 +916,7 @@ Module RegEx
     EndIf
     
     If AddElement(*regExEngine\nfaPools())
-      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #Symbol_Final + regExId)
+      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #Symbol_Final + regExId, @regExModes)
       If *resultNfa
         If *regExString\currentPosition\u <> 0
           ; If the RegEx string could not be parsed completely, there are syntax
