@@ -16,9 +16,9 @@ DeclareModule RegEx
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure NfaStateStruc
-    symbol.u    ; Symbol (0-255) or special symbol
-    *nextState1 ; Pointer to the first next NFA state
-    *nextState2 ; Pointer to the second next NFA state
+    symbol.u                  ; Symbol (0-255) or special symbol
+    *nextState1.NfaStateStruc ; Pointer to the first next NFA state
+    *nextState2.NfaStateStruc ; Pointer to the second next NFA state
   EndStructure
   
   Structure DfaStateStruc
@@ -32,7 +32,7 @@ DeclareModule RegEx
   
   Structure NfaPoolStruc
     List nfaStates.NfaStateStruc() ; Holds all NFA states of the NFA pool
-    *initialNfaState               ; Pointer to the NFA initial state
+    *initialNfaState.NfaStateStruc ; Pointer to the NFA initial state
   EndStructure
   
   Structure RegExEngineStruc
@@ -56,7 +56,7 @@ DeclareModule RegEx
   ; A unique number can be passed to `regExId` to determine later which RegEx
   ; has matched. With the optional `regExModes` parameter it can be defined
   ; which RegEx modes should be activated at the beginning.
-  Declare AddNfa(*regExEngine, regExString$, regExId = 0, regExModes = 0)
+  Declare AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)
   
   ; Creates a single DFA from the existing NFAs in the RegEx engine. `Match()`
   ; then always uses the DFA and is much faster. Because the NFAs are no longer
@@ -64,10 +64,10 @@ DeclareModule RegEx
   ; off by setting `clearNfa` to `#False`. On success `#True` is returned,
   ; otherwise `#False`. If a DFA already exists, the DFA will be freed before
   ; creating a new DFA.
-  Declare CreateDfa(*regExEngine, clearNfa = #True)
+  Declare CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)
   
   ; Frees the RegEx engine
-  Declare Free(*regExEngine)
+  Declare Free(*regExEngine.RegExEngineStruc)
   
   ; Creates a new RegEx engine and assigns an existing DFA stored in external
   ; memory to the RegEx engine. After that the RegEx engine is directly ready
@@ -84,7 +84,7 @@ DeclareModule RegEx
   ; and have been assigned different RegEx ID numbers, the RegEx ID number of
   ; the last matched RegEx is taken, i.e. the last matched RegEx added with the
   ; `AddNfa()` function.
-  Declare Match(*regExEngine, *string, *regExId.Integer = 0)
+  Declare Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)
   
   ; Returns the error messages of the last `AddNfa()` call as a human-readable
   ; string.
@@ -92,7 +92,7 @@ DeclareModule RegEx
   
   ; Exports the created DFA as a binary file. On success `#True` is returned,
   ; otherwise `#False`.
-  Declare ExportDfa(*regExEngine, filePath$)
+  Declare ExportDfa(*regExEngine.RegExEngineStruc, filePath$)
   
 EndDeclareModule
 
@@ -111,7 +111,7 @@ Module RegEx
   EndStructure
   
   Structure EClosureStruc
-    List *nfaStates()
+    List *nfaStates.NfaStateStruc()
   EndStructure
   
   Structure CharacterStruc
@@ -138,7 +138,7 @@ Module RegEx
     ProcedureReturn AddElement(nfaPool())
   EndProcedure
   
-  Procedure DeleteNfaState(List nfaPool.NfaStateStruc(), *state)
+  Procedure DeleteNfaState(List nfaPool.NfaStateStruc(), *state.NfaStateStruc)
     ChangeCurrentElement(nfaPool(), *state)
     DeleteElement(nfaPool())
   EndProcedure
@@ -274,7 +274,7 @@ Module RegEx
   EndProcedure
   
   Procedure CreateNfaZeroOrOne(List nfaPool.NfaStateStruc(), *nfa.NfaStruc, finalStateValue)
-    Protected *nfa2, *resultNfa
+    Protected.NfaStruc *nfa2, *resultNfa
     
     *nfa2 = CreateNfaSymbol(nfaPool(), #Symbol_Move, finalStateValue)
     If *nfa2 = 0
@@ -294,8 +294,8 @@ Module RegEx
   EndProcedure
   
   Procedure CreateNfaByteSequences(List nfaPool.NfaStateStruc(), Map byte1.Byte1Struc(), finalStateValue, isNegated = #False)
-    Protected NewMap *nfa1Cache()
-    Protected *nfa2, *base
+    Protected.NfaStruc NewMap *nfa1Cache()
+    Protected.NfaStruc *nfa2, *base
     Protected byte1, byte2
     
     If Not isNegated
@@ -624,7 +624,7 @@ Module RegEx
   EndProcedure
   
   Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected *base, *nfa1, *nfa2
+    Protected.NfaStruc *base, *nfa1, *nfa2
     Protected.Byte1Struc NewMap byte1()
     Protected.CharacterStruc char
     Protected regExModes
@@ -814,8 +814,8 @@ Module RegEx
   EndProcedure
   
   Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes)
-    Protected *factor
+    Protected.NfaStruc *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes)
+    Protected.NfaStruc *factor
     
     If *base = 0
       ProcedureReturn 0
@@ -842,7 +842,7 @@ Module RegEx
   EndProcedure
   
   Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected *factor, *newFactor, *nextFactor
+    Protected.NfaStruc *factor, *newFactor, *nextFactor
     
     *factor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes)
     
@@ -869,8 +869,8 @@ Module RegEx
   EndProcedure
   
   Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes)
-    Protected *regEx, *union
+    Protected.NfaStruc *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes)
+    Protected.NfaStruc *regEx, *union
     
     If *term And *regExString\currentPosition\u = '|'
       *regExString\currentPosition + SizeOf(Unicode)
@@ -947,7 +947,7 @@ Module RegEx
     ProcedureReturn #True
   EndProcedure
   
-  Procedure AddState(*state.NfaStateStruc, List *states())
+  Procedure AddState(*state.NfaStateStruc, List *states.NfaStateStruc())
     If *state\symbol = #Symbol_Split
       AddState(*state\nextState1, *states())
       AddState(*state\nextState2, *states())
@@ -964,7 +964,7 @@ Module RegEx
     EndIf
   EndProcedure
   
-  Procedure FindStatesSet(Array eClosures.EClosureStruc(1), List *states())
+  Procedure FindStatesSet(Array eClosures.EClosureStruc(1), List *states.NfaStateStruc())
     Protected sizeOfArray, dfaState, countOfStates, isFound, result
     
     sizeOfArray = ArraySize(eClosures())
@@ -1089,9 +1089,9 @@ Module RegEx
   
   Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
     Protected.NfaStateStruc *state
+    Protected.NfaStateStruc NewList *currentStates(), NewList *nextStates()
     Protected *stringStartPos
     Protected lastFinalStateMatchLength
-    Protected NewList *currentStates(), NewList *nextStates()
     
     *stringStartPos = *string
     
@@ -1153,7 +1153,7 @@ Module RegEx
     ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
   EndProcedure
   
-  Procedure Match(*regExEngine.RegExEngineStruc, *string.Character, *regExId.Integer = 0)
+  Procedure Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)
     If *regExEngine\dfaStatesPool <> 0
       ProcedureReturn DfaMatch(*regExEngine, *string, *regExId)
     Else
