@@ -294,17 +294,13 @@ Module RegEx
   EndProcedure
   
   Procedure CreateNfaByteSequences(List nfaPool.NfaStateStruc(), Map byte1.Byte1Struc(), finalStateValue, isNegated = #False)
-    Protected.NfaStruc NewMap *nfa1Cache()
-    Protected.NfaStruc *nfa2, *base
+    Protected.NfaStruc *nfa1, *nfa2, *base
     Protected byte1, byte2
     
     If Not isNegated
       ResetMap(byte1())
       While NextMapElement(byte1())
-        
-        If Not FindMapElement(*nfa1Cache(), MapKey(byte1()))
-          *nfa1Cache(MapKey(byte1())) = CreateNfaSymbol(nfaPool(), Asc(MapKey(byte1())), finalStateValue)
-        EndIf
+        *nfa1 = CreateNfaSymbol(nfaPool(), Asc(MapKey(byte1())), finalStateValue)
         
         ResetMap(byte1()\byte2())
         NextMapElement(byte1()\byte2())
@@ -315,13 +311,14 @@ Module RegEx
         Wend
         
         If *base
-          *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1Cache(), *nfa2), finalStateValue)
+          *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
         Else
-          *base = CreateNfaConcatenation(nfaPool(), *nfa1Cache(), *nfa2)
+          *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
         EndIf
       Wend
     Else
       For byte1 = 0 To 255
+        *nfa1 = 0
         *nfa2 = 0
         For byte2 = 0 To 255
           
@@ -333,8 +330,8 @@ Module RegEx
             Continue
           EndIf
           
-          If Not FindMapElement(*nfa1Cache(), Chr(byte1))
-            *nfa1Cache(Chr(byte1)) = CreateNfaSymbol(nfaPool(), byte1, finalStateValue)
+          If *nfa1 = 0
+            *nfa1 = CreateNfaSymbol(nfaPool(), byte1, finalStateValue)
           EndIf
           
           If *nfa2
@@ -345,9 +342,9 @@ Module RegEx
         Next
         
         If *base
-          *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1Cache(), *nfa2), finalStateValue)
+          *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
         Else
-          *base = CreateNfaConcatenation(nfaPool(), *nfa1Cache(), *nfa2)
+          *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
         EndIf
       Next
     EndIf
