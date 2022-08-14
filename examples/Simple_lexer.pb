@@ -53,10 +53,10 @@ Repeat
   matchLength = RegEx::Match(*lexer, *stringPointer, @tokenType)
   If matchLength
     If tokenType <> #TokenType_Whitespace
-      Debug "[" + GetTokenTypeName(tokenType) + "]: " + PeekS(*stringPointer, matchLength)
+      Debug "[" + GetTokenTypeName(tokenType) + "]: " + RegEx::GetString(*stringPointer, matchLength)
       Debug ""
     EndIf
-    RegEx::MoveStringPointer(*stringPointer, matchLength)
+    *stringPointer + matchLength
   EndIf
 Until matchLength = 0
 

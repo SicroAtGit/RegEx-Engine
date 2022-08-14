@@ -155,8 +155,8 @@ EndStructure
 
 ## Public Macros
 
-- `MoveStringPointer(_stringPointer_, _offsetInCharacterLength_)`<br>
-Simplifies moving the string pointer. The new calculated memory address is written directly to the `_stringPointer_` passed variable.
+- `GetString(_memoryAddress_, _lengthInBytes_)`<br>
+Simplifies the return of the match as a string.
 
 ## Public Functions
 
@@ -176,7 +176,7 @@ Frees the RegEx engine.
 Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Init()`, `AddNfa()` or `CreateDfa()` is necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
 
 - `Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)`<br>
-Runs the RegEx engine against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the character length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function.
+Runs the RegEx engine against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function.
 
 - `GetLastErrorMessages()`<br>
 Returns the error messages of the last `AddNfa()` call as a human-readable string.

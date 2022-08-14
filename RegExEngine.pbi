@@ -41,10 +41,9 @@ DeclareModule RegEx
     isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
   EndStructure
   
-  ; Simplifies moving the string pointer. The new calculated memory address is
-  ; written directly to the `_stringPointer_` passed variable.
-  Macro MoveStringPointer(_stringPointer_, _offsetInCharacterLength_)
-    _stringPointer_ = _stringPointer_ + (_offsetInCharacterLength_) << 1
+  ; Simplifies the return of the match as a string
+  Macro GetString(_memoryAddress_, _lengthInBytes_)
+    PeekS(_memoryAddress_, (_lengthInBytes_) >> 1)
   EndMacro
   
   ; Creates a new RegEx engine and returns the pointer to the
@@ -77,7 +76,7 @@ DeclareModule RegEx
   
   ; Runs the RegEx engine against the string. The function requires the pointer
   ; to the string. The match search will start from the beginning of the string.
-  ; If a match is found, the character length of the match is returned,
+  ; If a match is found, the byte length of the match is returned,
   ; otherwise null. If an address to an integer variable was passed in the
   ; optional `*regExId` parameter, the RegEx ID number of the matched RegEx is
   ; written into it. If there are multiple RegExes that match the same string
@@ -1119,7 +1118,7 @@ Module RegEx
       *string + SizeOf(Ascii)
     ForEver
     
-    ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
+    ProcedureReturn lastFinalStateMatchLength
   EndProcedure
   
   Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
@@ -1147,7 +1146,7 @@ Module RegEx
       EndIf
     ForEver
     
-    ProcedureReturn lastFinalStateMatchLength >> 1 ; Fast division by 2
+    ProcedureReturn lastFinalStateMatchLength
   EndProcedure
   
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)

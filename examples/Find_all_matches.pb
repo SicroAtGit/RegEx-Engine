@@ -28,9 +28,9 @@ Debug ""
 While *string\c
   result = RegEx::Match(*regEx, *string)
   If result
-    Debug PeekS(*string, result)
+    Debug RegEx::GetString(*string, result)
   EndIf
-  RegEx::MoveStringPointer(*string, 1)
+  *string + SizeOf(Unicode)
 Wend
 
 Debug ""
@@ -42,9 +42,9 @@ RegEx::CreateDfa(*regEx)
 While *string\c
   result = RegEx::Match(*regEx, *string)
   If result
-    Debug PeekS(*string, result)
+    Debug RegEx::GetString(*string, result)
   EndIf
-  RegEx::MoveStringPointer(*string, 1)
+  *string + SizeOf(Unicode)
 Wend
 
 RegEx::Free(*regEx)
