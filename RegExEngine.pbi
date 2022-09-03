@@ -98,6 +98,8 @@ EndDeclareModule
 Module RegEx
   
   CompilerIf #PB_Compiler_Debugger
+    ; The RegEx engine is quickly very slow with complex RegExes when debugger
+    ; mode is enabled.
     DisableDebugger
   CompilerEndIf
   
@@ -292,6 +294,7 @@ Module RegEx
     ProcedureReturn position + 1
   EndProcedure
   
+  ; Creates from the byte tree the corresponding NFA construction
   Procedure CreateNfaByteSequences(List nfaPool.NfaStateStruc(), Map byte1.Byte1Struc(), finalStateValue, isNegated = #False)
     Protected.NfaStruc *nfa1, *nfa2, *base
     Protected byte1, byte2
@@ -326,7 +329,7 @@ Module RegEx
           EndIf
           
           If FindMapElement(byte1(), Chr(byte1)) And FindMapElement(byte1()\byte2(), Chr(byte2))
-            Continue
+            Continue ; Skip negated characters
           EndIf
           
           If *nfa1 = 0
@@ -351,6 +354,7 @@ Module RegEx
     ProcedureReturn *base
   EndProcedure
   
+  ; Adds the byte sequence to the byte tree
   Procedure AddByteSequence(Map byte1.Byte1Struc(), startValue, endValue, *regExModes.Integer = 0)
     Protected i
     Protected.CharacterStruc char
@@ -369,12 +373,13 @@ Module RegEx
     Next
   EndProcedure
   
+  ; Adds the predefined byte sequences to the byte tree
   Procedure AddPredefinedByteSequences(Map byte1.Byte1Struc(), *label)
     Protected offset, startValue, endValue
     
     Repeat
       startValue = PeekU(*label + offset)
-      If startValue = 0
+      If startValue = 0 ; End of the predefined character class
         Break
       EndIf
       offset + SizeOf(Unicode)
@@ -943,6 +948,8 @@ Module RegEx
     ProcedureReturn #True
   EndProcedure
   
+  ; Follows the epsilon-move states and adds the target states to the list.
+  ; Used for the subset construction (NFA -> DFA conversion).
   Procedure AddState(*state.NfaStateStruc, List *states.NfaStateStruc())
     If *state\symbol = #Symbol_Split
       AddState(*state\nextState1, *states())
@@ -950,16 +957,23 @@ Module RegEx
     ElseIf *state\symbol = #Symbol_Move
       AddState(*state\nextState1, *states())
     Else
+      
+      ; Required to prevent endless recursion
       ForEach *states()
         If *states() = *state
           ProcedureReturn
         EndIf
       Next
+      
       AddElement(*states())
       *states() = *state
     EndIf
   EndProcedure
   
+  ; Searches the epsilon closures for a set of NFA states and returns the
+  ; position of the set. The position number and the DFA state number are
+  ; identical.
+  ; Used for the subset construction (NFA -> DFA conversion).
   Procedure FindStatesSet(Array eClosures.EClosureStruc(1), List *states.NfaStateStruc())
     Protected sizeOfArray, dfaState, countOfStates, isFound, result
     
