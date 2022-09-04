@@ -1,6 +1,6 @@
-# Regular Expression Engine
+# RegEx-Engine
 
-https://github.com/SicroAtGit/PB-RegEx-Engine
+https://github.com/SicroAtGit/RegEx-Engine
 
 > Development stage: Alpha version
 
