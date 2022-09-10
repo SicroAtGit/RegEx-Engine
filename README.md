@@ -70,30 +70,30 @@ More code examples can be found in the [`examples`](examples) directory.
 | `x?`    | Zero or one of `x` |
 | `(` `)` | Groups a regular expression. Groups inherit the active modes of the context outside. Mode changes within a group has no effect on the context outside this group |
 | `\*`    | Escapes the metacharacter `*` to use it as a normal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
-| `\r`    | Matches the carriage return character |
-| `\n`    | Matches the line feed character |
-| `\t`    | Matches the horizontal tab character |
-| `\f`    | Matches the form feed character |
+| `\r`    | Matches the carriage return character (`\x0D`) |
+| `\n`    | Matches the line feed character (`\x0A`) |
+| `\t`    | Matches the horizontal tab character (`\x09`) |
+| `\f`    | Matches the form feed character (`\x0C`) |
 | `[x]`   | `x` can be several mixes of: single character, escape sequence or range (`a-c`) |
-| `.`     | Matches any character up to `\uFFFF` except `\r` and `\n` |
-| `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
-| `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\s`    | Matches Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) but not those exceeding `\uFFFF` |
-| `\S`    | Matches any character except the Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\w`    | Matches Unicode's character classes [Alphabetic, M, Nd, Pc and Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=), but not those exceeding `\uFFFF` |
-| `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) and those exceeding `\uFFFF` |
-| `\x`    | Matches the character represented by the hex code (`\x01` to `\xFF`; ISO_8859-1 characters) |
-| `\u`    | Matches the character represented by the hex code (`\u0001` to `\uFFFF`; ISO_8859-1 characters or Unicode characters) |
+| `.`     | Matches any character except `\r` and `\n` |
+| `\d`    | Matches Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) |
+| `\D`    | Matches any character except the Unicode's character class [Nd](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3ANd%3A%5D&abb=on&esc=on&g=&i=) |
+| `\s`    | Matches Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) |
+| `\S`    | Matches any character except the Unicode's character class [White_Space](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=) |
+| `\w`    | Matches Unicode's character classes [Alphabetic, M, Nd, Pc and Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) |
+| `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) |
+| `\x`    | Matches the character represented by the hex code (exactly two digits, `\x01` up to `\xFF`) |
+| `\u`    | Matches the character represented by the hex code (exactly four digits, `\u0001` up to `\uFFFF`) |
 | `(?i)`  | Activates the case-insensitive mode |
 | `(?-i)` | Deactivates the case-insensitive mode |
 
 ## Unicode Support
 
-All characters that PureBasic supports in Unicode mode are supported, i.e. `[\u0001-\uFFFF]`.
+Like the native string functions in PureBasic, the RegEx engine uses the UCS-2 character encoding, which limits it to Unicode code points `\u0001` up to `\uFFFF` and interprets UTF-16 surrogate pairs as single characters.
 
 ## Case-Insensitive Mode
 
-The implementation uses Unicode's Simple Case Folding variant (single character code point to single character code point), but in reverse: Instead of mapping all character variations to a single character (folding), a single character is mapped to all character variations (unfolding). This is necessary because the DFA must know all valid characters.
+The implementation uses [Unicode's Simple Case Folding](https://unicode.org/reports/tr18/#Simple_Loose_Matches) variant, but in reverse: Instead of mapping all character variations to a single character (folding), a single character is mapped to all character variations (unfolding). This is necessary because the DFA must know all valid characters.
 
 ## Public Constants
 
