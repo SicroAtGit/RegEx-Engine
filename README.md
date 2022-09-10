@@ -184,6 +184,44 @@ Returns the error messages of the last `AddNfa()` call as a human-readable strin
 - `ExportDfa(*regExEngine.RegExEngineStruc, filePath$)`<br>
 Exports the created DFA as a binary file. On success `#True` is returned, otherwise `#False`.
 
+## Reduced DFA Matcher Module
+
+The reduced module `DfaMatcher` provides only a DFA matcher which uses the precompiled DFAs created with the main module.
+
+If only the precompiled DFAs are needed in the software for matching and no new NFAs/DFAs are to be created at runtime, then the reduced module can be used. This way the software is not unnecessarily bloated with the large Unicode tables and the other code of the main module.
+
+### Public Constants
+
+```purebasic
+#Symbol_Final = 258     ; Used for NFA final state
+#State_DfaDeadState = 0 ; Index number of the DFA dead state
+```
+
+### Public Structures
+
+```purebasic
+Structure DfaStateStruc
+  symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+  isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
+EndStructure
+```
+
+```purebasic
+Structure DfaStatesArrayStruc
+  states.DfaStateStruc[0] ; Array pointer to the DFA states
+EndStructure
+```
+
+### Public Macros
+
+- `GetString(_memoryAddress_, _lengthInBytes_)`<br>
+Simplifies the return of the match as a string.
+
+### Public Functions
+
+- `Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)`<br>
+Runs the DFA against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function from the main module.
+
 ## License
 
 The project is licensed under the MIT license.
