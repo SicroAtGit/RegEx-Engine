@@ -931,7 +931,7 @@ Module RegEx
         EndIf
         *regExEngine\nfaPools()\initialNfaState = *resultNfa\startState
       Else
-        If *regExString\currentPosition\u <> 0
+        If *regExString\currentPosition\u = ')'
           ; If the RegEx string could not be parsed completely, there are syntax
           ; errors
           lastErrorMessages$ + "Missing opening round bracket [Pos: " +
