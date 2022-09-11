@@ -2,8 +2,6 @@
 
 https://github.com/SicroAtGit/RegEx-Engine
 
-> Development stage: Alpha version
-
 ## About
 
 This RegEx engine compiles a regular expression into an NFA, optionally then into a very fast DFA, and can execute the NFA/DFA against a string.
