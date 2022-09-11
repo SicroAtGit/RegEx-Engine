@@ -155,33 +155,33 @@ EndStructure
 
 ## Public Macros
 
-- `GetString(_memoryAddress_, _lengthInBytes_)`<br>
+- **`GetString(_memoryAddress_, _lengthInBytes_)`**<br><br>
 Simplifies the return of the match as a string.
 
 ## Public Functions
 
-- `Init()`<br>
+- **`Init()`**<br><br>
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
 
-- `AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`<br>
+- **`AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`**<br><br>
 Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched. With the optional `regExModes` parameter it can be defined which RegEx modes should be activated at the beginning.
 
-- `CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)`<br>
+- **`CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)`**<br><br>
 Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` then always uses the DFA and is much faster. Because the NFAs are no longer used after this, they are cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`. If a DFA already exists, the DFA will be freed before creating a new DFA.
 
-- `Free(*regExEngine.RegExEngineStruc)`<br>
+- **`Free(*regExEngine.RegExEngineStruc)`**<br><br>
 Frees the RegEx engine.
 
-- `UseDfaFromMemory(*dfaMemory)`<br>
+- **`UseDfaFromMemory(*dfaMemory)`**<br><br>
 Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After that the RegEx engine is directly ready to use; no call of `Init()`, `AddNfa()` or `CreateDfa()` is necessary. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
 
-- `Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)`<br>
+- **`Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)`**<br><br>
 Runs the RegEx engine against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function.
 
-- `GetLastErrorMessages()`<br>
+- **`GetLastErrorMessages()`**<br><br>
 Returns the error messages of the last `AddNfa()` call as a human-readable string.
 
-- `ExportDfa(*regExEngine.RegExEngineStruc, filePath$)`<br>
+- **`ExportDfa(*regExEngine.RegExEngineStruc, filePath$)`**<br><br>
 Exports the created DFA as a binary file. On success `#True` is returned, otherwise `#False`.
 
 ## Reduced DFA Matcher Module
@@ -214,12 +214,12 @@ EndStructure
 
 ### Public Macros
 
-- `GetString(_memoryAddress_, _lengthInBytes_)`<br>
+- **`GetString(_memoryAddress_, _lengthInBytes_)`**<br><br>
 Simplifies the return of the match as a string.
 
 ### Public Functions
 
-- `Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)`<br>
+- **`Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)`**<br><br>
 Runs the DFA against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function from the main module.
 
 ## License
