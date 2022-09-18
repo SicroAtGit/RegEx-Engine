@@ -356,19 +356,18 @@ Module RegEx
   
   ; Adds the byte sequence to the byte tree
   Procedure AddByteSequence(Map byte1.Byte1Struc(), startValue, endValue, *regExModes.Integer = 0)
-    Protected i
+    Protected i, ii, count
     Protected.CharacterStruc char
     
     For i = startValue To endValue
       char\u = i
       byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
-      If *regExModes And *regExModes\i & #RegExMode_NoCase
-        If FindMapElement(caseUnfold(), Chr(char\u))
-          ForEach caseUnfold()\chars()
-            char\u = caseUnfold()\chars()
-            byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
-          Next
-        EndIf
+      If *regExModes And *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
+        count = *caseUnfold(char\u)\charsCount
+        For ii = 0 To count
+          char\u = *caseUnfold(char\u)\chars[ii]
+          byte1(Chr(char\a[0]))\byte2(Chr(char\a[1]))
+        Next
       EndIf
     Next
   EndProcedure
@@ -628,7 +627,7 @@ Module RegEx
     Protected.NfaStruc *base, *nfa1, *nfa2
     Protected.Byte1Struc NewMap byte1()
     Protected.CharacterStruc char
-    Protected regExModes
+    Protected regExModes, count, ii
     
     If ParseRegExModes(*regExString, *regExModes) = #False
       ProcedureReturn 0
@@ -719,15 +718,14 @@ Module RegEx
             *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
             *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            If *regExModes\i & #RegExMode_NoCase
-              If FindMapElement(caseUnfold(), Chr(char\u))
-                ForEach caseUnfold()\chars()
-                  char\u = caseUnfold()\chars()
-                  *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
-                  *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
-                  *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-                Next
-              EndIf
+            If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
+              count = *caseUnfold(char\u)\charsCount
+              For ii = 0 To count
+                char\u = *caseUnfold(char\u)\chars[ii]
+                *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+                *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+              Next
             EndIf
           Case 'u'
             *regExString\currentPosition + SizeOf(Unicode)
@@ -741,15 +739,14 @@ Module RegEx
             *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
             *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            If *regExModes\i & #RegExMode_NoCase
-              If FindMapElement(caseUnfold(), Chr(char\u))
-                ForEach caseUnfold()\chars()
-                  char\u = caseUnfold()\chars()
-                  *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
-                  *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
-                  *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-                Next
-              EndIf
+            If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
+              count = *caseUnfold(char\u)\charsCount
+              For ii = 0 To count
+                char\u = *caseUnfold(char\u)\chars[ii]
+                *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+                *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+              Next
             EndIf
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaSymbol(nfaPool(), *regExString\currentPosition\a[0], finalStateValue)
@@ -794,15 +791,14 @@ Module RegEx
         *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
         *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-        If *regExModes\i & #RegExMode_NoCase
-          If FindMapElement(caseUnfold(), Chr(char\u))
-            ForEach caseUnfold()\chars()
-              char\u = caseUnfold()\chars()
-              *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
-              *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
-              *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-            Next
-          EndIf
+        If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
+          count = *caseUnfold(char\u)\charsCount
+          For ii = 0 To count
+            char\u = *caseUnfold(char\u)\chars[ii]
+            *nfa1 = CreateNfaSymbol(nfaPool(), char\a[0], finalStateValue)
+            *nfa2 = CreateNfaSymbol(nfaPool(), char\a[1], finalStateValue)
+            *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+          Next
         EndIf
         *regExString\currentPosition + SizeOf(Unicode)
     EndSelect

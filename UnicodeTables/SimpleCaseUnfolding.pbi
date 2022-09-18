@@ -3,6005 +3,7090 @@
 ; Date: 2021-03-08, 19:35:41 GMT
 ; https://www.unicode.org/Public/UCD/latest/ucd/CaseFolding.txt
 
-Structure caseUnfoldStruc
-  List chars.u()
+Structure CaseUnfoldStruc
+  charsCount.a
+  chars.u[0] ; Maximum array index is the value of `charsCount`
 EndStructure
 
-Global NewMap caseUnfold.caseUnfoldStruc()
+Global Dim *caseUnfold.CaseUnfoldStruc($FFFF)
 
-AddMapElement(caseUnfold(), "A")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'a'
-AddMapElement(caseUnfold(), "a")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'A'
-AddMapElement(caseUnfold(), "B")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'b'
-AddMapElement(caseUnfold(), "b")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'B'
-AddMapElement(caseUnfold(), "C")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'c'
-AddMapElement(caseUnfold(), "c")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'C'
-AddMapElement(caseUnfold(), "D")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'd'
-AddMapElement(caseUnfold(), "d")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'D'
-AddMapElement(caseUnfold(), "E")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'e'
-AddMapElement(caseUnfold(), "e")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'E'
-AddMapElement(caseUnfold(), "F")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'f'
-AddMapElement(caseUnfold(), "f")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'F'
-AddMapElement(caseUnfold(), "G")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'g'
-AddMapElement(caseUnfold(), "g")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'G'
-AddMapElement(caseUnfold(), "H")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'h'
-AddMapElement(caseUnfold(), "h")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'H'
-AddMapElement(caseUnfold(), "I")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'i'
-AddMapElement(caseUnfold(), "i")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'I'
-AddMapElement(caseUnfold(), "J")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'j'
-AddMapElement(caseUnfold(), "j")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'J'
-AddMapElement(caseUnfold(), "K")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'k'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'K'
-AddMapElement(caseUnfold(), "k")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'K'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'K'
-AddMapElement(caseUnfold(), "K")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'K'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'k'
-AddMapElement(caseUnfold(), "L")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'l'
-AddMapElement(caseUnfold(), "l")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'L'
-AddMapElement(caseUnfold(), "M")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'm'
-AddMapElement(caseUnfold(), "m")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'M'
-AddMapElement(caseUnfold(), "N")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'n'
-AddMapElement(caseUnfold(), "n")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'N'
-AddMapElement(caseUnfold(), "O")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'o'
-AddMapElement(caseUnfold(), "o")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'O'
-AddMapElement(caseUnfold(), "P")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'p'
-AddMapElement(caseUnfold(), "p")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'P'
-AddMapElement(caseUnfold(), "Q")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'q'
-AddMapElement(caseUnfold(), "q")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Q'
-AddMapElement(caseUnfold(), "R")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'r'
-AddMapElement(caseUnfold(), "r")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'R'
-AddMapElement(caseUnfold(), "S")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 's'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ſ'
-AddMapElement(caseUnfold(), "s")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'S'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ſ'
-AddMapElement(caseUnfold(), "ſ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'S'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 's'
-AddMapElement(caseUnfold(), "T")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 't'
-AddMapElement(caseUnfold(), "t")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'T'
-AddMapElement(caseUnfold(), "U")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'u'
-AddMapElement(caseUnfold(), "u")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'U'
-AddMapElement(caseUnfold(), "V")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'v'
-AddMapElement(caseUnfold(), "v")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'V'
-AddMapElement(caseUnfold(), "W")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'w'
-AddMapElement(caseUnfold(), "w")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'W'
-AddMapElement(caseUnfold(), "X")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'x'
-AddMapElement(caseUnfold(), "x")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'X'
-AddMapElement(caseUnfold(), "Y")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'y'
-AddMapElement(caseUnfold(), "y")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Y'
-AddMapElement(caseUnfold(), "Z")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'z'
-AddMapElement(caseUnfold(), "z")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Z'
-AddMapElement(caseUnfold(), "µ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'μ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Μ'
-AddMapElement(caseUnfold(), "μ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'µ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Μ'
-AddMapElement(caseUnfold(), "Μ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'µ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'μ'
-AddMapElement(caseUnfold(), "À")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'à'
-AddMapElement(caseUnfold(), "à")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'À'
-AddMapElement(caseUnfold(), "Á")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'á'
-AddMapElement(caseUnfold(), "á")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Á'
-AddMapElement(caseUnfold(), "Â")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'â'
-AddMapElement(caseUnfold(), "â")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Â'
-AddMapElement(caseUnfold(), "Ã")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ã'
-AddMapElement(caseUnfold(), "ã")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ã'
-AddMapElement(caseUnfold(), "Ä")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ä'
-AddMapElement(caseUnfold(), "ä")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ä'
-AddMapElement(caseUnfold(), "Å")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'å'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Å'
-AddMapElement(caseUnfold(), "å")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Å'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Å'
-AddMapElement(caseUnfold(), "Å")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Å'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'å'
-AddMapElement(caseUnfold(), "Æ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'æ'
-AddMapElement(caseUnfold(), "æ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Æ'
-AddMapElement(caseUnfold(), "Ç")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ç'
-AddMapElement(caseUnfold(), "ç")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ç'
-AddMapElement(caseUnfold(), "È")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'è'
-AddMapElement(caseUnfold(), "è")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'È'
-AddMapElement(caseUnfold(), "É")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'é'
-AddMapElement(caseUnfold(), "é")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'É'
-AddMapElement(caseUnfold(), "Ê")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ê'
-AddMapElement(caseUnfold(), "ê")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ê'
-AddMapElement(caseUnfold(), "Ë")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ë'
-AddMapElement(caseUnfold(), "ë")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ë'
-AddMapElement(caseUnfold(), "Ì")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ì'
-AddMapElement(caseUnfold(), "ì")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ì'
-AddMapElement(caseUnfold(), "Í")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'í'
-AddMapElement(caseUnfold(), "í")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Í'
-AddMapElement(caseUnfold(), "Î")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'î'
-AddMapElement(caseUnfold(), "î")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Î'
-AddMapElement(caseUnfold(), "Ï")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ï'
-AddMapElement(caseUnfold(), "ï")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ï'
-AddMapElement(caseUnfold(), "Ð")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ð'
-AddMapElement(caseUnfold(), "ð")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ð'
-AddMapElement(caseUnfold(), "Ñ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ñ'
-AddMapElement(caseUnfold(), "ñ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ñ'
-AddMapElement(caseUnfold(), "Ò")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ò'
-AddMapElement(caseUnfold(), "ò")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ò'
-AddMapElement(caseUnfold(), "Ó")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ó'
-AddMapElement(caseUnfold(), "ó")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ó'
-AddMapElement(caseUnfold(), "Ô")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ô'
-AddMapElement(caseUnfold(), "ô")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ô'
-AddMapElement(caseUnfold(), "Õ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'õ'
-AddMapElement(caseUnfold(), "õ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Õ'
-AddMapElement(caseUnfold(), "Ö")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ö'
-AddMapElement(caseUnfold(), "ö")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ö'
-AddMapElement(caseUnfold(), "Ø")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ø'
-AddMapElement(caseUnfold(), "ø")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ø'
-AddMapElement(caseUnfold(), "Ù")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ù'
-AddMapElement(caseUnfold(), "ù")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ù'
-AddMapElement(caseUnfold(), "Ú")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ú'
-AddMapElement(caseUnfold(), "ú")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ú'
-AddMapElement(caseUnfold(), "Û")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'û'
-AddMapElement(caseUnfold(), "û")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Û'
-AddMapElement(caseUnfold(), "Ü")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ü'
-AddMapElement(caseUnfold(), "ü")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ü'
-AddMapElement(caseUnfold(), "Ý")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ý'
-AddMapElement(caseUnfold(), "ý")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ý'
-AddMapElement(caseUnfold(), "Þ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'þ'
-AddMapElement(caseUnfold(), "þ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Þ'
-AddMapElement(caseUnfold(), "Ā")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ā'
-AddMapElement(caseUnfold(), "ā")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ā'
-AddMapElement(caseUnfold(), "Ă")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ă'
-AddMapElement(caseUnfold(), "ă")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ă'
-AddMapElement(caseUnfold(), "Ą")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ą'
-AddMapElement(caseUnfold(), "ą")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ą'
-AddMapElement(caseUnfold(), "Ć")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ć'
-AddMapElement(caseUnfold(), "ć")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ć'
-AddMapElement(caseUnfold(), "Ĉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĉ'
-AddMapElement(caseUnfold(), "ĉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĉ'
-AddMapElement(caseUnfold(), "Ċ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ċ'
-AddMapElement(caseUnfold(), "ċ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ċ'
-AddMapElement(caseUnfold(), "Č")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'č'
-AddMapElement(caseUnfold(), "č")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Č'
-AddMapElement(caseUnfold(), "Ď")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ď'
-AddMapElement(caseUnfold(), "ď")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ď'
-AddMapElement(caseUnfold(), "Đ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'đ'
-AddMapElement(caseUnfold(), "đ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Đ'
-AddMapElement(caseUnfold(), "Ē")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ē'
-AddMapElement(caseUnfold(), "ē")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ē'
-AddMapElement(caseUnfold(), "Ĕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĕ'
-AddMapElement(caseUnfold(), "ĕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĕ'
-AddMapElement(caseUnfold(), "Ė")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ė'
-AddMapElement(caseUnfold(), "ė")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ė'
-AddMapElement(caseUnfold(), "Ę")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ę'
-AddMapElement(caseUnfold(), "ę")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ę'
-AddMapElement(caseUnfold(), "Ě")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ě'
-AddMapElement(caseUnfold(), "ě")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ě'
-AddMapElement(caseUnfold(), "Ĝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĝ'
-AddMapElement(caseUnfold(), "ĝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĝ'
-AddMapElement(caseUnfold(), "Ğ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ğ'
-AddMapElement(caseUnfold(), "ğ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ğ'
-AddMapElement(caseUnfold(), "Ġ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ġ'
-AddMapElement(caseUnfold(), "ġ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ġ'
-AddMapElement(caseUnfold(), "Ģ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ģ'
-AddMapElement(caseUnfold(), "ģ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ģ'
-AddMapElement(caseUnfold(), "Ĥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĥ'
-AddMapElement(caseUnfold(), "ĥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĥ'
-AddMapElement(caseUnfold(), "Ħ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ħ'
-AddMapElement(caseUnfold(), "ħ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ħ'
-AddMapElement(caseUnfold(), "Ĩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĩ'
-AddMapElement(caseUnfold(), "ĩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĩ'
-AddMapElement(caseUnfold(), "Ī")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ī'
-AddMapElement(caseUnfold(), "ī")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ī'
-AddMapElement(caseUnfold(), "Ĭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĭ'
-AddMapElement(caseUnfold(), "ĭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĭ'
-AddMapElement(caseUnfold(), "Į")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'į'
-AddMapElement(caseUnfold(), "į")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Į'
-AddMapElement(caseUnfold(), "Ĳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĳ'
-AddMapElement(caseUnfold(), "ĳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĳ'
-AddMapElement(caseUnfold(), "Ĵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĵ'
-AddMapElement(caseUnfold(), "ĵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĵ'
-AddMapElement(caseUnfold(), "Ķ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ķ'
-AddMapElement(caseUnfold(), "ķ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ķ'
-AddMapElement(caseUnfold(), "Ĺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ĺ'
-AddMapElement(caseUnfold(), "ĺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ĺ'
-AddMapElement(caseUnfold(), "Ļ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ļ'
-AddMapElement(caseUnfold(), "ļ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ļ'
-AddMapElement(caseUnfold(), "Ľ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ľ'
-AddMapElement(caseUnfold(), "ľ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ľ'
-AddMapElement(caseUnfold(), "Ŀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŀ'
-AddMapElement(caseUnfold(), "ŀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŀ'
-AddMapElement(caseUnfold(), "Ł")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ł'
-AddMapElement(caseUnfold(), "ł")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ł'
-AddMapElement(caseUnfold(), "Ń")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ń'
-AddMapElement(caseUnfold(), "ń")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ń'
-AddMapElement(caseUnfold(), "Ņ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ņ'
-AddMapElement(caseUnfold(), "ņ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ņ'
-AddMapElement(caseUnfold(), "Ň")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ň'
-AddMapElement(caseUnfold(), "ň")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ň'
-AddMapElement(caseUnfold(), "Ŋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŋ'
-AddMapElement(caseUnfold(), "ŋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŋ'
-AddMapElement(caseUnfold(), "Ō")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ō'
-AddMapElement(caseUnfold(), "ō")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ō'
-AddMapElement(caseUnfold(), "Ŏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŏ'
-AddMapElement(caseUnfold(), "ŏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŏ'
-AddMapElement(caseUnfold(), "Ő")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ő'
-AddMapElement(caseUnfold(), "ő")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ő'
-AddMapElement(caseUnfold(), "Œ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'œ'
-AddMapElement(caseUnfold(), "œ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Œ'
-AddMapElement(caseUnfold(), "Ŕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŕ'
-AddMapElement(caseUnfold(), "ŕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŕ'
-AddMapElement(caseUnfold(), "Ŗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŗ'
-AddMapElement(caseUnfold(), "ŗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŗ'
-AddMapElement(caseUnfold(), "Ř")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ř'
-AddMapElement(caseUnfold(), "ř")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ř'
-AddMapElement(caseUnfold(), "Ś")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ś'
-AddMapElement(caseUnfold(), "ś")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ś'
-AddMapElement(caseUnfold(), "Ŝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŝ'
-AddMapElement(caseUnfold(), "ŝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŝ'
-AddMapElement(caseUnfold(), "Ş")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ş'
-AddMapElement(caseUnfold(), "ş")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ş'
-AddMapElement(caseUnfold(), "Š")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'š'
-AddMapElement(caseUnfold(), "š")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Š'
-AddMapElement(caseUnfold(), "Ţ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ţ'
-AddMapElement(caseUnfold(), "ţ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ţ'
-AddMapElement(caseUnfold(), "Ť")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ť'
-AddMapElement(caseUnfold(), "ť")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ť'
-AddMapElement(caseUnfold(), "Ŧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŧ'
-AddMapElement(caseUnfold(), "ŧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŧ'
-AddMapElement(caseUnfold(), "Ũ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ũ'
-AddMapElement(caseUnfold(), "ũ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ũ'
-AddMapElement(caseUnfold(), "Ū")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ū'
-AddMapElement(caseUnfold(), "ū")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ū'
-AddMapElement(caseUnfold(), "Ŭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŭ'
-AddMapElement(caseUnfold(), "ŭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŭ'
-AddMapElement(caseUnfold(), "Ů")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ů'
-AddMapElement(caseUnfold(), "ů")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ů'
-AddMapElement(caseUnfold(), "Ű")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ű'
-AddMapElement(caseUnfold(), "ű")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ű'
-AddMapElement(caseUnfold(), "Ų")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ų'
-AddMapElement(caseUnfold(), "ų")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ų'
-AddMapElement(caseUnfold(), "Ŵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŵ'
-AddMapElement(caseUnfold(), "ŵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŵ'
-AddMapElement(caseUnfold(), "Ŷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ŷ'
-AddMapElement(caseUnfold(), "ŷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ŷ'
-AddMapElement(caseUnfold(), "Ÿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ÿ'
-AddMapElement(caseUnfold(), "ÿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ÿ'
-AddMapElement(caseUnfold(), "Ź")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ź'
-AddMapElement(caseUnfold(), "ź")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ź'
-AddMapElement(caseUnfold(), "Ż")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ż'
-AddMapElement(caseUnfold(), "ż")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ż'
-AddMapElement(caseUnfold(), "Ž")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ž'
-AddMapElement(caseUnfold(), "ž")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ž'
-AddMapElement(caseUnfold(), "Ɓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɓ'
-AddMapElement(caseUnfold(), "ɓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɓ'
-AddMapElement(caseUnfold(), "Ƃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƃ'
-AddMapElement(caseUnfold(), "ƃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƃ'
-AddMapElement(caseUnfold(), "Ƅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƅ'
-AddMapElement(caseUnfold(), "ƅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƅ'
-AddMapElement(caseUnfold(), "Ɔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɔ'
-AddMapElement(caseUnfold(), "ɔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɔ'
-AddMapElement(caseUnfold(), "Ƈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƈ'
-AddMapElement(caseUnfold(), "ƈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƈ'
-AddMapElement(caseUnfold(), "Ɖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɖ'
-AddMapElement(caseUnfold(), "ɖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɖ'
-AddMapElement(caseUnfold(), "Ɗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɗ'
-AddMapElement(caseUnfold(), "ɗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɗ'
-AddMapElement(caseUnfold(), "Ƌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƌ'
-AddMapElement(caseUnfold(), "ƌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƌ'
-AddMapElement(caseUnfold(), "Ǝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǝ'
-AddMapElement(caseUnfold(), "ǝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǝ'
-AddMapElement(caseUnfold(), "Ə")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ə'
-AddMapElement(caseUnfold(), "ə")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ə'
-AddMapElement(caseUnfold(), "Ɛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɛ'
-AddMapElement(caseUnfold(), "ɛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɛ'
-AddMapElement(caseUnfold(), "Ƒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƒ'
-AddMapElement(caseUnfold(), "ƒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƒ'
-AddMapElement(caseUnfold(), "Ɠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɠ'
-AddMapElement(caseUnfold(), "ɠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɠ'
-AddMapElement(caseUnfold(), "Ɣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɣ'
-AddMapElement(caseUnfold(), "ɣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɣ'
-AddMapElement(caseUnfold(), "Ɩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɩ'
-AddMapElement(caseUnfold(), "ɩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɩ'
-AddMapElement(caseUnfold(), "Ɨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɨ'
-AddMapElement(caseUnfold(), "ɨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɨ'
-AddMapElement(caseUnfold(), "Ƙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƙ'
-AddMapElement(caseUnfold(), "ƙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƙ'
-AddMapElement(caseUnfold(), "Ɯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɯ'
-AddMapElement(caseUnfold(), "ɯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɯ'
-AddMapElement(caseUnfold(), "Ɲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɲ'
-AddMapElement(caseUnfold(), "ɲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɲ'
-AddMapElement(caseUnfold(), "Ɵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɵ'
-AddMapElement(caseUnfold(), "ɵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɵ'
-AddMapElement(caseUnfold(), "Ơ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ơ'
-AddMapElement(caseUnfold(), "ơ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ơ'
-AddMapElement(caseUnfold(), "Ƣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƣ'
-AddMapElement(caseUnfold(), "ƣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƣ'
-AddMapElement(caseUnfold(), "Ƥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƥ'
-AddMapElement(caseUnfold(), "ƥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƥ'
-AddMapElement(caseUnfold(), "Ʀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʀ'
-AddMapElement(caseUnfold(), "ʀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʀ'
-AddMapElement(caseUnfold(), "Ƨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƨ'
-AddMapElement(caseUnfold(), "ƨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƨ'
-AddMapElement(caseUnfold(), "Ʃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʃ'
-AddMapElement(caseUnfold(), "ʃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʃ'
-AddMapElement(caseUnfold(), "Ƭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƭ'
-AddMapElement(caseUnfold(), "ƭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƭ'
-AddMapElement(caseUnfold(), "Ʈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʈ'
-AddMapElement(caseUnfold(), "ʈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʈ'
-AddMapElement(caseUnfold(), "Ư")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ư'
-AddMapElement(caseUnfold(), "ư")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ư'
-AddMapElement(caseUnfold(), "Ʊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʊ'
-AddMapElement(caseUnfold(), "ʊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʊ'
-AddMapElement(caseUnfold(), "Ʋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʋ'
-AddMapElement(caseUnfold(), "ʋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʋ'
-AddMapElement(caseUnfold(), "Ƴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƴ'
-AddMapElement(caseUnfold(), "ƴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƴ'
-AddMapElement(caseUnfold(), "Ƶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƶ'
-AddMapElement(caseUnfold(), "ƶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƶ'
-AddMapElement(caseUnfold(), "Ʒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʒ'
-AddMapElement(caseUnfold(), "ʒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʒ'
-AddMapElement(caseUnfold(), "Ƹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƹ'
-AddMapElement(caseUnfold(), "ƹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƹ'
-AddMapElement(caseUnfold(), "Ƽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƽ'
-AddMapElement(caseUnfold(), "ƽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƽ'
-AddMapElement(caseUnfold(), "Ǆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǅ'
-AddMapElement(caseUnfold(), "ǆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǅ'
-AddMapElement(caseUnfold(), "ǅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǆ'
-AddMapElement(caseUnfold(), "Ǉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǉ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǈ'
-AddMapElement(caseUnfold(), "ǉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǉ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǈ'
-AddMapElement(caseUnfold(), "ǈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǉ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǉ'
-AddMapElement(caseUnfold(), "Ǌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǋ'
-AddMapElement(caseUnfold(), "ǌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǋ'
-AddMapElement(caseUnfold(), "ǋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǌ'
-AddMapElement(caseUnfold(), "Ǎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǎ'
-AddMapElement(caseUnfold(), "ǎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǎ'
-AddMapElement(caseUnfold(), "Ǐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǐ'
-AddMapElement(caseUnfold(), "ǐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǐ'
-AddMapElement(caseUnfold(), "Ǒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǒ'
-AddMapElement(caseUnfold(), "ǒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǒ'
-AddMapElement(caseUnfold(), "Ǔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǔ'
-AddMapElement(caseUnfold(), "ǔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǔ'
-AddMapElement(caseUnfold(), "Ǖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǖ'
-AddMapElement(caseUnfold(), "ǖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǖ'
-AddMapElement(caseUnfold(), "Ǘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǘ'
-AddMapElement(caseUnfold(), "ǘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǘ'
-AddMapElement(caseUnfold(), "Ǚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǚ'
-AddMapElement(caseUnfold(), "ǚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǚ'
-AddMapElement(caseUnfold(), "Ǜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǜ'
-AddMapElement(caseUnfold(), "ǜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǜ'
-AddMapElement(caseUnfold(), "Ǟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǟ'
-AddMapElement(caseUnfold(), "ǟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǟ'
-AddMapElement(caseUnfold(), "Ǡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǡ'
-AddMapElement(caseUnfold(), "ǡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǡ'
-AddMapElement(caseUnfold(), "Ǣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǣ'
-AddMapElement(caseUnfold(), "ǣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǣ'
-AddMapElement(caseUnfold(), "Ǥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǥ'
-AddMapElement(caseUnfold(), "ǥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǥ'
-AddMapElement(caseUnfold(), "Ǧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǧ'
-AddMapElement(caseUnfold(), "ǧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǧ'
-AddMapElement(caseUnfold(), "Ǩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǩ'
-AddMapElement(caseUnfold(), "ǩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǩ'
-AddMapElement(caseUnfold(), "Ǫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǫ'
-AddMapElement(caseUnfold(), "ǫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǫ'
-AddMapElement(caseUnfold(), "Ǭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǭ'
-AddMapElement(caseUnfold(), "ǭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǭ'
-AddMapElement(caseUnfold(), "Ǯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǯ'
-AddMapElement(caseUnfold(), "ǯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǯ'
-AddMapElement(caseUnfold(), "Ǳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǲ'
-AddMapElement(caseUnfold(), "ǳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǲ'
-AddMapElement(caseUnfold(), "ǲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǳ'
-AddMapElement(caseUnfold(), "Ǵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǵ'
-AddMapElement(caseUnfold(), "ǵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǵ'
-AddMapElement(caseUnfold(), "Ƕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƕ'
-AddMapElement(caseUnfold(), "ƕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƕ'
-AddMapElement(caseUnfold(), "Ƿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƿ'
-AddMapElement(caseUnfold(), "ƿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƿ'
-AddMapElement(caseUnfold(), "Ǹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǹ'
-AddMapElement(caseUnfold(), "ǹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǹ'
-AddMapElement(caseUnfold(), "Ǻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǻ'
-AddMapElement(caseUnfold(), "ǻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǻ'
-AddMapElement(caseUnfold(), "Ǽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǽ'
-AddMapElement(caseUnfold(), "ǽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǽ'
-AddMapElement(caseUnfold(), "Ǿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ǿ'
-AddMapElement(caseUnfold(), "ǿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ǿ'
-AddMapElement(caseUnfold(), "Ȁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȁ'
-AddMapElement(caseUnfold(), "ȁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȁ'
-AddMapElement(caseUnfold(), "Ȃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȃ'
-AddMapElement(caseUnfold(), "ȃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȃ'
-AddMapElement(caseUnfold(), "Ȅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȅ'
-AddMapElement(caseUnfold(), "ȅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȅ'
-AddMapElement(caseUnfold(), "Ȇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȇ'
-AddMapElement(caseUnfold(), "ȇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȇ'
-AddMapElement(caseUnfold(), "Ȉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȉ'
-AddMapElement(caseUnfold(), "ȉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȉ'
-AddMapElement(caseUnfold(), "Ȋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȋ'
-AddMapElement(caseUnfold(), "ȋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȋ'
-AddMapElement(caseUnfold(), "Ȍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȍ'
-AddMapElement(caseUnfold(), "ȍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȍ'
-AddMapElement(caseUnfold(), "Ȏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȏ'
-AddMapElement(caseUnfold(), "ȏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȏ'
-AddMapElement(caseUnfold(), "Ȑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȑ'
-AddMapElement(caseUnfold(), "ȑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȑ'
-AddMapElement(caseUnfold(), "Ȓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȓ'
-AddMapElement(caseUnfold(), "ȓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȓ'
-AddMapElement(caseUnfold(), "Ȕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȕ'
-AddMapElement(caseUnfold(), "ȕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȕ'
-AddMapElement(caseUnfold(), "Ȗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȗ'
-AddMapElement(caseUnfold(), "ȗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȗ'
-AddMapElement(caseUnfold(), "Ș")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ș'
-AddMapElement(caseUnfold(), "ș")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ș'
-AddMapElement(caseUnfold(), "Ț")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ț'
-AddMapElement(caseUnfold(), "ț")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ț'
-AddMapElement(caseUnfold(), "Ȝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȝ'
-AddMapElement(caseUnfold(), "ȝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȝ'
-AddMapElement(caseUnfold(), "Ȟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȟ'
-AddMapElement(caseUnfold(), "ȟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȟ'
-AddMapElement(caseUnfold(), "Ƞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƞ'
-AddMapElement(caseUnfold(), "ƞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƞ'
-AddMapElement(caseUnfold(), "Ȣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȣ'
-AddMapElement(caseUnfold(), "ȣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȣ'
-AddMapElement(caseUnfold(), "Ȥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȥ'
-AddMapElement(caseUnfold(), "ȥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȥ'
-AddMapElement(caseUnfold(), "Ȧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȧ'
-AddMapElement(caseUnfold(), "ȧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȧ'
-AddMapElement(caseUnfold(), "Ȩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȩ'
-AddMapElement(caseUnfold(), "ȩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȩ'
-AddMapElement(caseUnfold(), "Ȫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȫ'
-AddMapElement(caseUnfold(), "ȫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȫ'
-AddMapElement(caseUnfold(), "Ȭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȭ'
-AddMapElement(caseUnfold(), "ȭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȭ'
-AddMapElement(caseUnfold(), "Ȯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȯ'
-AddMapElement(caseUnfold(), "ȯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȯ'
-AddMapElement(caseUnfold(), "Ȱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȱ'
-AddMapElement(caseUnfold(), "ȱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȱ'
-AddMapElement(caseUnfold(), "Ȳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȳ'
-AddMapElement(caseUnfold(), "ȳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȳ'
-AddMapElement(caseUnfold(), "Ⱥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱥ'
-AddMapElement(caseUnfold(), "ⱥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱥ'
-AddMapElement(caseUnfold(), "Ȼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȼ'
-AddMapElement(caseUnfold(), "ȼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȼ'
-AddMapElement(caseUnfold(), "Ƚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƚ'
-AddMapElement(caseUnfold(), "ƚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƚ'
-AddMapElement(caseUnfold(), "Ⱦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱦ'
-AddMapElement(caseUnfold(), "ⱦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱦ'
-AddMapElement(caseUnfold(), "Ɂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɂ'
-AddMapElement(caseUnfold(), "ɂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɂ'
-AddMapElement(caseUnfold(), "Ƀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ƀ'
-AddMapElement(caseUnfold(), "ƀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ƀ'
-AddMapElement(caseUnfold(), "Ʉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʉ'
-AddMapElement(caseUnfold(), "ʉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʉ'
-AddMapElement(caseUnfold(), "Ʌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʌ'
-AddMapElement(caseUnfold(), "ʌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʌ'
-AddMapElement(caseUnfold(), "Ɇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɇ'
-AddMapElement(caseUnfold(), "ɇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɇ'
-AddMapElement(caseUnfold(), "Ɉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɉ'
-AddMapElement(caseUnfold(), "ɉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɉ'
-AddMapElement(caseUnfold(), "Ɋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɋ'
-AddMapElement(caseUnfold(), "ɋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɋ'
-AddMapElement(caseUnfold(), "Ɍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɍ'
-AddMapElement(caseUnfold(), "ɍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɍ'
-AddMapElement(caseUnfold(), "Ɏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɏ'
-AddMapElement(caseUnfold(), "ɏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɏ'
-AddMapElement(caseUnfold(), "ͅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ι'
-AddMapElement(caseUnfold(), "ι")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ι'
-AddMapElement(caseUnfold(), "ι")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ι'
-AddMapElement(caseUnfold(), "Ι")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ι'
-AddMapElement(caseUnfold(), "Ͱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͱ'
-AddMapElement(caseUnfold(), "ͱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͱ'
-AddMapElement(caseUnfold(), "Ͳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͳ'
-AddMapElement(caseUnfold(), "ͳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͳ'
-AddMapElement(caseUnfold(), "Ͷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͷ'
-AddMapElement(caseUnfold(), "ͷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͷ'
-AddMapElement(caseUnfold(), "Ϳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϳ'
-AddMapElement(caseUnfold(), "ϳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϳ'
-AddMapElement(caseUnfold(), "Ά")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ά'
-AddMapElement(caseUnfold(), "ά")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ά'
-AddMapElement(caseUnfold(), "Έ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'έ'
-AddMapElement(caseUnfold(), "έ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Έ'
-AddMapElement(caseUnfold(), "Ή")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ή'
-AddMapElement(caseUnfold(), "ή")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ή'
-AddMapElement(caseUnfold(), "Ί")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ί'
-AddMapElement(caseUnfold(), "ί")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ί'
-AddMapElement(caseUnfold(), "Ό")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ό'
-AddMapElement(caseUnfold(), "ό")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ό'
-AddMapElement(caseUnfold(), "Ύ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ύ'
-AddMapElement(caseUnfold(), "ύ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ύ'
-AddMapElement(caseUnfold(), "Ώ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ώ'
-AddMapElement(caseUnfold(), "ώ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ώ'
-AddMapElement(caseUnfold(), "Α")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'α'
-AddMapElement(caseUnfold(), "α")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Α'
-AddMapElement(caseUnfold(), "Β")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'β'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϐ'
-AddMapElement(caseUnfold(), "β")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Β'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϐ'
-AddMapElement(caseUnfold(), "ϐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Β'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'β'
-AddMapElement(caseUnfold(), "Γ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'γ'
-AddMapElement(caseUnfold(), "γ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Γ'
-AddMapElement(caseUnfold(), "Δ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'δ'
-AddMapElement(caseUnfold(), "δ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Δ'
-AddMapElement(caseUnfold(), "Ε")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ε'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϵ'
-AddMapElement(caseUnfold(), "ε")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ε'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϵ'
-AddMapElement(caseUnfold(), "ϵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ε'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ε'
-AddMapElement(caseUnfold(), "Ζ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ζ'
-AddMapElement(caseUnfold(), "ζ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ζ'
-AddMapElement(caseUnfold(), "Η")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'η'
-AddMapElement(caseUnfold(), "η")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Η'
-AddMapElement(caseUnfold(), "Θ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϴ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϑ'
-AddMapElement(caseUnfold(), "θ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϴ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϑ'
-AddMapElement(caseUnfold(), "ϴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϑ'
-AddMapElement(caseUnfold(), "ϑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'θ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϴ'
-AddMapElement(caseUnfold(), "Κ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'κ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϰ'
-AddMapElement(caseUnfold(), "κ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Κ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϰ'
-AddMapElement(caseUnfold(), "ϰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Κ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'κ'
-AddMapElement(caseUnfold(), "Λ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'λ'
-AddMapElement(caseUnfold(), "λ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Λ'
-AddMapElement(caseUnfold(), "Ν")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ν'
-AddMapElement(caseUnfold(), "ν")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ν'
-AddMapElement(caseUnfold(), "Ξ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ξ'
-AddMapElement(caseUnfold(), "ξ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ξ'
-AddMapElement(caseUnfold(), "Ο")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ο'
-AddMapElement(caseUnfold(), "ο")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ο'
-AddMapElement(caseUnfold(), "Π")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'π'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϖ'
-AddMapElement(caseUnfold(), "π")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Π'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϖ'
-AddMapElement(caseUnfold(), "ϖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Π'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'π'
-AddMapElement(caseUnfold(), "Ρ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ρ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϱ'
-AddMapElement(caseUnfold(), "ρ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ρ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϱ'
-AddMapElement(caseUnfold(), "ϱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ρ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ρ'
-AddMapElement(caseUnfold(), "Σ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'σ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ς'
-AddMapElement(caseUnfold(), "σ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Σ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ς'
-AddMapElement(caseUnfold(), "ς")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Σ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'σ'
-AddMapElement(caseUnfold(), "Τ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'τ'
-AddMapElement(caseUnfold(), "τ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Τ'
-AddMapElement(caseUnfold(), "Υ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'υ'
-AddMapElement(caseUnfold(), "υ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Υ'
-AddMapElement(caseUnfold(), "Φ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'φ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϕ'
-AddMapElement(caseUnfold(), "φ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Φ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϕ'
-AddMapElement(caseUnfold(), "ϕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Φ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'φ'
-AddMapElement(caseUnfold(), "Χ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'χ'
-AddMapElement(caseUnfold(), "χ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Χ'
-AddMapElement(caseUnfold(), "Ψ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ψ'
-AddMapElement(caseUnfold(), "ψ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ψ'
-AddMapElement(caseUnfold(), "Ω")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ω'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ω'
-AddMapElement(caseUnfold(), "ω")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ω'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ω'
-AddMapElement(caseUnfold(), "Ω")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ω'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ω'
-AddMapElement(caseUnfold(), "Ϊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϊ'
-AddMapElement(caseUnfold(), "ϊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϊ'
-AddMapElement(caseUnfold(), "Ϋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϋ'
-AddMapElement(caseUnfold(), "ϋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϋ'
-AddMapElement(caseUnfold(), "Ϗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϗ'
-AddMapElement(caseUnfold(), "ϗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϗ'
-AddMapElement(caseUnfold(), "Ϙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϙ'
-AddMapElement(caseUnfold(), "ϙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϙ'
-AddMapElement(caseUnfold(), "Ϛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϛ'
-AddMapElement(caseUnfold(), "ϛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϛ'
-AddMapElement(caseUnfold(), "Ϝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϝ'
-AddMapElement(caseUnfold(), "ϝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϝ'
-AddMapElement(caseUnfold(), "Ϟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϟ'
-AddMapElement(caseUnfold(), "ϟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϟ'
-AddMapElement(caseUnfold(), "Ϡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϡ'
-AddMapElement(caseUnfold(), "ϡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϡ'
-AddMapElement(caseUnfold(), "Ϣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϣ'
-AddMapElement(caseUnfold(), "ϣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϣ'
-AddMapElement(caseUnfold(), "Ϥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϥ'
-AddMapElement(caseUnfold(), "ϥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϥ'
-AddMapElement(caseUnfold(), "Ϧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϧ'
-AddMapElement(caseUnfold(), "ϧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϧ'
-AddMapElement(caseUnfold(), "Ϩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϩ'
-AddMapElement(caseUnfold(), "ϩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϩ'
-AddMapElement(caseUnfold(), "Ϫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϫ'
-AddMapElement(caseUnfold(), "ϫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϫ'
-AddMapElement(caseUnfold(), "Ϭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϭ'
-AddMapElement(caseUnfold(), "ϭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϭ'
-AddMapElement(caseUnfold(), "Ϯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϯ'
-AddMapElement(caseUnfold(), "ϯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϯ'
-AddMapElement(caseUnfold(), "Ϸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϸ'
-AddMapElement(caseUnfold(), "ϸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϸ'
-AddMapElement(caseUnfold(), "Ϲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϲ'
-AddMapElement(caseUnfold(), "ϲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϲ'
-AddMapElement(caseUnfold(), "Ϻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ϻ'
-AddMapElement(caseUnfold(), "ϻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ϻ'
-AddMapElement(caseUnfold(), "Ͻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͻ'
-AddMapElement(caseUnfold(), "ͻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͻ'
-AddMapElement(caseUnfold(), "Ͼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͼ'
-AddMapElement(caseUnfold(), "ͼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͼ'
-AddMapElement(caseUnfold(), "Ͽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ͽ'
-AddMapElement(caseUnfold(), "ͽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ͽ'
-AddMapElement(caseUnfold(), "Ѐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѐ'
-AddMapElement(caseUnfold(), "ѐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѐ'
-AddMapElement(caseUnfold(), "Ё")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ё'
-AddMapElement(caseUnfold(), "ё")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ё'
-AddMapElement(caseUnfold(), "Ђ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ђ'
-AddMapElement(caseUnfold(), "ђ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ђ'
-AddMapElement(caseUnfold(), "Ѓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѓ'
-AddMapElement(caseUnfold(), "ѓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѓ'
-AddMapElement(caseUnfold(), "Є")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'є'
-AddMapElement(caseUnfold(), "є")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Є'
-AddMapElement(caseUnfold(), "Ѕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѕ'
-AddMapElement(caseUnfold(), "ѕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѕ'
-AddMapElement(caseUnfold(), "І")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'і'
-AddMapElement(caseUnfold(), "і")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'І'
-AddMapElement(caseUnfold(), "Ї")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ї'
-AddMapElement(caseUnfold(), "ї")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ї'
-AddMapElement(caseUnfold(), "Ј")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ј'
-AddMapElement(caseUnfold(), "ј")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ј'
-AddMapElement(caseUnfold(), "Љ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'љ'
-AddMapElement(caseUnfold(), "љ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Љ'
-AddMapElement(caseUnfold(), "Њ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'њ'
-AddMapElement(caseUnfold(), "њ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Њ'
-AddMapElement(caseUnfold(), "Ћ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ћ'
-AddMapElement(caseUnfold(), "ћ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ћ'
-AddMapElement(caseUnfold(), "Ќ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ќ'
-AddMapElement(caseUnfold(), "ќ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ќ'
-AddMapElement(caseUnfold(), "Ѝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѝ'
-AddMapElement(caseUnfold(), "ѝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѝ'
-AddMapElement(caseUnfold(), "Ў")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ў'
-AddMapElement(caseUnfold(), "ў")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ў'
-AddMapElement(caseUnfold(), "Џ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'џ'
-AddMapElement(caseUnfold(), "џ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Џ'
-AddMapElement(caseUnfold(), "А")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'а'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ј'
-AddMapElement(caseUnfold(), "а")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'А'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ј'
-AddMapElement(caseUnfold(), "Ј")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'А'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'а'
-AddMapElement(caseUnfold(), "Б")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'б'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Љ'
-AddMapElement(caseUnfold(), "б")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Б'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Љ'
-AddMapElement(caseUnfold(), "Љ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Б'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'б'
-AddMapElement(caseUnfold(), "В")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'в'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Њ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲀ'
-AddMapElement(caseUnfold(), "в")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'В'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Њ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲀ'
-AddMapElement(caseUnfold(), "Њ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'В'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'в'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲀ'
-AddMapElement(caseUnfold(), "ᲀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'В'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'в'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Њ'
-AddMapElement(caseUnfold(), "Г")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'г'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ћ'
-AddMapElement(caseUnfold(), "г")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Г'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ћ'
-AddMapElement(caseUnfold(), "Ћ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Г'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'г'
-AddMapElement(caseUnfold(), "Д")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ќ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲁ'
-AddMapElement(caseUnfold(), "д")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ќ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲁ'
-AddMapElement(caseUnfold(), "Ќ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲁ'
-AddMapElement(caseUnfold(), "ᲁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'д'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ќ'
-AddMapElement(caseUnfold(), "Е")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'е'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѝ'
-AddMapElement(caseUnfold(), "е")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Е'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѝ'
-AddMapElement(caseUnfold(), "Ѝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Е'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'е'
-AddMapElement(caseUnfold(), "Ж")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ж'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ў'
-AddMapElement(caseUnfold(), "ж")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ж'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ў'
-AddMapElement(caseUnfold(), "Ў")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ж'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ж'
-AddMapElement(caseUnfold(), "З")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'з'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Џ'
-AddMapElement(caseUnfold(), "з")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'З'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Џ'
-AddMapElement(caseUnfold(), "Џ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'З'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'з'
-AddMapElement(caseUnfold(), "И")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'и'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'А'
-AddMapElement(caseUnfold(), "и")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'И'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'А'
-AddMapElement(caseUnfold(), "А")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'И'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'и'
-AddMapElement(caseUnfold(), "Й")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'й'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Б'
-AddMapElement(caseUnfold(), "й")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Й'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Б'
-AddMapElement(caseUnfold(), "Б")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Й'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'й'
-AddMapElement(caseUnfold(), "К")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'к'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'В'
-AddMapElement(caseUnfold(), "к")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'В'
-AddMapElement(caseUnfold(), "В")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'к'
-AddMapElement(caseUnfold(), "Л")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'л'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Г'
-AddMapElement(caseUnfold(), "л")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Л'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Г'
-AddMapElement(caseUnfold(), "Г")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Л'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'л'
-AddMapElement(caseUnfold(), "М")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'м'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Д'
-AddMapElement(caseUnfold(), "м")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'М'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Д'
-AddMapElement(caseUnfold(), "Д")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'М'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'м'
-AddMapElement(caseUnfold(), "Н")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'н'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Е'
-AddMapElement(caseUnfold(), "н")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Н'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Е'
-AddMapElement(caseUnfold(), "Е")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Н'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'н'
-AddMapElement(caseUnfold(), "О")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'о'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ж'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲂ'
-AddMapElement(caseUnfold(), "о")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'О'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ж'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲂ'
-AddMapElement(caseUnfold(), "Ж")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'О'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'о'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲂ'
-AddMapElement(caseUnfold(), "ᲂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'О'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'о'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ж'
-AddMapElement(caseUnfold(), "П")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'п'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'З'
-AddMapElement(caseUnfold(), "п")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'П'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'З'
-AddMapElement(caseUnfold(), "З")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'П'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'п'
-AddMapElement(caseUnfold(), "Р")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'р'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'И'
-AddMapElement(caseUnfold(), "р")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Р'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'И'
-AddMapElement(caseUnfold(), "И")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Р'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'р'
-AddMapElement(caseUnfold(), "С")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'с'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Й'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲃ'
-AddMapElement(caseUnfold(), "с")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Й'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲃ'
-AddMapElement(caseUnfold(), "Й")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'с'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲃ'
-AddMapElement(caseUnfold(), "ᲃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'с'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Й'
-AddMapElement(caseUnfold(), "Т")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲄ'
-AddMapElement(caseUnfold(), "т")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲄ'
-AddMapElement(caseUnfold(), "К")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲅ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲄ'
-AddMapElement(caseUnfold(), "ᲅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲄ'
-AddMapElement(caseUnfold(), "ᲄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'К'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲅ'
-AddMapElement(caseUnfold(), "У")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'у'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Л'
-AddMapElement(caseUnfold(), "у")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'У'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Л'
-AddMapElement(caseUnfold(), "Л")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'У'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'у'
-AddMapElement(caseUnfold(), "Ф")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ф'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'М'
-AddMapElement(caseUnfold(), "ф")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ф'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'М'
-AddMapElement(caseUnfold(), "М")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ф'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ф'
-AddMapElement(caseUnfold(), "Х")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'х'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Н'
-AddMapElement(caseUnfold(), "х")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Х'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Н'
-AddMapElement(caseUnfold(), "Н")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Х'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'х'
-AddMapElement(caseUnfold(), "Ц")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ц'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'О'
-AddMapElement(caseUnfold(), "ц")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ц'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'О'
-AddMapElement(caseUnfold(), "О")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ц'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ц'
-AddMapElement(caseUnfold(), "Ч")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ч'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'П'
-AddMapElement(caseUnfold(), "ч")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ч'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'П'
-AddMapElement(caseUnfold(), "П")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ч'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ч'
-AddMapElement(caseUnfold(), "Ш")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѐ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ш'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Р'
-AddMapElement(caseUnfold(), "Ѐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ш'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ш'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Р'
-AddMapElement(caseUnfold(), "ш")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ш'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѐ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Р'
-AddMapElement(caseUnfold(), "Р")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ш'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѐ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ш'
-AddMapElement(caseUnfold(), "Щ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ё'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'щ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddMapElement(caseUnfold(), "Ё")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Щ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'щ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddMapElement(caseUnfold(), "щ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Щ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ё'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'С'
-AddMapElement(caseUnfold(), "С")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Щ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ё'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'щ'
-AddMapElement(caseUnfold(), "Ъ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ђ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲆ'
-AddMapElement(caseUnfold(), "Ђ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲆ'
-AddMapElement(caseUnfold(), "ъ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ђ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲆ'
-AddMapElement(caseUnfold(), "Т")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ђ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲆ'
-AddMapElement(caseUnfold(), "ᲆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ђ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ъ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Т'
-AddMapElement(caseUnfold(), "Ы")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ы'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'У'
-AddMapElement(caseUnfold(), "Ѓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ы'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ы'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'У'
-AddMapElement(caseUnfold(), "ы")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ы'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'У'
-AddMapElement(caseUnfold(), "У")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ы'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ы'
-AddMapElement(caseUnfold(), "Ь")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Є'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ь'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ф'
-AddMapElement(caseUnfold(), "Є")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ь'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ь'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ф'
-AddMapElement(caseUnfold(), "ь")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ь'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Є'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ф'
-AddMapElement(caseUnfold(), "Ф")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ь'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Є'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ь'
-AddMapElement(caseUnfold(), "Э")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѕ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'э'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Х'
-AddMapElement(caseUnfold(), "Ѕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Э'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'э'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Х'
-AddMapElement(caseUnfold(), "э")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Э'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѕ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Х'
-AddMapElement(caseUnfold(), "Х")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Э'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѕ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'э'
-AddMapElement(caseUnfold(), "Ю")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'І'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ю'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ц'
-AddMapElement(caseUnfold(), "І")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ю'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ю'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ц'
-AddMapElement(caseUnfold(), "ю")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ю'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'І'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ц'
-AddMapElement(caseUnfold(), "Ц")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ю'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'І'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ю'
-AddMapElement(caseUnfold(), "Я")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ї'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'я'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ч'
-AddMapElement(caseUnfold(), "Ї")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Я'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'я'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ч'
-AddMapElement(caseUnfold(), "я")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Я'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ї'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ч'
-AddMapElement(caseUnfold(), "Ч")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Я'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ї'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'я'
-AddMapElement(caseUnfold(), "Ѡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѡ'
-AddMapElement(caseUnfold(), "ѡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѡ'
-AddMapElement(caseUnfold(), "Ѣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲇ'
-AddMapElement(caseUnfold(), "ѣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲇ'
-AddMapElement(caseUnfold(), "ᲇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѣ'
-AddMapElement(caseUnfold(), "Ѥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѥ'
-AddMapElement(caseUnfold(), "ѥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѥ'
-AddMapElement(caseUnfold(), "Ѧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѧ'
-AddMapElement(caseUnfold(), "ѧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѧ'
-AddMapElement(caseUnfold(), "Ѩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѩ'
-AddMapElement(caseUnfold(), "ѩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѩ'
-AddMapElement(caseUnfold(), "Ѫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѫ'
-AddMapElement(caseUnfold(), "ѫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѫ'
-AddMapElement(caseUnfold(), "Ѭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѭ'
-AddMapElement(caseUnfold(), "ѭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѭ'
-AddMapElement(caseUnfold(), "Ѯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѯ'
-AddMapElement(caseUnfold(), "ѯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѯ'
-AddMapElement(caseUnfold(), "Ѱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѱ'
-AddMapElement(caseUnfold(), "ѱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѱ'
-AddMapElement(caseUnfold(), "Ѳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѳ'
-AddMapElement(caseUnfold(), "ѳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѳ'
-AddMapElement(caseUnfold(), "Ѵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѵ'
-AddMapElement(caseUnfold(), "ѵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѵ'
-AddMapElement(caseUnfold(), "Ѷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѷ'
-AddMapElement(caseUnfold(), "ѷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѷ'
-AddMapElement(caseUnfold(), "Ѹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѹ'
-AddMapElement(caseUnfold(), "ѹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѹ'
-AddMapElement(caseUnfold(), "Ѻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѻ'
-AddMapElement(caseUnfold(), "ѻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѻ'
-AddMapElement(caseUnfold(), "Ѽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѽ'
-AddMapElement(caseUnfold(), "ѽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѽ'
-AddMapElement(caseUnfold(), "Ѿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ѿ'
-AddMapElement(caseUnfold(), "ѿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ѿ'
-AddMapElement(caseUnfold(), "Ҁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҁ'
-AddMapElement(caseUnfold(), "ҁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҁ'
-AddMapElement(caseUnfold(), "Ҋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҋ'
-AddMapElement(caseUnfold(), "ҋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҋ'
-AddMapElement(caseUnfold(), "Ҍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҍ'
-AddMapElement(caseUnfold(), "ҍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҍ'
-AddMapElement(caseUnfold(), "Ҏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҏ'
-AddMapElement(caseUnfold(), "ҏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҏ'
-AddMapElement(caseUnfold(), "Ґ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ґ'
-AddMapElement(caseUnfold(), "ґ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ґ'
-AddMapElement(caseUnfold(), "Ғ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ғ'
-AddMapElement(caseUnfold(), "ғ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ғ'
-AddMapElement(caseUnfold(), "Ҕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҕ'
-AddMapElement(caseUnfold(), "ҕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҕ'
-AddMapElement(caseUnfold(), "Җ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'җ'
-AddMapElement(caseUnfold(), "җ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Җ'
-AddMapElement(caseUnfold(), "Ҙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҙ'
-AddMapElement(caseUnfold(), "ҙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҙ'
-AddMapElement(caseUnfold(), "Қ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'қ'
-AddMapElement(caseUnfold(), "қ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Қ'
-AddMapElement(caseUnfold(), "Ҝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҝ'
-AddMapElement(caseUnfold(), "ҝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҝ'
-AddMapElement(caseUnfold(), "Ҟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҟ'
-AddMapElement(caseUnfold(), "ҟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҟ'
-AddMapElement(caseUnfold(), "Ҡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҡ'
-AddMapElement(caseUnfold(), "ҡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҡ'
-AddMapElement(caseUnfold(), "Ң")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ң'
-AddMapElement(caseUnfold(), "ң")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ң'
-AddMapElement(caseUnfold(), "Ҥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҥ'
-AddMapElement(caseUnfold(), "ҥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҥ'
-AddMapElement(caseUnfold(), "Ҧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҧ'
-AddMapElement(caseUnfold(), "ҧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҧ'
-AddMapElement(caseUnfold(), "Ҩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҩ'
-AddMapElement(caseUnfold(), "ҩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҩ'
-AddMapElement(caseUnfold(), "Ҫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҫ'
-AddMapElement(caseUnfold(), "ҫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҫ'
-AddMapElement(caseUnfold(), "Ҭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҭ'
-AddMapElement(caseUnfold(), "ҭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҭ'
-AddMapElement(caseUnfold(), "Ү")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ү'
-AddMapElement(caseUnfold(), "ү")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ү'
-AddMapElement(caseUnfold(), "Ұ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ұ'
-AddMapElement(caseUnfold(), "ұ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ұ'
-AddMapElement(caseUnfold(), "Ҳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҳ'
-AddMapElement(caseUnfold(), "ҳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҳ'
-AddMapElement(caseUnfold(), "Ҵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҵ'
-AddMapElement(caseUnfold(), "ҵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҵ'
-AddMapElement(caseUnfold(), "Ҷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҷ'
-AddMapElement(caseUnfold(), "ҷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҷ'
-AddMapElement(caseUnfold(), "Ҹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҹ'
-AddMapElement(caseUnfold(), "ҹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҹ'
-AddMapElement(caseUnfold(), "Һ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'һ'
-AddMapElement(caseUnfold(), "һ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Һ'
-AddMapElement(caseUnfold(), "Ҽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҽ'
-AddMapElement(caseUnfold(), "ҽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҽ'
-AddMapElement(caseUnfold(), "Ҿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҿ'
-AddMapElement(caseUnfold(), "ҿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҿ'
-AddMapElement(caseUnfold(), "Ӏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӏ'
-AddMapElement(caseUnfold(), "ӏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӏ'
-AddMapElement(caseUnfold(), "Ӂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӂ'
-AddMapElement(caseUnfold(), "ӂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӂ'
-AddMapElement(caseUnfold(), "Ӄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӄ'
-AddMapElement(caseUnfold(), "ӄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӄ'
-AddMapElement(caseUnfold(), "Ӆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӆ'
-AddMapElement(caseUnfold(), "ӆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӆ'
-AddMapElement(caseUnfold(), "Ӈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӈ'
-AddMapElement(caseUnfold(), "ӈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӈ'
-AddMapElement(caseUnfold(), "Ӊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӊ'
-AddMapElement(caseUnfold(), "ӊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӊ'
-AddMapElement(caseUnfold(), "Ӌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӌ'
-AddMapElement(caseUnfold(), "ӌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӌ'
-AddMapElement(caseUnfold(), "Ӎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӎ'
-AddMapElement(caseUnfold(), "ӎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӎ'
-AddMapElement(caseUnfold(), "Ӑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӑ'
-AddMapElement(caseUnfold(), "ӑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӑ'
-AddMapElement(caseUnfold(), "Ӓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӓ'
-AddMapElement(caseUnfold(), "ӓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӓ'
-AddMapElement(caseUnfold(), "Ӕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӕ'
-AddMapElement(caseUnfold(), "ӕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӕ'
-AddMapElement(caseUnfold(), "Ӗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӗ'
-AddMapElement(caseUnfold(), "ӗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӗ'
-AddMapElement(caseUnfold(), "Ә")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ұ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ә'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ұ'
-AddMapElement(caseUnfold(), "Ұ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ә'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ә'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ұ'
-AddMapElement(caseUnfold(), "ә")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ә'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ұ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ұ'
-AddMapElement(caseUnfold(), "ұ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ә'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ұ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ә'
-AddMapElement(caseUnfold(), "Ӛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӛ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҳ'
-AddMapElement(caseUnfold(), "Ҳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӛ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӛ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҳ'
-AddMapElement(caseUnfold(), "ӛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӛ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҳ'
-AddMapElement(caseUnfold(), "ҳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӛ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӛ'
-AddMapElement(caseUnfold(), "Ӝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӝ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҵ'
-AddMapElement(caseUnfold(), "Ҵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӝ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӝ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҵ'
-AddMapElement(caseUnfold(), "ӝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӝ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҵ'
-AddMapElement(caseUnfold(), "ҵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӝ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӝ'
-AddMapElement(caseUnfold(), "Ӟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӟ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҷ'
-AddMapElement(caseUnfold(), "Ҷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӟ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӟ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҷ'
-AddMapElement(caseUnfold(), "ӟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӟ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҷ'
-AddMapElement(caseUnfold(), "ҷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӟ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӟ'
-AddMapElement(caseUnfold(), "Ӡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҹ'
-AddMapElement(caseUnfold(), "Ҹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҹ'
-AddMapElement(caseUnfold(), "ӡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҹ'
-AddMapElement(caseUnfold(), "ҹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӡ'
-AddMapElement(caseUnfold(), "Ӣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Һ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'һ'
-AddMapElement(caseUnfold(), "Һ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'һ'
-AddMapElement(caseUnfold(), "ӣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Һ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'һ'
-AddMapElement(caseUnfold(), "һ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӣ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Һ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӣ'
-AddMapElement(caseUnfold(), "Ӥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҽ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӥ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҽ'
-AddMapElement(caseUnfold(), "Ҽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӥ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӥ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҽ'
-AddMapElement(caseUnfold(), "ӥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӥ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҽ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҽ'
-AddMapElement(caseUnfold(), "ҽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӥ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҽ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӥ'
-AddMapElement(caseUnfold(), "Ӧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҿ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӧ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҿ'
-AddMapElement(caseUnfold(), "Ҿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӧ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӧ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҿ'
-AddMapElement(caseUnfold(), "ӧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӧ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҿ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ҿ'
-AddMapElement(caseUnfold(), "ҿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӧ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ҿ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӧ'
-AddMapElement(caseUnfold(), "Ө")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӏ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ө'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӂ'
-AddMapElement(caseUnfold(), "Ӏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ө'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ө'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӂ'
-AddMapElement(caseUnfold(), "ө")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ө'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӏ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӂ'
-AddMapElement(caseUnfold(), "Ӂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ө'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӏ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ө'
-AddMapElement(caseUnfold(), "Ӫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӂ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӫ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӄ'
-AddMapElement(caseUnfold(), "ӂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӫ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӫ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӄ'
-AddMapElement(caseUnfold(), "ӫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӫ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӂ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӄ'
-AddMapElement(caseUnfold(), "Ӄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӫ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӂ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӫ'
-AddMapElement(caseUnfold(), "Ӭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӄ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӭ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӆ'
-AddMapElement(caseUnfold(), "ӄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӭ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӭ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӆ'
-AddMapElement(caseUnfold(), "ӭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӭ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӄ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӆ'
-AddMapElement(caseUnfold(), "Ӆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӭ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӄ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӭ'
-AddMapElement(caseUnfold(), "Ӯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӯ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӈ'
-AddMapElement(caseUnfold(), "ӆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӯ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӯ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӈ'
-AddMapElement(caseUnfold(), "ӯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӯ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӈ'
-AddMapElement(caseUnfold(), "Ӈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӯ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӆ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӯ'
-AddMapElement(caseUnfold(), "Ӱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӈ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӱ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӊ'
-AddMapElement(caseUnfold(), "ӈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӱ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӱ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӊ'
-AddMapElement(caseUnfold(), "ӱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӱ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӈ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӊ'
-AddMapElement(caseUnfold(), "Ӊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӱ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӈ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӱ'
-AddMapElement(caseUnfold(), "Ӳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӊ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӌ'
-AddMapElement(caseUnfold(), "ӊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӌ'
-AddMapElement(caseUnfold(), "ӳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӊ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӌ'
-AddMapElement(caseUnfold(), "Ӌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӳ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӊ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӳ'
-AddMapElement(caseUnfold(), "Ӵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӎ'
-AddMapElement(caseUnfold(), "ӌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӎ'
-AddMapElement(caseUnfold(), "ӵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӎ'
-AddMapElement(caseUnfold(), "Ӎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӵ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӌ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӵ'
-AddMapElement(caseUnfold(), "Ӷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӎ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӏ'
-AddMapElement(caseUnfold(), "ӎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӏ'
-AddMapElement(caseUnfold(), "ӷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӎ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӏ'
-AddMapElement(caseUnfold(), "ӏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӷ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӎ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӷ'
-AddMapElement(caseUnfold(), "Ӹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӑ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӑ'
-AddMapElement(caseUnfold(), "Ӑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӑ'
-AddMapElement(caseUnfold(), "ӹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӑ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӑ'
-AddMapElement(caseUnfold(), "ӑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӹ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӑ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӹ'
-AddMapElement(caseUnfold(), "Ӻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӻ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӓ'
-AddMapElement(caseUnfold(), "Ӓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӻ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӻ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӓ'
-AddMapElement(caseUnfold(), "ӻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӻ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӓ'
-AddMapElement(caseUnfold(), "ӓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӻ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӓ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӻ'
-AddMapElement(caseUnfold(), "Ӽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӽ'
-AddMapElement(caseUnfold(), "ӽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӽ'
-AddMapElement(caseUnfold(), "Ӿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ӿ'
-AddMapElement(caseUnfold(), "ӿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ӿ'
-AddMapElement(caseUnfold(), "Ԁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԁ'
-AddMapElement(caseUnfold(), "ԁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԁ'
-AddMapElement(caseUnfold(), "Ԃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԃ'
-AddMapElement(caseUnfold(), "ԃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԃ'
-AddMapElement(caseUnfold(), "Ԅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԅ'
-AddMapElement(caseUnfold(), "ԅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԅ'
-AddMapElement(caseUnfold(), "Ԇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԇ'
-AddMapElement(caseUnfold(), "ԇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԇ'
-AddMapElement(caseUnfold(), "Ԉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԉ'
-AddMapElement(caseUnfold(), "ԉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԉ'
-AddMapElement(caseUnfold(), "Ԋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԋ'
-AddMapElement(caseUnfold(), "ԋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԋ'
-AddMapElement(caseUnfold(), "Ԍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԍ'
-AddMapElement(caseUnfold(), "ԍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԍ'
-AddMapElement(caseUnfold(), "Ԏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԏ'
-AddMapElement(caseUnfold(), "ԏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԏ'
-AddMapElement(caseUnfold(), "Ԑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԑ'
-AddMapElement(caseUnfold(), "ԑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԑ'
-AddMapElement(caseUnfold(), "Ԓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԓ'
-AddMapElement(caseUnfold(), "ԓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԓ'
-AddMapElement(caseUnfold(), "Ԕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԕ'
-AddMapElement(caseUnfold(), "ԕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԕ'
-AddMapElement(caseUnfold(), "Ԗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԗ'
-AddMapElement(caseUnfold(), "ԗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԗ'
-AddMapElement(caseUnfold(), "Ԙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԙ'
-AddMapElement(caseUnfold(), "ԙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԙ'
-AddMapElement(caseUnfold(), "Ԛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԛ'
-AddMapElement(caseUnfold(), "ԛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԛ'
-AddMapElement(caseUnfold(), "Ԝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԝ'
-AddMapElement(caseUnfold(), "ԝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԝ'
-AddMapElement(caseUnfold(), "Ԟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԟ'
-AddMapElement(caseUnfold(), "ԟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԟ'
-AddMapElement(caseUnfold(), "Ԡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԡ'
-AddMapElement(caseUnfold(), "ԡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԡ'
-AddMapElement(caseUnfold(), "Ԣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԣ'
-AddMapElement(caseUnfold(), "ԣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԣ'
-AddMapElement(caseUnfold(), "Ԥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԥ'
-AddMapElement(caseUnfold(), "ԥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԥ'
-AddMapElement(caseUnfold(), "Ԧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԧ'
-AddMapElement(caseUnfold(), "ԧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԧ'
-AddMapElement(caseUnfold(), "Ԩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԩ'
-AddMapElement(caseUnfold(), "ԩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԩ'
-AddMapElement(caseUnfold(), "Ԫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԫ'
-AddMapElement(caseUnfold(), "ԫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԫ'
-AddMapElement(caseUnfold(), "Ԭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԭ'
-AddMapElement(caseUnfold(), "ԭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԭ'
-AddMapElement(caseUnfold(), "Ԯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ԯ'
-AddMapElement(caseUnfold(), "ԯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ԯ'
-AddMapElement(caseUnfold(), "Ա")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ա'
-AddMapElement(caseUnfold(), "ա")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ա'
-AddMapElement(caseUnfold(), "Բ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'բ'
-AddMapElement(caseUnfold(), "բ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Բ'
-AddMapElement(caseUnfold(), "Գ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'գ'
-AddMapElement(caseUnfold(), "գ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Գ'
-AddMapElement(caseUnfold(), "Դ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'դ'
-AddMapElement(caseUnfold(), "դ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Դ'
-AddMapElement(caseUnfold(), "Ե")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ե'
-AddMapElement(caseUnfold(), "ե")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ե'
-AddMapElement(caseUnfold(), "Զ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'զ'
-AddMapElement(caseUnfold(), "զ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Զ'
-AddMapElement(caseUnfold(), "Է")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'է'
-AddMapElement(caseUnfold(), "է")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Է'
-AddMapElement(caseUnfold(), "Ը")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ը'
-AddMapElement(caseUnfold(), "ը")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ը'
-AddMapElement(caseUnfold(), "Թ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'թ'
-AddMapElement(caseUnfold(), "թ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Թ'
-AddMapElement(caseUnfold(), "Ժ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ժ'
-AddMapElement(caseUnfold(), "ժ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ժ'
-AddMapElement(caseUnfold(), "Ի")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ի'
-AddMapElement(caseUnfold(), "ի")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ի'
-AddMapElement(caseUnfold(), "Լ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'լ'
-AddMapElement(caseUnfold(), "լ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Լ'
-AddMapElement(caseUnfold(), "Խ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'խ'
-AddMapElement(caseUnfold(), "խ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Խ'
-AddMapElement(caseUnfold(), "Ծ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ծ'
-AddMapElement(caseUnfold(), "ծ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ծ'
-AddMapElement(caseUnfold(), "Կ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'կ'
-AddMapElement(caseUnfold(), "կ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Կ'
-AddMapElement(caseUnfold(), "Հ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'հ'
-AddMapElement(caseUnfold(), "հ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Հ'
-AddMapElement(caseUnfold(), "Ձ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ձ'
-AddMapElement(caseUnfold(), "ձ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ձ'
-AddMapElement(caseUnfold(), "Ղ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ղ'
-AddMapElement(caseUnfold(), "ղ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ղ'
-AddMapElement(caseUnfold(), "Ճ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ճ'
-AddMapElement(caseUnfold(), "ճ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ճ'
-AddMapElement(caseUnfold(), "Մ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'մ'
-AddMapElement(caseUnfold(), "մ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Մ'
-AddMapElement(caseUnfold(), "Յ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'յ'
-AddMapElement(caseUnfold(), "յ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Յ'
-AddMapElement(caseUnfold(), "Ն")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ն'
-AddMapElement(caseUnfold(), "ն")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ն'
-AddMapElement(caseUnfold(), "Շ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'շ'
-AddMapElement(caseUnfold(), "շ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Շ'
-AddMapElement(caseUnfold(), "Ո")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ո'
-AddMapElement(caseUnfold(), "ո")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ո'
-AddMapElement(caseUnfold(), "Չ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'չ'
-AddMapElement(caseUnfold(), "չ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Չ'
-AddMapElement(caseUnfold(), "Պ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'պ'
-AddMapElement(caseUnfold(), "պ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Պ'
-AddMapElement(caseUnfold(), "Ջ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ջ'
-AddMapElement(caseUnfold(), "ջ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ջ'
-AddMapElement(caseUnfold(), "Ռ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ռ'
-AddMapElement(caseUnfold(), "ռ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ռ'
-AddMapElement(caseUnfold(), "Ս")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ս'
-AddMapElement(caseUnfold(), "ս")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ս'
-AddMapElement(caseUnfold(), "Վ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'վ'
-AddMapElement(caseUnfold(), "վ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Վ'
-AddMapElement(caseUnfold(), "Տ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'տ'
-AddMapElement(caseUnfold(), "տ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Տ'
-AddMapElement(caseUnfold(), "Ր")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ր'
-AddMapElement(caseUnfold(), "ր")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ր'
-AddMapElement(caseUnfold(), "Ց")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ց'
-AddMapElement(caseUnfold(), "ց")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ց'
-AddMapElement(caseUnfold(), "Ւ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ւ'
-AddMapElement(caseUnfold(), "ւ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ւ'
-AddMapElement(caseUnfold(), "Փ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'փ'
-AddMapElement(caseUnfold(), "փ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Փ'
-AddMapElement(caseUnfold(), "Ք")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ք'
-AddMapElement(caseUnfold(), "ք")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ք'
-AddMapElement(caseUnfold(), "Օ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'օ'
-AddMapElement(caseUnfold(), "օ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Օ'
-AddMapElement(caseUnfold(), "Ֆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֆ'
-AddMapElement(caseUnfold(), "ֆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ֆ'
-AddMapElement(caseUnfold(), "Ⴀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴀ'
-AddMapElement(caseUnfold(), "ⴀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴀ'
-AddMapElement(caseUnfold(), "Ⴁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴁ'
-AddMapElement(caseUnfold(), "ⴁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴁ'
-AddMapElement(caseUnfold(), "Ⴂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴂ'
-AddMapElement(caseUnfold(), "ⴂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴂ'
-AddMapElement(caseUnfold(), "Ⴃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴃ'
-AddMapElement(caseUnfold(), "ⴃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴃ'
-AddMapElement(caseUnfold(), "Ⴄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴄ'
-AddMapElement(caseUnfold(), "ⴄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴄ'
-AddMapElement(caseUnfold(), "Ⴅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴅ'
-AddMapElement(caseUnfold(), "ⴅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴅ'
-AddMapElement(caseUnfold(), "Ⴆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴆ'
-AddMapElement(caseUnfold(), "ⴆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴆ'
-AddMapElement(caseUnfold(), "Ⴇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴇ'
-AddMapElement(caseUnfold(), "ⴇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴇ'
-AddMapElement(caseUnfold(), "Ⴈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴈ'
-AddMapElement(caseUnfold(), "ⴈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴈ'
-AddMapElement(caseUnfold(), "Ⴉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴉ'
-AddMapElement(caseUnfold(), "ⴉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴉ'
-AddMapElement(caseUnfold(), "Ⴊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴊ'
-AddMapElement(caseUnfold(), "ⴊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴊ'
-AddMapElement(caseUnfold(), "Ⴋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴋ'
-AddMapElement(caseUnfold(), "ⴋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴋ'
-AddMapElement(caseUnfold(), "Ⴌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴌ'
-AddMapElement(caseUnfold(), "ⴌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴌ'
-AddMapElement(caseUnfold(), "Ⴍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴍ'
-AddMapElement(caseUnfold(), "ⴍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴍ'
-AddMapElement(caseUnfold(), "Ⴎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴎ'
-AddMapElement(caseUnfold(), "ⴎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴎ'
-AddMapElement(caseUnfold(), "Ⴏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴏ'
-AddMapElement(caseUnfold(), "ⴏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴏ'
-AddMapElement(caseUnfold(), "Ⴐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴐ'
-AddMapElement(caseUnfold(), "ⴐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴐ'
-AddMapElement(caseUnfold(), "Ⴑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴑ'
-AddMapElement(caseUnfold(), "ⴑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴑ'
-AddMapElement(caseUnfold(), "Ⴒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴒ'
-AddMapElement(caseUnfold(), "ⴒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴒ'
-AddMapElement(caseUnfold(), "Ⴓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴓ'
-AddMapElement(caseUnfold(), "ⴓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴓ'
-AddMapElement(caseUnfold(), "Ⴔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴔ'
-AddMapElement(caseUnfold(), "ⴔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴔ'
-AddMapElement(caseUnfold(), "Ⴕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴕ'
-AddMapElement(caseUnfold(), "ⴕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴕ'
-AddMapElement(caseUnfold(), "Ⴖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴖ'
-AddMapElement(caseUnfold(), "ⴖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴖ'
-AddMapElement(caseUnfold(), "Ⴗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴗ'
-AddMapElement(caseUnfold(), "ⴗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴗ'
-AddMapElement(caseUnfold(), "Ⴘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴘ'
-AddMapElement(caseUnfold(), "ⴘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴘ'
-AddMapElement(caseUnfold(), "Ⴙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴙ'
-AddMapElement(caseUnfold(), "ⴙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴙ'
-AddMapElement(caseUnfold(), "Ⴚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴚ'
-AddMapElement(caseUnfold(), "ⴚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴚ'
-AddMapElement(caseUnfold(), "Ⴛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴛ'
-AddMapElement(caseUnfold(), "ⴛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴛ'
-AddMapElement(caseUnfold(), "Ⴜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴜ'
-AddMapElement(caseUnfold(), "ⴜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴜ'
-AddMapElement(caseUnfold(), "Ⴝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴝ'
-AddMapElement(caseUnfold(), "ⴝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴝ'
-AddMapElement(caseUnfold(), "Ⴞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴞ'
-AddMapElement(caseUnfold(), "ⴞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴞ'
-AddMapElement(caseUnfold(), "Ⴟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴟ'
-AddMapElement(caseUnfold(), "ⴟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴟ'
-AddMapElement(caseUnfold(), "Ⴠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴠ'
-AddMapElement(caseUnfold(), "ⴠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴠ'
-AddMapElement(caseUnfold(), "Ⴡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴡ'
-AddMapElement(caseUnfold(), "ⴡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴡ'
-AddMapElement(caseUnfold(), "Ⴢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴢ'
-AddMapElement(caseUnfold(), "ⴢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴢ'
-AddMapElement(caseUnfold(), "Ⴣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴣ'
-AddMapElement(caseUnfold(), "ⴣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴣ'
-AddMapElement(caseUnfold(), "Ⴤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴤ'
-AddMapElement(caseUnfold(), "ⴤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴤ'
-AddMapElement(caseUnfold(), "Ⴥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴥ'
-AddMapElement(caseUnfold(), "ⴥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴥ'
-AddMapElement(caseUnfold(), "Ⴧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴧ'
-AddMapElement(caseUnfold(), "ⴧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴧ'
-AddMapElement(caseUnfold(), "Ⴭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⴭ'
-AddMapElement(caseUnfold(), "ⴭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⴭ'
-AddMapElement(caseUnfold(), "ᏸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏸ'
-AddMapElement(caseUnfold(), "Ᏸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏸ'
-AddMapElement(caseUnfold(), "ᏹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏹ'
-AddMapElement(caseUnfold(), "Ᏹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏹ'
-AddMapElement(caseUnfold(), "ᏺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏺ'
-AddMapElement(caseUnfold(), "Ᏺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏺ'
-AddMapElement(caseUnfold(), "ᏻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏻ'
-AddMapElement(caseUnfold(), "Ᏻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏻ'
-AddMapElement(caseUnfold(), "ᏼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏼ'
-AddMapElement(caseUnfold(), "Ᏼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏼ'
-AddMapElement(caseUnfold(), "ᏽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᏽ'
-AddMapElement(caseUnfold(), "Ᏽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᏽ'
-AddMapElement(caseUnfold(), "ᲈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙋ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙋ'
-AddMapElement(caseUnfold(), "ꙋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲈ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙋ'
-AddMapElement(caseUnfold(), "Ꙋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᲈ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙋ'
-AddMapElement(caseUnfold(), "Ა")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ა'
-AddMapElement(caseUnfold(), "ა")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ა'
-AddMapElement(caseUnfold(), "Ბ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ბ'
-AddMapElement(caseUnfold(), "ბ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ბ'
-AddMapElement(caseUnfold(), "Გ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'გ'
-AddMapElement(caseUnfold(), "გ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Გ'
-AddMapElement(caseUnfold(), "Დ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'დ'
-AddMapElement(caseUnfold(), "დ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Დ'
-AddMapElement(caseUnfold(), "Ე")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ე'
-AddMapElement(caseUnfold(), "ე")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ე'
-AddMapElement(caseUnfold(), "Ვ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ვ'
-AddMapElement(caseUnfold(), "ვ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ვ'
-AddMapElement(caseUnfold(), "Ზ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ზ'
-AddMapElement(caseUnfold(), "ზ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ზ'
-AddMapElement(caseUnfold(), "Თ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'თ'
-AddMapElement(caseUnfold(), "თ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Თ'
-AddMapElement(caseUnfold(), "Ი")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ი'
-AddMapElement(caseUnfold(), "ი")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ი'
-AddMapElement(caseUnfold(), "Კ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'კ'
-AddMapElement(caseUnfold(), "კ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Კ'
-AddMapElement(caseUnfold(), "Ლ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ლ'
-AddMapElement(caseUnfold(), "ლ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ლ'
-AddMapElement(caseUnfold(), "Მ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'მ'
-AddMapElement(caseUnfold(), "მ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Მ'
-AddMapElement(caseUnfold(), "Ნ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ნ'
-AddMapElement(caseUnfold(), "ნ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ნ'
-AddMapElement(caseUnfold(), "Ო")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ო'
-AddMapElement(caseUnfold(), "ო")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ო'
-AddMapElement(caseUnfold(), "Პ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'პ'
-AddMapElement(caseUnfold(), "პ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Პ'
-AddMapElement(caseUnfold(), "Ჟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჟ'
-AddMapElement(caseUnfold(), "ჟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჟ'
-AddMapElement(caseUnfold(), "Რ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'რ'
-AddMapElement(caseUnfold(), "რ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Რ'
-AddMapElement(caseUnfold(), "Ს")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ს'
-AddMapElement(caseUnfold(), "ს")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ს'
-AddMapElement(caseUnfold(), "Ტ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ტ'
-AddMapElement(caseUnfold(), "ტ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ტ'
-AddMapElement(caseUnfold(), "Უ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'უ'
-AddMapElement(caseUnfold(), "უ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Უ'
-AddMapElement(caseUnfold(), "Ფ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ფ'
-AddMapElement(caseUnfold(), "ფ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ფ'
-AddMapElement(caseUnfold(), "Ქ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ქ'
-AddMapElement(caseUnfold(), "ქ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ქ'
-AddMapElement(caseUnfold(), "Ღ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ღ'
-AddMapElement(caseUnfold(), "ღ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ღ'
-AddMapElement(caseUnfold(), "Ყ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ყ'
-AddMapElement(caseUnfold(), "ყ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ყ'
-AddMapElement(caseUnfold(), "Შ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'შ'
-AddMapElement(caseUnfold(), "შ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Შ'
-AddMapElement(caseUnfold(), "Ჩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჩ'
-AddMapElement(caseUnfold(), "ჩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჩ'
-AddMapElement(caseUnfold(), "Ც")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ც'
-AddMapElement(caseUnfold(), "ც")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ც'
-AddMapElement(caseUnfold(), "Ძ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ძ'
-AddMapElement(caseUnfold(), "ძ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ძ'
-AddMapElement(caseUnfold(), "Წ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'წ'
-AddMapElement(caseUnfold(), "წ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Წ'
-AddMapElement(caseUnfold(), "Ჭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჭ'
-AddMapElement(caseUnfold(), "ჭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჭ'
-AddMapElement(caseUnfold(), "Ხ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ხ'
-AddMapElement(caseUnfold(), "ხ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ხ'
-AddMapElement(caseUnfold(), "Ჯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჯ'
-AddMapElement(caseUnfold(), "ჯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჯ'
-AddMapElement(caseUnfold(), "Ჰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჰ'
-AddMapElement(caseUnfold(), "ჰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჰ'
-AddMapElement(caseUnfold(), "Ჱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჱ'
-AddMapElement(caseUnfold(), "ჱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჱ'
-AddMapElement(caseUnfold(), "Ჲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჲ'
-AddMapElement(caseUnfold(), "ჲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჲ'
-AddMapElement(caseUnfold(), "Ჳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჳ'
-AddMapElement(caseUnfold(), "ჳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჳ'
-AddMapElement(caseUnfold(), "Ჴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჴ'
-AddMapElement(caseUnfold(), "ჴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჴ'
-AddMapElement(caseUnfold(), "Ჵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჵ'
-AddMapElement(caseUnfold(), "ჵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჵ'
-AddMapElement(caseUnfold(), "Ჶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჶ'
-AddMapElement(caseUnfold(), "ჶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჶ'
-AddMapElement(caseUnfold(), "Ჷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჷ'
-AddMapElement(caseUnfold(), "ჷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჷ'
-AddMapElement(caseUnfold(), "Ჸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჸ'
-AddMapElement(caseUnfold(), "ჸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჸ'
-AddMapElement(caseUnfold(), "Ჹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჹ'
-AddMapElement(caseUnfold(), "ჹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჹ'
-AddMapElement(caseUnfold(), "Ჺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჺ'
-AddMapElement(caseUnfold(), "ჺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჺ'
-AddMapElement(caseUnfold(), "Ჽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჽ'
-AddMapElement(caseUnfold(), "ჽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჽ'
-AddMapElement(caseUnfold(), "Ჾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჾ'
-AddMapElement(caseUnfold(), "ჾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჾ'
-AddMapElement(caseUnfold(), "Ჿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ჿ'
-AddMapElement(caseUnfold(), "ჿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ჿ'
-AddMapElement(caseUnfold(), "Ḁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḁ'
-AddMapElement(caseUnfold(), "ḁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḁ'
-AddMapElement(caseUnfold(), "Ḃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḃ'
-AddMapElement(caseUnfold(), "ḃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḃ'
-AddMapElement(caseUnfold(), "Ḅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḅ'
-AddMapElement(caseUnfold(), "ḅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḅ'
-AddMapElement(caseUnfold(), "Ḇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḇ'
-AddMapElement(caseUnfold(), "ḇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḇ'
-AddMapElement(caseUnfold(), "Ḉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḉ'
-AddMapElement(caseUnfold(), "ḉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḉ'
-AddMapElement(caseUnfold(), "Ḋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḋ'
-AddMapElement(caseUnfold(), "ḋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḋ'
-AddMapElement(caseUnfold(), "Ḍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḍ'
-AddMapElement(caseUnfold(), "ḍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḍ'
-AddMapElement(caseUnfold(), "Ḏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḏ'
-AddMapElement(caseUnfold(), "ḏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḏ'
-AddMapElement(caseUnfold(), "Ḑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḑ'
-AddMapElement(caseUnfold(), "ḑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḑ'
-AddMapElement(caseUnfold(), "Ḓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḓ'
-AddMapElement(caseUnfold(), "ḓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḓ'
-AddMapElement(caseUnfold(), "Ḕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḕ'
-AddMapElement(caseUnfold(), "ḕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḕ'
-AddMapElement(caseUnfold(), "Ḗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḗ'
-AddMapElement(caseUnfold(), "ḗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḗ'
-AddMapElement(caseUnfold(), "Ḙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḙ'
-AddMapElement(caseUnfold(), "ḙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḙ'
-AddMapElement(caseUnfold(), "Ḛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḛ'
-AddMapElement(caseUnfold(), "ḛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḛ'
-AddMapElement(caseUnfold(), "Ḝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḝ'
-AddMapElement(caseUnfold(), "ḝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḝ'
-AddMapElement(caseUnfold(), "Ḟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḟ'
-AddMapElement(caseUnfold(), "ḟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḟ'
-AddMapElement(caseUnfold(), "Ḡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḡ'
-AddMapElement(caseUnfold(), "ḡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḡ'
-AddMapElement(caseUnfold(), "Ḣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḣ'
-AddMapElement(caseUnfold(), "ḣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḣ'
-AddMapElement(caseUnfold(), "Ḥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḥ'
-AddMapElement(caseUnfold(), "ḥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḥ'
-AddMapElement(caseUnfold(), "Ḧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḧ'
-AddMapElement(caseUnfold(), "ḧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḧ'
-AddMapElement(caseUnfold(), "Ḩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḩ'
-AddMapElement(caseUnfold(), "ḩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḩ'
-AddMapElement(caseUnfold(), "Ḫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḫ'
-AddMapElement(caseUnfold(), "ḫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḫ'
-AddMapElement(caseUnfold(), "Ḭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḭ'
-AddMapElement(caseUnfold(), "ḭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḭ'
-AddMapElement(caseUnfold(), "Ḯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḯ'
-AddMapElement(caseUnfold(), "ḯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḯ'
-AddMapElement(caseUnfold(), "Ḱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḱ'
-AddMapElement(caseUnfold(), "ḱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḱ'
-AddMapElement(caseUnfold(), "Ḳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḳ'
-AddMapElement(caseUnfold(), "ḳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḳ'
-AddMapElement(caseUnfold(), "Ḵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḵ'
-AddMapElement(caseUnfold(), "ḵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḵ'
-AddMapElement(caseUnfold(), "Ḷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḷ'
-AddMapElement(caseUnfold(), "ḷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḷ'
-AddMapElement(caseUnfold(), "Ḹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḹ'
-AddMapElement(caseUnfold(), "ḹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḹ'
-AddMapElement(caseUnfold(), "Ḻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḻ'
-AddMapElement(caseUnfold(), "ḻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḻ'
-AddMapElement(caseUnfold(), "Ḽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḽ'
-AddMapElement(caseUnfold(), "ḽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḽ'
-AddMapElement(caseUnfold(), "Ḿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ḿ'
-AddMapElement(caseUnfold(), "ḿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ḿ'
-AddMapElement(caseUnfold(), "Ṁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṁ'
-AddMapElement(caseUnfold(), "ṁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṁ'
-AddMapElement(caseUnfold(), "Ṃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṃ'
-AddMapElement(caseUnfold(), "ṃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṃ'
-AddMapElement(caseUnfold(), "Ṅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṅ'
-AddMapElement(caseUnfold(), "ṅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṅ'
-AddMapElement(caseUnfold(), "Ṇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṇ'
-AddMapElement(caseUnfold(), "ṇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṇ'
-AddMapElement(caseUnfold(), "Ṉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṉ'
-AddMapElement(caseUnfold(), "ṉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṉ'
-AddMapElement(caseUnfold(), "Ṋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṋ'
-AddMapElement(caseUnfold(), "ṋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṋ'
-AddMapElement(caseUnfold(), "Ṍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṍ'
-AddMapElement(caseUnfold(), "ṍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṍ'
-AddMapElement(caseUnfold(), "Ṏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṏ'
-AddMapElement(caseUnfold(), "ṏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṏ'
-AddMapElement(caseUnfold(), "Ṑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṑ'
-AddMapElement(caseUnfold(), "ṑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṑ'
-AddMapElement(caseUnfold(), "Ṓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṓ'
-AddMapElement(caseUnfold(), "ṓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṓ'
-AddMapElement(caseUnfold(), "Ṕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṕ'
-AddMapElement(caseUnfold(), "ṕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṕ'
-AddMapElement(caseUnfold(), "Ṗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṗ'
-AddMapElement(caseUnfold(), "ṗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṗ'
-AddMapElement(caseUnfold(), "Ṙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṙ'
-AddMapElement(caseUnfold(), "ṙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṙ'
-AddMapElement(caseUnfold(), "Ṛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṛ'
-AddMapElement(caseUnfold(), "ṛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṛ'
-AddMapElement(caseUnfold(), "Ṝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṝ'
-AddMapElement(caseUnfold(), "ṝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṝ'
-AddMapElement(caseUnfold(), "Ṟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṟ'
-AddMapElement(caseUnfold(), "ṟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṟ'
-AddMapElement(caseUnfold(), "Ṡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẛ'
-AddMapElement(caseUnfold(), "ṡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẛ'
-AddMapElement(caseUnfold(), "ẛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṡ'
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṡ'
-AddMapElement(caseUnfold(), "Ṣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṣ'
-AddMapElement(caseUnfold(), "ṣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṣ'
-AddMapElement(caseUnfold(), "Ṥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṥ'
-AddMapElement(caseUnfold(), "ṥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṥ'
-AddMapElement(caseUnfold(), "Ṧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṧ'
-AddMapElement(caseUnfold(), "ṧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṧ'
-AddMapElement(caseUnfold(), "Ṩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṩ'
-AddMapElement(caseUnfold(), "ṩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṩ'
-AddMapElement(caseUnfold(), "Ṫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṫ'
-AddMapElement(caseUnfold(), "ṫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṫ'
-AddMapElement(caseUnfold(), "Ṭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṭ'
-AddMapElement(caseUnfold(), "ṭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṭ'
-AddMapElement(caseUnfold(), "Ṯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṯ'
-AddMapElement(caseUnfold(), "ṯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṯ'
-AddMapElement(caseUnfold(), "Ṱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṱ'
-AddMapElement(caseUnfold(), "ṱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṱ'
-AddMapElement(caseUnfold(), "Ṳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṳ'
-AddMapElement(caseUnfold(), "ṳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṳ'
-AddMapElement(caseUnfold(), "Ṵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṵ'
-AddMapElement(caseUnfold(), "ṵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṵ'
-AddMapElement(caseUnfold(), "Ṷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṷ'
-AddMapElement(caseUnfold(), "ṷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṷ'
-AddMapElement(caseUnfold(), "Ṹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṹ'
-AddMapElement(caseUnfold(), "ṹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṹ'
-AddMapElement(caseUnfold(), "Ṻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṻ'
-AddMapElement(caseUnfold(), "ṻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṻ'
-AddMapElement(caseUnfold(), "Ṽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṽ'
-AddMapElement(caseUnfold(), "ṽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṽ'
-AddMapElement(caseUnfold(), "Ṿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ṿ'
-AddMapElement(caseUnfold(), "ṿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ṿ'
-AddMapElement(caseUnfold(), "Ẁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẁ'
-AddMapElement(caseUnfold(), "ẁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẁ'
-AddMapElement(caseUnfold(), "Ẃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẃ'
-AddMapElement(caseUnfold(), "ẃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẃ'
-AddMapElement(caseUnfold(), "Ẅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẅ'
-AddMapElement(caseUnfold(), "ẅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẅ'
-AddMapElement(caseUnfold(), "Ẇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẇ'
-AddMapElement(caseUnfold(), "ẇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẇ'
-AddMapElement(caseUnfold(), "Ẉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẉ'
-AddMapElement(caseUnfold(), "ẉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẉ'
-AddMapElement(caseUnfold(), "Ẋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẋ'
-AddMapElement(caseUnfold(), "ẋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẋ'
-AddMapElement(caseUnfold(), "Ẍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẍ'
-AddMapElement(caseUnfold(), "ẍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẍ'
-AddMapElement(caseUnfold(), "Ẏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẏ'
-AddMapElement(caseUnfold(), "ẏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẏ'
-AddMapElement(caseUnfold(), "Ẑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẑ'
-AddMapElement(caseUnfold(), "ẑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẑ'
-AddMapElement(caseUnfold(), "Ẓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẓ'
-AddMapElement(caseUnfold(), "ẓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẓ'
-AddMapElement(caseUnfold(), "Ẕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẕ'
-AddMapElement(caseUnfold(), "ẕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẕ'
-AddMapElement(caseUnfold(), "ẞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ß'
-AddMapElement(caseUnfold(), "ß")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẞ'
-AddMapElement(caseUnfold(), "Ạ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ạ'
-AddMapElement(caseUnfold(), "ạ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ạ'
-AddMapElement(caseUnfold(), "Ả")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ả'
-AddMapElement(caseUnfold(), "ả")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ả'
-AddMapElement(caseUnfold(), "Ấ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ấ'
-AddMapElement(caseUnfold(), "ấ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ấ'
-AddMapElement(caseUnfold(), "Ầ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ầ'
-AddMapElement(caseUnfold(), "ầ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ầ'
-AddMapElement(caseUnfold(), "Ẩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẩ'
-AddMapElement(caseUnfold(), "ẩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẩ'
-AddMapElement(caseUnfold(), "Ẫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẫ'
-AddMapElement(caseUnfold(), "ẫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẫ'
-AddMapElement(caseUnfold(), "Ậ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ậ'
-AddMapElement(caseUnfold(), "ậ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ậ'
-AddMapElement(caseUnfold(), "Ắ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ắ'
-AddMapElement(caseUnfold(), "ắ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ắ'
-AddMapElement(caseUnfold(), "Ằ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ằ'
-AddMapElement(caseUnfold(), "ằ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ằ'
-AddMapElement(caseUnfold(), "Ẳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẳ'
-AddMapElement(caseUnfold(), "ẳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẳ'
-AddMapElement(caseUnfold(), "Ẵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẵ'
-AddMapElement(caseUnfold(), "ẵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẵ'
-AddMapElement(caseUnfold(), "Ặ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ặ'
-AddMapElement(caseUnfold(), "ặ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ặ'
-AddMapElement(caseUnfold(), "Ẹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẹ'
-AddMapElement(caseUnfold(), "ẹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẹ'
-AddMapElement(caseUnfold(), "Ẻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẻ'
-AddMapElement(caseUnfold(), "ẻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẻ'
-AddMapElement(caseUnfold(), "Ẽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ẽ'
-AddMapElement(caseUnfold(), "ẽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ẽ'
-AddMapElement(caseUnfold(), "Ế")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ế'
-AddMapElement(caseUnfold(), "ế")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ế'
-AddMapElement(caseUnfold(), "Ề")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ề'
-AddMapElement(caseUnfold(), "ề")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ề'
-AddMapElement(caseUnfold(), "Ể")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ể'
-AddMapElement(caseUnfold(), "ể")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ể'
-AddMapElement(caseUnfold(), "Ễ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ễ'
-AddMapElement(caseUnfold(), "ễ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ễ'
-AddMapElement(caseUnfold(), "Ệ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ệ'
-AddMapElement(caseUnfold(), "ệ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ệ'
-AddMapElement(caseUnfold(), "Ỉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỉ'
-AddMapElement(caseUnfold(), "ỉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỉ'
-AddMapElement(caseUnfold(), "Ị")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ị'
-AddMapElement(caseUnfold(), "ị")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ị'
-AddMapElement(caseUnfold(), "Ọ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ọ'
-AddMapElement(caseUnfold(), "ọ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ọ'
-AddMapElement(caseUnfold(), "Ỏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỏ'
-AddMapElement(caseUnfold(), "ỏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỏ'
-AddMapElement(caseUnfold(), "Ố")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ố'
-AddMapElement(caseUnfold(), "ố")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ố'
-AddMapElement(caseUnfold(), "Ồ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ồ'
-AddMapElement(caseUnfold(), "ồ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ồ'
-AddMapElement(caseUnfold(), "Ổ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ổ'
-AddMapElement(caseUnfold(), "ổ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ổ'
-AddMapElement(caseUnfold(), "Ỗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỗ'
-AddMapElement(caseUnfold(), "ỗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỗ'
-AddMapElement(caseUnfold(), "Ộ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ộ'
-AddMapElement(caseUnfold(), "ộ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ộ'
-AddMapElement(caseUnfold(), "Ớ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ớ'
-AddMapElement(caseUnfold(), "ớ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ớ'
-AddMapElement(caseUnfold(), "Ờ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ờ'
-AddMapElement(caseUnfold(), "ờ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ờ'
-AddMapElement(caseUnfold(), "Ở")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ở'
-AddMapElement(caseUnfold(), "ở")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ở'
-AddMapElement(caseUnfold(), "Ỡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỡ'
-AddMapElement(caseUnfold(), "ỡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỡ'
-AddMapElement(caseUnfold(), "Ợ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ợ'
-AddMapElement(caseUnfold(), "ợ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ợ'
-AddMapElement(caseUnfold(), "Ụ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ụ'
-AddMapElement(caseUnfold(), "ụ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ụ'
-AddMapElement(caseUnfold(), "Ủ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ủ'
-AddMapElement(caseUnfold(), "ủ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ủ'
-AddMapElement(caseUnfold(), "Ứ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ứ'
-AddMapElement(caseUnfold(), "ứ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ứ'
-AddMapElement(caseUnfold(), "Ừ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ừ'
-AddMapElement(caseUnfold(), "ừ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ừ'
-AddMapElement(caseUnfold(), "Ử")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ử'
-AddMapElement(caseUnfold(), "ử")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ử'
-AddMapElement(caseUnfold(), "Ữ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ữ'
-AddMapElement(caseUnfold(), "ữ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ữ'
-AddMapElement(caseUnfold(), "Ự")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ự'
-AddMapElement(caseUnfold(), "ự")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ự'
-AddMapElement(caseUnfold(), "Ỳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỳ'
-AddMapElement(caseUnfold(), "ỳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỳ'
-AddMapElement(caseUnfold(), "Ỵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỵ'
-AddMapElement(caseUnfold(), "ỵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỵ'
-AddMapElement(caseUnfold(), "Ỷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỷ'
-AddMapElement(caseUnfold(), "ỷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỷ'
-AddMapElement(caseUnfold(), "Ỹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỹ'
-AddMapElement(caseUnfold(), "ỹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỹ'
-AddMapElement(caseUnfold(), "Ỻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỻ'
-AddMapElement(caseUnfold(), "ỻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỻ'
-AddMapElement(caseUnfold(), "Ỽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỽ'
-AddMapElement(caseUnfold(), "ỽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỽ'
-AddMapElement(caseUnfold(), "Ỿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ỿ'
-AddMapElement(caseUnfold(), "ỿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ỿ'
-AddMapElement(caseUnfold(), "Ἀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἀ'
-AddMapElement(caseUnfold(), "ἀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἀ'
-AddMapElement(caseUnfold(), "Ἁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἁ'
-AddMapElement(caseUnfold(), "ἁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἁ'
-AddMapElement(caseUnfold(), "Ἂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἂ'
-AddMapElement(caseUnfold(), "ἂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἂ'
-AddMapElement(caseUnfold(), "Ἃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἃ'
-AddMapElement(caseUnfold(), "ἃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἃ'
-AddMapElement(caseUnfold(), "Ἄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἄ'
-AddMapElement(caseUnfold(), "ἄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἄ'
-AddMapElement(caseUnfold(), "Ἅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἅ'
-AddMapElement(caseUnfold(), "ἅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἅ'
-AddMapElement(caseUnfold(), "Ἆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἆ'
-AddMapElement(caseUnfold(), "ἆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἆ'
-AddMapElement(caseUnfold(), "Ἇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἇ'
-AddMapElement(caseUnfold(), "ἇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἇ'
-AddMapElement(caseUnfold(), "Ἐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἐ'
-AddMapElement(caseUnfold(), "ἐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἐ'
-AddMapElement(caseUnfold(), "Ἑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἑ'
-AddMapElement(caseUnfold(), "ἑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἑ'
-AddMapElement(caseUnfold(), "Ἒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἒ'
-AddMapElement(caseUnfold(), "ἒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἒ'
-AddMapElement(caseUnfold(), "Ἓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἓ'
-AddMapElement(caseUnfold(), "ἓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἓ'
-AddMapElement(caseUnfold(), "Ἔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἔ'
-AddMapElement(caseUnfold(), "ἔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἔ'
-AddMapElement(caseUnfold(), "Ἕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἕ'
-AddMapElement(caseUnfold(), "ἕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἕ'
-AddMapElement(caseUnfold(), "Ἠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἠ'
-AddMapElement(caseUnfold(), "ἠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἠ'
-AddMapElement(caseUnfold(), "Ἡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἡ'
-AddMapElement(caseUnfold(), "ἡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἡ'
-AddMapElement(caseUnfold(), "Ἢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἢ'
-AddMapElement(caseUnfold(), "ἢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἢ'
-AddMapElement(caseUnfold(), "Ἣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἣ'
-AddMapElement(caseUnfold(), "ἣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἣ'
-AddMapElement(caseUnfold(), "Ἤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἤ'
-AddMapElement(caseUnfold(), "ἤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἤ'
-AddMapElement(caseUnfold(), "Ἥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἥ'
-AddMapElement(caseUnfold(), "ἥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἥ'
-AddMapElement(caseUnfold(), "Ἦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἦ'
-AddMapElement(caseUnfold(), "ἦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἦ'
-AddMapElement(caseUnfold(), "Ἧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἧ'
-AddMapElement(caseUnfold(), "ἧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἧ'
-AddMapElement(caseUnfold(), "Ἰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἰ'
-AddMapElement(caseUnfold(), "ἰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἰ'
-AddMapElement(caseUnfold(), "Ἱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἱ'
-AddMapElement(caseUnfold(), "ἱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἱ'
-AddMapElement(caseUnfold(), "Ἲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἲ'
-AddMapElement(caseUnfold(), "ἲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἲ'
-AddMapElement(caseUnfold(), "Ἳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἳ'
-AddMapElement(caseUnfold(), "ἳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἳ'
-AddMapElement(caseUnfold(), "Ἴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἴ'
-AddMapElement(caseUnfold(), "ἴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἴ'
-AddMapElement(caseUnfold(), "Ἵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἵ'
-AddMapElement(caseUnfold(), "ἵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἵ'
-AddMapElement(caseUnfold(), "Ἶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἶ'
-AddMapElement(caseUnfold(), "ἶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἶ'
-AddMapElement(caseUnfold(), "Ἷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ἷ'
-AddMapElement(caseUnfold(), "ἷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ἷ'
-AddMapElement(caseUnfold(), "Ὀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὀ'
-AddMapElement(caseUnfold(), "ὀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὀ'
-AddMapElement(caseUnfold(), "Ὁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὁ'
-AddMapElement(caseUnfold(), "ὁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὁ'
-AddMapElement(caseUnfold(), "Ὂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὂ'
-AddMapElement(caseUnfold(), "ὂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὂ'
-AddMapElement(caseUnfold(), "Ὃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὃ'
-AddMapElement(caseUnfold(), "ὃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὃ'
-AddMapElement(caseUnfold(), "Ὄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὄ'
-AddMapElement(caseUnfold(), "ὄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὄ'
-AddMapElement(caseUnfold(), "Ὅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὅ'
-AddMapElement(caseUnfold(), "ὅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὅ'
-AddMapElement(caseUnfold(), "Ὑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὑ'
-AddMapElement(caseUnfold(), "ὑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὑ'
-AddMapElement(caseUnfold(), "Ὓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὓ'
-AddMapElement(caseUnfold(), "ὓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὓ'
-AddMapElement(caseUnfold(), "Ὕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὕ'
-AddMapElement(caseUnfold(), "ὕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὕ'
-AddMapElement(caseUnfold(), "Ὗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὗ'
-AddMapElement(caseUnfold(), "ὗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὗ'
-AddMapElement(caseUnfold(), "Ὠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὠ'
-AddMapElement(caseUnfold(), "ὠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὠ'
-AddMapElement(caseUnfold(), "Ὡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὡ'
-AddMapElement(caseUnfold(), "ὡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὡ'
-AddMapElement(caseUnfold(), "Ὢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὢ'
-AddMapElement(caseUnfold(), "ὢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὢ'
-AddMapElement(caseUnfold(), "Ὣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὣ'
-AddMapElement(caseUnfold(), "ὣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὣ'
-AddMapElement(caseUnfold(), "Ὤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὤ'
-AddMapElement(caseUnfold(), "ὤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὤ'
-AddMapElement(caseUnfold(), "Ὥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὥ'
-AddMapElement(caseUnfold(), "ὥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὥ'
-AddMapElement(caseUnfold(), "Ὦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὦ'
-AddMapElement(caseUnfold(), "ὦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὦ'
-AddMapElement(caseUnfold(), "Ὧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὧ'
-AddMapElement(caseUnfold(), "ὧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὧ'
-AddMapElement(caseUnfold(), "ᾈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾀ'
-AddMapElement(caseUnfold(), "ᾀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾈ'
-AddMapElement(caseUnfold(), "ᾉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾁ'
-AddMapElement(caseUnfold(), "ᾁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾉ'
-AddMapElement(caseUnfold(), "ᾊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾂ'
-AddMapElement(caseUnfold(), "ᾂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾊ'
-AddMapElement(caseUnfold(), "ᾋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾃ'
-AddMapElement(caseUnfold(), "ᾃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾋ'
-AddMapElement(caseUnfold(), "ᾌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾄ'
-AddMapElement(caseUnfold(), "ᾄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾌ'
-AddMapElement(caseUnfold(), "ᾍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾅ'
-AddMapElement(caseUnfold(), "ᾅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾍ'
-AddMapElement(caseUnfold(), "ᾎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾆ'
-AddMapElement(caseUnfold(), "ᾆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾎ'
-AddMapElement(caseUnfold(), "ᾏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾇ'
-AddMapElement(caseUnfold(), "ᾇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾏ'
-AddMapElement(caseUnfold(), "ᾘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾐ'
-AddMapElement(caseUnfold(), "ᾐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾘ'
-AddMapElement(caseUnfold(), "ᾙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾑ'
-AddMapElement(caseUnfold(), "ᾑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾙ'
-AddMapElement(caseUnfold(), "ᾚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾒ'
-AddMapElement(caseUnfold(), "ᾒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾚ'
-AddMapElement(caseUnfold(), "ᾛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾓ'
-AddMapElement(caseUnfold(), "ᾓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾛ'
-AddMapElement(caseUnfold(), "ᾜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾔ'
-AddMapElement(caseUnfold(), "ᾔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾜ'
-AddMapElement(caseUnfold(), "ᾝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾕ'
-AddMapElement(caseUnfold(), "ᾕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾝ'
-AddMapElement(caseUnfold(), "ᾞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾖ'
-AddMapElement(caseUnfold(), "ᾖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾞ'
-AddMapElement(caseUnfold(), "ᾟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾗ'
-AddMapElement(caseUnfold(), "ᾗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾟ'
-AddMapElement(caseUnfold(), "ᾨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾠ'
-AddMapElement(caseUnfold(), "ᾠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾨ'
-AddMapElement(caseUnfold(), "ᾩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾡ'
-AddMapElement(caseUnfold(), "ᾡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾩ'
-AddMapElement(caseUnfold(), "ᾪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾢ'
-AddMapElement(caseUnfold(), "ᾢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾪ'
-AddMapElement(caseUnfold(), "ᾫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾣ'
-AddMapElement(caseUnfold(), "ᾣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾫ'
-AddMapElement(caseUnfold(), "ᾬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾤ'
-AddMapElement(caseUnfold(), "ᾤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾬ'
-AddMapElement(caseUnfold(), "ᾭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾥ'
-AddMapElement(caseUnfold(), "ᾥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾭ'
-AddMapElement(caseUnfold(), "ᾮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾦ'
-AddMapElement(caseUnfold(), "ᾦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾮ'
-AddMapElement(caseUnfold(), "ᾯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾧ'
-AddMapElement(caseUnfold(), "ᾧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾯ'
-AddMapElement(caseUnfold(), "Ᾰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾰ'
-AddMapElement(caseUnfold(), "ᾰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᾰ'
-AddMapElement(caseUnfold(), "Ᾱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾱ'
-AddMapElement(caseUnfold(), "ᾱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᾱ'
-AddMapElement(caseUnfold(), "Ὰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὰ'
-AddMapElement(caseUnfold(), "ὰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὰ'
-AddMapElement(caseUnfold(), "Ά")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ά'
-AddMapElement(caseUnfold(), "ά")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ά'
-AddMapElement(caseUnfold(), "ᾼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾳ'
-AddMapElement(caseUnfold(), "ᾳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᾼ'
-AddMapElement(caseUnfold(), "Ὲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὲ'
-AddMapElement(caseUnfold(), "ὲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὲ'
-AddMapElement(caseUnfold(), "Έ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'έ'
-AddMapElement(caseUnfold(), "έ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Έ'
-AddMapElement(caseUnfold(), "Ὴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὴ'
-AddMapElement(caseUnfold(), "ὴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὴ'
-AddMapElement(caseUnfold(), "Ή")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ή'
-AddMapElement(caseUnfold(), "ή")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ή'
-AddMapElement(caseUnfold(), "ῌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῃ'
-AddMapElement(caseUnfold(), "ῃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῌ'
-AddMapElement(caseUnfold(), "Ῐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῐ'
-AddMapElement(caseUnfold(), "ῐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ῐ'
-AddMapElement(caseUnfold(), "Ῑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῑ'
-AddMapElement(caseUnfold(), "ῑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ῑ'
-AddMapElement(caseUnfold(), "Ὶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὶ'
-AddMapElement(caseUnfold(), "ὶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὶ'
-AddMapElement(caseUnfold(), "Ί")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ί'
-AddMapElement(caseUnfold(), "ί")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ί'
-AddMapElement(caseUnfold(), "Ῠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῠ'
-AddMapElement(caseUnfold(), "ῠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ῠ'
-AddMapElement(caseUnfold(), "Ῡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῡ'
-AddMapElement(caseUnfold(), "ῡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ῡ'
-AddMapElement(caseUnfold(), "Ὺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὺ'
-AddMapElement(caseUnfold(), "ὺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὺ'
-AddMapElement(caseUnfold(), "Ύ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ύ'
-AddMapElement(caseUnfold(), "ύ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ύ'
-AddMapElement(caseUnfold(), "Ῥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῥ'
-AddMapElement(caseUnfold(), "ῥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ῥ'
-AddMapElement(caseUnfold(), "Ὸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὸ'
-AddMapElement(caseUnfold(), "ὸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὸ'
-AddMapElement(caseUnfold(), "Ό")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ό'
-AddMapElement(caseUnfold(), "ό")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ό'
-AddMapElement(caseUnfold(), "Ὼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ὼ'
-AddMapElement(caseUnfold(), "ὼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ὼ'
-AddMapElement(caseUnfold(), "Ώ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ώ'
-AddMapElement(caseUnfold(), "ώ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ώ'
-AddMapElement(caseUnfold(), "ῼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῳ'
-AddMapElement(caseUnfold(), "ῳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ῼ'
-AddMapElement(caseUnfold(), "Ⅎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅎ'
-AddMapElement(caseUnfold(), "ⅎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅎ'
-AddMapElement(caseUnfold(), "Ⅰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅰ'
-AddMapElement(caseUnfold(), "ⅰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅰ'
-AddMapElement(caseUnfold(), "Ⅱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅱ'
-AddMapElement(caseUnfold(), "ⅱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅱ'
-AddMapElement(caseUnfold(), "Ⅲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅲ'
-AddMapElement(caseUnfold(), "ⅲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅲ'
-AddMapElement(caseUnfold(), "Ⅳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅳ'
-AddMapElement(caseUnfold(), "ⅳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅳ'
-AddMapElement(caseUnfold(), "Ⅴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅴ'
-AddMapElement(caseUnfold(), "ⅴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅴ'
-AddMapElement(caseUnfold(), "Ⅵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅵ'
-AddMapElement(caseUnfold(), "ⅵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅵ'
-AddMapElement(caseUnfold(), "Ⅶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅶ'
-AddMapElement(caseUnfold(), "ⅶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅶ'
-AddMapElement(caseUnfold(), "Ⅷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅷ'
-AddMapElement(caseUnfold(), "ⅷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅷ'
-AddMapElement(caseUnfold(), "Ⅸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅸ'
-AddMapElement(caseUnfold(), "ⅸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅸ'
-AddMapElement(caseUnfold(), "Ⅹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅹ'
-AddMapElement(caseUnfold(), "ⅹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅹ'
-AddMapElement(caseUnfold(), "Ⅺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅺ'
-AddMapElement(caseUnfold(), "ⅺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅺ'
-AddMapElement(caseUnfold(), "Ⅻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅻ'
-AddMapElement(caseUnfold(), "ⅻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅻ'
-AddMapElement(caseUnfold(), "Ⅼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅼ'
-AddMapElement(caseUnfold(), "ⅼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅼ'
-AddMapElement(caseUnfold(), "Ⅽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅽ'
-AddMapElement(caseUnfold(), "ⅽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅽ'
-AddMapElement(caseUnfold(), "Ⅾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅾ'
-AddMapElement(caseUnfold(), "ⅾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅾ'
-AddMapElement(caseUnfold(), "Ⅿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⅿ'
-AddMapElement(caseUnfold(), "ⅿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⅿ'
-AddMapElement(caseUnfold(), "Ↄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ↄ'
-AddMapElement(caseUnfold(), "ↄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ↄ'
-AddMapElement(caseUnfold(), "Ⓐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓐ'
-AddMapElement(caseUnfold(), "ⓐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓐ'
-AddMapElement(caseUnfold(), "Ⓑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓑ'
-AddMapElement(caseUnfold(), "ⓑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓑ'
-AddMapElement(caseUnfold(), "Ⓒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓒ'
-AddMapElement(caseUnfold(), "ⓒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓒ'
-AddMapElement(caseUnfold(), "Ⓓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓓ'
-AddMapElement(caseUnfold(), "ⓓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓓ'
-AddMapElement(caseUnfold(), "Ⓔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓔ'
-AddMapElement(caseUnfold(), "ⓔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓔ'
-AddMapElement(caseUnfold(), "Ⓕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓕ'
-AddMapElement(caseUnfold(), "ⓕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓕ'
-AddMapElement(caseUnfold(), "Ⓖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓖ'
-AddMapElement(caseUnfold(), "ⓖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓖ'
-AddMapElement(caseUnfold(), "Ⓗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓗ'
-AddMapElement(caseUnfold(), "ⓗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓗ'
-AddMapElement(caseUnfold(), "Ⓘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓘ'
-AddMapElement(caseUnfold(), "ⓘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓘ'
-AddMapElement(caseUnfold(), "Ⓙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓙ'
-AddMapElement(caseUnfold(), "ⓙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓙ'
-AddMapElement(caseUnfold(), "Ⓚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓚ'
-AddMapElement(caseUnfold(), "ⓚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓚ'
-AddMapElement(caseUnfold(), "Ⓛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓛ'
-AddMapElement(caseUnfold(), "ⓛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓛ'
-AddMapElement(caseUnfold(), "Ⓜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓜ'
-AddMapElement(caseUnfold(), "ⓜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓜ'
-AddMapElement(caseUnfold(), "Ⓝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓝ'
-AddMapElement(caseUnfold(), "ⓝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓝ'
-AddMapElement(caseUnfold(), "Ⓞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓞ'
-AddMapElement(caseUnfold(), "ⓞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓞ'
-AddMapElement(caseUnfold(), "Ⓟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓟ'
-AddMapElement(caseUnfold(), "ⓟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓟ'
-AddMapElement(caseUnfold(), "Ⓠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓠ'
-AddMapElement(caseUnfold(), "ⓠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓠ'
-AddMapElement(caseUnfold(), "Ⓡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓡ'
-AddMapElement(caseUnfold(), "ⓡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓡ'
-AddMapElement(caseUnfold(), "Ⓢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓢ'
-AddMapElement(caseUnfold(), "ⓢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓢ'
-AddMapElement(caseUnfold(), "Ⓣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓣ'
-AddMapElement(caseUnfold(), "ⓣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓣ'
-AddMapElement(caseUnfold(), "Ⓤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓤ'
-AddMapElement(caseUnfold(), "ⓤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓤ'
-AddMapElement(caseUnfold(), "Ⓥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓥ'
-AddMapElement(caseUnfold(), "ⓥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓥ'
-AddMapElement(caseUnfold(), "Ⓦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓦ'
-AddMapElement(caseUnfold(), "ⓦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓦ'
-AddMapElement(caseUnfold(), "Ⓧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓧ'
-AddMapElement(caseUnfold(), "ⓧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓧ'
-AddMapElement(caseUnfold(), "Ⓨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓨ'
-AddMapElement(caseUnfold(), "ⓨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓨ'
-AddMapElement(caseUnfold(), "Ⓩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⓩ'
-AddMapElement(caseUnfold(), "ⓩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⓩ'
-AddMapElement(caseUnfold(), "Ⰰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰰ'
-AddMapElement(caseUnfold(), "ⰰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰰ'
-AddMapElement(caseUnfold(), "Ⰱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰱ'
-AddMapElement(caseUnfold(), "ⰱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰱ'
-AddMapElement(caseUnfold(), "Ⰲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰲ'
-AddMapElement(caseUnfold(), "ⰲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰲ'
-AddMapElement(caseUnfold(), "Ⰳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰳ'
-AddMapElement(caseUnfold(), "ⰳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰳ'
-AddMapElement(caseUnfold(), "Ⰴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰴ'
-AddMapElement(caseUnfold(), "ⰴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰴ'
-AddMapElement(caseUnfold(), "Ⰵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰵ'
-AddMapElement(caseUnfold(), "ⰵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰵ'
-AddMapElement(caseUnfold(), "Ⰶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰶ'
-AddMapElement(caseUnfold(), "ⰶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰶ'
-AddMapElement(caseUnfold(), "Ⰷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰷ'
-AddMapElement(caseUnfold(), "ⰷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰷ'
-AddMapElement(caseUnfold(), "Ⰸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰸ'
-AddMapElement(caseUnfold(), "ⰸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰸ'
-AddMapElement(caseUnfold(), "Ⰹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰹ'
-AddMapElement(caseUnfold(), "ⰹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰹ'
-AddMapElement(caseUnfold(), "Ⰺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰺ'
-AddMapElement(caseUnfold(), "ⰺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰺ'
-AddMapElement(caseUnfold(), "Ⰻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰻ'
-AddMapElement(caseUnfold(), "ⰻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰻ'
-AddMapElement(caseUnfold(), "Ⰼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰼ'
-AddMapElement(caseUnfold(), "ⰼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰼ'
-AddMapElement(caseUnfold(), "Ⰽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰽ'
-AddMapElement(caseUnfold(), "ⰽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰽ'
-AddMapElement(caseUnfold(), "Ⰾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰾ'
-AddMapElement(caseUnfold(), "ⰾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰾ'
-AddMapElement(caseUnfold(), "Ⰿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⰿ'
-AddMapElement(caseUnfold(), "ⰿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⰿ'
-AddMapElement(caseUnfold(), "Ⱀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱀ'
-AddMapElement(caseUnfold(), "ⱀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱀ'
-AddMapElement(caseUnfold(), "Ⱁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱁ'
-AddMapElement(caseUnfold(), "ⱁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱁ'
-AddMapElement(caseUnfold(), "Ⱂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱂ'
-AddMapElement(caseUnfold(), "ⱂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱂ'
-AddMapElement(caseUnfold(), "Ⱃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱃ'
-AddMapElement(caseUnfold(), "ⱃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱃ'
-AddMapElement(caseUnfold(), "Ⱄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱄ'
-AddMapElement(caseUnfold(), "ⱄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱄ'
-AddMapElement(caseUnfold(), "Ⱅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱅ'
-AddMapElement(caseUnfold(), "ⱅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱅ'
-AddMapElement(caseUnfold(), "Ⱆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱆ'
-AddMapElement(caseUnfold(), "ⱆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱆ'
-AddMapElement(caseUnfold(), "Ⱇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱇ'
-AddMapElement(caseUnfold(), "ⱇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱇ'
-AddMapElement(caseUnfold(), "Ⱈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱈ'
-AddMapElement(caseUnfold(), "ⱈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱈ'
-AddMapElement(caseUnfold(), "Ⱉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱉ'
-AddMapElement(caseUnfold(), "ⱉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱉ'
-AddMapElement(caseUnfold(), "Ⱊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱊ'
-AddMapElement(caseUnfold(), "ⱊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱊ'
-AddMapElement(caseUnfold(), "Ⱋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱋ'
-AddMapElement(caseUnfold(), "ⱋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱋ'
-AddMapElement(caseUnfold(), "Ⱌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱌ'
-AddMapElement(caseUnfold(), "ⱌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱌ'
-AddMapElement(caseUnfold(), "Ⱍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱍ'
-AddMapElement(caseUnfold(), "ⱍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱍ'
-AddMapElement(caseUnfold(), "Ⱎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱎ'
-AddMapElement(caseUnfold(), "ⱎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱎ'
-AddMapElement(caseUnfold(), "Ⱏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱏ'
-AddMapElement(caseUnfold(), "ⱏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱏ'
-AddMapElement(caseUnfold(), "Ⱐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱐ'
-AddMapElement(caseUnfold(), "ⱐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱐ'
-AddMapElement(caseUnfold(), "Ⱑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱑ'
-AddMapElement(caseUnfold(), "ⱑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱑ'
-AddMapElement(caseUnfold(), "Ⱒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱒ'
-AddMapElement(caseUnfold(), "ⱒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱒ'
-AddMapElement(caseUnfold(), "Ⱓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱓ'
-AddMapElement(caseUnfold(), "ⱓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱓ'
-AddMapElement(caseUnfold(), "Ⱔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱔ'
-AddMapElement(caseUnfold(), "ⱔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱔ'
-AddMapElement(caseUnfold(), "Ⱕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱕ'
-AddMapElement(caseUnfold(), "ⱕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱕ'
-AddMapElement(caseUnfold(), "Ⱖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱖ'
-AddMapElement(caseUnfold(), "ⱖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱖ'
-AddMapElement(caseUnfold(), "Ⱗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱗ'
-AddMapElement(caseUnfold(), "ⱗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱗ'
-AddMapElement(caseUnfold(), "Ⱘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱘ'
-AddMapElement(caseUnfold(), "ⱘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱘ'
-AddMapElement(caseUnfold(), "Ⱙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱙ'
-AddMapElement(caseUnfold(), "ⱙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱙ'
-AddMapElement(caseUnfold(), "Ⱚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱚ'
-AddMapElement(caseUnfold(), "ⱚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱚ'
-AddMapElement(caseUnfold(), "Ⱛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱛ'
-AddMapElement(caseUnfold(), "ⱛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱛ'
-AddMapElement(caseUnfold(), "Ⱜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱜ'
-AddMapElement(caseUnfold(), "ⱜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱜ'
-AddMapElement(caseUnfold(), "Ⱝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱝ'
-AddMapElement(caseUnfold(), "ⱝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱝ'
-AddMapElement(caseUnfold(), "Ⱞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱞ'
-AddMapElement(caseUnfold(), "ⱞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱞ'
-AddMapElement(caseUnfold(), "Ⱟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱟ'
-AddMapElement(caseUnfold(), "ⱟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱟ'
-AddMapElement(caseUnfold(), "Ⱡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱡ'
-AddMapElement(caseUnfold(), "ⱡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱡ'
-AddMapElement(caseUnfold(), "Ɫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɫ'
-AddMapElement(caseUnfold(), "ɫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɫ'
-AddMapElement(caseUnfold(), "Ᵽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᵽ'
-AddMapElement(caseUnfold(), "ᵽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᵽ'
-AddMapElement(caseUnfold(), "Ɽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɽ'
-AddMapElement(caseUnfold(), "ɽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɽ'
-AddMapElement(caseUnfold(), "Ⱨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱨ'
-AddMapElement(caseUnfold(), "ⱨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱨ'
-AddMapElement(caseUnfold(), "Ⱪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱪ'
-AddMapElement(caseUnfold(), "ⱪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱪ'
-AddMapElement(caseUnfold(), "Ⱬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱬ'
-AddMapElement(caseUnfold(), "ⱬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱬ'
-AddMapElement(caseUnfold(), "Ɑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɑ'
-AddMapElement(caseUnfold(), "ɑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɑ'
-AddMapElement(caseUnfold(), "Ɱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɱ'
-AddMapElement(caseUnfold(), "ɱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɱ'
-AddMapElement(caseUnfold(), "Ɐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɐ'
-AddMapElement(caseUnfold(), "ɐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɐ'
-AddMapElement(caseUnfold(), "Ɒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɒ'
-AddMapElement(caseUnfold(), "ɒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɒ'
-AddMapElement(caseUnfold(), "Ⱳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱳ'
-AddMapElement(caseUnfold(), "ⱳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱳ'
-AddMapElement(caseUnfold(), "Ⱶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⱶ'
-AddMapElement(caseUnfold(), "ⱶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⱶ'
-AddMapElement(caseUnfold(), "Ȿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ȿ'
-AddMapElement(caseUnfold(), "ȿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ȿ'
-AddMapElement(caseUnfold(), "Ɀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɀ'
-AddMapElement(caseUnfold(), "ɀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɀ'
-AddMapElement(caseUnfold(), "Ⲁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲁ'
-AddMapElement(caseUnfold(), "ⲁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲁ'
-AddMapElement(caseUnfold(), "Ⲃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲃ'
-AddMapElement(caseUnfold(), "ⲃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲃ'
-AddMapElement(caseUnfold(), "Ⲅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲅ'
-AddMapElement(caseUnfold(), "ⲅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲅ'
-AddMapElement(caseUnfold(), "Ⲇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲇ'
-AddMapElement(caseUnfold(), "ⲇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲇ'
-AddMapElement(caseUnfold(), "Ⲉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲉ'
-AddMapElement(caseUnfold(), "ⲉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲉ'
-AddMapElement(caseUnfold(), "Ⲋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲋ'
-AddMapElement(caseUnfold(), "ⲋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲋ'
-AddMapElement(caseUnfold(), "Ⲍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲍ'
-AddMapElement(caseUnfold(), "ⲍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲍ'
-AddMapElement(caseUnfold(), "Ⲏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲏ'
-AddMapElement(caseUnfold(), "ⲏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲏ'
-AddMapElement(caseUnfold(), "Ⲑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲑ'
-AddMapElement(caseUnfold(), "ⲑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲑ'
-AddMapElement(caseUnfold(), "Ⲓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲓ'
-AddMapElement(caseUnfold(), "ⲓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲓ'
-AddMapElement(caseUnfold(), "Ⲕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲕ'
-AddMapElement(caseUnfold(), "ⲕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲕ'
-AddMapElement(caseUnfold(), "Ⲗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲗ'
-AddMapElement(caseUnfold(), "ⲗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲗ'
-AddMapElement(caseUnfold(), "Ⲙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲙ'
-AddMapElement(caseUnfold(), "ⲙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲙ'
-AddMapElement(caseUnfold(), "Ⲛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲛ'
-AddMapElement(caseUnfold(), "ⲛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲛ'
-AddMapElement(caseUnfold(), "Ⲝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲝ'
-AddMapElement(caseUnfold(), "ⲝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲝ'
-AddMapElement(caseUnfold(), "Ⲟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲟ'
-AddMapElement(caseUnfold(), "ⲟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲟ'
-AddMapElement(caseUnfold(), "Ⲡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲡ'
-AddMapElement(caseUnfold(), "ⲡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲡ'
-AddMapElement(caseUnfold(), "Ⲣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲣ'
-AddMapElement(caseUnfold(), "ⲣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲣ'
-AddMapElement(caseUnfold(), "Ⲥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲥ'
-AddMapElement(caseUnfold(), "ⲥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲥ'
-AddMapElement(caseUnfold(), "Ⲧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲧ'
-AddMapElement(caseUnfold(), "ⲧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲧ'
-AddMapElement(caseUnfold(), "Ⲩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲩ'
-AddMapElement(caseUnfold(), "ⲩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲩ'
-AddMapElement(caseUnfold(), "Ⲫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲫ'
-AddMapElement(caseUnfold(), "ⲫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲫ'
-AddMapElement(caseUnfold(), "Ⲭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲭ'
-AddMapElement(caseUnfold(), "ⲭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲭ'
-AddMapElement(caseUnfold(), "Ⲯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲯ'
-AddMapElement(caseUnfold(), "ⲯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲯ'
-AddMapElement(caseUnfold(), "Ⲱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲱ'
-AddMapElement(caseUnfold(), "ⲱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲱ'
-AddMapElement(caseUnfold(), "Ⲳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲳ'
-AddMapElement(caseUnfold(), "ⲳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲳ'
-AddMapElement(caseUnfold(), "Ⲵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲵ'
-AddMapElement(caseUnfold(), "ⲵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲵ'
-AddMapElement(caseUnfold(), "Ⲷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲷ'
-AddMapElement(caseUnfold(), "ⲷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲷ'
-AddMapElement(caseUnfold(), "Ⲹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲹ'
-AddMapElement(caseUnfold(), "ⲹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲹ'
-AddMapElement(caseUnfold(), "Ⲻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲻ'
-AddMapElement(caseUnfold(), "ⲻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲻ'
-AddMapElement(caseUnfold(), "Ⲽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲽ'
-AddMapElement(caseUnfold(), "ⲽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲽ'
-AddMapElement(caseUnfold(), "Ⲿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⲿ'
-AddMapElement(caseUnfold(), "ⲿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⲿ'
-AddMapElement(caseUnfold(), "Ⳁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳁ'
-AddMapElement(caseUnfold(), "ⳁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳁ'
-AddMapElement(caseUnfold(), "Ⳃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳃ'
-AddMapElement(caseUnfold(), "ⳃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳃ'
-AddMapElement(caseUnfold(), "Ⳅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳅ'
-AddMapElement(caseUnfold(), "ⳅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳅ'
-AddMapElement(caseUnfold(), "Ⳇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳇ'
-AddMapElement(caseUnfold(), "ⳇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳇ'
-AddMapElement(caseUnfold(), "Ⳉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳉ'
-AddMapElement(caseUnfold(), "ⳉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳉ'
-AddMapElement(caseUnfold(), "Ⳋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳋ'
-AddMapElement(caseUnfold(), "ⳋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳋ'
-AddMapElement(caseUnfold(), "Ⳍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳍ'
-AddMapElement(caseUnfold(), "ⳍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳍ'
-AddMapElement(caseUnfold(), "Ⳏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳏ'
-AddMapElement(caseUnfold(), "ⳏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳏ'
-AddMapElement(caseUnfold(), "Ⳑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳑ'
-AddMapElement(caseUnfold(), "ⳑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳑ'
-AddMapElement(caseUnfold(), "Ⳓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳓ'
-AddMapElement(caseUnfold(), "ⳓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳓ'
-AddMapElement(caseUnfold(), "Ⳕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳕ'
-AddMapElement(caseUnfold(), "ⳕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳕ'
-AddMapElement(caseUnfold(), "Ⳗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳗ'
-AddMapElement(caseUnfold(), "ⳗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳗ'
-AddMapElement(caseUnfold(), "Ⳙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳙ'
-AddMapElement(caseUnfold(), "ⳙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳙ'
-AddMapElement(caseUnfold(), "Ⳛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳛ'
-AddMapElement(caseUnfold(), "ⳛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳛ'
-AddMapElement(caseUnfold(), "Ⳝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳝ'
-AddMapElement(caseUnfold(), "ⳝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳝ'
-AddMapElement(caseUnfold(), "Ⳟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳟ'
-AddMapElement(caseUnfold(), "ⳟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳟ'
-AddMapElement(caseUnfold(), "Ⳡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳡ'
-AddMapElement(caseUnfold(), "ⳡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳡ'
-AddMapElement(caseUnfold(), "Ⳣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳣ'
-AddMapElement(caseUnfold(), "ⳣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳣ'
-AddMapElement(caseUnfold(), "Ⳬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳬ'
-AddMapElement(caseUnfold(), "ⳬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳬ'
-AddMapElement(caseUnfold(), "Ⳮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳮ'
-AddMapElement(caseUnfold(), "ⳮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳮ'
-AddMapElement(caseUnfold(), "Ⳳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ⳳ'
-AddMapElement(caseUnfold(), "ⳳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ⳳ'
-AddMapElement(caseUnfold(), "Ꙁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙁ'
-AddMapElement(caseUnfold(), "ꙁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙁ'
-AddMapElement(caseUnfold(), "Ꙃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙃ'
-AddMapElement(caseUnfold(), "ꙃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙃ'
-AddMapElement(caseUnfold(), "Ꙅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙅ'
-AddMapElement(caseUnfold(), "ꙅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙅ'
-AddMapElement(caseUnfold(), "Ꙇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙇ'
-AddMapElement(caseUnfold(), "ꙇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙇ'
-AddMapElement(caseUnfold(), "Ꙉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙉ'
-AddMapElement(caseUnfold(), "ꙉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙉ'
-AddMapElement(caseUnfold(), "Ꙍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙍ'
-AddMapElement(caseUnfold(), "ꙍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙍ'
-AddMapElement(caseUnfold(), "Ꙏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙏ'
-AddMapElement(caseUnfold(), "ꙏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙏ'
-AddMapElement(caseUnfold(), "Ꙑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙑ'
-AddMapElement(caseUnfold(), "ꙑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙑ'
-AddMapElement(caseUnfold(), "Ꙓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙓ'
-AddMapElement(caseUnfold(), "ꙓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙓ'
-AddMapElement(caseUnfold(), "Ꙕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙕ'
-AddMapElement(caseUnfold(), "ꙕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙕ'
-AddMapElement(caseUnfold(), "Ꙗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙗ'
-AddMapElement(caseUnfold(), "ꙗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙗ'
-AddMapElement(caseUnfold(), "Ꙙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙙ'
-AddMapElement(caseUnfold(), "ꙙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙙ'
-AddMapElement(caseUnfold(), "Ꙛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙛ'
-AddMapElement(caseUnfold(), "ꙛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙛ'
-AddMapElement(caseUnfold(), "Ꙝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙝ'
-AddMapElement(caseUnfold(), "ꙝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙝ'
-AddMapElement(caseUnfold(), "Ꙟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙟ'
-AddMapElement(caseUnfold(), "ꙟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙟ'
-AddMapElement(caseUnfold(), "Ꙡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙡ'
-AddMapElement(caseUnfold(), "ꙡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙡ'
-AddMapElement(caseUnfold(), "Ꙣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙣ'
-AddMapElement(caseUnfold(), "ꙣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙣ'
-AddMapElement(caseUnfold(), "Ꙥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙥ'
-AddMapElement(caseUnfold(), "ꙥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙥ'
-AddMapElement(caseUnfold(), "Ꙧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙧ'
-AddMapElement(caseUnfold(), "ꙧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙧ'
-AddMapElement(caseUnfold(), "Ꙩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙩ'
-AddMapElement(caseUnfold(), "ꙩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙩ'
-AddMapElement(caseUnfold(), "Ꙫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙫ'
-AddMapElement(caseUnfold(), "ꙫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙫ'
-AddMapElement(caseUnfold(), "Ꙭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꙭ'
-AddMapElement(caseUnfold(), "ꙭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꙭ'
-AddMapElement(caseUnfold(), "Ꚁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚁ'
-AddMapElement(caseUnfold(), "ꚁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚁ'
-AddMapElement(caseUnfold(), "Ꚃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚃ'
-AddMapElement(caseUnfold(), "ꚃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚃ'
-AddMapElement(caseUnfold(), "Ꚅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚅ'
-AddMapElement(caseUnfold(), "ꚅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚅ'
-AddMapElement(caseUnfold(), "Ꚇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚇ'
-AddMapElement(caseUnfold(), "ꚇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚇ'
-AddMapElement(caseUnfold(), "Ꚉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚉ'
-AddMapElement(caseUnfold(), "ꚉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚉ'
-AddMapElement(caseUnfold(), "Ꚋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚋ'
-AddMapElement(caseUnfold(), "ꚋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚋ'
-AddMapElement(caseUnfold(), "Ꚍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚍ'
-AddMapElement(caseUnfold(), "ꚍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚍ'
-AddMapElement(caseUnfold(), "Ꚏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚏ'
-AddMapElement(caseUnfold(), "ꚏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚏ'
-AddMapElement(caseUnfold(), "Ꚑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚑ'
-AddMapElement(caseUnfold(), "ꚑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚑ'
-AddMapElement(caseUnfold(), "Ꚓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚓ'
-AddMapElement(caseUnfold(), "ꚓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚓ'
-AddMapElement(caseUnfold(), "Ꚕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚕ'
-AddMapElement(caseUnfold(), "ꚕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚕ'
-AddMapElement(caseUnfold(), "Ꚗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚗ'
-AddMapElement(caseUnfold(), "ꚗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚗ'
-AddMapElement(caseUnfold(), "Ꚙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚙ'
-AddMapElement(caseUnfold(), "ꚙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚙ'
-AddMapElement(caseUnfold(), "Ꚛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꚛ'
-AddMapElement(caseUnfold(), "ꚛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꚛ'
-AddMapElement(caseUnfold(), "Ꜣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜣ'
-AddMapElement(caseUnfold(), "ꜣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜣ'
-AddMapElement(caseUnfold(), "Ꜥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜥ'
-AddMapElement(caseUnfold(), "ꜥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜥ'
-AddMapElement(caseUnfold(), "Ꜧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜧ'
-AddMapElement(caseUnfold(), "ꜧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜧ'
-AddMapElement(caseUnfold(), "Ꜩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜩ'
-AddMapElement(caseUnfold(), "ꜩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜩ'
-AddMapElement(caseUnfold(), "Ꜫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜫ'
-AddMapElement(caseUnfold(), "ꜫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜫ'
-AddMapElement(caseUnfold(), "Ꜭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜭ'
-AddMapElement(caseUnfold(), "ꜭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜭ'
-AddMapElement(caseUnfold(), "Ꜯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜯ'
-AddMapElement(caseUnfold(), "ꜯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜯ'
-AddMapElement(caseUnfold(), "Ꜳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜳ'
-AddMapElement(caseUnfold(), "ꜳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜳ'
-AddMapElement(caseUnfold(), "Ꜵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜵ'
-AddMapElement(caseUnfold(), "ꜵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜵ'
-AddMapElement(caseUnfold(), "Ꜷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜷ'
-AddMapElement(caseUnfold(), "ꜷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜷ'
-AddMapElement(caseUnfold(), "Ꜹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜹ'
-AddMapElement(caseUnfold(), "ꜹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜹ'
-AddMapElement(caseUnfold(), "Ꜻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜻ'
-AddMapElement(caseUnfold(), "ꜻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜻ'
-AddMapElement(caseUnfold(), "Ꜽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜽ'
-AddMapElement(caseUnfold(), "ꜽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜽ'
-AddMapElement(caseUnfold(), "Ꜿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꜿ'
-AddMapElement(caseUnfold(), "ꜿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꜿ'
-AddMapElement(caseUnfold(), "Ꝁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝁ'
-AddMapElement(caseUnfold(), "ꝁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝁ'
-AddMapElement(caseUnfold(), "Ꝃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝃ'
-AddMapElement(caseUnfold(), "ꝃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝃ'
-AddMapElement(caseUnfold(), "Ꝅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝅ'
-AddMapElement(caseUnfold(), "ꝅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝅ'
-AddMapElement(caseUnfold(), "Ꝇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝇ'
-AddMapElement(caseUnfold(), "ꝇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝇ'
-AddMapElement(caseUnfold(), "Ꝉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝉ'
-AddMapElement(caseUnfold(), "ꝉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝉ'
-AddMapElement(caseUnfold(), "Ꝋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝋ'
-AddMapElement(caseUnfold(), "ꝋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝋ'
-AddMapElement(caseUnfold(), "Ꝍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝍ'
-AddMapElement(caseUnfold(), "ꝍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝍ'
-AddMapElement(caseUnfold(), "Ꝏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝏ'
-AddMapElement(caseUnfold(), "ꝏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝏ'
-AddMapElement(caseUnfold(), "Ꝑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝑ'
-AddMapElement(caseUnfold(), "ꝑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝑ'
-AddMapElement(caseUnfold(), "Ꝓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝓ'
-AddMapElement(caseUnfold(), "ꝓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝓ'
-AddMapElement(caseUnfold(), "Ꝕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝕ'
-AddMapElement(caseUnfold(), "ꝕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝕ'
-AddMapElement(caseUnfold(), "Ꝗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝗ'
-AddMapElement(caseUnfold(), "ꝗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝗ'
-AddMapElement(caseUnfold(), "Ꝙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝙ'
-AddMapElement(caseUnfold(), "ꝙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝙ'
-AddMapElement(caseUnfold(), "Ꝛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝛ'
-AddMapElement(caseUnfold(), "ꝛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝛ'
-AddMapElement(caseUnfold(), "Ꝝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝝ'
-AddMapElement(caseUnfold(), "ꝝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝝ'
-AddMapElement(caseUnfold(), "Ꝟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝟ'
-AddMapElement(caseUnfold(), "ꝟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝟ'
-AddMapElement(caseUnfold(), "Ꝡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝡ'
-AddMapElement(caseUnfold(), "ꝡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝡ'
-AddMapElement(caseUnfold(), "Ꝣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝣ'
-AddMapElement(caseUnfold(), "ꝣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝣ'
-AddMapElement(caseUnfold(), "Ꝥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝥ'
-AddMapElement(caseUnfold(), "ꝥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝥ'
-AddMapElement(caseUnfold(), "Ꝧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝧ'
-AddMapElement(caseUnfold(), "ꝧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝧ'
-AddMapElement(caseUnfold(), "Ꝩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝩ'
-AddMapElement(caseUnfold(), "ꝩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝩ'
-AddMapElement(caseUnfold(), "Ꝫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝫ'
-AddMapElement(caseUnfold(), "ꝫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝫ'
-AddMapElement(caseUnfold(), "Ꝭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝭ'
-AddMapElement(caseUnfold(), "ꝭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝭ'
-AddMapElement(caseUnfold(), "Ꝯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝯ'
-AddMapElement(caseUnfold(), "ꝯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝯ'
-AddMapElement(caseUnfold(), "Ꝺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝺ'
-AddMapElement(caseUnfold(), "ꝺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝺ'
-AddMapElement(caseUnfold(), "Ꝼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝼ'
-AddMapElement(caseUnfold(), "ꝼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝼ'
-AddMapElement(caseUnfold(), "Ᵹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᵹ'
-AddMapElement(caseUnfold(), "ᵹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᵹ'
-AddMapElement(caseUnfold(), "Ꝿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꝿ'
-AddMapElement(caseUnfold(), "ꝿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꝿ'
-AddMapElement(caseUnfold(), "Ꞁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞁ'
-AddMapElement(caseUnfold(), "ꞁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞁ'
-AddMapElement(caseUnfold(), "Ꞃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞃ'
-AddMapElement(caseUnfold(), "ꞃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞃ'
-AddMapElement(caseUnfold(), "Ꞅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞅ'
-AddMapElement(caseUnfold(), "ꞅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞅ'
-AddMapElement(caseUnfold(), "Ꞇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞇ'
-AddMapElement(caseUnfold(), "ꞇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞇ'
-AddMapElement(caseUnfold(), "Ꞌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞌ'
-AddMapElement(caseUnfold(), "ꞌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞌ'
-AddMapElement(caseUnfold(), "Ɥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɥ'
-AddMapElement(caseUnfold(), "ɥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɥ'
-AddMapElement(caseUnfold(), "Ꞑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞑ'
-AddMapElement(caseUnfold(), "ꞑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞑ'
-AddMapElement(caseUnfold(), "Ꞓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞓ'
-AddMapElement(caseUnfold(), "ꞓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞓ'
-AddMapElement(caseUnfold(), "Ꞗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞗ'
-AddMapElement(caseUnfold(), "ꞗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞗ'
-AddMapElement(caseUnfold(), "Ꞙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞙ'
-AddMapElement(caseUnfold(), "ꞙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞙ'
-AddMapElement(caseUnfold(), "Ꞛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞛ'
-AddMapElement(caseUnfold(), "ꞛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞛ'
-AddMapElement(caseUnfold(), "Ꞝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞝ'
-AddMapElement(caseUnfold(), "ꞝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞝ'
-AddMapElement(caseUnfold(), "Ꞟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞟ'
-AddMapElement(caseUnfold(), "ꞟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞟ'
-AddMapElement(caseUnfold(), "Ꞡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞡ'
-AddMapElement(caseUnfold(), "ꞡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞡ'
-AddMapElement(caseUnfold(), "Ꞣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞣ'
-AddMapElement(caseUnfold(), "ꞣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞣ'
-AddMapElement(caseUnfold(), "Ꞥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞥ'
-AddMapElement(caseUnfold(), "ꞥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞥ'
-AddMapElement(caseUnfold(), "Ꞧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞧ'
-AddMapElement(caseUnfold(), "ꞧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞧ'
-AddMapElement(caseUnfold(), "Ꞩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞩ'
-AddMapElement(caseUnfold(), "ꞩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞩ'
-AddMapElement(caseUnfold(), "Ɦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɦ'
-AddMapElement(caseUnfold(), "ɦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɦ'
-AddMapElement(caseUnfold(), "Ɜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɜ'
-AddMapElement(caseUnfold(), "ɜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɜ'
-AddMapElement(caseUnfold(), "Ɡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɡ'
-AddMapElement(caseUnfold(), "ɡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɡ'
-AddMapElement(caseUnfold(), "Ɬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɬ'
-AddMapElement(caseUnfold(), "ɬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɬ'
-AddMapElement(caseUnfold(), "Ɪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ɪ'
-AddMapElement(caseUnfold(), "ɪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ɪ'
-AddMapElement(caseUnfold(), "Ʞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʞ'
-AddMapElement(caseUnfold(), "ʞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʞ'
-AddMapElement(caseUnfold(), "Ʇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʇ'
-AddMapElement(caseUnfold(), "ʇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʇ'
-AddMapElement(caseUnfold(), "Ʝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʝ'
-AddMapElement(caseUnfold(), "ʝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʝ'
-AddMapElement(caseUnfold(), "Ꭓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭓ'
-AddMapElement(caseUnfold(), "ꭓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭓ'
-AddMapElement(caseUnfold(), "Ꞵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞵ'
-AddMapElement(caseUnfold(), "ꞵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞵ'
-AddMapElement(caseUnfold(), "Ꞷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞷ'
-AddMapElement(caseUnfold(), "ꞷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞷ'
-AddMapElement(caseUnfold(), "Ꞹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞹ'
-AddMapElement(caseUnfold(), "ꞹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞹ'
-AddMapElement(caseUnfold(), "Ꞻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞻ'
-AddMapElement(caseUnfold(), "ꞻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞻ'
-AddMapElement(caseUnfold(), "Ꞽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞽ'
-AddMapElement(caseUnfold(), "ꞽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞽ'
-AddMapElement(caseUnfold(), "Ꞿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞿ'
-AddMapElement(caseUnfold(), "ꞿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞿ'
-AddMapElement(caseUnfold(), "Ꟁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟁ'
-AddMapElement(caseUnfold(), "ꟁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟁ'
-AddMapElement(caseUnfold(), "Ꟃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟃ'
-AddMapElement(caseUnfold(), "ꟃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟃ'
-AddMapElement(caseUnfold(), "Ꞔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꞔ'
-AddMapElement(caseUnfold(), "ꞔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꞔ'
-AddMapElement(caseUnfold(), "Ʂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ʂ'
-AddMapElement(caseUnfold(), "ʂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ʂ'
-AddMapElement(caseUnfold(), "Ᶎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᶎ'
-AddMapElement(caseUnfold(), "ᶎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ᶎ'
-AddMapElement(caseUnfold(), "Ꟈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟈ'
-AddMapElement(caseUnfold(), "ꟈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟈ'
-AddMapElement(caseUnfold(), "Ꟊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟊ'
-AddMapElement(caseUnfold(), "ꟊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟊ'
-AddMapElement(caseUnfold(), "Ꟑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟑ'
-AddMapElement(caseUnfold(), "ꟑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟑ'
-AddMapElement(caseUnfold(), "Ꟗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟗ'
-AddMapElement(caseUnfold(), "ꟗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟗ'
-AddMapElement(caseUnfold(), "Ꟙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟙ'
-AddMapElement(caseUnfold(), "ꟙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟙ'
-AddMapElement(caseUnfold(), "Ꟶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꟶ'
-AddMapElement(caseUnfold(), "ꟶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꟶ'
-AddMapElement(caseUnfold(), "ꭰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭰ'
-AddMapElement(caseUnfold(), "Ꭰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭰ'
-AddMapElement(caseUnfold(), "ꭱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭱ'
-AddMapElement(caseUnfold(), "Ꭱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭱ'
-AddMapElement(caseUnfold(), "ꭲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭲ'
-AddMapElement(caseUnfold(), "Ꭲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭲ'
-AddMapElement(caseUnfold(), "ꭳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭳ'
-AddMapElement(caseUnfold(), "Ꭳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭳ'
-AddMapElement(caseUnfold(), "ꭴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭴ'
-AddMapElement(caseUnfold(), "Ꭴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭴ'
-AddMapElement(caseUnfold(), "ꭵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭵ'
-AddMapElement(caseUnfold(), "Ꭵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭵ'
-AddMapElement(caseUnfold(), "ꭶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭶ'
-AddMapElement(caseUnfold(), "Ꭶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭶ'
-AddMapElement(caseUnfold(), "ꭷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭷ'
-AddMapElement(caseUnfold(), "Ꭷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭷ'
-AddMapElement(caseUnfold(), "ꭸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭸ'
-AddMapElement(caseUnfold(), "Ꭸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭸ'
-AddMapElement(caseUnfold(), "ꭹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭹ'
-AddMapElement(caseUnfold(), "Ꭹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭹ'
-AddMapElement(caseUnfold(), "ꭺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭺ'
-AddMapElement(caseUnfold(), "Ꭺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭺ'
-AddMapElement(caseUnfold(), "ꭻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭻ'
-AddMapElement(caseUnfold(), "Ꭻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭻ'
-AddMapElement(caseUnfold(), "ꭼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭼ'
-AddMapElement(caseUnfold(), "Ꭼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭼ'
-AddMapElement(caseUnfold(), "ꭽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭽ'
-AddMapElement(caseUnfold(), "Ꭽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭽ'
-AddMapElement(caseUnfold(), "ꭾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭾ'
-AddMapElement(caseUnfold(), "Ꭾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭾ'
-AddMapElement(caseUnfold(), "ꭿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꭿ'
-AddMapElement(caseUnfold(), "Ꭿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꭿ'
-AddMapElement(caseUnfold(), "ꮀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮀ'
-AddMapElement(caseUnfold(), "Ꮀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮀ'
-AddMapElement(caseUnfold(), "ꮁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮁ'
-AddMapElement(caseUnfold(), "Ꮁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮁ'
-AddMapElement(caseUnfold(), "ꮂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮂ'
-AddMapElement(caseUnfold(), "Ꮂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮂ'
-AddMapElement(caseUnfold(), "ꮃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮃ'
-AddMapElement(caseUnfold(), "Ꮃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮃ'
-AddMapElement(caseUnfold(), "ꮄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮄ'
-AddMapElement(caseUnfold(), "Ꮄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮄ'
-AddMapElement(caseUnfold(), "ꮅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮅ'
-AddMapElement(caseUnfold(), "Ꮅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮅ'
-AddMapElement(caseUnfold(), "ꮆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮆ'
-AddMapElement(caseUnfold(), "Ꮆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮆ'
-AddMapElement(caseUnfold(), "ꮇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮇ'
-AddMapElement(caseUnfold(), "Ꮇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮇ'
-AddMapElement(caseUnfold(), "ꮈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮈ'
-AddMapElement(caseUnfold(), "Ꮈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮈ'
-AddMapElement(caseUnfold(), "ꮉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮉ'
-AddMapElement(caseUnfold(), "Ꮉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮉ'
-AddMapElement(caseUnfold(), "ꮊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮊ'
-AddMapElement(caseUnfold(), "Ꮊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮊ'
-AddMapElement(caseUnfold(), "ꮋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮋ'
-AddMapElement(caseUnfold(), "Ꮋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮋ'
-AddMapElement(caseUnfold(), "ꮌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮌ'
-AddMapElement(caseUnfold(), "Ꮌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮌ'
-AddMapElement(caseUnfold(), "ꮍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮍ'
-AddMapElement(caseUnfold(), "Ꮍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮍ'
-AddMapElement(caseUnfold(), "ꮎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮎ'
-AddMapElement(caseUnfold(), "Ꮎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮎ'
-AddMapElement(caseUnfold(), "ꮏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮏ'
-AddMapElement(caseUnfold(), "Ꮏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮏ'
-AddMapElement(caseUnfold(), "ꮐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮐ'
-AddMapElement(caseUnfold(), "Ꮐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮐ'
-AddMapElement(caseUnfold(), "ꮑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮑ'
-AddMapElement(caseUnfold(), "Ꮑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮑ'
-AddMapElement(caseUnfold(), "ꮒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮒ'
-AddMapElement(caseUnfold(), "Ꮒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮒ'
-AddMapElement(caseUnfold(), "ꮓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮓ'
-AddMapElement(caseUnfold(), "Ꮓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮓ'
-AddMapElement(caseUnfold(), "ꮔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮔ'
-AddMapElement(caseUnfold(), "Ꮔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮔ'
-AddMapElement(caseUnfold(), "ꮕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮕ'
-AddMapElement(caseUnfold(), "Ꮕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮕ'
-AddMapElement(caseUnfold(), "ꮖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮖ'
-AddMapElement(caseUnfold(), "Ꮖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮖ'
-AddMapElement(caseUnfold(), "ꮗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮗ'
-AddMapElement(caseUnfold(), "Ꮗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮗ'
-AddMapElement(caseUnfold(), "ꮘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮘ'
-AddMapElement(caseUnfold(), "Ꮘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮘ'
-AddMapElement(caseUnfold(), "ꮙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮙ'
-AddMapElement(caseUnfold(), "Ꮙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮙ'
-AddMapElement(caseUnfold(), "ꮚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮚ'
-AddMapElement(caseUnfold(), "Ꮚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮚ'
-AddMapElement(caseUnfold(), "ꮛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮛ'
-AddMapElement(caseUnfold(), "Ꮛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮛ'
-AddMapElement(caseUnfold(), "ꮜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮜ'
-AddMapElement(caseUnfold(), "Ꮜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮜ'
-AddMapElement(caseUnfold(), "ꮝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮝ'
-AddMapElement(caseUnfold(), "Ꮝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮝ'
-AddMapElement(caseUnfold(), "ꮞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮞ'
-AddMapElement(caseUnfold(), "Ꮞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮞ'
-AddMapElement(caseUnfold(), "ꮟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮟ'
-AddMapElement(caseUnfold(), "Ꮟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮟ'
-AddMapElement(caseUnfold(), "ꮠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮠ'
-AddMapElement(caseUnfold(), "Ꮠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮠ'
-AddMapElement(caseUnfold(), "ꮡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮡ'
-AddMapElement(caseUnfold(), "Ꮡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮡ'
-AddMapElement(caseUnfold(), "ꮢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮢ'
-AddMapElement(caseUnfold(), "Ꮢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮢ'
-AddMapElement(caseUnfold(), "ꮣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮣ'
-AddMapElement(caseUnfold(), "Ꮣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮣ'
-AddMapElement(caseUnfold(), "ꮤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮤ'
-AddMapElement(caseUnfold(), "Ꮤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮤ'
-AddMapElement(caseUnfold(), "ꮥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮥ'
-AddMapElement(caseUnfold(), "Ꮥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮥ'
-AddMapElement(caseUnfold(), "ꮦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮦ'
-AddMapElement(caseUnfold(), "Ꮦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮦ'
-AddMapElement(caseUnfold(), "ꮧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮧ'
-AddMapElement(caseUnfold(), "Ꮧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮧ'
-AddMapElement(caseUnfold(), "ꮨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮨ'
-AddMapElement(caseUnfold(), "Ꮨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮨ'
-AddMapElement(caseUnfold(), "ꮩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮩ'
-AddMapElement(caseUnfold(), "Ꮩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮩ'
-AddMapElement(caseUnfold(), "ꮪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮪ'
-AddMapElement(caseUnfold(), "Ꮪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮪ'
-AddMapElement(caseUnfold(), "ꮫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮫ'
-AddMapElement(caseUnfold(), "Ꮫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮫ'
-AddMapElement(caseUnfold(), "ꮬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮬ'
-AddMapElement(caseUnfold(), "Ꮬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮬ'
-AddMapElement(caseUnfold(), "ꮭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮭ'
-AddMapElement(caseUnfold(), "Ꮭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮭ'
-AddMapElement(caseUnfold(), "ꮮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮮ'
-AddMapElement(caseUnfold(), "Ꮮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮮ'
-AddMapElement(caseUnfold(), "ꮯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮯ'
-AddMapElement(caseUnfold(), "Ꮯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮯ'
-AddMapElement(caseUnfold(), "ꮰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮰ'
-AddMapElement(caseUnfold(), "Ꮰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮰ'
-AddMapElement(caseUnfold(), "ꮱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮱ'
-AddMapElement(caseUnfold(), "Ꮱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮱ'
-AddMapElement(caseUnfold(), "ꮲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮲ'
-AddMapElement(caseUnfold(), "Ꮲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮲ'
-AddMapElement(caseUnfold(), "ꮳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮳ'
-AddMapElement(caseUnfold(), "Ꮳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮳ'
-AddMapElement(caseUnfold(), "ꮴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮴ'
-AddMapElement(caseUnfold(), "Ꮴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮴ'
-AddMapElement(caseUnfold(), "ꮵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮵ'
-AddMapElement(caseUnfold(), "Ꮵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮵ'
-AddMapElement(caseUnfold(), "ꮶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮶ'
-AddMapElement(caseUnfold(), "Ꮶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮶ'
-AddMapElement(caseUnfold(), "ꮷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮷ'
-AddMapElement(caseUnfold(), "Ꮷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮷ'
-AddMapElement(caseUnfold(), "ꮸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮸ'
-AddMapElement(caseUnfold(), "Ꮸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮸ'
-AddMapElement(caseUnfold(), "ꮹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮹ'
-AddMapElement(caseUnfold(), "Ꮹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮹ'
-AddMapElement(caseUnfold(), "ꮺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮺ'
-AddMapElement(caseUnfold(), "Ꮺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮺ'
-AddMapElement(caseUnfold(), "ꮻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮻ'
-AddMapElement(caseUnfold(), "Ꮻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮻ'
-AddMapElement(caseUnfold(), "ꮼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮼ'
-AddMapElement(caseUnfold(), "Ꮼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮼ'
-AddMapElement(caseUnfold(), "ꮽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮽ'
-AddMapElement(caseUnfold(), "Ꮽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮽ'
-AddMapElement(caseUnfold(), "ꮾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮾ'
-AddMapElement(caseUnfold(), "Ꮾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮾ'
-AddMapElement(caseUnfold(), "ꮿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ꮿ'
-AddMapElement(caseUnfold(), "Ꮿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ꮿ'
-AddMapElement(caseUnfold(), "Ａ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ａ'
-AddMapElement(caseUnfold(), "ａ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ａ'
-AddMapElement(caseUnfold(), "Ｂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｂ'
-AddMapElement(caseUnfold(), "ｂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｂ'
-AddMapElement(caseUnfold(), "Ｃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｃ'
-AddMapElement(caseUnfold(), "ｃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｃ'
-AddMapElement(caseUnfold(), "Ｄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｄ'
-AddMapElement(caseUnfold(), "ｄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｄ'
-AddMapElement(caseUnfold(), "Ｅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｅ'
-AddMapElement(caseUnfold(), "ｅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｅ'
-AddMapElement(caseUnfold(), "Ｆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｆ'
-AddMapElement(caseUnfold(), "ｆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｆ'
-AddMapElement(caseUnfold(), "Ｇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｇ'
-AddMapElement(caseUnfold(), "ｇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｇ'
-AddMapElement(caseUnfold(), "Ｈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｈ'
-AddMapElement(caseUnfold(), "ｈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｈ'
-AddMapElement(caseUnfold(), "Ｉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｉ'
-AddMapElement(caseUnfold(), "ｉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｉ'
-AddMapElement(caseUnfold(), "Ｊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｊ'
-AddMapElement(caseUnfold(), "ｊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｊ'
-AddMapElement(caseUnfold(), "Ｋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｋ'
-AddMapElement(caseUnfold(), "ｋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｋ'
-AddMapElement(caseUnfold(), "Ｌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｌ'
-AddMapElement(caseUnfold(), "ｌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｌ'
-AddMapElement(caseUnfold(), "Ｍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｍ'
-AddMapElement(caseUnfold(), "ｍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｍ'
-AddMapElement(caseUnfold(), "Ｎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｎ'
-AddMapElement(caseUnfold(), "ｎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｎ'
-AddMapElement(caseUnfold(), "Ｏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｏ'
-AddMapElement(caseUnfold(), "ｏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｏ'
-AddMapElement(caseUnfold(), "Ｐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｐ'
-AddMapElement(caseUnfold(), "ｐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｐ'
-AddMapElement(caseUnfold(), "Ｑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｑ'
-AddMapElement(caseUnfold(), "ｑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｑ'
-AddMapElement(caseUnfold(), "Ｒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｒ'
-AddMapElement(caseUnfold(), "ｒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｒ'
-AddMapElement(caseUnfold(), "Ｓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｓ'
-AddMapElement(caseUnfold(), "ｓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｓ'
-AddMapElement(caseUnfold(), "Ｔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｔ'
-AddMapElement(caseUnfold(), "ｔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｔ'
-AddMapElement(caseUnfold(), "Ｕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｕ'
-AddMapElement(caseUnfold(), "ｕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｕ'
-AddMapElement(caseUnfold(), "Ｖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｖ'
-AddMapElement(caseUnfold(), "ｖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｖ'
-AddMapElement(caseUnfold(), "Ｗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｗ'
-AddMapElement(caseUnfold(), "ｗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｗ'
-AddMapElement(caseUnfold(), "Ｘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｘ'
-AddMapElement(caseUnfold(), "ｘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｘ'
-AddMapElement(caseUnfold(), "Ｙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｙ'
-AddMapElement(caseUnfold(), "ｙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｙ'
-AddMapElement(caseUnfold(), "Ｚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ｚ'
-AddMapElement(caseUnfold(), "ｚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'Ｚ'
-AddMapElement(caseUnfold(), "հ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֗'
-AddMapElement(caseUnfold(), "֗")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'հ'
-AddMapElement(caseUnfold(), "ձ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֘'
-AddMapElement(caseUnfold(), "֘")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ձ'
-AddMapElement(caseUnfold(), "ղ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֙'
-AddMapElement(caseUnfold(), "֙")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ղ'
-AddMapElement(caseUnfold(), "ճ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֚'
-AddMapElement(caseUnfold(), "֚")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ճ'
-AddMapElement(caseUnfold(), "մ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֛'
-AddMapElement(caseUnfold(), "֛")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'մ'
-AddMapElement(caseUnfold(), "յ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֜'
-AddMapElement(caseUnfold(), "֜")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'յ'
-AddMapElement(caseUnfold(), "ն")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֝'
-AddMapElement(caseUnfold(), "֝")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ն'
-AddMapElement(caseUnfold(), "շ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֞'
-AddMapElement(caseUnfold(), "֞")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'շ'
-AddMapElement(caseUnfold(), "ո")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֟'
-AddMapElement(caseUnfold(), "֟")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ո'
-AddMapElement(caseUnfold(), "չ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֠'
-AddMapElement(caseUnfold(), "֠")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'չ'
-AddMapElement(caseUnfold(), "պ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֡'
-AddMapElement(caseUnfold(), "֡")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'պ'
-AddMapElement(caseUnfold(), "ռ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֣'
-AddMapElement(caseUnfold(), "֣")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ռ'
-AddMapElement(caseUnfold(), "ս")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֤'
-AddMapElement(caseUnfold(), "֤")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ս'
-AddMapElement(caseUnfold(), "վ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֥'
-AddMapElement(caseUnfold(), "֥")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'վ'
-AddMapElement(caseUnfold(), "տ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֦'
-AddMapElement(caseUnfold(), "֦")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'տ'
-AddMapElement(caseUnfold(), "ր")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֧'
-AddMapElement(caseUnfold(), "֧")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ր'
-AddMapElement(caseUnfold(), "ց")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֨'
-AddMapElement(caseUnfold(), "֨")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ց'
-AddMapElement(caseUnfold(), "ւ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֩'
-AddMapElement(caseUnfold(), "֩")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ւ'
-AddMapElement(caseUnfold(), "փ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֪'
-AddMapElement(caseUnfold(), "֪")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'փ'
-AddMapElement(caseUnfold(), "ք")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֫'
-AddMapElement(caseUnfold(), "֫")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ք'
-AddMapElement(caseUnfold(), "օ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֬'
-AddMapElement(caseUnfold(), "֬")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'օ'
-AddMapElement(caseUnfold(), "ֆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֭'
-AddMapElement(caseUnfold(), "֭")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֆ'
-AddMapElement(caseUnfold(), "և")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֮'
-AddMapElement(caseUnfold(), "֮")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'և'
-AddMapElement(caseUnfold(), "ֈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֯'
-AddMapElement(caseUnfold(), "֯")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֈ'
-AddMapElement(caseUnfold(), "։")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ְ'
-AddMapElement(caseUnfold(), "ְ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '։'
-AddMapElement(caseUnfold(), "֊")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֱ'
-AddMapElement(caseUnfold(), "ֱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֊'
-AddMapElement(caseUnfold(), "֌")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֳ'
-AddMapElement(caseUnfold(), "ֳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֌'
-AddMapElement(caseUnfold(), "֍")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ִ'
-AddMapElement(caseUnfold(), "ִ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֍'
-AddMapElement(caseUnfold(), "֎")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֵ'
-AddMapElement(caseUnfold(), "ֵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֎'
-AddMapElement(caseUnfold(), "֏")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֶ'
-AddMapElement(caseUnfold(), "ֶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֏'
-AddMapElement(caseUnfold(), "֐")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ַ'
-AddMapElement(caseUnfold(), "ַ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֐'
-AddMapElement(caseUnfold(), "֑")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ָ'
-AddMapElement(caseUnfold(), "ָ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֑'
-AddMapElement(caseUnfold(), "֒")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֹ'
-AddMapElement(caseUnfold(), "ֹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֒'
-AddMapElement(caseUnfold(), "֔")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ֻ'
-AddMapElement(caseUnfold(), "ֻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֔'
-AddMapElement(caseUnfold(), "֕")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ּ'
-AddMapElement(caseUnfold(), "ּ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '֕'
-AddMapElement(caseUnfold(), "ಀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೀ'
-AddMapElement(caseUnfold(), "ೀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಀ'
-AddMapElement(caseUnfold(), "ಁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ು'
-AddMapElement(caseUnfold(), "ು")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಁ'
-AddMapElement(caseUnfold(), "ಂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೂ'
-AddMapElement(caseUnfold(), "ೂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಂ'
-AddMapElement(caseUnfold(), "ಃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೃ'
-AddMapElement(caseUnfold(), "ೃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಃ'
-AddMapElement(caseUnfold(), "಄")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೄ'
-AddMapElement(caseUnfold(), "ೄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '಄'
-AddMapElement(caseUnfold(), "ಅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೅'
-AddMapElement(caseUnfold(), "೅")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಅ'
-AddMapElement(caseUnfold(), "ಆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೆ'
-AddMapElement(caseUnfold(), "ೆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಆ'
-AddMapElement(caseUnfold(), "ಇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೇ'
-AddMapElement(caseUnfold(), "ೇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಇ'
-AddMapElement(caseUnfold(), "ಈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೈ'
-AddMapElement(caseUnfold(), "ೈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಈ'
-AddMapElement(caseUnfold(), "ಉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೉'
-AddMapElement(caseUnfold(), "೉")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಉ'
-AddMapElement(caseUnfold(), "ಊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೊ'
-AddMapElement(caseUnfold(), "ೊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಊ'
-AddMapElement(caseUnfold(), "ಋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೋ'
-AddMapElement(caseUnfold(), "ೋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಋ'
-AddMapElement(caseUnfold(), "ಌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೌ'
-AddMapElement(caseUnfold(), "ೌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಌ'
-AddMapElement(caseUnfold(), "಍")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '್'
-AddMapElement(caseUnfold(), "್")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '಍'
-AddMapElement(caseUnfold(), "ಎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೎'
-AddMapElement(caseUnfold(), "೎")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಎ'
-AddMapElement(caseUnfold(), "ಏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೏'
-AddMapElement(caseUnfold(), "೏")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಏ'
-AddMapElement(caseUnfold(), "ಐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೐'
-AddMapElement(caseUnfold(), "೐")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಐ'
-AddMapElement(caseUnfold(), "಑")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೑'
-AddMapElement(caseUnfold(), "೑")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '಑'
-AddMapElement(caseUnfold(), "ಒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೒'
-AddMapElement(caseUnfold(), "೒")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಒ'
-AddMapElement(caseUnfold(), "ಓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೓'
-AddMapElement(caseUnfold(), "೓")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಓ'
-AddMapElement(caseUnfold(), "ಔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೔'
-AddMapElement(caseUnfold(), "೔")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಔ'
-AddMapElement(caseUnfold(), "ಕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೕ'
-AddMapElement(caseUnfold(), "ೕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಕ'
-AddMapElement(caseUnfold(), "ಖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೖ'
-AddMapElement(caseUnfold(), "ೖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಖ'
-AddMapElement(caseUnfold(), "ಗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೗'
-AddMapElement(caseUnfold(), "೗")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಗ'
-AddMapElement(caseUnfold(), "ಘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೘'
-AddMapElement(caseUnfold(), "೘")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಘ'
-AddMapElement(caseUnfold(), "ಙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೙'
-AddMapElement(caseUnfold(), "೙")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಙ'
-AddMapElement(caseUnfold(), "ಚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೚'
-AddMapElement(caseUnfold(), "೚")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಚ'
-AddMapElement(caseUnfold(), "ಛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೛'
-AddMapElement(caseUnfold(), "೛")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಛ'
-AddMapElement(caseUnfold(), "ಜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೜'
-AddMapElement(caseUnfold(), "೜")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಜ'
-AddMapElement(caseUnfold(), "ಝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೝ'
-AddMapElement(caseUnfold(), "ೝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಝ'
-AddMapElement(caseUnfold(), "ಞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೞ'
-AddMapElement(caseUnfold(), "ೞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಞ'
-AddMapElement(caseUnfold(), "ಟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೟'
-AddMapElement(caseUnfold(), "೟")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಟ'
-AddMapElement(caseUnfold(), "ಠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೠ'
-AddMapElement(caseUnfold(), "ೠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಠ'
-AddMapElement(caseUnfold(), "ಡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೡ'
-AddMapElement(caseUnfold(), "ೡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಡ'
-AddMapElement(caseUnfold(), "ಢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೢ'
-AddMapElement(caseUnfold(), "ೢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಢ'
-AddMapElement(caseUnfold(), "ಣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೣ'
-AddMapElement(caseUnfold(), "ೣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಣ'
-AddMapElement(caseUnfold(), "ತ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೤'
-AddMapElement(caseUnfold(), "೤")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ತ'
-AddMapElement(caseUnfold(), "ಥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೥'
-AddMapElement(caseUnfold(), "೥")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಥ'
-AddMapElement(caseUnfold(), "ದ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೦'
-AddMapElement(caseUnfold(), "೦")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ದ'
-AddMapElement(caseUnfold(), "ಧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೧'
-AddMapElement(caseUnfold(), "೧")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಧ'
-AddMapElement(caseUnfold(), "ನ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೨'
-AddMapElement(caseUnfold(), "೨")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ನ'
-AddMapElement(caseUnfold(), "಩")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೩'
-AddMapElement(caseUnfold(), "೩")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '಩'
-AddMapElement(caseUnfold(), "ಪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೪'
-AddMapElement(caseUnfold(), "೪")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಪ'
-AddMapElement(caseUnfold(), "ಫ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೫'
-AddMapElement(caseUnfold(), "೫")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಫ'
-AddMapElement(caseUnfold(), "ಬ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೬'
-AddMapElement(caseUnfold(), "೬")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಬ'
-AddMapElement(caseUnfold(), "ಭ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೭'
-AddMapElement(caseUnfold(), "೭")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಭ'
-AddMapElement(caseUnfold(), "ಮ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೮'
-AddMapElement(caseUnfold(), "೮")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಮ'
-AddMapElement(caseUnfold(), "ಯ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೯'
-AddMapElement(caseUnfold(), "೯")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಯ'
-AddMapElement(caseUnfold(), "ರ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '೰'
-AddMapElement(caseUnfold(), "೰")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ರ'
-AddMapElement(caseUnfold(), "ಱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೱ'
-AddMapElement(caseUnfold(), "ೱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಱ'
-AddMapElement(caseUnfold(), "ಲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ೲ'
-AddMapElement(caseUnfold(), "ೲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ಲ'
-AddMapElement(caseUnfold(), "ᢠ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣀ'
-AddMapElement(caseUnfold(), "ᣀ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢠ'
-AddMapElement(caseUnfold(), "ᢡ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣁ'
-AddMapElement(caseUnfold(), "ᣁ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢡ'
-AddMapElement(caseUnfold(), "ᢢ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣂ'
-AddMapElement(caseUnfold(), "ᣂ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢢ'
-AddMapElement(caseUnfold(), "ᢣ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣃ'
-AddMapElement(caseUnfold(), "ᣃ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢣ'
-AddMapElement(caseUnfold(), "ᢤ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣄ'
-AddMapElement(caseUnfold(), "ᣄ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢤ'
-AddMapElement(caseUnfold(), "ᢥ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣅ'
-AddMapElement(caseUnfold(), "ᣅ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢥ'
-AddMapElement(caseUnfold(), "ᢦ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣆ'
-AddMapElement(caseUnfold(), "ᣆ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢦ'
-AddMapElement(caseUnfold(), "ᢧ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣇ'
-AddMapElement(caseUnfold(), "ᣇ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢧ'
-AddMapElement(caseUnfold(), "ᢨ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣈ'
-AddMapElement(caseUnfold(), "ᣈ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢨ'
-AddMapElement(caseUnfold(), "ᢩ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣉ'
-AddMapElement(caseUnfold(), "ᣉ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢩ'
-AddMapElement(caseUnfold(), "ᢪ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣊ'
-AddMapElement(caseUnfold(), "ᣊ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢪ'
-AddMapElement(caseUnfold(), "᢫")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣋ'
-AddMapElement(caseUnfold(), "ᣋ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '᢫'
-AddMapElement(caseUnfold(), "᢬")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣌ'
-AddMapElement(caseUnfold(), "ᣌ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '᢬'
-AddMapElement(caseUnfold(), "᢭")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣍ'
-AddMapElement(caseUnfold(), "ᣍ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '᢭'
-AddMapElement(caseUnfold(), "᢮")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣎ'
-AddMapElement(caseUnfold(), "ᣎ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '᢮'
-AddMapElement(caseUnfold(), "᢯")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣏ'
-AddMapElement(caseUnfold(), "ᣏ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '᢯'
-AddMapElement(caseUnfold(), "ᢰ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣐ'
-AddMapElement(caseUnfold(), "ᣐ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢰ'
-AddMapElement(caseUnfold(), "ᢱ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣑ'
-AddMapElement(caseUnfold(), "ᣑ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢱ'
-AddMapElement(caseUnfold(), "ᢲ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣒ'
-AddMapElement(caseUnfold(), "ᣒ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢲ'
-AddMapElement(caseUnfold(), "ᢳ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣓ'
-AddMapElement(caseUnfold(), "ᣓ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢳ'
-AddMapElement(caseUnfold(), "ᢴ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣔ'
-AddMapElement(caseUnfold(), "ᣔ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢴ'
-AddMapElement(caseUnfold(), "ᢵ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣕ'
-AddMapElement(caseUnfold(), "ᣕ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢵ'
-AddMapElement(caseUnfold(), "ᢶ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣖ'
-AddMapElement(caseUnfold(), "ᣖ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢶ'
-AddMapElement(caseUnfold(), "ᢷ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣗ'
-AddMapElement(caseUnfold(), "ᣗ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢷ'
-AddMapElement(caseUnfold(), "ᢸ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣘ'
-AddMapElement(caseUnfold(), "ᣘ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢸ'
-AddMapElement(caseUnfold(), "ᢹ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣙ'
-AddMapElement(caseUnfold(), "ᣙ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢹ'
-AddMapElement(caseUnfold(), "ᢺ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣚ'
-AddMapElement(caseUnfold(), "ᣚ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢺ'
-AddMapElement(caseUnfold(), "ᢻ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣛ'
-AddMapElement(caseUnfold(), "ᣛ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢻ'
-AddMapElement(caseUnfold(), "ᢼ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣜ'
-AddMapElement(caseUnfold(), "ᣜ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢼ'
-AddMapElement(caseUnfold(), "ᢽ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣝ'
-AddMapElement(caseUnfold(), "ᣝ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢽ'
-AddMapElement(caseUnfold(), "ᢾ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣞ'
-AddMapElement(caseUnfold(), "ᣞ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢾ'
-AddMapElement(caseUnfold(), "ᢿ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᣟ'
-AddMapElement(caseUnfold(), "ᣟ")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = 'ᢿ'
-AddMapElement(caseUnfold(), "湀")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湠'
-AddMapElement(caseUnfold(), "湠")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湀'
-AddMapElement(caseUnfold(), "湁")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湡'
-AddMapElement(caseUnfold(), "湡")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湁'
-AddMapElement(caseUnfold(), "湂")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湢'
-AddMapElement(caseUnfold(), "湢")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湂'
-AddMapElement(caseUnfold(), "湃")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湣'
-AddMapElement(caseUnfold(), "湣")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湃'
-AddMapElement(caseUnfold(), "湄")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湤'
-AddMapElement(caseUnfold(), "湤")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湄'
-AddMapElement(caseUnfold(), "湅")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湥'
-AddMapElement(caseUnfold(), "湥")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湅'
-AddMapElement(caseUnfold(), "湆")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湦'
-AddMapElement(caseUnfold(), "湦")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湆'
-AddMapElement(caseUnfold(), "湇")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湧'
-AddMapElement(caseUnfold(), "湧")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湇'
-AddMapElement(caseUnfold(), "湈")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湨'
-AddMapElement(caseUnfold(), "湨")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湈'
-AddMapElement(caseUnfold(), "湉")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湩'
-AddMapElement(caseUnfold(), "湩")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湉'
-AddMapElement(caseUnfold(), "湊")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湪'
-AddMapElement(caseUnfold(), "湪")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湊'
-AddMapElement(caseUnfold(), "湋")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湫'
-AddMapElement(caseUnfold(), "湫")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湋'
-AddMapElement(caseUnfold(), "湌")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湬'
-AddMapElement(caseUnfold(), "湬")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湌'
-AddMapElement(caseUnfold(), "湍")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湭'
-AddMapElement(caseUnfold(), "湭")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湍'
-AddMapElement(caseUnfold(), "湎")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湮'
-AddMapElement(caseUnfold(), "湮")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湎'
-AddMapElement(caseUnfold(), "湏")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湯'
-AddMapElement(caseUnfold(), "湯")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湏'
-AddMapElement(caseUnfold(), "湐")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湰'
-AddMapElement(caseUnfold(), "湰")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湐'
-AddMapElement(caseUnfold(), "湑")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湱'
-AddMapElement(caseUnfold(), "湱")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湑'
-AddMapElement(caseUnfold(), "湒")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湲'
-AddMapElement(caseUnfold(), "湲")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湒'
-AddMapElement(caseUnfold(), "湓")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湳'
-AddMapElement(caseUnfold(), "湳")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湓'
-AddMapElement(caseUnfold(), "湔")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湴'
-AddMapElement(caseUnfold(), "湴")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湔'
-AddMapElement(caseUnfold(), "湕")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湵'
-AddMapElement(caseUnfold(), "湵")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湕'
-AddMapElement(caseUnfold(), "湖")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湶'
-AddMapElement(caseUnfold(), "湶")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湖'
-AddMapElement(caseUnfold(), "湗")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湷'
-AddMapElement(caseUnfold(), "湷")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湗'
-AddMapElement(caseUnfold(), "湘")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湸'
-AddMapElement(caseUnfold(), "湸")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湘'
-AddMapElement(caseUnfold(), "湙")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湹'
-AddMapElement(caseUnfold(), "湹")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湙'
-AddMapElement(caseUnfold(), "湚")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湺'
-AddMapElement(caseUnfold(), "湺")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湚'
-AddMapElement(caseUnfold(), "湛")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湻'
-AddMapElement(caseUnfold(), "湻")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湛'
-AddMapElement(caseUnfold(), "湜")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湼'
-AddMapElement(caseUnfold(), "湼")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湜'
-AddMapElement(caseUnfold(), "湝")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湽'
-AddMapElement(caseUnfold(), "湽")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湝'
-AddMapElement(caseUnfold(), "湞")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湾'
-AddMapElement(caseUnfold(), "湾")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湞'
-AddMapElement(caseUnfold(), "湟")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湿'
-AddMapElement(caseUnfold(), "湿")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = '湟'
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
-AddMapElement(caseUnfold(), "")
-AddElement(caseUnfold()\chars()) : caseUnfold()\chars() = ''
+; *caseUnfold((charCode) = ?caseUnfoldTable + offset
+
+*caseUnfold($0041) = ?caseUnfoldTable + $0000
+*caseUnfold($0061) = ?caseUnfoldTable + $0003
+*caseUnfold($0042) = ?caseUnfoldTable + $0006
+*caseUnfold($0062) = ?caseUnfoldTable + $0009
+*caseUnfold($0043) = ?caseUnfoldTable + $000C
+*caseUnfold($0063) = ?caseUnfoldTable + $000F
+*caseUnfold($0044) = ?caseUnfoldTable + $0012
+*caseUnfold($0064) = ?caseUnfoldTable + $0015
+*caseUnfold($0045) = ?caseUnfoldTable + $0018
+*caseUnfold($0065) = ?caseUnfoldTable + $001B
+*caseUnfold($0046) = ?caseUnfoldTable + $001E
+*caseUnfold($0066) = ?caseUnfoldTable + $0021
+*caseUnfold($0047) = ?caseUnfoldTable + $0024
+*caseUnfold($0067) = ?caseUnfoldTable + $0027
+*caseUnfold($0048) = ?caseUnfoldTable + $002A
+*caseUnfold($0068) = ?caseUnfoldTable + $002D
+*caseUnfold($0049) = ?caseUnfoldTable + $0030
+*caseUnfold($0069) = ?caseUnfoldTable + $0033
+*caseUnfold($004A) = ?caseUnfoldTable + $0036
+*caseUnfold($006A) = ?caseUnfoldTable + $0039
+*caseUnfold($004B) = ?caseUnfoldTable + $003C
+*caseUnfold($006B) = ?caseUnfoldTable + $0041
+*caseUnfold($212A) = ?caseUnfoldTable + $0046
+*caseUnfold($004C) = ?caseUnfoldTable + $004B
+*caseUnfold($006C) = ?caseUnfoldTable + $004E
+*caseUnfold($004D) = ?caseUnfoldTable + $0051
+*caseUnfold($006D) = ?caseUnfoldTable + $0054
+*caseUnfold($004E) = ?caseUnfoldTable + $0057
+*caseUnfold($006E) = ?caseUnfoldTable + $005A
+*caseUnfold($004F) = ?caseUnfoldTable + $005D
+*caseUnfold($006F) = ?caseUnfoldTable + $0060
+*caseUnfold($0050) = ?caseUnfoldTable + $0063
+*caseUnfold($0070) = ?caseUnfoldTable + $0066
+*caseUnfold($0051) = ?caseUnfoldTable + $0069
+*caseUnfold($0071) = ?caseUnfoldTable + $006C
+*caseUnfold($0052) = ?caseUnfoldTable + $006F
+*caseUnfold($0072) = ?caseUnfoldTable + $0072
+*caseUnfold($0053) = ?caseUnfoldTable + $0075
+*caseUnfold($0073) = ?caseUnfoldTable + $007A
+*caseUnfold($017F) = ?caseUnfoldTable + $007F
+*caseUnfold($0054) = ?caseUnfoldTable + $0084
+*caseUnfold($0074) = ?caseUnfoldTable + $0087
+*caseUnfold($0055) = ?caseUnfoldTable + $008A
+*caseUnfold($0075) = ?caseUnfoldTable + $008D
+*caseUnfold($0056) = ?caseUnfoldTable + $0090
+*caseUnfold($0076) = ?caseUnfoldTable + $0093
+*caseUnfold($0057) = ?caseUnfoldTable + $0096
+*caseUnfold($0077) = ?caseUnfoldTable + $0099
+*caseUnfold($0058) = ?caseUnfoldTable + $009C
+*caseUnfold($0078) = ?caseUnfoldTable + $009F
+*caseUnfold($0059) = ?caseUnfoldTable + $00A2
+*caseUnfold($0079) = ?caseUnfoldTable + $00A5
+*caseUnfold($005A) = ?caseUnfoldTable + $00A8
+*caseUnfold($007A) = ?caseUnfoldTable + $00AB
+*caseUnfold($00B5) = ?caseUnfoldTable + $00AE
+*caseUnfold($03BC) = ?caseUnfoldTable + $00B3
+*caseUnfold($039C) = ?caseUnfoldTable + $00B8
+*caseUnfold($00C0) = ?caseUnfoldTable + $00BD
+*caseUnfold($00E0) = ?caseUnfoldTable + $00C0
+*caseUnfold($00C1) = ?caseUnfoldTable + $00C3
+*caseUnfold($00E1) = ?caseUnfoldTable + $00C6
+*caseUnfold($00C2) = ?caseUnfoldTable + $00C9
+*caseUnfold($00E2) = ?caseUnfoldTable + $00CC
+*caseUnfold($00C3) = ?caseUnfoldTable + $00CF
+*caseUnfold($00E3) = ?caseUnfoldTable + $00D2
+*caseUnfold($00C4) = ?caseUnfoldTable + $00D5
+*caseUnfold($00E4) = ?caseUnfoldTable + $00D8
+*caseUnfold($00C5) = ?caseUnfoldTable + $00DB
+*caseUnfold($00E5) = ?caseUnfoldTable + $00E0
+*caseUnfold($212B) = ?caseUnfoldTable + $00E5
+*caseUnfold($00C6) = ?caseUnfoldTable + $00EA
+*caseUnfold($00E6) = ?caseUnfoldTable + $00ED
+*caseUnfold($00C7) = ?caseUnfoldTable + $00F0
+*caseUnfold($00E7) = ?caseUnfoldTable + $00F3
+*caseUnfold($00C8) = ?caseUnfoldTable + $00F6
+*caseUnfold($00E8) = ?caseUnfoldTable + $00F9
+*caseUnfold($00C9) = ?caseUnfoldTable + $00FC
+*caseUnfold($00E9) = ?caseUnfoldTable + $00FF
+*caseUnfold($00CA) = ?caseUnfoldTable + $0102
+*caseUnfold($00EA) = ?caseUnfoldTable + $0105
+*caseUnfold($00CB) = ?caseUnfoldTable + $0108
+*caseUnfold($00EB) = ?caseUnfoldTable + $010B
+*caseUnfold($00CC) = ?caseUnfoldTable + $010E
+*caseUnfold($00EC) = ?caseUnfoldTable + $0111
+*caseUnfold($00CD) = ?caseUnfoldTable + $0114
+*caseUnfold($00ED) = ?caseUnfoldTable + $0117
+*caseUnfold($00CE) = ?caseUnfoldTable + $011A
+*caseUnfold($00EE) = ?caseUnfoldTable + $011D
+*caseUnfold($00CF) = ?caseUnfoldTable + $0120
+*caseUnfold($00EF) = ?caseUnfoldTable + $0123
+*caseUnfold($00D0) = ?caseUnfoldTable + $0126
+*caseUnfold($00F0) = ?caseUnfoldTable + $0129
+*caseUnfold($00D1) = ?caseUnfoldTable + $012C
+*caseUnfold($00F1) = ?caseUnfoldTable + $012F
+*caseUnfold($00D2) = ?caseUnfoldTable + $0132
+*caseUnfold($00F2) = ?caseUnfoldTable + $0135
+*caseUnfold($00D3) = ?caseUnfoldTable + $0138
+*caseUnfold($00F3) = ?caseUnfoldTable + $013B
+*caseUnfold($00D4) = ?caseUnfoldTable + $013E
+*caseUnfold($00F4) = ?caseUnfoldTable + $0141
+*caseUnfold($00D5) = ?caseUnfoldTable + $0144
+*caseUnfold($00F5) = ?caseUnfoldTable + $0147
+*caseUnfold($00D6) = ?caseUnfoldTable + $014A
+*caseUnfold($00F6) = ?caseUnfoldTable + $014D
+*caseUnfold($00D8) = ?caseUnfoldTable + $0150
+*caseUnfold($00F8) = ?caseUnfoldTable + $0153
+*caseUnfold($00D9) = ?caseUnfoldTable + $0156
+*caseUnfold($00F9) = ?caseUnfoldTable + $0159
+*caseUnfold($00DA) = ?caseUnfoldTable + $015C
+*caseUnfold($00FA) = ?caseUnfoldTable + $015F
+*caseUnfold($00DB) = ?caseUnfoldTable + $0162
+*caseUnfold($00FB) = ?caseUnfoldTable + $0165
+*caseUnfold($00DC) = ?caseUnfoldTable + $0168
+*caseUnfold($00FC) = ?caseUnfoldTable + $016B
+*caseUnfold($00DD) = ?caseUnfoldTable + $016E
+*caseUnfold($00FD) = ?caseUnfoldTable + $0171
+*caseUnfold($00DE) = ?caseUnfoldTable + $0174
+*caseUnfold($00FE) = ?caseUnfoldTable + $0177
+*caseUnfold($0100) = ?caseUnfoldTable + $017A
+*caseUnfold($0101) = ?caseUnfoldTable + $017D
+*caseUnfold($0102) = ?caseUnfoldTable + $0180
+*caseUnfold($0103) = ?caseUnfoldTable + $0183
+*caseUnfold($0104) = ?caseUnfoldTable + $0186
+*caseUnfold($0105) = ?caseUnfoldTable + $0189
+*caseUnfold($0106) = ?caseUnfoldTable + $018C
+*caseUnfold($0107) = ?caseUnfoldTable + $018F
+*caseUnfold($0108) = ?caseUnfoldTable + $0192
+*caseUnfold($0109) = ?caseUnfoldTable + $0195
+*caseUnfold($010A) = ?caseUnfoldTable + $0198
+*caseUnfold($010B) = ?caseUnfoldTable + $019B
+*caseUnfold($010C) = ?caseUnfoldTable + $019E
+*caseUnfold($010D) = ?caseUnfoldTable + $01A1
+*caseUnfold($010E) = ?caseUnfoldTable + $01A4
+*caseUnfold($010F) = ?caseUnfoldTable + $01A7
+*caseUnfold($0110) = ?caseUnfoldTable + $01AA
+*caseUnfold($0111) = ?caseUnfoldTable + $01AD
+*caseUnfold($0112) = ?caseUnfoldTable + $01B0
+*caseUnfold($0113) = ?caseUnfoldTable + $01B3
+*caseUnfold($0114) = ?caseUnfoldTable + $01B6
+*caseUnfold($0115) = ?caseUnfoldTable + $01B9
+*caseUnfold($0116) = ?caseUnfoldTable + $01BC
+*caseUnfold($0117) = ?caseUnfoldTable + $01BF
+*caseUnfold($0118) = ?caseUnfoldTable + $01C2
+*caseUnfold($0119) = ?caseUnfoldTable + $01C5
+*caseUnfold($011A) = ?caseUnfoldTable + $01C8
+*caseUnfold($011B) = ?caseUnfoldTable + $01CB
+*caseUnfold($011C) = ?caseUnfoldTable + $01CE
+*caseUnfold($011D) = ?caseUnfoldTable + $01D1
+*caseUnfold($011E) = ?caseUnfoldTable + $01D4
+*caseUnfold($011F) = ?caseUnfoldTable + $01D7
+*caseUnfold($0120) = ?caseUnfoldTable + $01DA
+*caseUnfold($0121) = ?caseUnfoldTable + $01DD
+*caseUnfold($0122) = ?caseUnfoldTable + $01E0
+*caseUnfold($0123) = ?caseUnfoldTable + $01E3
+*caseUnfold($0124) = ?caseUnfoldTable + $01E6
+*caseUnfold($0125) = ?caseUnfoldTable + $01E9
+*caseUnfold($0126) = ?caseUnfoldTable + $01EC
+*caseUnfold($0127) = ?caseUnfoldTable + $01EF
+*caseUnfold($0128) = ?caseUnfoldTable + $01F2
+*caseUnfold($0129) = ?caseUnfoldTable + $01F5
+*caseUnfold($012A) = ?caseUnfoldTable + $01F8
+*caseUnfold($012B) = ?caseUnfoldTable + $01FB
+*caseUnfold($012C) = ?caseUnfoldTable + $01FE
+*caseUnfold($012D) = ?caseUnfoldTable + $0201
+*caseUnfold($012E) = ?caseUnfoldTable + $0204
+*caseUnfold($012F) = ?caseUnfoldTable + $0207
+*caseUnfold($0132) = ?caseUnfoldTable + $020A
+*caseUnfold($0133) = ?caseUnfoldTable + $020D
+*caseUnfold($0134) = ?caseUnfoldTable + $0210
+*caseUnfold($0135) = ?caseUnfoldTable + $0213
+*caseUnfold($0136) = ?caseUnfoldTable + $0216
+*caseUnfold($0137) = ?caseUnfoldTable + $0219
+*caseUnfold($0139) = ?caseUnfoldTable + $021C
+*caseUnfold($013A) = ?caseUnfoldTable + $021F
+*caseUnfold($013B) = ?caseUnfoldTable + $0222
+*caseUnfold($013C) = ?caseUnfoldTable + $0225
+*caseUnfold($013D) = ?caseUnfoldTable + $0228
+*caseUnfold($013E) = ?caseUnfoldTable + $022B
+*caseUnfold($013F) = ?caseUnfoldTable + $022E
+*caseUnfold($0140) = ?caseUnfoldTable + $0231
+*caseUnfold($0141) = ?caseUnfoldTable + $0234
+*caseUnfold($0142) = ?caseUnfoldTable + $0237
+*caseUnfold($0143) = ?caseUnfoldTable + $023A
+*caseUnfold($0144) = ?caseUnfoldTable + $023D
+*caseUnfold($0145) = ?caseUnfoldTable + $0240
+*caseUnfold($0146) = ?caseUnfoldTable + $0243
+*caseUnfold($0147) = ?caseUnfoldTable + $0246
+*caseUnfold($0148) = ?caseUnfoldTable + $0249
+*caseUnfold($014A) = ?caseUnfoldTable + $024C
+*caseUnfold($014B) = ?caseUnfoldTable + $024F
+*caseUnfold($014C) = ?caseUnfoldTable + $0252
+*caseUnfold($014D) = ?caseUnfoldTable + $0255
+*caseUnfold($014E) = ?caseUnfoldTable + $0258
+*caseUnfold($014F) = ?caseUnfoldTable + $025B
+*caseUnfold($0150) = ?caseUnfoldTable + $025E
+*caseUnfold($0151) = ?caseUnfoldTable + $0261
+*caseUnfold($0152) = ?caseUnfoldTable + $0264
+*caseUnfold($0153) = ?caseUnfoldTable + $0267
+*caseUnfold($0154) = ?caseUnfoldTable + $026A
+*caseUnfold($0155) = ?caseUnfoldTable + $026D
+*caseUnfold($0156) = ?caseUnfoldTable + $0270
+*caseUnfold($0157) = ?caseUnfoldTable + $0273
+*caseUnfold($0158) = ?caseUnfoldTable + $0276
+*caseUnfold($0159) = ?caseUnfoldTable + $0279
+*caseUnfold($015A) = ?caseUnfoldTable + $027C
+*caseUnfold($015B) = ?caseUnfoldTable + $027F
+*caseUnfold($015C) = ?caseUnfoldTable + $0282
+*caseUnfold($015D) = ?caseUnfoldTable + $0285
+*caseUnfold($015E) = ?caseUnfoldTable + $0288
+*caseUnfold($015F) = ?caseUnfoldTable + $028B
+*caseUnfold($0160) = ?caseUnfoldTable + $028E
+*caseUnfold($0161) = ?caseUnfoldTable + $0291
+*caseUnfold($0162) = ?caseUnfoldTable + $0294
+*caseUnfold($0163) = ?caseUnfoldTable + $0297
+*caseUnfold($0164) = ?caseUnfoldTable + $029A
+*caseUnfold($0165) = ?caseUnfoldTable + $029D
+*caseUnfold($0166) = ?caseUnfoldTable + $02A0
+*caseUnfold($0167) = ?caseUnfoldTable + $02A3
+*caseUnfold($0168) = ?caseUnfoldTable + $02A6
+*caseUnfold($0169) = ?caseUnfoldTable + $02A9
+*caseUnfold($016A) = ?caseUnfoldTable + $02AC
+*caseUnfold($016B) = ?caseUnfoldTable + $02AF
+*caseUnfold($016C) = ?caseUnfoldTable + $02B2
+*caseUnfold($016D) = ?caseUnfoldTable + $02B5
+*caseUnfold($016E) = ?caseUnfoldTable + $02B8
+*caseUnfold($016F) = ?caseUnfoldTable + $02BB
+*caseUnfold($0170) = ?caseUnfoldTable + $02BE
+*caseUnfold($0171) = ?caseUnfoldTable + $02C1
+*caseUnfold($0172) = ?caseUnfoldTable + $02C4
+*caseUnfold($0173) = ?caseUnfoldTable + $02C7
+*caseUnfold($0174) = ?caseUnfoldTable + $02CA
+*caseUnfold($0175) = ?caseUnfoldTable + $02CD
+*caseUnfold($0176) = ?caseUnfoldTable + $02D0
+*caseUnfold($0177) = ?caseUnfoldTable + $02D3
+*caseUnfold($0178) = ?caseUnfoldTable + $02D6
+*caseUnfold($00FF) = ?caseUnfoldTable + $02D9
+*caseUnfold($0179) = ?caseUnfoldTable + $02DC
+*caseUnfold($017A) = ?caseUnfoldTable + $02DF
+*caseUnfold($017B) = ?caseUnfoldTable + $02E2
+*caseUnfold($017C) = ?caseUnfoldTable + $02E5
+*caseUnfold($017D) = ?caseUnfoldTable + $02E8
+*caseUnfold($017E) = ?caseUnfoldTable + $02EB
+*caseUnfold($0181) = ?caseUnfoldTable + $02EE
+*caseUnfold($0253) = ?caseUnfoldTable + $02F1
+*caseUnfold($0182) = ?caseUnfoldTable + $02F4
+*caseUnfold($0183) = ?caseUnfoldTable + $02F7
+*caseUnfold($0184) = ?caseUnfoldTable + $02FA
+*caseUnfold($0185) = ?caseUnfoldTable + $02FD
+*caseUnfold($0186) = ?caseUnfoldTable + $0300
+*caseUnfold($0254) = ?caseUnfoldTable + $0303
+*caseUnfold($0187) = ?caseUnfoldTable + $0306
+*caseUnfold($0188) = ?caseUnfoldTable + $0309
+*caseUnfold($0189) = ?caseUnfoldTable + $030C
+*caseUnfold($0256) = ?caseUnfoldTable + $030F
+*caseUnfold($018A) = ?caseUnfoldTable + $0312
+*caseUnfold($0257) = ?caseUnfoldTable + $0315
+*caseUnfold($018B) = ?caseUnfoldTable + $0318
+*caseUnfold($018C) = ?caseUnfoldTable + $031B
+*caseUnfold($018E) = ?caseUnfoldTable + $031E
+*caseUnfold($01DD) = ?caseUnfoldTable + $0321
+*caseUnfold($018F) = ?caseUnfoldTable + $0324
+*caseUnfold($0259) = ?caseUnfoldTable + $0327
+*caseUnfold($0190) = ?caseUnfoldTable + $032A
+*caseUnfold($025B) = ?caseUnfoldTable + $032D
+*caseUnfold($0191) = ?caseUnfoldTable + $0330
+*caseUnfold($0192) = ?caseUnfoldTable + $0333
+*caseUnfold($0193) = ?caseUnfoldTable + $0336
+*caseUnfold($0260) = ?caseUnfoldTable + $0339
+*caseUnfold($0194) = ?caseUnfoldTable + $033C
+*caseUnfold($0263) = ?caseUnfoldTable + $033F
+*caseUnfold($0196) = ?caseUnfoldTable + $0342
+*caseUnfold($0269) = ?caseUnfoldTable + $0345
+*caseUnfold($0197) = ?caseUnfoldTable + $0348
+*caseUnfold($0268) = ?caseUnfoldTable + $034B
+*caseUnfold($0198) = ?caseUnfoldTable + $034E
+*caseUnfold($0199) = ?caseUnfoldTable + $0351
+*caseUnfold($019C) = ?caseUnfoldTable + $0354
+*caseUnfold($026F) = ?caseUnfoldTable + $0357
+*caseUnfold($019D) = ?caseUnfoldTable + $035A
+*caseUnfold($0272) = ?caseUnfoldTable + $035D
+*caseUnfold($019F) = ?caseUnfoldTable + $0360
+*caseUnfold($0275) = ?caseUnfoldTable + $0363
+*caseUnfold($01A0) = ?caseUnfoldTable + $0366
+*caseUnfold($01A1) = ?caseUnfoldTable + $0369
+*caseUnfold($01A2) = ?caseUnfoldTable + $036C
+*caseUnfold($01A3) = ?caseUnfoldTable + $036F
+*caseUnfold($01A4) = ?caseUnfoldTable + $0372
+*caseUnfold($01A5) = ?caseUnfoldTable + $0375
+*caseUnfold($01A6) = ?caseUnfoldTable + $0378
+*caseUnfold($0280) = ?caseUnfoldTable + $037B
+*caseUnfold($01A7) = ?caseUnfoldTable + $037E
+*caseUnfold($01A8) = ?caseUnfoldTable + $0381
+*caseUnfold($01A9) = ?caseUnfoldTable + $0384
+*caseUnfold($0283) = ?caseUnfoldTable + $0387
+*caseUnfold($01AC) = ?caseUnfoldTable + $038A
+*caseUnfold($01AD) = ?caseUnfoldTable + $038D
+*caseUnfold($01AE) = ?caseUnfoldTable + $0390
+*caseUnfold($0288) = ?caseUnfoldTable + $0393
+*caseUnfold($01AF) = ?caseUnfoldTable + $0396
+*caseUnfold($01B0) = ?caseUnfoldTable + $0399
+*caseUnfold($01B1) = ?caseUnfoldTable + $039C
+*caseUnfold($028A) = ?caseUnfoldTable + $039F
+*caseUnfold($01B2) = ?caseUnfoldTable + $03A2
+*caseUnfold($028B) = ?caseUnfoldTable + $03A5
+*caseUnfold($01B3) = ?caseUnfoldTable + $03A8
+*caseUnfold($01B4) = ?caseUnfoldTable + $03AB
+*caseUnfold($01B5) = ?caseUnfoldTable + $03AE
+*caseUnfold($01B6) = ?caseUnfoldTable + $03B1
+*caseUnfold($01B7) = ?caseUnfoldTable + $03B4
+*caseUnfold($0292) = ?caseUnfoldTable + $03B7
+*caseUnfold($01B8) = ?caseUnfoldTable + $03BA
+*caseUnfold($01B9) = ?caseUnfoldTable + $03BD
+*caseUnfold($01BC) = ?caseUnfoldTable + $03C0
+*caseUnfold($01BD) = ?caseUnfoldTable + $03C3
+*caseUnfold($01C4) = ?caseUnfoldTable + $03C6
+*caseUnfold($01C6) = ?caseUnfoldTable + $03CB
+*caseUnfold($01C5) = ?caseUnfoldTable + $03D0
+*caseUnfold($01C7) = ?caseUnfoldTable + $03D5
+*caseUnfold($01C9) = ?caseUnfoldTable + $03DA
+*caseUnfold($01C8) = ?caseUnfoldTable + $03DF
+*caseUnfold($01CA) = ?caseUnfoldTable + $03E4
+*caseUnfold($01CC) = ?caseUnfoldTable + $03E9
+*caseUnfold($01CB) = ?caseUnfoldTable + $03EE
+*caseUnfold($01CD) = ?caseUnfoldTable + $03F3
+*caseUnfold($01CE) = ?caseUnfoldTable + $03F6
+*caseUnfold($01CF) = ?caseUnfoldTable + $03F9
+*caseUnfold($01D0) = ?caseUnfoldTable + $03FC
+*caseUnfold($01D1) = ?caseUnfoldTable + $03FF
+*caseUnfold($01D2) = ?caseUnfoldTable + $0402
+*caseUnfold($01D3) = ?caseUnfoldTable + $0405
+*caseUnfold($01D4) = ?caseUnfoldTable + $0408
+*caseUnfold($01D5) = ?caseUnfoldTable + $040B
+*caseUnfold($01D6) = ?caseUnfoldTable + $040E
+*caseUnfold($01D7) = ?caseUnfoldTable + $0411
+*caseUnfold($01D8) = ?caseUnfoldTable + $0414
+*caseUnfold($01D9) = ?caseUnfoldTable + $0417
+*caseUnfold($01DA) = ?caseUnfoldTable + $041A
+*caseUnfold($01DB) = ?caseUnfoldTable + $041D
+*caseUnfold($01DC) = ?caseUnfoldTable + $0420
+*caseUnfold($01DE) = ?caseUnfoldTable + $0423
+*caseUnfold($01DF) = ?caseUnfoldTable + $0426
+*caseUnfold($01E0) = ?caseUnfoldTable + $0429
+*caseUnfold($01E1) = ?caseUnfoldTable + $042C
+*caseUnfold($01E2) = ?caseUnfoldTable + $042F
+*caseUnfold($01E3) = ?caseUnfoldTable + $0432
+*caseUnfold($01E4) = ?caseUnfoldTable + $0435
+*caseUnfold($01E5) = ?caseUnfoldTable + $0438
+*caseUnfold($01E6) = ?caseUnfoldTable + $043B
+*caseUnfold($01E7) = ?caseUnfoldTable + $043E
+*caseUnfold($01E8) = ?caseUnfoldTable + $0441
+*caseUnfold($01E9) = ?caseUnfoldTable + $0444
+*caseUnfold($01EA) = ?caseUnfoldTable + $0447
+*caseUnfold($01EB) = ?caseUnfoldTable + $044A
+*caseUnfold($01EC) = ?caseUnfoldTable + $044D
+*caseUnfold($01ED) = ?caseUnfoldTable + $0450
+*caseUnfold($01EE) = ?caseUnfoldTable + $0453
+*caseUnfold($01EF) = ?caseUnfoldTable + $0456
+*caseUnfold($01F1) = ?caseUnfoldTable + $0459
+*caseUnfold($01F3) = ?caseUnfoldTable + $045E
+*caseUnfold($01F2) = ?caseUnfoldTable + $0463
+*caseUnfold($01F4) = ?caseUnfoldTable + $0468
+*caseUnfold($01F5) = ?caseUnfoldTable + $046B
+*caseUnfold($01F6) = ?caseUnfoldTable + $046E
+*caseUnfold($0195) = ?caseUnfoldTable + $0471
+*caseUnfold($01F7) = ?caseUnfoldTable + $0474
+*caseUnfold($01BF) = ?caseUnfoldTable + $0477
+*caseUnfold($01F8) = ?caseUnfoldTable + $047A
+*caseUnfold($01F9) = ?caseUnfoldTable + $047D
+*caseUnfold($01FA) = ?caseUnfoldTable + $0480
+*caseUnfold($01FB) = ?caseUnfoldTable + $0483
+*caseUnfold($01FC) = ?caseUnfoldTable + $0486
+*caseUnfold($01FD) = ?caseUnfoldTable + $0489
+*caseUnfold($01FE) = ?caseUnfoldTable + $048C
+*caseUnfold($01FF) = ?caseUnfoldTable + $048F
+*caseUnfold($0200) = ?caseUnfoldTable + $0492
+*caseUnfold($0201) = ?caseUnfoldTable + $0495
+*caseUnfold($0202) = ?caseUnfoldTable + $0498
+*caseUnfold($0203) = ?caseUnfoldTable + $049B
+*caseUnfold($0204) = ?caseUnfoldTable + $049E
+*caseUnfold($0205) = ?caseUnfoldTable + $04A1
+*caseUnfold($0206) = ?caseUnfoldTable + $04A4
+*caseUnfold($0207) = ?caseUnfoldTable + $04A7
+*caseUnfold($0208) = ?caseUnfoldTable + $04AA
+*caseUnfold($0209) = ?caseUnfoldTable + $04AD
+*caseUnfold($020A) = ?caseUnfoldTable + $04B0
+*caseUnfold($020B) = ?caseUnfoldTable + $04B3
+*caseUnfold($020C) = ?caseUnfoldTable + $04B6
+*caseUnfold($020D) = ?caseUnfoldTable + $04B9
+*caseUnfold($020E) = ?caseUnfoldTable + $04BC
+*caseUnfold($020F) = ?caseUnfoldTable + $04BF
+*caseUnfold($0210) = ?caseUnfoldTable + $04C2
+*caseUnfold($0211) = ?caseUnfoldTable + $04C5
+*caseUnfold($0212) = ?caseUnfoldTable + $04C8
+*caseUnfold($0213) = ?caseUnfoldTable + $04CB
+*caseUnfold($0214) = ?caseUnfoldTable + $04CE
+*caseUnfold($0215) = ?caseUnfoldTable + $04D1
+*caseUnfold($0216) = ?caseUnfoldTable + $04D4
+*caseUnfold($0217) = ?caseUnfoldTable + $04D7
+*caseUnfold($0218) = ?caseUnfoldTable + $04DA
+*caseUnfold($0219) = ?caseUnfoldTable + $04DD
+*caseUnfold($021A) = ?caseUnfoldTable + $04E0
+*caseUnfold($021B) = ?caseUnfoldTable + $04E3
+*caseUnfold($021C) = ?caseUnfoldTable + $04E6
+*caseUnfold($021D) = ?caseUnfoldTable + $04E9
+*caseUnfold($021E) = ?caseUnfoldTable + $04EC
+*caseUnfold($021F) = ?caseUnfoldTable + $04EF
+*caseUnfold($0220) = ?caseUnfoldTable + $04F2
+*caseUnfold($019E) = ?caseUnfoldTable + $04F5
+*caseUnfold($0222) = ?caseUnfoldTable + $04F8
+*caseUnfold($0223) = ?caseUnfoldTable + $04FB
+*caseUnfold($0224) = ?caseUnfoldTable + $04FE
+*caseUnfold($0225) = ?caseUnfoldTable + $0501
+*caseUnfold($0226) = ?caseUnfoldTable + $0504
+*caseUnfold($0227) = ?caseUnfoldTable + $0507
+*caseUnfold($0228) = ?caseUnfoldTable + $050A
+*caseUnfold($0229) = ?caseUnfoldTable + $050D
+*caseUnfold($022A) = ?caseUnfoldTable + $0510
+*caseUnfold($022B) = ?caseUnfoldTable + $0513
+*caseUnfold($022C) = ?caseUnfoldTable + $0516
+*caseUnfold($022D) = ?caseUnfoldTable + $0519
+*caseUnfold($022E) = ?caseUnfoldTable + $051C
+*caseUnfold($022F) = ?caseUnfoldTable + $051F
+*caseUnfold($0230) = ?caseUnfoldTable + $0522
+*caseUnfold($0231) = ?caseUnfoldTable + $0525
+*caseUnfold($0232) = ?caseUnfoldTable + $0528
+*caseUnfold($0233) = ?caseUnfoldTable + $052B
+*caseUnfold($023A) = ?caseUnfoldTable + $052E
+*caseUnfold($2C65) = ?caseUnfoldTable + $0531
+*caseUnfold($023B) = ?caseUnfoldTable + $0534
+*caseUnfold($023C) = ?caseUnfoldTable + $0537
+*caseUnfold($023D) = ?caseUnfoldTable + $053A
+*caseUnfold($019A) = ?caseUnfoldTable + $053D
+*caseUnfold($023E) = ?caseUnfoldTable + $0540
+*caseUnfold($2C66) = ?caseUnfoldTable + $0543
+*caseUnfold($0241) = ?caseUnfoldTable + $0546
+*caseUnfold($0242) = ?caseUnfoldTable + $0549
+*caseUnfold($0243) = ?caseUnfoldTable + $054C
+*caseUnfold($0180) = ?caseUnfoldTable + $054F
+*caseUnfold($0244) = ?caseUnfoldTable + $0552
+*caseUnfold($0289) = ?caseUnfoldTable + $0555
+*caseUnfold($0245) = ?caseUnfoldTable + $0558
+*caseUnfold($028C) = ?caseUnfoldTable + $055B
+*caseUnfold($0246) = ?caseUnfoldTable + $055E
+*caseUnfold($0247) = ?caseUnfoldTable + $0561
+*caseUnfold($0248) = ?caseUnfoldTable + $0564
+*caseUnfold($0249) = ?caseUnfoldTable + $0567
+*caseUnfold($024A) = ?caseUnfoldTable + $056A
+*caseUnfold($024B) = ?caseUnfoldTable + $056D
+*caseUnfold($024C) = ?caseUnfoldTable + $0570
+*caseUnfold($024D) = ?caseUnfoldTable + $0573
+*caseUnfold($024E) = ?caseUnfoldTable + $0576
+*caseUnfold($024F) = ?caseUnfoldTable + $0579
+*caseUnfold($0345) = ?caseUnfoldTable + $057C
+*caseUnfold($03B9) = ?caseUnfoldTable + $0583
+*caseUnfold($1FBE) = ?caseUnfoldTable + $058A
+*caseUnfold($0399) = ?caseUnfoldTable + $0591
+*caseUnfold($0370) = ?caseUnfoldTable + $0598
+*caseUnfold($0371) = ?caseUnfoldTable + $059B
+*caseUnfold($0372) = ?caseUnfoldTable + $059E
+*caseUnfold($0373) = ?caseUnfoldTable + $05A1
+*caseUnfold($0376) = ?caseUnfoldTable + $05A4
+*caseUnfold($0377) = ?caseUnfoldTable + $05A7
+*caseUnfold($037F) = ?caseUnfoldTable + $05AA
+*caseUnfold($03F3) = ?caseUnfoldTable + $05AD
+*caseUnfold($0386) = ?caseUnfoldTable + $05B0
+*caseUnfold($03AC) = ?caseUnfoldTable + $05B3
+*caseUnfold($0388) = ?caseUnfoldTable + $05B6
+*caseUnfold($03AD) = ?caseUnfoldTable + $05B9
+*caseUnfold($0389) = ?caseUnfoldTable + $05BC
+*caseUnfold($03AE) = ?caseUnfoldTable + $05BF
+*caseUnfold($038A) = ?caseUnfoldTable + $05C2
+*caseUnfold($03AF) = ?caseUnfoldTable + $05C5
+*caseUnfold($038C) = ?caseUnfoldTable + $05C8
+*caseUnfold($03CC) = ?caseUnfoldTable + $05CB
+*caseUnfold($038E) = ?caseUnfoldTable + $05CE
+*caseUnfold($03CD) = ?caseUnfoldTable + $05D1
+*caseUnfold($038F) = ?caseUnfoldTable + $05D4
+*caseUnfold($03CE) = ?caseUnfoldTable + $05D7
+*caseUnfold($0391) = ?caseUnfoldTable + $05DA
+*caseUnfold($03B1) = ?caseUnfoldTable + $05DD
+*caseUnfold($0392) = ?caseUnfoldTable + $05E0
+*caseUnfold($03B2) = ?caseUnfoldTable + $05E5
+*caseUnfold($03D0) = ?caseUnfoldTable + $05EA
+*caseUnfold($0393) = ?caseUnfoldTable + $05EF
+*caseUnfold($03B3) = ?caseUnfoldTable + $05F2
+*caseUnfold($0394) = ?caseUnfoldTable + $05F5
+*caseUnfold($03B4) = ?caseUnfoldTable + $05F8
+*caseUnfold($0395) = ?caseUnfoldTable + $05FB
+*caseUnfold($03B5) = ?caseUnfoldTable + $0600
+*caseUnfold($03F5) = ?caseUnfoldTable + $0605
+*caseUnfold($0396) = ?caseUnfoldTable + $060A
+*caseUnfold($03B6) = ?caseUnfoldTable + $060D
+*caseUnfold($0397) = ?caseUnfoldTable + $0610
+*caseUnfold($03B7) = ?caseUnfoldTable + $0613
+*caseUnfold($0398) = ?caseUnfoldTable + $0616
+*caseUnfold($03B8) = ?caseUnfoldTable + $061D
+*caseUnfold($03F4) = ?caseUnfoldTable + $0624
+*caseUnfold($03D1) = ?caseUnfoldTable + $062B
+*caseUnfold($039A) = ?caseUnfoldTable + $0632
+*caseUnfold($03BA) = ?caseUnfoldTable + $0637
+*caseUnfold($03F0) = ?caseUnfoldTable + $063C
+*caseUnfold($039B) = ?caseUnfoldTable + $0641
+*caseUnfold($03BB) = ?caseUnfoldTable + $0644
+*caseUnfold($039D) = ?caseUnfoldTable + $0647
+*caseUnfold($03BD) = ?caseUnfoldTable + $064A
+*caseUnfold($039E) = ?caseUnfoldTable + $064D
+*caseUnfold($03BE) = ?caseUnfoldTable + $0650
+*caseUnfold($039F) = ?caseUnfoldTable + $0653
+*caseUnfold($03BF) = ?caseUnfoldTable + $0656
+*caseUnfold($03A0) = ?caseUnfoldTable + $0659
+*caseUnfold($03C0) = ?caseUnfoldTable + $065E
+*caseUnfold($03D6) = ?caseUnfoldTable + $0663
+*caseUnfold($03A1) = ?caseUnfoldTable + $0668
+*caseUnfold($03C1) = ?caseUnfoldTable + $066D
+*caseUnfold($03F1) = ?caseUnfoldTable + $0672
+*caseUnfold($03A3) = ?caseUnfoldTable + $0677
+*caseUnfold($03C3) = ?caseUnfoldTable + $067C
+*caseUnfold($03C2) = ?caseUnfoldTable + $0681
+*caseUnfold($03A4) = ?caseUnfoldTable + $0686
+*caseUnfold($03C4) = ?caseUnfoldTable + $0689
+*caseUnfold($03A5) = ?caseUnfoldTable + $068C
+*caseUnfold($03C5) = ?caseUnfoldTable + $068F
+*caseUnfold($03A6) = ?caseUnfoldTable + $0692
+*caseUnfold($03C6) = ?caseUnfoldTable + $0697
+*caseUnfold($03D5) = ?caseUnfoldTable + $069C
+*caseUnfold($03A7) = ?caseUnfoldTable + $06A1
+*caseUnfold($03C7) = ?caseUnfoldTable + $06A4
+*caseUnfold($03A8) = ?caseUnfoldTable + $06A7
+*caseUnfold($03C8) = ?caseUnfoldTable + $06AA
+*caseUnfold($03A9) = ?caseUnfoldTable + $06AD
+*caseUnfold($03C9) = ?caseUnfoldTable + $06B2
+*caseUnfold($2126) = ?caseUnfoldTable + $06B7
+*caseUnfold($03AA) = ?caseUnfoldTable + $06BC
+*caseUnfold($03CA) = ?caseUnfoldTable + $06BF
+*caseUnfold($03AB) = ?caseUnfoldTable + $06C2
+*caseUnfold($03CB) = ?caseUnfoldTable + $06C5
+*caseUnfold($03CF) = ?caseUnfoldTable + $06C8
+*caseUnfold($03D7) = ?caseUnfoldTable + $06CB
+*caseUnfold($03D8) = ?caseUnfoldTable + $06CE
+*caseUnfold($03D9) = ?caseUnfoldTable + $06D1
+*caseUnfold($03DA) = ?caseUnfoldTable + $06D4
+*caseUnfold($03DB) = ?caseUnfoldTable + $06D7
+*caseUnfold($03DC) = ?caseUnfoldTable + $06DA
+*caseUnfold($03DD) = ?caseUnfoldTable + $06DD
+*caseUnfold($03DE) = ?caseUnfoldTable + $06E0
+*caseUnfold($03DF) = ?caseUnfoldTable + $06E3
+*caseUnfold($03E0) = ?caseUnfoldTable + $06E6
+*caseUnfold($03E1) = ?caseUnfoldTable + $06E9
+*caseUnfold($03E2) = ?caseUnfoldTable + $06EC
+*caseUnfold($03E3) = ?caseUnfoldTable + $06EF
+*caseUnfold($03E4) = ?caseUnfoldTable + $06F2
+*caseUnfold($03E5) = ?caseUnfoldTable + $06F5
+*caseUnfold($03E6) = ?caseUnfoldTable + $06F8
+*caseUnfold($03E7) = ?caseUnfoldTable + $06FB
+*caseUnfold($03E8) = ?caseUnfoldTable + $06FE
+*caseUnfold($03E9) = ?caseUnfoldTable + $0701
+*caseUnfold($03EA) = ?caseUnfoldTable + $0704
+*caseUnfold($03EB) = ?caseUnfoldTable + $0707
+*caseUnfold($03EC) = ?caseUnfoldTable + $070A
+*caseUnfold($03ED) = ?caseUnfoldTable + $070D
+*caseUnfold($03EE) = ?caseUnfoldTable + $0710
+*caseUnfold($03EF) = ?caseUnfoldTable + $0713
+*caseUnfold($03F7) = ?caseUnfoldTable + $0716
+*caseUnfold($03F8) = ?caseUnfoldTable + $0719
+*caseUnfold($03F9) = ?caseUnfoldTable + $071C
+*caseUnfold($03F2) = ?caseUnfoldTable + $071F
+*caseUnfold($03FA) = ?caseUnfoldTable + $0722
+*caseUnfold($03FB) = ?caseUnfoldTable + $0725
+*caseUnfold($03FD) = ?caseUnfoldTable + $0728
+*caseUnfold($037B) = ?caseUnfoldTable + $072B
+*caseUnfold($03FE) = ?caseUnfoldTable + $072E
+*caseUnfold($037C) = ?caseUnfoldTable + $0731
+*caseUnfold($03FF) = ?caseUnfoldTable + $0734
+*caseUnfold($037D) = ?caseUnfoldTable + $0737
+*caseUnfold($0400) = ?caseUnfoldTable + $073A
+*caseUnfold($0450) = ?caseUnfoldTable + $073D
+*caseUnfold($0401) = ?caseUnfoldTable + $0740
+*caseUnfold($0451) = ?caseUnfoldTable + $0743
+*caseUnfold($0402) = ?caseUnfoldTable + $0746
+*caseUnfold($0452) = ?caseUnfoldTable + $0749
+*caseUnfold($0403) = ?caseUnfoldTable + $074C
+*caseUnfold($0453) = ?caseUnfoldTable + $074F
+*caseUnfold($0404) = ?caseUnfoldTable + $0752
+*caseUnfold($0454) = ?caseUnfoldTable + $0755
+*caseUnfold($0405) = ?caseUnfoldTable + $0758
+*caseUnfold($0455) = ?caseUnfoldTable + $075B
+*caseUnfold($0406) = ?caseUnfoldTable + $075E
+*caseUnfold($0456) = ?caseUnfoldTable + $0761
+*caseUnfold($0407) = ?caseUnfoldTable + $0764
+*caseUnfold($0457) = ?caseUnfoldTable + $0767
+*caseUnfold($0408) = ?caseUnfoldTable + $076A
+*caseUnfold($0458) = ?caseUnfoldTable + $076D
+*caseUnfold($0409) = ?caseUnfoldTable + $0770
+*caseUnfold($0459) = ?caseUnfoldTable + $0773
+*caseUnfold($040A) = ?caseUnfoldTable + $0776
+*caseUnfold($045A) = ?caseUnfoldTable + $0779
+*caseUnfold($040B) = ?caseUnfoldTable + $077C
+*caseUnfold($045B) = ?caseUnfoldTable + $077F
+*caseUnfold($040C) = ?caseUnfoldTable + $0782
+*caseUnfold($045C) = ?caseUnfoldTable + $0785
+*caseUnfold($040D) = ?caseUnfoldTable + $0788
+*caseUnfold($045D) = ?caseUnfoldTable + $078B
+*caseUnfold($040E) = ?caseUnfoldTable + $078E
+*caseUnfold($045E) = ?caseUnfoldTable + $0791
+*caseUnfold($040F) = ?caseUnfoldTable + $0794
+*caseUnfold($045F) = ?caseUnfoldTable + $0797
+*caseUnfold($0410) = ?caseUnfoldTable + $079A
+*caseUnfold($0430) = ?caseUnfoldTable + $079D
+*caseUnfold($0411) = ?caseUnfoldTable + $07A0
+*caseUnfold($0431) = ?caseUnfoldTable + $07A3
+*caseUnfold($0412) = ?caseUnfoldTable + $07A6
+*caseUnfold($0432) = ?caseUnfoldTable + $07AB
+*caseUnfold($1C80) = ?caseUnfoldTable + $07B0
+*caseUnfold($0413) = ?caseUnfoldTable + $07B5
+*caseUnfold($0433) = ?caseUnfoldTable + $07B8
+*caseUnfold($0414) = ?caseUnfoldTable + $07BB
+*caseUnfold($0434) = ?caseUnfoldTable + $07C0
+*caseUnfold($1C81) = ?caseUnfoldTable + $07C5
+*caseUnfold($0415) = ?caseUnfoldTable + $07CA
+*caseUnfold($0435) = ?caseUnfoldTable + $07CD
+*caseUnfold($0416) = ?caseUnfoldTable + $07D0
+*caseUnfold($0436) = ?caseUnfoldTable + $07D3
+*caseUnfold($0417) = ?caseUnfoldTable + $07D6
+*caseUnfold($0437) = ?caseUnfoldTable + $07D9
+*caseUnfold($0418) = ?caseUnfoldTable + $07DC
+*caseUnfold($0438) = ?caseUnfoldTable + $07DF
+*caseUnfold($0419) = ?caseUnfoldTable + $07E2
+*caseUnfold($0439) = ?caseUnfoldTable + $07E5
+*caseUnfold($041A) = ?caseUnfoldTable + $07E8
+*caseUnfold($043A) = ?caseUnfoldTable + $07EB
+*caseUnfold($041B) = ?caseUnfoldTable + $07EE
+*caseUnfold($043B) = ?caseUnfoldTable + $07F1
+*caseUnfold($041C) = ?caseUnfoldTable + $07F4
+*caseUnfold($043C) = ?caseUnfoldTable + $07F7
+*caseUnfold($041D) = ?caseUnfoldTable + $07FA
+*caseUnfold($043D) = ?caseUnfoldTable + $07FD
+*caseUnfold($041E) = ?caseUnfoldTable + $0800
+*caseUnfold($043E) = ?caseUnfoldTable + $0805
+*caseUnfold($1C82) = ?caseUnfoldTable + $080A
+*caseUnfold($041F) = ?caseUnfoldTable + $080F
+*caseUnfold($043F) = ?caseUnfoldTable + $0812
+*caseUnfold($0420) = ?caseUnfoldTable + $0815
+*caseUnfold($0440) = ?caseUnfoldTable + $0818
+*caseUnfold($0421) = ?caseUnfoldTable + $081B
+*caseUnfold($0441) = ?caseUnfoldTable + $0820
+*caseUnfold($1C83) = ?caseUnfoldTable + $0825
+*caseUnfold($0422) = ?caseUnfoldTable + $082A
+*caseUnfold($0442) = ?caseUnfoldTable + $0831
+*caseUnfold($1C85) = ?caseUnfoldTable + $0838
+*caseUnfold($1C84) = ?caseUnfoldTable + $083F
+*caseUnfold($0423) = ?caseUnfoldTable + $0846
+*caseUnfold($0443) = ?caseUnfoldTable + $0849
+*caseUnfold($0424) = ?caseUnfoldTable + $084C
+*caseUnfold($0444) = ?caseUnfoldTable + $084F
+*caseUnfold($0425) = ?caseUnfoldTable + $0852
+*caseUnfold($0445) = ?caseUnfoldTable + $0855
+*caseUnfold($0426) = ?caseUnfoldTable + $0858
+*caseUnfold($0446) = ?caseUnfoldTable + $085B
+*caseUnfold($0427) = ?caseUnfoldTable + $085E
+*caseUnfold($0447) = ?caseUnfoldTable + $0861
+*caseUnfold($0428) = ?caseUnfoldTable + $0864
+*caseUnfold($0448) = ?caseUnfoldTable + $0867
+*caseUnfold($0429) = ?caseUnfoldTable + $086A
+*caseUnfold($0449) = ?caseUnfoldTable + $086D
+*caseUnfold($042A) = ?caseUnfoldTable + $0870
+*caseUnfold($044A) = ?caseUnfoldTable + $0875
+*caseUnfold($1C86) = ?caseUnfoldTable + $087A
+*caseUnfold($042B) = ?caseUnfoldTable + $087F
+*caseUnfold($044B) = ?caseUnfoldTable + $0882
+*caseUnfold($042C) = ?caseUnfoldTable + $0885
+*caseUnfold($044C) = ?caseUnfoldTable + $0888
+*caseUnfold($042D) = ?caseUnfoldTable + $088B
+*caseUnfold($044D) = ?caseUnfoldTable + $088E
+*caseUnfold($042E) = ?caseUnfoldTable + $0891
+*caseUnfold($044E) = ?caseUnfoldTable + $0894
+*caseUnfold($042F) = ?caseUnfoldTable + $0897
+*caseUnfold($044F) = ?caseUnfoldTable + $089A
+*caseUnfold($0460) = ?caseUnfoldTable + $089D
+*caseUnfold($0461) = ?caseUnfoldTable + $08A0
+*caseUnfold($0462) = ?caseUnfoldTable + $08A3
+*caseUnfold($0463) = ?caseUnfoldTable + $08A8
+*caseUnfold($1C87) = ?caseUnfoldTable + $08AD
+*caseUnfold($0464) = ?caseUnfoldTable + $08B2
+*caseUnfold($0465) = ?caseUnfoldTable + $08B5
+*caseUnfold($0466) = ?caseUnfoldTable + $08B8
+*caseUnfold($0467) = ?caseUnfoldTable + $08BB
+*caseUnfold($0468) = ?caseUnfoldTable + $08BE
+*caseUnfold($0469) = ?caseUnfoldTable + $08C1
+*caseUnfold($046A) = ?caseUnfoldTable + $08C4
+*caseUnfold($046B) = ?caseUnfoldTable + $08C7
+*caseUnfold($046C) = ?caseUnfoldTable + $08CA
+*caseUnfold($046D) = ?caseUnfoldTable + $08CD
+*caseUnfold($046E) = ?caseUnfoldTable + $08D0
+*caseUnfold($046F) = ?caseUnfoldTable + $08D3
+*caseUnfold($0470) = ?caseUnfoldTable + $08D6
+*caseUnfold($0471) = ?caseUnfoldTable + $08D9
+*caseUnfold($0472) = ?caseUnfoldTable + $08DC
+*caseUnfold($0473) = ?caseUnfoldTable + $08DF
+*caseUnfold($0474) = ?caseUnfoldTable + $08E2
+*caseUnfold($0475) = ?caseUnfoldTable + $08E5
+*caseUnfold($0476) = ?caseUnfoldTable + $08E8
+*caseUnfold($0477) = ?caseUnfoldTable + $08EB
+*caseUnfold($0478) = ?caseUnfoldTable + $08EE
+*caseUnfold($0479) = ?caseUnfoldTable + $08F1
+*caseUnfold($047A) = ?caseUnfoldTable + $08F4
+*caseUnfold($047B) = ?caseUnfoldTable + $08F7
+*caseUnfold($047C) = ?caseUnfoldTable + $08FA
+*caseUnfold($047D) = ?caseUnfoldTable + $08FD
+*caseUnfold($047E) = ?caseUnfoldTable + $0900
+*caseUnfold($047F) = ?caseUnfoldTable + $0903
+*caseUnfold($0480) = ?caseUnfoldTable + $0906
+*caseUnfold($0481) = ?caseUnfoldTable + $0909
+*caseUnfold($048A) = ?caseUnfoldTable + $090C
+*caseUnfold($048B) = ?caseUnfoldTable + $090F
+*caseUnfold($048C) = ?caseUnfoldTable + $0912
+*caseUnfold($048D) = ?caseUnfoldTable + $0915
+*caseUnfold($048E) = ?caseUnfoldTable + $0918
+*caseUnfold($048F) = ?caseUnfoldTable + $091B
+*caseUnfold($0490) = ?caseUnfoldTable + $091E
+*caseUnfold($0491) = ?caseUnfoldTable + $0921
+*caseUnfold($0492) = ?caseUnfoldTable + $0924
+*caseUnfold($0493) = ?caseUnfoldTable + $0927
+*caseUnfold($0494) = ?caseUnfoldTable + $092A
+*caseUnfold($0495) = ?caseUnfoldTable + $092D
+*caseUnfold($0496) = ?caseUnfoldTable + $0930
+*caseUnfold($0497) = ?caseUnfoldTable + $0933
+*caseUnfold($0498) = ?caseUnfoldTable + $0936
+*caseUnfold($0499) = ?caseUnfoldTable + $0939
+*caseUnfold($049A) = ?caseUnfoldTable + $093C
+*caseUnfold($049B) = ?caseUnfoldTable + $093F
+*caseUnfold($049C) = ?caseUnfoldTable + $0942
+*caseUnfold($049D) = ?caseUnfoldTable + $0945
+*caseUnfold($049E) = ?caseUnfoldTable + $0948
+*caseUnfold($049F) = ?caseUnfoldTable + $094B
+*caseUnfold($04A0) = ?caseUnfoldTable + $094E
+*caseUnfold($04A1) = ?caseUnfoldTable + $0951
+*caseUnfold($04A2) = ?caseUnfoldTable + $0954
+*caseUnfold($04A3) = ?caseUnfoldTable + $0957
+*caseUnfold($04A4) = ?caseUnfoldTable + $095A
+*caseUnfold($04A5) = ?caseUnfoldTable + $095D
+*caseUnfold($04A6) = ?caseUnfoldTable + $0960
+*caseUnfold($04A7) = ?caseUnfoldTable + $0963
+*caseUnfold($04A8) = ?caseUnfoldTable + $0966
+*caseUnfold($04A9) = ?caseUnfoldTable + $0969
+*caseUnfold($04AA) = ?caseUnfoldTable + $096C
+*caseUnfold($04AB) = ?caseUnfoldTable + $096F
+*caseUnfold($04AC) = ?caseUnfoldTable + $0972
+*caseUnfold($04AD) = ?caseUnfoldTable + $0975
+*caseUnfold($04AE) = ?caseUnfoldTable + $0978
+*caseUnfold($04AF) = ?caseUnfoldTable + $097B
+*caseUnfold($04B0) = ?caseUnfoldTable + $097E
+*caseUnfold($04B1) = ?caseUnfoldTable + $0981
+*caseUnfold($04B2) = ?caseUnfoldTable + $0984
+*caseUnfold($04B3) = ?caseUnfoldTable + $0987
+*caseUnfold($04B4) = ?caseUnfoldTable + $098A
+*caseUnfold($04B5) = ?caseUnfoldTable + $098D
+*caseUnfold($04B6) = ?caseUnfoldTable + $0990
+*caseUnfold($04B7) = ?caseUnfoldTable + $0993
+*caseUnfold($04B8) = ?caseUnfoldTable + $0996
+*caseUnfold($04B9) = ?caseUnfoldTable + $0999
+*caseUnfold($04BA) = ?caseUnfoldTable + $099C
+*caseUnfold($04BB) = ?caseUnfoldTable + $099F
+*caseUnfold($04BC) = ?caseUnfoldTable + $09A2
+*caseUnfold($04BD) = ?caseUnfoldTable + $09A5
+*caseUnfold($04BE) = ?caseUnfoldTable + $09A8
+*caseUnfold($04BF) = ?caseUnfoldTable + $09AB
+*caseUnfold($04C0) = ?caseUnfoldTable + $09AE
+*caseUnfold($04CF) = ?caseUnfoldTable + $09B1
+*caseUnfold($04C1) = ?caseUnfoldTable + $09B4
+*caseUnfold($04C2) = ?caseUnfoldTable + $09B7
+*caseUnfold($04C3) = ?caseUnfoldTable + $09BA
+*caseUnfold($04C4) = ?caseUnfoldTable + $09BD
+*caseUnfold($04C5) = ?caseUnfoldTable + $09C0
+*caseUnfold($04C6) = ?caseUnfoldTable + $09C3
+*caseUnfold($04C7) = ?caseUnfoldTable + $09C6
+*caseUnfold($04C8) = ?caseUnfoldTable + $09C9
+*caseUnfold($04C9) = ?caseUnfoldTable + $09CC
+*caseUnfold($04CA) = ?caseUnfoldTable + $09CF
+*caseUnfold($04CB) = ?caseUnfoldTable + $09D2
+*caseUnfold($04CC) = ?caseUnfoldTable + $09D5
+*caseUnfold($04CD) = ?caseUnfoldTable + $09D8
+*caseUnfold($04CE) = ?caseUnfoldTable + $09DB
+*caseUnfold($04D0) = ?caseUnfoldTable + $09DE
+*caseUnfold($04D1) = ?caseUnfoldTable + $09E1
+*caseUnfold($04D2) = ?caseUnfoldTable + $09E4
+*caseUnfold($04D3) = ?caseUnfoldTable + $09E7
+*caseUnfold($04D4) = ?caseUnfoldTable + $09EA
+*caseUnfold($04D5) = ?caseUnfoldTable + $09ED
+*caseUnfold($04D6) = ?caseUnfoldTable + $09F0
+*caseUnfold($04D7) = ?caseUnfoldTable + $09F3
+*caseUnfold($04D8) = ?caseUnfoldTable + $09F6
+*caseUnfold($04D9) = ?caseUnfoldTable + $09F9
+*caseUnfold($04DA) = ?caseUnfoldTable + $09FC
+*caseUnfold($04DB) = ?caseUnfoldTable + $09FF
+*caseUnfold($04DC) = ?caseUnfoldTable + $0A02
+*caseUnfold($04DD) = ?caseUnfoldTable + $0A05
+*caseUnfold($04DE) = ?caseUnfoldTable + $0A08
+*caseUnfold($04DF) = ?caseUnfoldTable + $0A0B
+*caseUnfold($04E0) = ?caseUnfoldTable + $0A0E
+*caseUnfold($04E1) = ?caseUnfoldTable + $0A11
+*caseUnfold($04E2) = ?caseUnfoldTable + $0A14
+*caseUnfold($04E3) = ?caseUnfoldTable + $0A17
+*caseUnfold($04E4) = ?caseUnfoldTable + $0A1A
+*caseUnfold($04E5) = ?caseUnfoldTable + $0A1D
+*caseUnfold($04E6) = ?caseUnfoldTable + $0A20
+*caseUnfold($04E7) = ?caseUnfoldTable + $0A23
+*caseUnfold($04E8) = ?caseUnfoldTable + $0A26
+*caseUnfold($04E9) = ?caseUnfoldTable + $0A29
+*caseUnfold($04EA) = ?caseUnfoldTable + $0A2C
+*caseUnfold($04EB) = ?caseUnfoldTable + $0A2F
+*caseUnfold($04EC) = ?caseUnfoldTable + $0A32
+*caseUnfold($04ED) = ?caseUnfoldTable + $0A35
+*caseUnfold($04EE) = ?caseUnfoldTable + $0A38
+*caseUnfold($04EF) = ?caseUnfoldTable + $0A3B
+*caseUnfold($04F0) = ?caseUnfoldTable + $0A3E
+*caseUnfold($04F1) = ?caseUnfoldTable + $0A41
+*caseUnfold($04F2) = ?caseUnfoldTable + $0A44
+*caseUnfold($04F3) = ?caseUnfoldTable + $0A47
+*caseUnfold($04F4) = ?caseUnfoldTable + $0A4A
+*caseUnfold($04F5) = ?caseUnfoldTable + $0A4D
+*caseUnfold($04F6) = ?caseUnfoldTable + $0A50
+*caseUnfold($04F7) = ?caseUnfoldTable + $0A53
+*caseUnfold($04F8) = ?caseUnfoldTable + $0A56
+*caseUnfold($04F9) = ?caseUnfoldTable + $0A59
+*caseUnfold($04FA) = ?caseUnfoldTable + $0A5C
+*caseUnfold($04FB) = ?caseUnfoldTable + $0A5F
+*caseUnfold($04FC) = ?caseUnfoldTable + $0A62
+*caseUnfold($04FD) = ?caseUnfoldTable + $0A65
+*caseUnfold($04FE) = ?caseUnfoldTable + $0A68
+*caseUnfold($04FF) = ?caseUnfoldTable + $0A6B
+*caseUnfold($0500) = ?caseUnfoldTable + $0A6E
+*caseUnfold($0501) = ?caseUnfoldTable + $0A71
+*caseUnfold($0502) = ?caseUnfoldTable + $0A74
+*caseUnfold($0503) = ?caseUnfoldTable + $0A77
+*caseUnfold($0504) = ?caseUnfoldTable + $0A7A
+*caseUnfold($0505) = ?caseUnfoldTable + $0A7D
+*caseUnfold($0506) = ?caseUnfoldTable + $0A80
+*caseUnfold($0507) = ?caseUnfoldTable + $0A83
+*caseUnfold($0508) = ?caseUnfoldTable + $0A86
+*caseUnfold($0509) = ?caseUnfoldTable + $0A89
+*caseUnfold($050A) = ?caseUnfoldTable + $0A8C
+*caseUnfold($050B) = ?caseUnfoldTable + $0A8F
+*caseUnfold($050C) = ?caseUnfoldTable + $0A92
+*caseUnfold($050D) = ?caseUnfoldTable + $0A95
+*caseUnfold($050E) = ?caseUnfoldTable + $0A98
+*caseUnfold($050F) = ?caseUnfoldTable + $0A9B
+*caseUnfold($0510) = ?caseUnfoldTable + $0A9E
+*caseUnfold($0511) = ?caseUnfoldTable + $0AA1
+*caseUnfold($0512) = ?caseUnfoldTable + $0AA4
+*caseUnfold($0513) = ?caseUnfoldTable + $0AA7
+*caseUnfold($0514) = ?caseUnfoldTable + $0AAA
+*caseUnfold($0515) = ?caseUnfoldTable + $0AAD
+*caseUnfold($0516) = ?caseUnfoldTable + $0AB0
+*caseUnfold($0517) = ?caseUnfoldTable + $0AB3
+*caseUnfold($0518) = ?caseUnfoldTable + $0AB6
+*caseUnfold($0519) = ?caseUnfoldTable + $0AB9
+*caseUnfold($051A) = ?caseUnfoldTable + $0ABC
+*caseUnfold($051B) = ?caseUnfoldTable + $0ABF
+*caseUnfold($051C) = ?caseUnfoldTable + $0AC2
+*caseUnfold($051D) = ?caseUnfoldTable + $0AC5
+*caseUnfold($051E) = ?caseUnfoldTable + $0AC8
+*caseUnfold($051F) = ?caseUnfoldTable + $0ACB
+*caseUnfold($0520) = ?caseUnfoldTable + $0ACE
+*caseUnfold($0521) = ?caseUnfoldTable + $0AD1
+*caseUnfold($0522) = ?caseUnfoldTable + $0AD4
+*caseUnfold($0523) = ?caseUnfoldTable + $0AD7
+*caseUnfold($0524) = ?caseUnfoldTable + $0ADA
+*caseUnfold($0525) = ?caseUnfoldTable + $0ADD
+*caseUnfold($0526) = ?caseUnfoldTable + $0AE0
+*caseUnfold($0527) = ?caseUnfoldTable + $0AE3
+*caseUnfold($0528) = ?caseUnfoldTable + $0AE6
+*caseUnfold($0529) = ?caseUnfoldTable + $0AE9
+*caseUnfold($052A) = ?caseUnfoldTable + $0AEC
+*caseUnfold($052B) = ?caseUnfoldTable + $0AEF
+*caseUnfold($052C) = ?caseUnfoldTable + $0AF2
+*caseUnfold($052D) = ?caseUnfoldTable + $0AF5
+*caseUnfold($052E) = ?caseUnfoldTable + $0AF8
+*caseUnfold($052F) = ?caseUnfoldTable + $0AFB
+*caseUnfold($0531) = ?caseUnfoldTable + $0AFE
+*caseUnfold($0561) = ?caseUnfoldTable + $0B01
+*caseUnfold($0532) = ?caseUnfoldTable + $0B04
+*caseUnfold($0562) = ?caseUnfoldTable + $0B07
+*caseUnfold($0533) = ?caseUnfoldTable + $0B0A
+*caseUnfold($0563) = ?caseUnfoldTable + $0B0D
+*caseUnfold($0534) = ?caseUnfoldTable + $0B10
+*caseUnfold($0564) = ?caseUnfoldTable + $0B13
+*caseUnfold($0535) = ?caseUnfoldTable + $0B16
+*caseUnfold($0565) = ?caseUnfoldTable + $0B19
+*caseUnfold($0536) = ?caseUnfoldTable + $0B1C
+*caseUnfold($0566) = ?caseUnfoldTable + $0B1F
+*caseUnfold($0537) = ?caseUnfoldTable + $0B22
+*caseUnfold($0567) = ?caseUnfoldTable + $0B25
+*caseUnfold($0538) = ?caseUnfoldTable + $0B28
+*caseUnfold($0568) = ?caseUnfoldTable + $0B2B
+*caseUnfold($0539) = ?caseUnfoldTable + $0B2E
+*caseUnfold($0569) = ?caseUnfoldTable + $0B31
+*caseUnfold($053A) = ?caseUnfoldTable + $0B34
+*caseUnfold($056A) = ?caseUnfoldTable + $0B37
+*caseUnfold($053B) = ?caseUnfoldTable + $0B3A
+*caseUnfold($056B) = ?caseUnfoldTable + $0B3D
+*caseUnfold($053C) = ?caseUnfoldTable + $0B40
+*caseUnfold($056C) = ?caseUnfoldTable + $0B43
+*caseUnfold($053D) = ?caseUnfoldTable + $0B46
+*caseUnfold($056D) = ?caseUnfoldTable + $0B49
+*caseUnfold($053E) = ?caseUnfoldTable + $0B4C
+*caseUnfold($056E) = ?caseUnfoldTable + $0B4F
+*caseUnfold($053F) = ?caseUnfoldTable + $0B52
+*caseUnfold($056F) = ?caseUnfoldTable + $0B55
+*caseUnfold($0540) = ?caseUnfoldTable + $0B58
+*caseUnfold($0570) = ?caseUnfoldTable + $0B5B
+*caseUnfold($0541) = ?caseUnfoldTable + $0B5E
+*caseUnfold($0571) = ?caseUnfoldTable + $0B61
+*caseUnfold($0542) = ?caseUnfoldTable + $0B64
+*caseUnfold($0572) = ?caseUnfoldTable + $0B67
+*caseUnfold($0543) = ?caseUnfoldTable + $0B6A
+*caseUnfold($0573) = ?caseUnfoldTable + $0B6D
+*caseUnfold($0544) = ?caseUnfoldTable + $0B70
+*caseUnfold($0574) = ?caseUnfoldTable + $0B73
+*caseUnfold($0545) = ?caseUnfoldTable + $0B76
+*caseUnfold($0575) = ?caseUnfoldTable + $0B79
+*caseUnfold($0546) = ?caseUnfoldTable + $0B7C
+*caseUnfold($0576) = ?caseUnfoldTable + $0B7F
+*caseUnfold($0547) = ?caseUnfoldTable + $0B82
+*caseUnfold($0577) = ?caseUnfoldTable + $0B85
+*caseUnfold($0548) = ?caseUnfoldTable + $0B88
+*caseUnfold($0578) = ?caseUnfoldTable + $0B8B
+*caseUnfold($0549) = ?caseUnfoldTable + $0B8E
+*caseUnfold($0579) = ?caseUnfoldTable + $0B91
+*caseUnfold($054A) = ?caseUnfoldTable + $0B94
+*caseUnfold($057A) = ?caseUnfoldTable + $0B97
+*caseUnfold($054B) = ?caseUnfoldTable + $0B9A
+*caseUnfold($057B) = ?caseUnfoldTable + $0B9D
+*caseUnfold($054C) = ?caseUnfoldTable + $0BA0
+*caseUnfold($057C) = ?caseUnfoldTable + $0BA3
+*caseUnfold($054D) = ?caseUnfoldTable + $0BA6
+*caseUnfold($057D) = ?caseUnfoldTable + $0BA9
+*caseUnfold($054E) = ?caseUnfoldTable + $0BAC
+*caseUnfold($057E) = ?caseUnfoldTable + $0BAF
+*caseUnfold($054F) = ?caseUnfoldTable + $0BB2
+*caseUnfold($057F) = ?caseUnfoldTable + $0BB5
+*caseUnfold($0550) = ?caseUnfoldTable + $0BB8
+*caseUnfold($0580) = ?caseUnfoldTable + $0BBB
+*caseUnfold($0551) = ?caseUnfoldTable + $0BBE
+*caseUnfold($0581) = ?caseUnfoldTable + $0BC1
+*caseUnfold($0552) = ?caseUnfoldTable + $0BC4
+*caseUnfold($0582) = ?caseUnfoldTable + $0BC7
+*caseUnfold($0553) = ?caseUnfoldTable + $0BCA
+*caseUnfold($0583) = ?caseUnfoldTable + $0BCD
+*caseUnfold($0554) = ?caseUnfoldTable + $0BD0
+*caseUnfold($0584) = ?caseUnfoldTable + $0BD3
+*caseUnfold($0555) = ?caseUnfoldTable + $0BD6
+*caseUnfold($0585) = ?caseUnfoldTable + $0BD9
+*caseUnfold($0556) = ?caseUnfoldTable + $0BDC
+*caseUnfold($0586) = ?caseUnfoldTable + $0BDF
+*caseUnfold($10A0) = ?caseUnfoldTable + $0BE2
+*caseUnfold($2D00) = ?caseUnfoldTable + $0BE5
+*caseUnfold($10A1) = ?caseUnfoldTable + $0BE8
+*caseUnfold($2D01) = ?caseUnfoldTable + $0BEB
+*caseUnfold($10A2) = ?caseUnfoldTable + $0BEE
+*caseUnfold($2D02) = ?caseUnfoldTable + $0BF1
+*caseUnfold($10A3) = ?caseUnfoldTable + $0BF4
+*caseUnfold($2D03) = ?caseUnfoldTable + $0BF7
+*caseUnfold($10A4) = ?caseUnfoldTable + $0BFA
+*caseUnfold($2D04) = ?caseUnfoldTable + $0BFD
+*caseUnfold($10A5) = ?caseUnfoldTable + $0C00
+*caseUnfold($2D05) = ?caseUnfoldTable + $0C03
+*caseUnfold($10A6) = ?caseUnfoldTable + $0C06
+*caseUnfold($2D06) = ?caseUnfoldTable + $0C09
+*caseUnfold($10A7) = ?caseUnfoldTable + $0C0C
+*caseUnfold($2D07) = ?caseUnfoldTable + $0C0F
+*caseUnfold($10A8) = ?caseUnfoldTable + $0C12
+*caseUnfold($2D08) = ?caseUnfoldTable + $0C15
+*caseUnfold($10A9) = ?caseUnfoldTable + $0C18
+*caseUnfold($2D09) = ?caseUnfoldTable + $0C1B
+*caseUnfold($10AA) = ?caseUnfoldTable + $0C1E
+*caseUnfold($2D0A) = ?caseUnfoldTable + $0C21
+*caseUnfold($10AB) = ?caseUnfoldTable + $0C24
+*caseUnfold($2D0B) = ?caseUnfoldTable + $0C27
+*caseUnfold($10AC) = ?caseUnfoldTable + $0C2A
+*caseUnfold($2D0C) = ?caseUnfoldTable + $0C2D
+*caseUnfold($10AD) = ?caseUnfoldTable + $0C30
+*caseUnfold($2D0D) = ?caseUnfoldTable + $0C33
+*caseUnfold($10AE) = ?caseUnfoldTable + $0C36
+*caseUnfold($2D0E) = ?caseUnfoldTable + $0C39
+*caseUnfold($10AF) = ?caseUnfoldTable + $0C3C
+*caseUnfold($2D0F) = ?caseUnfoldTable + $0C3F
+*caseUnfold($10B0) = ?caseUnfoldTable + $0C42
+*caseUnfold($2D10) = ?caseUnfoldTable + $0C45
+*caseUnfold($10B1) = ?caseUnfoldTable + $0C48
+*caseUnfold($2D11) = ?caseUnfoldTable + $0C4B
+*caseUnfold($10B2) = ?caseUnfoldTable + $0C4E
+*caseUnfold($2D12) = ?caseUnfoldTable + $0C51
+*caseUnfold($10B3) = ?caseUnfoldTable + $0C54
+*caseUnfold($2D13) = ?caseUnfoldTable + $0C57
+*caseUnfold($10B4) = ?caseUnfoldTable + $0C5A
+*caseUnfold($2D14) = ?caseUnfoldTable + $0C5D
+*caseUnfold($10B5) = ?caseUnfoldTable + $0C60
+*caseUnfold($2D15) = ?caseUnfoldTable + $0C63
+*caseUnfold($10B6) = ?caseUnfoldTable + $0C66
+*caseUnfold($2D16) = ?caseUnfoldTable + $0C69
+*caseUnfold($10B7) = ?caseUnfoldTable + $0C6C
+*caseUnfold($2D17) = ?caseUnfoldTable + $0C6F
+*caseUnfold($10B8) = ?caseUnfoldTable + $0C72
+*caseUnfold($2D18) = ?caseUnfoldTable + $0C75
+*caseUnfold($10B9) = ?caseUnfoldTable + $0C78
+*caseUnfold($2D19) = ?caseUnfoldTable + $0C7B
+*caseUnfold($10BA) = ?caseUnfoldTable + $0C7E
+*caseUnfold($2D1A) = ?caseUnfoldTable + $0C81
+*caseUnfold($10BB) = ?caseUnfoldTable + $0C84
+*caseUnfold($2D1B) = ?caseUnfoldTable + $0C87
+*caseUnfold($10BC) = ?caseUnfoldTable + $0C8A
+*caseUnfold($2D1C) = ?caseUnfoldTable + $0C8D
+*caseUnfold($10BD) = ?caseUnfoldTable + $0C90
+*caseUnfold($2D1D) = ?caseUnfoldTable + $0C93
+*caseUnfold($10BE) = ?caseUnfoldTable + $0C96
+*caseUnfold($2D1E) = ?caseUnfoldTable + $0C99
+*caseUnfold($10BF) = ?caseUnfoldTable + $0C9C
+*caseUnfold($2D1F) = ?caseUnfoldTable + $0C9F
+*caseUnfold($10C0) = ?caseUnfoldTable + $0CA2
+*caseUnfold($2D20) = ?caseUnfoldTable + $0CA5
+*caseUnfold($10C1) = ?caseUnfoldTable + $0CA8
+*caseUnfold($2D21) = ?caseUnfoldTable + $0CAB
+*caseUnfold($10C2) = ?caseUnfoldTable + $0CAE
+*caseUnfold($2D22) = ?caseUnfoldTable + $0CB1
+*caseUnfold($10C3) = ?caseUnfoldTable + $0CB4
+*caseUnfold($2D23) = ?caseUnfoldTable + $0CB7
+*caseUnfold($10C4) = ?caseUnfoldTable + $0CBA
+*caseUnfold($2D24) = ?caseUnfoldTable + $0CBD
+*caseUnfold($10C5) = ?caseUnfoldTable + $0CC0
+*caseUnfold($2D25) = ?caseUnfoldTable + $0CC3
+*caseUnfold($10C7) = ?caseUnfoldTable + $0CC6
+*caseUnfold($2D27) = ?caseUnfoldTable + $0CC9
+*caseUnfold($10CD) = ?caseUnfoldTable + $0CCC
+*caseUnfold($2D2D) = ?caseUnfoldTable + $0CCF
+*caseUnfold($13F8) = ?caseUnfoldTable + $0CD2
+*caseUnfold($13F0) = ?caseUnfoldTable + $0CD5
+*caseUnfold($13F9) = ?caseUnfoldTable + $0CD8
+*caseUnfold($13F1) = ?caseUnfoldTable + $0CDB
+*caseUnfold($13FA) = ?caseUnfoldTable + $0CDE
+*caseUnfold($13F2) = ?caseUnfoldTable + $0CE1
+*caseUnfold($13FB) = ?caseUnfoldTable + $0CE4
+*caseUnfold($13F3) = ?caseUnfoldTable + $0CE7
+*caseUnfold($13FC) = ?caseUnfoldTable + $0CEA
+*caseUnfold($13F4) = ?caseUnfoldTable + $0CED
+*caseUnfold($13FD) = ?caseUnfoldTable + $0CF0
+*caseUnfold($13F5) = ?caseUnfoldTable + $0CF3
+*caseUnfold($1C88) = ?caseUnfoldTable + $0CF6
+*caseUnfold($A64B) = ?caseUnfoldTable + $0CFB
+*caseUnfold($A64A) = ?caseUnfoldTable + $0D00
+*caseUnfold($1C90) = ?caseUnfoldTable + $0D05
+*caseUnfold($10D0) = ?caseUnfoldTable + $0D08
+*caseUnfold($1C91) = ?caseUnfoldTable + $0D0B
+*caseUnfold($10D1) = ?caseUnfoldTable + $0D0E
+*caseUnfold($1C92) = ?caseUnfoldTable + $0D11
+*caseUnfold($10D2) = ?caseUnfoldTable + $0D14
+*caseUnfold($1C93) = ?caseUnfoldTable + $0D17
+*caseUnfold($10D3) = ?caseUnfoldTable + $0D1A
+*caseUnfold($1C94) = ?caseUnfoldTable + $0D1D
+*caseUnfold($10D4) = ?caseUnfoldTable + $0D20
+*caseUnfold($1C95) = ?caseUnfoldTable + $0D23
+*caseUnfold($10D5) = ?caseUnfoldTable + $0D26
+*caseUnfold($1C96) = ?caseUnfoldTable + $0D29
+*caseUnfold($10D6) = ?caseUnfoldTable + $0D2C
+*caseUnfold($1C97) = ?caseUnfoldTable + $0D2F
+*caseUnfold($10D7) = ?caseUnfoldTable + $0D32
+*caseUnfold($1C98) = ?caseUnfoldTable + $0D35
+*caseUnfold($10D8) = ?caseUnfoldTable + $0D38
+*caseUnfold($1C99) = ?caseUnfoldTable + $0D3B
+*caseUnfold($10D9) = ?caseUnfoldTable + $0D3E
+*caseUnfold($1C9A) = ?caseUnfoldTable + $0D41
+*caseUnfold($10DA) = ?caseUnfoldTable + $0D44
+*caseUnfold($1C9B) = ?caseUnfoldTable + $0D47
+*caseUnfold($10DB) = ?caseUnfoldTable + $0D4A
+*caseUnfold($1C9C) = ?caseUnfoldTable + $0D4D
+*caseUnfold($10DC) = ?caseUnfoldTable + $0D50
+*caseUnfold($1C9D) = ?caseUnfoldTable + $0D53
+*caseUnfold($10DD) = ?caseUnfoldTable + $0D56
+*caseUnfold($1C9E) = ?caseUnfoldTable + $0D59
+*caseUnfold($10DE) = ?caseUnfoldTable + $0D5C
+*caseUnfold($1C9F) = ?caseUnfoldTable + $0D5F
+*caseUnfold($10DF) = ?caseUnfoldTable + $0D62
+*caseUnfold($1CA0) = ?caseUnfoldTable + $0D65
+*caseUnfold($10E0) = ?caseUnfoldTable + $0D68
+*caseUnfold($1CA1) = ?caseUnfoldTable + $0D6B
+*caseUnfold($10E1) = ?caseUnfoldTable + $0D6E
+*caseUnfold($1CA2) = ?caseUnfoldTable + $0D71
+*caseUnfold($10E2) = ?caseUnfoldTable + $0D74
+*caseUnfold($1CA3) = ?caseUnfoldTable + $0D77
+*caseUnfold($10E3) = ?caseUnfoldTable + $0D7A
+*caseUnfold($1CA4) = ?caseUnfoldTable + $0D7D
+*caseUnfold($10E4) = ?caseUnfoldTable + $0D80
+*caseUnfold($1CA5) = ?caseUnfoldTable + $0D83
+*caseUnfold($10E5) = ?caseUnfoldTable + $0D86
+*caseUnfold($1CA6) = ?caseUnfoldTable + $0D89
+*caseUnfold($10E6) = ?caseUnfoldTable + $0D8C
+*caseUnfold($1CA7) = ?caseUnfoldTable + $0D8F
+*caseUnfold($10E7) = ?caseUnfoldTable + $0D92
+*caseUnfold($1CA8) = ?caseUnfoldTable + $0D95
+*caseUnfold($10E8) = ?caseUnfoldTable + $0D98
+*caseUnfold($1CA9) = ?caseUnfoldTable + $0D9B
+*caseUnfold($10E9) = ?caseUnfoldTable + $0D9E
+*caseUnfold($1CAA) = ?caseUnfoldTable + $0DA1
+*caseUnfold($10EA) = ?caseUnfoldTable + $0DA4
+*caseUnfold($1CAB) = ?caseUnfoldTable + $0DA7
+*caseUnfold($10EB) = ?caseUnfoldTable + $0DAA
+*caseUnfold($1CAC) = ?caseUnfoldTable + $0DAD
+*caseUnfold($10EC) = ?caseUnfoldTable + $0DB0
+*caseUnfold($1CAD) = ?caseUnfoldTable + $0DB3
+*caseUnfold($10ED) = ?caseUnfoldTable + $0DB6
+*caseUnfold($1CAE) = ?caseUnfoldTable + $0DB9
+*caseUnfold($10EE) = ?caseUnfoldTable + $0DBC
+*caseUnfold($1CAF) = ?caseUnfoldTable + $0DBF
+*caseUnfold($10EF) = ?caseUnfoldTable + $0DC2
+*caseUnfold($1CB0) = ?caseUnfoldTable + $0DC5
+*caseUnfold($10F0) = ?caseUnfoldTable + $0DC8
+*caseUnfold($1CB1) = ?caseUnfoldTable + $0DCB
+*caseUnfold($10F1) = ?caseUnfoldTable + $0DCE
+*caseUnfold($1CB2) = ?caseUnfoldTable + $0DD1
+*caseUnfold($10F2) = ?caseUnfoldTable + $0DD4
+*caseUnfold($1CB3) = ?caseUnfoldTable + $0DD7
+*caseUnfold($10F3) = ?caseUnfoldTable + $0DDA
+*caseUnfold($1CB4) = ?caseUnfoldTable + $0DDD
+*caseUnfold($10F4) = ?caseUnfoldTable + $0DE0
+*caseUnfold($1CB5) = ?caseUnfoldTable + $0DE3
+*caseUnfold($10F5) = ?caseUnfoldTable + $0DE6
+*caseUnfold($1CB6) = ?caseUnfoldTable + $0DE9
+*caseUnfold($10F6) = ?caseUnfoldTable + $0DEC
+*caseUnfold($1CB7) = ?caseUnfoldTable + $0DEF
+*caseUnfold($10F7) = ?caseUnfoldTable + $0DF2
+*caseUnfold($1CB8) = ?caseUnfoldTable + $0DF5
+*caseUnfold($10F8) = ?caseUnfoldTable + $0DF8
+*caseUnfold($1CB9) = ?caseUnfoldTable + $0DFB
+*caseUnfold($10F9) = ?caseUnfoldTable + $0DFE
+*caseUnfold($1CBA) = ?caseUnfoldTable + $0E01
+*caseUnfold($10FA) = ?caseUnfoldTable + $0E04
+*caseUnfold($1CBD) = ?caseUnfoldTable + $0E07
+*caseUnfold($10FD) = ?caseUnfoldTable + $0E0A
+*caseUnfold($1CBE) = ?caseUnfoldTable + $0E0D
+*caseUnfold($10FE) = ?caseUnfoldTable + $0E10
+*caseUnfold($1CBF) = ?caseUnfoldTable + $0E13
+*caseUnfold($10FF) = ?caseUnfoldTable + $0E16
+*caseUnfold($1E00) = ?caseUnfoldTable + $0E19
+*caseUnfold($1E01) = ?caseUnfoldTable + $0E1C
+*caseUnfold($1E02) = ?caseUnfoldTable + $0E1F
+*caseUnfold($1E03) = ?caseUnfoldTable + $0E22
+*caseUnfold($1E04) = ?caseUnfoldTable + $0E25
+*caseUnfold($1E05) = ?caseUnfoldTable + $0E28
+*caseUnfold($1E06) = ?caseUnfoldTable + $0E2B
+*caseUnfold($1E07) = ?caseUnfoldTable + $0E2E
+*caseUnfold($1E08) = ?caseUnfoldTable + $0E31
+*caseUnfold($1E09) = ?caseUnfoldTable + $0E34
+*caseUnfold($1E0A) = ?caseUnfoldTable + $0E37
+*caseUnfold($1E0B) = ?caseUnfoldTable + $0E3A
+*caseUnfold($1E0C) = ?caseUnfoldTable + $0E3D
+*caseUnfold($1E0D) = ?caseUnfoldTable + $0E40
+*caseUnfold($1E0E) = ?caseUnfoldTable + $0E43
+*caseUnfold($1E0F) = ?caseUnfoldTable + $0E46
+*caseUnfold($1E10) = ?caseUnfoldTable + $0E49
+*caseUnfold($1E11) = ?caseUnfoldTable + $0E4C
+*caseUnfold($1E12) = ?caseUnfoldTable + $0E4F
+*caseUnfold($1E13) = ?caseUnfoldTable + $0E52
+*caseUnfold($1E14) = ?caseUnfoldTable + $0E55
+*caseUnfold($1E15) = ?caseUnfoldTable + $0E58
+*caseUnfold($1E16) = ?caseUnfoldTable + $0E5B
+*caseUnfold($1E17) = ?caseUnfoldTable + $0E5E
+*caseUnfold($1E18) = ?caseUnfoldTable + $0E61
+*caseUnfold($1E19) = ?caseUnfoldTable + $0E64
+*caseUnfold($1E1A) = ?caseUnfoldTable + $0E67
+*caseUnfold($1E1B) = ?caseUnfoldTable + $0E6A
+*caseUnfold($1E1C) = ?caseUnfoldTable + $0E6D
+*caseUnfold($1E1D) = ?caseUnfoldTable + $0E70
+*caseUnfold($1E1E) = ?caseUnfoldTable + $0E73
+*caseUnfold($1E1F) = ?caseUnfoldTable + $0E76
+*caseUnfold($1E20) = ?caseUnfoldTable + $0E79
+*caseUnfold($1E21) = ?caseUnfoldTable + $0E7C
+*caseUnfold($1E22) = ?caseUnfoldTable + $0E7F
+*caseUnfold($1E23) = ?caseUnfoldTable + $0E82
+*caseUnfold($1E24) = ?caseUnfoldTable + $0E85
+*caseUnfold($1E25) = ?caseUnfoldTable + $0E88
+*caseUnfold($1E26) = ?caseUnfoldTable + $0E8B
+*caseUnfold($1E27) = ?caseUnfoldTable + $0E8E
+*caseUnfold($1E28) = ?caseUnfoldTable + $0E91
+*caseUnfold($1E29) = ?caseUnfoldTable + $0E94
+*caseUnfold($1E2A) = ?caseUnfoldTable + $0E97
+*caseUnfold($1E2B) = ?caseUnfoldTable + $0E9A
+*caseUnfold($1E2C) = ?caseUnfoldTable + $0E9D
+*caseUnfold($1E2D) = ?caseUnfoldTable + $0EA0
+*caseUnfold($1E2E) = ?caseUnfoldTable + $0EA3
+*caseUnfold($1E2F) = ?caseUnfoldTable + $0EA6
+*caseUnfold($1E30) = ?caseUnfoldTable + $0EA9
+*caseUnfold($1E31) = ?caseUnfoldTable + $0EAC
+*caseUnfold($1E32) = ?caseUnfoldTable + $0EAF
+*caseUnfold($1E33) = ?caseUnfoldTable + $0EB2
+*caseUnfold($1E34) = ?caseUnfoldTable + $0EB5
+*caseUnfold($1E35) = ?caseUnfoldTable + $0EB8
+*caseUnfold($1E36) = ?caseUnfoldTable + $0EBB
+*caseUnfold($1E37) = ?caseUnfoldTable + $0EBE
+*caseUnfold($1E38) = ?caseUnfoldTable + $0EC1
+*caseUnfold($1E39) = ?caseUnfoldTable + $0EC4
+*caseUnfold($1E3A) = ?caseUnfoldTable + $0EC7
+*caseUnfold($1E3B) = ?caseUnfoldTable + $0ECA
+*caseUnfold($1E3C) = ?caseUnfoldTable + $0ECD
+*caseUnfold($1E3D) = ?caseUnfoldTable + $0ED0
+*caseUnfold($1E3E) = ?caseUnfoldTable + $0ED3
+*caseUnfold($1E3F) = ?caseUnfoldTable + $0ED6
+*caseUnfold($1E40) = ?caseUnfoldTable + $0ED9
+*caseUnfold($1E41) = ?caseUnfoldTable + $0EDC
+*caseUnfold($1E42) = ?caseUnfoldTable + $0EDF
+*caseUnfold($1E43) = ?caseUnfoldTable + $0EE2
+*caseUnfold($1E44) = ?caseUnfoldTable + $0EE5
+*caseUnfold($1E45) = ?caseUnfoldTable + $0EE8
+*caseUnfold($1E46) = ?caseUnfoldTable + $0EEB
+*caseUnfold($1E47) = ?caseUnfoldTable + $0EEE
+*caseUnfold($1E48) = ?caseUnfoldTable + $0EF1
+*caseUnfold($1E49) = ?caseUnfoldTable + $0EF4
+*caseUnfold($1E4A) = ?caseUnfoldTable + $0EF7
+*caseUnfold($1E4B) = ?caseUnfoldTable + $0EFA
+*caseUnfold($1E4C) = ?caseUnfoldTable + $0EFD
+*caseUnfold($1E4D) = ?caseUnfoldTable + $0F00
+*caseUnfold($1E4E) = ?caseUnfoldTable + $0F03
+*caseUnfold($1E4F) = ?caseUnfoldTable + $0F06
+*caseUnfold($1E50) = ?caseUnfoldTable + $0F09
+*caseUnfold($1E51) = ?caseUnfoldTable + $0F0C
+*caseUnfold($1E52) = ?caseUnfoldTable + $0F0F
+*caseUnfold($1E53) = ?caseUnfoldTable + $0F12
+*caseUnfold($1E54) = ?caseUnfoldTable + $0F15
+*caseUnfold($1E55) = ?caseUnfoldTable + $0F18
+*caseUnfold($1E56) = ?caseUnfoldTable + $0F1B
+*caseUnfold($1E57) = ?caseUnfoldTable + $0F1E
+*caseUnfold($1E58) = ?caseUnfoldTable + $0F21
+*caseUnfold($1E59) = ?caseUnfoldTable + $0F24
+*caseUnfold($1E5A) = ?caseUnfoldTable + $0F27
+*caseUnfold($1E5B) = ?caseUnfoldTable + $0F2A
+*caseUnfold($1E5C) = ?caseUnfoldTable + $0F2D
+*caseUnfold($1E5D) = ?caseUnfoldTable + $0F30
+*caseUnfold($1E5E) = ?caseUnfoldTable + $0F33
+*caseUnfold($1E5F) = ?caseUnfoldTable + $0F36
+*caseUnfold($1E60) = ?caseUnfoldTable + $0F39
+*caseUnfold($1E61) = ?caseUnfoldTable + $0F3E
+*caseUnfold($1E9B) = ?caseUnfoldTable + $0F43
+*caseUnfold($1E62) = ?caseUnfoldTable + $0F48
+*caseUnfold($1E63) = ?caseUnfoldTable + $0F4B
+*caseUnfold($1E64) = ?caseUnfoldTable + $0F4E
+*caseUnfold($1E65) = ?caseUnfoldTable + $0F51
+*caseUnfold($1E66) = ?caseUnfoldTable + $0F54
+*caseUnfold($1E67) = ?caseUnfoldTable + $0F57
+*caseUnfold($1E68) = ?caseUnfoldTable + $0F5A
+*caseUnfold($1E69) = ?caseUnfoldTable + $0F5D
+*caseUnfold($1E6A) = ?caseUnfoldTable + $0F60
+*caseUnfold($1E6B) = ?caseUnfoldTable + $0F63
+*caseUnfold($1E6C) = ?caseUnfoldTable + $0F66
+*caseUnfold($1E6D) = ?caseUnfoldTable + $0F69
+*caseUnfold($1E6E) = ?caseUnfoldTable + $0F6C
+*caseUnfold($1E6F) = ?caseUnfoldTable + $0F6F
+*caseUnfold($1E70) = ?caseUnfoldTable + $0F72
+*caseUnfold($1E71) = ?caseUnfoldTable + $0F75
+*caseUnfold($1E72) = ?caseUnfoldTable + $0F78
+*caseUnfold($1E73) = ?caseUnfoldTable + $0F7B
+*caseUnfold($1E74) = ?caseUnfoldTable + $0F7E
+*caseUnfold($1E75) = ?caseUnfoldTable + $0F81
+*caseUnfold($1E76) = ?caseUnfoldTable + $0F84
+*caseUnfold($1E77) = ?caseUnfoldTable + $0F87
+*caseUnfold($1E78) = ?caseUnfoldTable + $0F8A
+*caseUnfold($1E79) = ?caseUnfoldTable + $0F8D
+*caseUnfold($1E7A) = ?caseUnfoldTable + $0F90
+*caseUnfold($1E7B) = ?caseUnfoldTable + $0F93
+*caseUnfold($1E7C) = ?caseUnfoldTable + $0F96
+*caseUnfold($1E7D) = ?caseUnfoldTable + $0F99
+*caseUnfold($1E7E) = ?caseUnfoldTable + $0F9C
+*caseUnfold($1E7F) = ?caseUnfoldTable + $0F9F
+*caseUnfold($1E80) = ?caseUnfoldTable + $0FA2
+*caseUnfold($1E81) = ?caseUnfoldTable + $0FA5
+*caseUnfold($1E82) = ?caseUnfoldTable + $0FA8
+*caseUnfold($1E83) = ?caseUnfoldTable + $0FAB
+*caseUnfold($1E84) = ?caseUnfoldTable + $0FAE
+*caseUnfold($1E85) = ?caseUnfoldTable + $0FB1
+*caseUnfold($1E86) = ?caseUnfoldTable + $0FB4
+*caseUnfold($1E87) = ?caseUnfoldTable + $0FB7
+*caseUnfold($1E88) = ?caseUnfoldTable + $0FBA
+*caseUnfold($1E89) = ?caseUnfoldTable + $0FBD
+*caseUnfold($1E8A) = ?caseUnfoldTable + $0FC0
+*caseUnfold($1E8B) = ?caseUnfoldTable + $0FC3
+*caseUnfold($1E8C) = ?caseUnfoldTable + $0FC6
+*caseUnfold($1E8D) = ?caseUnfoldTable + $0FC9
+*caseUnfold($1E8E) = ?caseUnfoldTable + $0FCC
+*caseUnfold($1E8F) = ?caseUnfoldTable + $0FCF
+*caseUnfold($1E90) = ?caseUnfoldTable + $0FD2
+*caseUnfold($1E91) = ?caseUnfoldTable + $0FD5
+*caseUnfold($1E92) = ?caseUnfoldTable + $0FD8
+*caseUnfold($1E93) = ?caseUnfoldTable + $0FDB
+*caseUnfold($1E94) = ?caseUnfoldTable + $0FDE
+*caseUnfold($1E95) = ?caseUnfoldTable + $0FE1
+*caseUnfold($1E9E) = ?caseUnfoldTable + $0FE4
+*caseUnfold($00DF) = ?caseUnfoldTable + $0FE7
+*caseUnfold($1EA0) = ?caseUnfoldTable + $0FEA
+*caseUnfold($1EA1) = ?caseUnfoldTable + $0FED
+*caseUnfold($1EA2) = ?caseUnfoldTable + $0FF0
+*caseUnfold($1EA3) = ?caseUnfoldTable + $0FF3
+*caseUnfold($1EA4) = ?caseUnfoldTable + $0FF6
+*caseUnfold($1EA5) = ?caseUnfoldTable + $0FF9
+*caseUnfold($1EA6) = ?caseUnfoldTable + $0FFC
+*caseUnfold($1EA7) = ?caseUnfoldTable + $0FFF
+*caseUnfold($1EA8) = ?caseUnfoldTable + $1002
+*caseUnfold($1EA9) = ?caseUnfoldTable + $1005
+*caseUnfold($1EAA) = ?caseUnfoldTable + $1008
+*caseUnfold($1EAB) = ?caseUnfoldTable + $100B
+*caseUnfold($1EAC) = ?caseUnfoldTable + $100E
+*caseUnfold($1EAD) = ?caseUnfoldTable + $1011
+*caseUnfold($1EAE) = ?caseUnfoldTable + $1014
+*caseUnfold($1EAF) = ?caseUnfoldTable + $1017
+*caseUnfold($1EB0) = ?caseUnfoldTable + $101A
+*caseUnfold($1EB1) = ?caseUnfoldTable + $101D
+*caseUnfold($1EB2) = ?caseUnfoldTable + $1020
+*caseUnfold($1EB3) = ?caseUnfoldTable + $1023
+*caseUnfold($1EB4) = ?caseUnfoldTable + $1026
+*caseUnfold($1EB5) = ?caseUnfoldTable + $1029
+*caseUnfold($1EB6) = ?caseUnfoldTable + $102C
+*caseUnfold($1EB7) = ?caseUnfoldTable + $102F
+*caseUnfold($1EB8) = ?caseUnfoldTable + $1032
+*caseUnfold($1EB9) = ?caseUnfoldTable + $1035
+*caseUnfold($1EBA) = ?caseUnfoldTable + $1038
+*caseUnfold($1EBB) = ?caseUnfoldTable + $103B
+*caseUnfold($1EBC) = ?caseUnfoldTable + $103E
+*caseUnfold($1EBD) = ?caseUnfoldTable + $1041
+*caseUnfold($1EBE) = ?caseUnfoldTable + $1044
+*caseUnfold($1EBF) = ?caseUnfoldTable + $1047
+*caseUnfold($1EC0) = ?caseUnfoldTable + $104A
+*caseUnfold($1EC1) = ?caseUnfoldTable + $104D
+*caseUnfold($1EC2) = ?caseUnfoldTable + $1050
+*caseUnfold($1EC3) = ?caseUnfoldTable + $1053
+*caseUnfold($1EC4) = ?caseUnfoldTable + $1056
+*caseUnfold($1EC5) = ?caseUnfoldTable + $1059
+*caseUnfold($1EC6) = ?caseUnfoldTable + $105C
+*caseUnfold($1EC7) = ?caseUnfoldTable + $105F
+*caseUnfold($1EC8) = ?caseUnfoldTable + $1062
+*caseUnfold($1EC9) = ?caseUnfoldTable + $1065
+*caseUnfold($1ECA) = ?caseUnfoldTable + $1068
+*caseUnfold($1ECB) = ?caseUnfoldTable + $106B
+*caseUnfold($1ECC) = ?caseUnfoldTable + $106E
+*caseUnfold($1ECD) = ?caseUnfoldTable + $1071
+*caseUnfold($1ECE) = ?caseUnfoldTable + $1074
+*caseUnfold($1ECF) = ?caseUnfoldTable + $1077
+*caseUnfold($1ED0) = ?caseUnfoldTable + $107A
+*caseUnfold($1ED1) = ?caseUnfoldTable + $107D
+*caseUnfold($1ED2) = ?caseUnfoldTable + $1080
+*caseUnfold($1ED3) = ?caseUnfoldTable + $1083
+*caseUnfold($1ED4) = ?caseUnfoldTable + $1086
+*caseUnfold($1ED5) = ?caseUnfoldTable + $1089
+*caseUnfold($1ED6) = ?caseUnfoldTable + $108C
+*caseUnfold($1ED7) = ?caseUnfoldTable + $108F
+*caseUnfold($1ED8) = ?caseUnfoldTable + $1092
+*caseUnfold($1ED9) = ?caseUnfoldTable + $1095
+*caseUnfold($1EDA) = ?caseUnfoldTable + $1098
+*caseUnfold($1EDB) = ?caseUnfoldTable + $109B
+*caseUnfold($1EDC) = ?caseUnfoldTable + $109E
+*caseUnfold($1EDD) = ?caseUnfoldTable + $10A1
+*caseUnfold($1EDE) = ?caseUnfoldTable + $10A4
+*caseUnfold($1EDF) = ?caseUnfoldTable + $10A7
+*caseUnfold($1EE0) = ?caseUnfoldTable + $10AA
+*caseUnfold($1EE1) = ?caseUnfoldTable + $10AD
+*caseUnfold($1EE2) = ?caseUnfoldTable + $10B0
+*caseUnfold($1EE3) = ?caseUnfoldTable + $10B3
+*caseUnfold($1EE4) = ?caseUnfoldTable + $10B6
+*caseUnfold($1EE5) = ?caseUnfoldTable + $10B9
+*caseUnfold($1EE6) = ?caseUnfoldTable + $10BC
+*caseUnfold($1EE7) = ?caseUnfoldTable + $10BF
+*caseUnfold($1EE8) = ?caseUnfoldTable + $10C2
+*caseUnfold($1EE9) = ?caseUnfoldTable + $10C5
+*caseUnfold($1EEA) = ?caseUnfoldTable + $10C8
+*caseUnfold($1EEB) = ?caseUnfoldTable + $10CB
+*caseUnfold($1EEC) = ?caseUnfoldTable + $10CE
+*caseUnfold($1EED) = ?caseUnfoldTable + $10D1
+*caseUnfold($1EEE) = ?caseUnfoldTable + $10D4
+*caseUnfold($1EEF) = ?caseUnfoldTable + $10D7
+*caseUnfold($1EF0) = ?caseUnfoldTable + $10DA
+*caseUnfold($1EF1) = ?caseUnfoldTable + $10DD
+*caseUnfold($1EF2) = ?caseUnfoldTable + $10E0
+*caseUnfold($1EF3) = ?caseUnfoldTable + $10E3
+*caseUnfold($1EF4) = ?caseUnfoldTable + $10E6
+*caseUnfold($1EF5) = ?caseUnfoldTable + $10E9
+*caseUnfold($1EF6) = ?caseUnfoldTable + $10EC
+*caseUnfold($1EF7) = ?caseUnfoldTable + $10EF
+*caseUnfold($1EF8) = ?caseUnfoldTable + $10F2
+*caseUnfold($1EF9) = ?caseUnfoldTable + $10F5
+*caseUnfold($1EFA) = ?caseUnfoldTable + $10F8
+*caseUnfold($1EFB) = ?caseUnfoldTable + $10FB
+*caseUnfold($1EFC) = ?caseUnfoldTable + $10FE
+*caseUnfold($1EFD) = ?caseUnfoldTable + $1101
+*caseUnfold($1EFE) = ?caseUnfoldTable + $1104
+*caseUnfold($1EFF) = ?caseUnfoldTable + $1107
+*caseUnfold($1F08) = ?caseUnfoldTable + $110A
+*caseUnfold($1F00) = ?caseUnfoldTable + $110D
+*caseUnfold($1F09) = ?caseUnfoldTable + $1110
+*caseUnfold($1F01) = ?caseUnfoldTable + $1113
+*caseUnfold($1F0A) = ?caseUnfoldTable + $1116
+*caseUnfold($1F02) = ?caseUnfoldTable + $1119
+*caseUnfold($1F0B) = ?caseUnfoldTable + $111C
+*caseUnfold($1F03) = ?caseUnfoldTable + $111F
+*caseUnfold($1F0C) = ?caseUnfoldTable + $1122
+*caseUnfold($1F04) = ?caseUnfoldTable + $1125
+*caseUnfold($1F0D) = ?caseUnfoldTable + $1128
+*caseUnfold($1F05) = ?caseUnfoldTable + $112B
+*caseUnfold($1F0E) = ?caseUnfoldTable + $112E
+*caseUnfold($1F06) = ?caseUnfoldTable + $1131
+*caseUnfold($1F0F) = ?caseUnfoldTable + $1134
+*caseUnfold($1F07) = ?caseUnfoldTable + $1137
+*caseUnfold($1F18) = ?caseUnfoldTable + $113A
+*caseUnfold($1F10) = ?caseUnfoldTable + $113D
+*caseUnfold($1F19) = ?caseUnfoldTable + $1140
+*caseUnfold($1F11) = ?caseUnfoldTable + $1143
+*caseUnfold($1F1A) = ?caseUnfoldTable + $1146
+*caseUnfold($1F12) = ?caseUnfoldTable + $1149
+*caseUnfold($1F1B) = ?caseUnfoldTable + $114C
+*caseUnfold($1F13) = ?caseUnfoldTable + $114F
+*caseUnfold($1F1C) = ?caseUnfoldTable + $1152
+*caseUnfold($1F14) = ?caseUnfoldTable + $1155
+*caseUnfold($1F1D) = ?caseUnfoldTable + $1158
+*caseUnfold($1F15) = ?caseUnfoldTable + $115B
+*caseUnfold($1F28) = ?caseUnfoldTable + $115E
+*caseUnfold($1F20) = ?caseUnfoldTable + $1161
+*caseUnfold($1F29) = ?caseUnfoldTable + $1164
+*caseUnfold($1F21) = ?caseUnfoldTable + $1167
+*caseUnfold($1F2A) = ?caseUnfoldTable + $116A
+*caseUnfold($1F22) = ?caseUnfoldTable + $116D
+*caseUnfold($1F2B) = ?caseUnfoldTable + $1170
+*caseUnfold($1F23) = ?caseUnfoldTable + $1173
+*caseUnfold($1F2C) = ?caseUnfoldTable + $1176
+*caseUnfold($1F24) = ?caseUnfoldTable + $1179
+*caseUnfold($1F2D) = ?caseUnfoldTable + $117C
+*caseUnfold($1F25) = ?caseUnfoldTable + $117F
+*caseUnfold($1F2E) = ?caseUnfoldTable + $1182
+*caseUnfold($1F26) = ?caseUnfoldTable + $1185
+*caseUnfold($1F2F) = ?caseUnfoldTable + $1188
+*caseUnfold($1F27) = ?caseUnfoldTable + $118B
+*caseUnfold($1F38) = ?caseUnfoldTable + $118E
+*caseUnfold($1F30) = ?caseUnfoldTable + $1191
+*caseUnfold($1F39) = ?caseUnfoldTable + $1194
+*caseUnfold($1F31) = ?caseUnfoldTable + $1197
+*caseUnfold($1F3A) = ?caseUnfoldTable + $119A
+*caseUnfold($1F32) = ?caseUnfoldTable + $119D
+*caseUnfold($1F3B) = ?caseUnfoldTable + $11A0
+*caseUnfold($1F33) = ?caseUnfoldTable + $11A3
+*caseUnfold($1F3C) = ?caseUnfoldTable + $11A6
+*caseUnfold($1F34) = ?caseUnfoldTable + $11A9
+*caseUnfold($1F3D) = ?caseUnfoldTable + $11AC
+*caseUnfold($1F35) = ?caseUnfoldTable + $11AF
+*caseUnfold($1F3E) = ?caseUnfoldTable + $11B2
+*caseUnfold($1F36) = ?caseUnfoldTable + $11B5
+*caseUnfold($1F3F) = ?caseUnfoldTable + $11B8
+*caseUnfold($1F37) = ?caseUnfoldTable + $11BB
+*caseUnfold($1F48) = ?caseUnfoldTable + $11BE
+*caseUnfold($1F40) = ?caseUnfoldTable + $11C1
+*caseUnfold($1F49) = ?caseUnfoldTable + $11C4
+*caseUnfold($1F41) = ?caseUnfoldTable + $11C7
+*caseUnfold($1F4A) = ?caseUnfoldTable + $11CA
+*caseUnfold($1F42) = ?caseUnfoldTable + $11CD
+*caseUnfold($1F4B) = ?caseUnfoldTable + $11D0
+*caseUnfold($1F43) = ?caseUnfoldTable + $11D3
+*caseUnfold($1F4C) = ?caseUnfoldTable + $11D6
+*caseUnfold($1F44) = ?caseUnfoldTable + $11D9
+*caseUnfold($1F4D) = ?caseUnfoldTable + $11DC
+*caseUnfold($1F45) = ?caseUnfoldTable + $11DF
+*caseUnfold($1F59) = ?caseUnfoldTable + $11E2
+*caseUnfold($1F51) = ?caseUnfoldTable + $11E5
+*caseUnfold($1F5B) = ?caseUnfoldTable + $11E8
+*caseUnfold($1F53) = ?caseUnfoldTable + $11EB
+*caseUnfold($1F5D) = ?caseUnfoldTable + $11EE
+*caseUnfold($1F55) = ?caseUnfoldTable + $11F1
+*caseUnfold($1F5F) = ?caseUnfoldTable + $11F4
+*caseUnfold($1F57) = ?caseUnfoldTable + $11F7
+*caseUnfold($1F68) = ?caseUnfoldTable + $11FA
+*caseUnfold($1F60) = ?caseUnfoldTable + $11FD
+*caseUnfold($1F69) = ?caseUnfoldTable + $1200
+*caseUnfold($1F61) = ?caseUnfoldTable + $1203
+*caseUnfold($1F6A) = ?caseUnfoldTable + $1206
+*caseUnfold($1F62) = ?caseUnfoldTable + $1209
+*caseUnfold($1F6B) = ?caseUnfoldTable + $120C
+*caseUnfold($1F63) = ?caseUnfoldTable + $120F
+*caseUnfold($1F6C) = ?caseUnfoldTable + $1212
+*caseUnfold($1F64) = ?caseUnfoldTable + $1215
+*caseUnfold($1F6D) = ?caseUnfoldTable + $1218
+*caseUnfold($1F65) = ?caseUnfoldTable + $121B
+*caseUnfold($1F6E) = ?caseUnfoldTable + $121E
+*caseUnfold($1F66) = ?caseUnfoldTable + $1221
+*caseUnfold($1F6F) = ?caseUnfoldTable + $1224
+*caseUnfold($1F67) = ?caseUnfoldTable + $1227
+*caseUnfold($1F88) = ?caseUnfoldTable + $122A
+*caseUnfold($1F80) = ?caseUnfoldTable + $122D
+*caseUnfold($1F89) = ?caseUnfoldTable + $1230
+*caseUnfold($1F81) = ?caseUnfoldTable + $1233
+*caseUnfold($1F8A) = ?caseUnfoldTable + $1236
+*caseUnfold($1F82) = ?caseUnfoldTable + $1239
+*caseUnfold($1F8B) = ?caseUnfoldTable + $123C
+*caseUnfold($1F83) = ?caseUnfoldTable + $123F
+*caseUnfold($1F8C) = ?caseUnfoldTable + $1242
+*caseUnfold($1F84) = ?caseUnfoldTable + $1245
+*caseUnfold($1F8D) = ?caseUnfoldTable + $1248
+*caseUnfold($1F85) = ?caseUnfoldTable + $124B
+*caseUnfold($1F8E) = ?caseUnfoldTable + $124E
+*caseUnfold($1F86) = ?caseUnfoldTable + $1251
+*caseUnfold($1F8F) = ?caseUnfoldTable + $1254
+*caseUnfold($1F87) = ?caseUnfoldTable + $1257
+*caseUnfold($1F98) = ?caseUnfoldTable + $125A
+*caseUnfold($1F90) = ?caseUnfoldTable + $125D
+*caseUnfold($1F99) = ?caseUnfoldTable + $1260
+*caseUnfold($1F91) = ?caseUnfoldTable + $1263
+*caseUnfold($1F9A) = ?caseUnfoldTable + $1266
+*caseUnfold($1F92) = ?caseUnfoldTable + $1269
+*caseUnfold($1F9B) = ?caseUnfoldTable + $126C
+*caseUnfold($1F93) = ?caseUnfoldTable + $126F
+*caseUnfold($1F9C) = ?caseUnfoldTable + $1272
+*caseUnfold($1F94) = ?caseUnfoldTable + $1275
+*caseUnfold($1F9D) = ?caseUnfoldTable + $1278
+*caseUnfold($1F95) = ?caseUnfoldTable + $127B
+*caseUnfold($1F9E) = ?caseUnfoldTable + $127E
+*caseUnfold($1F96) = ?caseUnfoldTable + $1281
+*caseUnfold($1F9F) = ?caseUnfoldTable + $1284
+*caseUnfold($1F97) = ?caseUnfoldTable + $1287
+*caseUnfold($1FA8) = ?caseUnfoldTable + $128A
+*caseUnfold($1FA0) = ?caseUnfoldTable + $128D
+*caseUnfold($1FA9) = ?caseUnfoldTable + $1290
+*caseUnfold($1FA1) = ?caseUnfoldTable + $1293
+*caseUnfold($1FAA) = ?caseUnfoldTable + $1296
+*caseUnfold($1FA2) = ?caseUnfoldTable + $1299
+*caseUnfold($1FAB) = ?caseUnfoldTable + $129C
+*caseUnfold($1FA3) = ?caseUnfoldTable + $129F
+*caseUnfold($1FAC) = ?caseUnfoldTable + $12A2
+*caseUnfold($1FA4) = ?caseUnfoldTable + $12A5
+*caseUnfold($1FAD) = ?caseUnfoldTable + $12A8
+*caseUnfold($1FA5) = ?caseUnfoldTable + $12AB
+*caseUnfold($1FAE) = ?caseUnfoldTable + $12AE
+*caseUnfold($1FA6) = ?caseUnfoldTable + $12B1
+*caseUnfold($1FAF) = ?caseUnfoldTable + $12B4
+*caseUnfold($1FA7) = ?caseUnfoldTable + $12B7
+*caseUnfold($1FB8) = ?caseUnfoldTable + $12BA
+*caseUnfold($1FB0) = ?caseUnfoldTable + $12BD
+*caseUnfold($1FB9) = ?caseUnfoldTable + $12C0
+*caseUnfold($1FB1) = ?caseUnfoldTable + $12C3
+*caseUnfold($1FBA) = ?caseUnfoldTable + $12C6
+*caseUnfold($1F70) = ?caseUnfoldTable + $12C9
+*caseUnfold($1FBB) = ?caseUnfoldTable + $12CC
+*caseUnfold($1F71) = ?caseUnfoldTable + $12CF
+*caseUnfold($1FBC) = ?caseUnfoldTable + $12D2
+*caseUnfold($1FB3) = ?caseUnfoldTable + $12D5
+*caseUnfold($1FC8) = ?caseUnfoldTable + $12D8
+*caseUnfold($1F72) = ?caseUnfoldTable + $12DB
+*caseUnfold($1FC9) = ?caseUnfoldTable + $12DE
+*caseUnfold($1F73) = ?caseUnfoldTable + $12E1
+*caseUnfold($1FCA) = ?caseUnfoldTable + $12E4
+*caseUnfold($1F74) = ?caseUnfoldTable + $12E7
+*caseUnfold($1FCB) = ?caseUnfoldTable + $12EA
+*caseUnfold($1F75) = ?caseUnfoldTable + $12ED
+*caseUnfold($1FCC) = ?caseUnfoldTable + $12F0
+*caseUnfold($1FC3) = ?caseUnfoldTable + $12F3
+*caseUnfold($1FD8) = ?caseUnfoldTable + $12F6
+*caseUnfold($1FD0) = ?caseUnfoldTable + $12F9
+*caseUnfold($1FD9) = ?caseUnfoldTable + $12FC
+*caseUnfold($1FD1) = ?caseUnfoldTable + $12FF
+*caseUnfold($1FDA) = ?caseUnfoldTable + $1302
+*caseUnfold($1F76) = ?caseUnfoldTable + $1305
+*caseUnfold($1FDB) = ?caseUnfoldTable + $1308
+*caseUnfold($1F77) = ?caseUnfoldTable + $130B
+*caseUnfold($1FE8) = ?caseUnfoldTable + $130E
+*caseUnfold($1FE0) = ?caseUnfoldTable + $1311
+*caseUnfold($1FE9) = ?caseUnfoldTable + $1314
+*caseUnfold($1FE1) = ?caseUnfoldTable + $1317
+*caseUnfold($1FEA) = ?caseUnfoldTable + $131A
+*caseUnfold($1F7A) = ?caseUnfoldTable + $131D
+*caseUnfold($1FEB) = ?caseUnfoldTable + $1320
+*caseUnfold($1F7B) = ?caseUnfoldTable + $1323
+*caseUnfold($1FEC) = ?caseUnfoldTable + $1326
+*caseUnfold($1FE5) = ?caseUnfoldTable + $1329
+*caseUnfold($1FF8) = ?caseUnfoldTable + $132C
+*caseUnfold($1F78) = ?caseUnfoldTable + $132F
+*caseUnfold($1FF9) = ?caseUnfoldTable + $1332
+*caseUnfold($1F79) = ?caseUnfoldTable + $1335
+*caseUnfold($1FFA) = ?caseUnfoldTable + $1338
+*caseUnfold($1F7C) = ?caseUnfoldTable + $133B
+*caseUnfold($1FFB) = ?caseUnfoldTable + $133E
+*caseUnfold($1F7D) = ?caseUnfoldTable + $1341
+*caseUnfold($1FFC) = ?caseUnfoldTable + $1344
+*caseUnfold($1FF3) = ?caseUnfoldTable + $1347
+*caseUnfold($2132) = ?caseUnfoldTable + $134A
+*caseUnfold($214E) = ?caseUnfoldTable + $134D
+*caseUnfold($2160) = ?caseUnfoldTable + $1350
+*caseUnfold($2170) = ?caseUnfoldTable + $1353
+*caseUnfold($2161) = ?caseUnfoldTable + $1356
+*caseUnfold($2171) = ?caseUnfoldTable + $1359
+*caseUnfold($2162) = ?caseUnfoldTable + $135C
+*caseUnfold($2172) = ?caseUnfoldTable + $135F
+*caseUnfold($2163) = ?caseUnfoldTable + $1362
+*caseUnfold($2173) = ?caseUnfoldTable + $1365
+*caseUnfold($2164) = ?caseUnfoldTable + $1368
+*caseUnfold($2174) = ?caseUnfoldTable + $136B
+*caseUnfold($2165) = ?caseUnfoldTable + $136E
+*caseUnfold($2175) = ?caseUnfoldTable + $1371
+*caseUnfold($2166) = ?caseUnfoldTable + $1374
+*caseUnfold($2176) = ?caseUnfoldTable + $1377
+*caseUnfold($2167) = ?caseUnfoldTable + $137A
+*caseUnfold($2177) = ?caseUnfoldTable + $137D
+*caseUnfold($2168) = ?caseUnfoldTable + $1380
+*caseUnfold($2178) = ?caseUnfoldTable + $1383
+*caseUnfold($2169) = ?caseUnfoldTable + $1386
+*caseUnfold($2179) = ?caseUnfoldTable + $1389
+*caseUnfold($216A) = ?caseUnfoldTable + $138C
+*caseUnfold($217A) = ?caseUnfoldTable + $138F
+*caseUnfold($216B) = ?caseUnfoldTable + $1392
+*caseUnfold($217B) = ?caseUnfoldTable + $1395
+*caseUnfold($216C) = ?caseUnfoldTable + $1398
+*caseUnfold($217C) = ?caseUnfoldTable + $139B
+*caseUnfold($216D) = ?caseUnfoldTable + $139E
+*caseUnfold($217D) = ?caseUnfoldTable + $13A1
+*caseUnfold($216E) = ?caseUnfoldTable + $13A4
+*caseUnfold($217E) = ?caseUnfoldTable + $13A7
+*caseUnfold($216F) = ?caseUnfoldTable + $13AA
+*caseUnfold($217F) = ?caseUnfoldTable + $13AD
+*caseUnfold($2183) = ?caseUnfoldTable + $13B0
+*caseUnfold($2184) = ?caseUnfoldTable + $13B3
+*caseUnfold($24B6) = ?caseUnfoldTable + $13B6
+*caseUnfold($24D0) = ?caseUnfoldTable + $13B9
+*caseUnfold($24B7) = ?caseUnfoldTable + $13BC
+*caseUnfold($24D1) = ?caseUnfoldTable + $13BF
+*caseUnfold($24B8) = ?caseUnfoldTable + $13C2
+*caseUnfold($24D2) = ?caseUnfoldTable + $13C5
+*caseUnfold($24B9) = ?caseUnfoldTable + $13C8
+*caseUnfold($24D3) = ?caseUnfoldTable + $13CB
+*caseUnfold($24BA) = ?caseUnfoldTable + $13CE
+*caseUnfold($24D4) = ?caseUnfoldTable + $13D1
+*caseUnfold($24BB) = ?caseUnfoldTable + $13D4
+*caseUnfold($24D5) = ?caseUnfoldTable + $13D7
+*caseUnfold($24BC) = ?caseUnfoldTable + $13DA
+*caseUnfold($24D6) = ?caseUnfoldTable + $13DD
+*caseUnfold($24BD) = ?caseUnfoldTable + $13E0
+*caseUnfold($24D7) = ?caseUnfoldTable + $13E3
+*caseUnfold($24BE) = ?caseUnfoldTable + $13E6
+*caseUnfold($24D8) = ?caseUnfoldTable + $13E9
+*caseUnfold($24BF) = ?caseUnfoldTable + $13EC
+*caseUnfold($24D9) = ?caseUnfoldTable + $13EF
+*caseUnfold($24C0) = ?caseUnfoldTable + $13F2
+*caseUnfold($24DA) = ?caseUnfoldTable + $13F5
+*caseUnfold($24C1) = ?caseUnfoldTable + $13F8
+*caseUnfold($24DB) = ?caseUnfoldTable + $13FB
+*caseUnfold($24C2) = ?caseUnfoldTable + $13FE
+*caseUnfold($24DC) = ?caseUnfoldTable + $1401
+*caseUnfold($24C3) = ?caseUnfoldTable + $1404
+*caseUnfold($24DD) = ?caseUnfoldTable + $1407
+*caseUnfold($24C4) = ?caseUnfoldTable + $140A
+*caseUnfold($24DE) = ?caseUnfoldTable + $140D
+*caseUnfold($24C5) = ?caseUnfoldTable + $1410
+*caseUnfold($24DF) = ?caseUnfoldTable + $1413
+*caseUnfold($24C6) = ?caseUnfoldTable + $1416
+*caseUnfold($24E0) = ?caseUnfoldTable + $1419
+*caseUnfold($24C7) = ?caseUnfoldTable + $141C
+*caseUnfold($24E1) = ?caseUnfoldTable + $141F
+*caseUnfold($24C8) = ?caseUnfoldTable + $1422
+*caseUnfold($24E2) = ?caseUnfoldTable + $1425
+*caseUnfold($24C9) = ?caseUnfoldTable + $1428
+*caseUnfold($24E3) = ?caseUnfoldTable + $142B
+*caseUnfold($24CA) = ?caseUnfoldTable + $142E
+*caseUnfold($24E4) = ?caseUnfoldTable + $1431
+*caseUnfold($24CB) = ?caseUnfoldTable + $1434
+*caseUnfold($24E5) = ?caseUnfoldTable + $1437
+*caseUnfold($24CC) = ?caseUnfoldTable + $143A
+*caseUnfold($24E6) = ?caseUnfoldTable + $143D
+*caseUnfold($24CD) = ?caseUnfoldTable + $1440
+*caseUnfold($24E7) = ?caseUnfoldTable + $1443
+*caseUnfold($24CE) = ?caseUnfoldTable + $1446
+*caseUnfold($24E8) = ?caseUnfoldTable + $1449
+*caseUnfold($24CF) = ?caseUnfoldTable + $144C
+*caseUnfold($24E9) = ?caseUnfoldTable + $144F
+*caseUnfold($2C00) = ?caseUnfoldTable + $1452
+*caseUnfold($2C30) = ?caseUnfoldTable + $1455
+*caseUnfold($2C01) = ?caseUnfoldTable + $1458
+*caseUnfold($2C31) = ?caseUnfoldTable + $145B
+*caseUnfold($2C02) = ?caseUnfoldTable + $145E
+*caseUnfold($2C32) = ?caseUnfoldTable + $1461
+*caseUnfold($2C03) = ?caseUnfoldTable + $1464
+*caseUnfold($2C33) = ?caseUnfoldTable + $1467
+*caseUnfold($2C04) = ?caseUnfoldTable + $146A
+*caseUnfold($2C34) = ?caseUnfoldTable + $146D
+*caseUnfold($2C05) = ?caseUnfoldTable + $1470
+*caseUnfold($2C35) = ?caseUnfoldTable + $1473
+*caseUnfold($2C06) = ?caseUnfoldTable + $1476
+*caseUnfold($2C36) = ?caseUnfoldTable + $1479
+*caseUnfold($2C07) = ?caseUnfoldTable + $147C
+*caseUnfold($2C37) = ?caseUnfoldTable + $147F
+*caseUnfold($2C08) = ?caseUnfoldTable + $1482
+*caseUnfold($2C38) = ?caseUnfoldTable + $1485
+*caseUnfold($2C09) = ?caseUnfoldTable + $1488
+*caseUnfold($2C39) = ?caseUnfoldTable + $148B
+*caseUnfold($2C0A) = ?caseUnfoldTable + $148E
+*caseUnfold($2C3A) = ?caseUnfoldTable + $1491
+*caseUnfold($2C0B) = ?caseUnfoldTable + $1494
+*caseUnfold($2C3B) = ?caseUnfoldTable + $1497
+*caseUnfold($2C0C) = ?caseUnfoldTable + $149A
+*caseUnfold($2C3C) = ?caseUnfoldTable + $149D
+*caseUnfold($2C0D) = ?caseUnfoldTable + $14A0
+*caseUnfold($2C3D) = ?caseUnfoldTable + $14A3
+*caseUnfold($2C0E) = ?caseUnfoldTable + $14A6
+*caseUnfold($2C3E) = ?caseUnfoldTable + $14A9
+*caseUnfold($2C0F) = ?caseUnfoldTable + $14AC
+*caseUnfold($2C3F) = ?caseUnfoldTable + $14AF
+*caseUnfold($2C10) = ?caseUnfoldTable + $14B2
+*caseUnfold($2C40) = ?caseUnfoldTable + $14B5
+*caseUnfold($2C11) = ?caseUnfoldTable + $14B8
+*caseUnfold($2C41) = ?caseUnfoldTable + $14BB
+*caseUnfold($2C12) = ?caseUnfoldTable + $14BE
+*caseUnfold($2C42) = ?caseUnfoldTable + $14C1
+*caseUnfold($2C13) = ?caseUnfoldTable + $14C4
+*caseUnfold($2C43) = ?caseUnfoldTable + $14C7
+*caseUnfold($2C14) = ?caseUnfoldTable + $14CA
+*caseUnfold($2C44) = ?caseUnfoldTable + $14CD
+*caseUnfold($2C15) = ?caseUnfoldTable + $14D0
+*caseUnfold($2C45) = ?caseUnfoldTable + $14D3
+*caseUnfold($2C16) = ?caseUnfoldTable + $14D6
+*caseUnfold($2C46) = ?caseUnfoldTable + $14D9
+*caseUnfold($2C17) = ?caseUnfoldTable + $14DC
+*caseUnfold($2C47) = ?caseUnfoldTable + $14DF
+*caseUnfold($2C18) = ?caseUnfoldTable + $14E2
+*caseUnfold($2C48) = ?caseUnfoldTable + $14E5
+*caseUnfold($2C19) = ?caseUnfoldTable + $14E8
+*caseUnfold($2C49) = ?caseUnfoldTable + $14EB
+*caseUnfold($2C1A) = ?caseUnfoldTable + $14EE
+*caseUnfold($2C4A) = ?caseUnfoldTable + $14F1
+*caseUnfold($2C1B) = ?caseUnfoldTable + $14F4
+*caseUnfold($2C4B) = ?caseUnfoldTable + $14F7
+*caseUnfold($2C1C) = ?caseUnfoldTable + $14FA
+*caseUnfold($2C4C) = ?caseUnfoldTable + $14FD
+*caseUnfold($2C1D) = ?caseUnfoldTable + $1500
+*caseUnfold($2C4D) = ?caseUnfoldTable + $1503
+*caseUnfold($2C1E) = ?caseUnfoldTable + $1506
+*caseUnfold($2C4E) = ?caseUnfoldTable + $1509
+*caseUnfold($2C1F) = ?caseUnfoldTable + $150C
+*caseUnfold($2C4F) = ?caseUnfoldTable + $150F
+*caseUnfold($2C20) = ?caseUnfoldTable + $1512
+*caseUnfold($2C50) = ?caseUnfoldTable + $1515
+*caseUnfold($2C21) = ?caseUnfoldTable + $1518
+*caseUnfold($2C51) = ?caseUnfoldTable + $151B
+*caseUnfold($2C22) = ?caseUnfoldTable + $151E
+*caseUnfold($2C52) = ?caseUnfoldTable + $1521
+*caseUnfold($2C23) = ?caseUnfoldTable + $1524
+*caseUnfold($2C53) = ?caseUnfoldTable + $1527
+*caseUnfold($2C24) = ?caseUnfoldTable + $152A
+*caseUnfold($2C54) = ?caseUnfoldTable + $152D
+*caseUnfold($2C25) = ?caseUnfoldTable + $1530
+*caseUnfold($2C55) = ?caseUnfoldTable + $1533
+*caseUnfold($2C26) = ?caseUnfoldTable + $1536
+*caseUnfold($2C56) = ?caseUnfoldTable + $1539
+*caseUnfold($2C27) = ?caseUnfoldTable + $153C
+*caseUnfold($2C57) = ?caseUnfoldTable + $153F
+*caseUnfold($2C28) = ?caseUnfoldTable + $1542
+*caseUnfold($2C58) = ?caseUnfoldTable + $1545
+*caseUnfold($2C29) = ?caseUnfoldTable + $1548
+*caseUnfold($2C59) = ?caseUnfoldTable + $154B
+*caseUnfold($2C2A) = ?caseUnfoldTable + $154E
+*caseUnfold($2C5A) = ?caseUnfoldTable + $1551
+*caseUnfold($2C2B) = ?caseUnfoldTable + $1554
+*caseUnfold($2C5B) = ?caseUnfoldTable + $1557
+*caseUnfold($2C2C) = ?caseUnfoldTable + $155A
+*caseUnfold($2C5C) = ?caseUnfoldTable + $155D
+*caseUnfold($2C2D) = ?caseUnfoldTable + $1560
+*caseUnfold($2C5D) = ?caseUnfoldTable + $1563
+*caseUnfold($2C2E) = ?caseUnfoldTable + $1566
+*caseUnfold($2C5E) = ?caseUnfoldTable + $1569
+*caseUnfold($2C2F) = ?caseUnfoldTable + $156C
+*caseUnfold($2C5F) = ?caseUnfoldTable + $156F
+*caseUnfold($2C60) = ?caseUnfoldTable + $1572
+*caseUnfold($2C61) = ?caseUnfoldTable + $1575
+*caseUnfold($2C62) = ?caseUnfoldTable + $1578
+*caseUnfold($026B) = ?caseUnfoldTable + $157B
+*caseUnfold($2C63) = ?caseUnfoldTable + $157E
+*caseUnfold($1D7D) = ?caseUnfoldTable + $1581
+*caseUnfold($2C64) = ?caseUnfoldTable + $1584
+*caseUnfold($027D) = ?caseUnfoldTable + $1587
+*caseUnfold($2C67) = ?caseUnfoldTable + $158A
+*caseUnfold($2C68) = ?caseUnfoldTable + $158D
+*caseUnfold($2C69) = ?caseUnfoldTable + $1590
+*caseUnfold($2C6A) = ?caseUnfoldTable + $1593
+*caseUnfold($2C6B) = ?caseUnfoldTable + $1596
+*caseUnfold($2C6C) = ?caseUnfoldTable + $1599
+*caseUnfold($2C6D) = ?caseUnfoldTable + $159C
+*caseUnfold($0251) = ?caseUnfoldTable + $159F
+*caseUnfold($2C6E) = ?caseUnfoldTable + $15A2
+*caseUnfold($0271) = ?caseUnfoldTable + $15A5
+*caseUnfold($2C6F) = ?caseUnfoldTable + $15A8
+*caseUnfold($0250) = ?caseUnfoldTable + $15AB
+*caseUnfold($2C70) = ?caseUnfoldTable + $15AE
+*caseUnfold($0252) = ?caseUnfoldTable + $15B1
+*caseUnfold($2C72) = ?caseUnfoldTable + $15B4
+*caseUnfold($2C73) = ?caseUnfoldTable + $15B7
+*caseUnfold($2C75) = ?caseUnfoldTable + $15BA
+*caseUnfold($2C76) = ?caseUnfoldTable + $15BD
+*caseUnfold($2C7E) = ?caseUnfoldTable + $15C0
+*caseUnfold($023F) = ?caseUnfoldTable + $15C3
+*caseUnfold($2C7F) = ?caseUnfoldTable + $15C6
+*caseUnfold($0240) = ?caseUnfoldTable + $15C9
+*caseUnfold($2C80) = ?caseUnfoldTable + $15CC
+*caseUnfold($2C81) = ?caseUnfoldTable + $15CF
+*caseUnfold($2C82) = ?caseUnfoldTable + $15D2
+*caseUnfold($2C83) = ?caseUnfoldTable + $15D5
+*caseUnfold($2C84) = ?caseUnfoldTable + $15D8
+*caseUnfold($2C85) = ?caseUnfoldTable + $15DB
+*caseUnfold($2C86) = ?caseUnfoldTable + $15DE
+*caseUnfold($2C87) = ?caseUnfoldTable + $15E1
+*caseUnfold($2C88) = ?caseUnfoldTable + $15E4
+*caseUnfold($2C89) = ?caseUnfoldTable + $15E7
+*caseUnfold($2C8A) = ?caseUnfoldTable + $15EA
+*caseUnfold($2C8B) = ?caseUnfoldTable + $15ED
+*caseUnfold($2C8C) = ?caseUnfoldTable + $15F0
+*caseUnfold($2C8D) = ?caseUnfoldTable + $15F3
+*caseUnfold($2C8E) = ?caseUnfoldTable + $15F6
+*caseUnfold($2C8F) = ?caseUnfoldTable + $15F9
+*caseUnfold($2C90) = ?caseUnfoldTable + $15FC
+*caseUnfold($2C91) = ?caseUnfoldTable + $15FF
+*caseUnfold($2C92) = ?caseUnfoldTable + $1602
+*caseUnfold($2C93) = ?caseUnfoldTable + $1605
+*caseUnfold($2C94) = ?caseUnfoldTable + $1608
+*caseUnfold($2C95) = ?caseUnfoldTable + $160B
+*caseUnfold($2C96) = ?caseUnfoldTable + $160E
+*caseUnfold($2C97) = ?caseUnfoldTable + $1611
+*caseUnfold($2C98) = ?caseUnfoldTable + $1614
+*caseUnfold($2C99) = ?caseUnfoldTable + $1617
+*caseUnfold($2C9A) = ?caseUnfoldTable + $161A
+*caseUnfold($2C9B) = ?caseUnfoldTable + $161D
+*caseUnfold($2C9C) = ?caseUnfoldTable + $1620
+*caseUnfold($2C9D) = ?caseUnfoldTable + $1623
+*caseUnfold($2C9E) = ?caseUnfoldTable + $1626
+*caseUnfold($2C9F) = ?caseUnfoldTable + $1629
+*caseUnfold($2CA0) = ?caseUnfoldTable + $162C
+*caseUnfold($2CA1) = ?caseUnfoldTable + $162F
+*caseUnfold($2CA2) = ?caseUnfoldTable + $1632
+*caseUnfold($2CA3) = ?caseUnfoldTable + $1635
+*caseUnfold($2CA4) = ?caseUnfoldTable + $1638
+*caseUnfold($2CA5) = ?caseUnfoldTable + $163B
+*caseUnfold($2CA6) = ?caseUnfoldTable + $163E
+*caseUnfold($2CA7) = ?caseUnfoldTable + $1641
+*caseUnfold($2CA8) = ?caseUnfoldTable + $1644
+*caseUnfold($2CA9) = ?caseUnfoldTable + $1647
+*caseUnfold($2CAA) = ?caseUnfoldTable + $164A
+*caseUnfold($2CAB) = ?caseUnfoldTable + $164D
+*caseUnfold($2CAC) = ?caseUnfoldTable + $1650
+*caseUnfold($2CAD) = ?caseUnfoldTable + $1653
+*caseUnfold($2CAE) = ?caseUnfoldTable + $1656
+*caseUnfold($2CAF) = ?caseUnfoldTable + $1659
+*caseUnfold($2CB0) = ?caseUnfoldTable + $165C
+*caseUnfold($2CB1) = ?caseUnfoldTable + $165F
+*caseUnfold($2CB2) = ?caseUnfoldTable + $1662
+*caseUnfold($2CB3) = ?caseUnfoldTable + $1665
+*caseUnfold($2CB4) = ?caseUnfoldTable + $1668
+*caseUnfold($2CB5) = ?caseUnfoldTable + $166B
+*caseUnfold($2CB6) = ?caseUnfoldTable + $166E
+*caseUnfold($2CB7) = ?caseUnfoldTable + $1671
+*caseUnfold($2CB8) = ?caseUnfoldTable + $1674
+*caseUnfold($2CB9) = ?caseUnfoldTable + $1677
+*caseUnfold($2CBA) = ?caseUnfoldTable + $167A
+*caseUnfold($2CBB) = ?caseUnfoldTable + $167D
+*caseUnfold($2CBC) = ?caseUnfoldTable + $1680
+*caseUnfold($2CBD) = ?caseUnfoldTable + $1683
+*caseUnfold($2CBE) = ?caseUnfoldTable + $1686
+*caseUnfold($2CBF) = ?caseUnfoldTable + $1689
+*caseUnfold($2CC0) = ?caseUnfoldTable + $168C
+*caseUnfold($2CC1) = ?caseUnfoldTable + $168F
+*caseUnfold($2CC2) = ?caseUnfoldTable + $1692
+*caseUnfold($2CC3) = ?caseUnfoldTable + $1695
+*caseUnfold($2CC4) = ?caseUnfoldTable + $1698
+*caseUnfold($2CC5) = ?caseUnfoldTable + $169B
+*caseUnfold($2CC6) = ?caseUnfoldTable + $169E
+*caseUnfold($2CC7) = ?caseUnfoldTable + $16A1
+*caseUnfold($2CC8) = ?caseUnfoldTable + $16A4
+*caseUnfold($2CC9) = ?caseUnfoldTable + $16A7
+*caseUnfold($2CCA) = ?caseUnfoldTable + $16AA
+*caseUnfold($2CCB) = ?caseUnfoldTable + $16AD
+*caseUnfold($2CCC) = ?caseUnfoldTable + $16B0
+*caseUnfold($2CCD) = ?caseUnfoldTable + $16B3
+*caseUnfold($2CCE) = ?caseUnfoldTable + $16B6
+*caseUnfold($2CCF) = ?caseUnfoldTable + $16B9
+*caseUnfold($2CD0) = ?caseUnfoldTable + $16BC
+*caseUnfold($2CD1) = ?caseUnfoldTable + $16BF
+*caseUnfold($2CD2) = ?caseUnfoldTable + $16C2
+*caseUnfold($2CD3) = ?caseUnfoldTable + $16C5
+*caseUnfold($2CD4) = ?caseUnfoldTable + $16C8
+*caseUnfold($2CD5) = ?caseUnfoldTable + $16CB
+*caseUnfold($2CD6) = ?caseUnfoldTable + $16CE
+*caseUnfold($2CD7) = ?caseUnfoldTable + $16D1
+*caseUnfold($2CD8) = ?caseUnfoldTable + $16D4
+*caseUnfold($2CD9) = ?caseUnfoldTable + $16D7
+*caseUnfold($2CDA) = ?caseUnfoldTable + $16DA
+*caseUnfold($2CDB) = ?caseUnfoldTable + $16DD
+*caseUnfold($2CDC) = ?caseUnfoldTable + $16E0
+*caseUnfold($2CDD) = ?caseUnfoldTable + $16E3
+*caseUnfold($2CDE) = ?caseUnfoldTable + $16E6
+*caseUnfold($2CDF) = ?caseUnfoldTable + $16E9
+*caseUnfold($2CE0) = ?caseUnfoldTable + $16EC
+*caseUnfold($2CE1) = ?caseUnfoldTable + $16EF
+*caseUnfold($2CE2) = ?caseUnfoldTable + $16F2
+*caseUnfold($2CE3) = ?caseUnfoldTable + $16F5
+*caseUnfold($2CEB) = ?caseUnfoldTable + $16F8
+*caseUnfold($2CEC) = ?caseUnfoldTable + $16FB
+*caseUnfold($2CED) = ?caseUnfoldTable + $16FE
+*caseUnfold($2CEE) = ?caseUnfoldTable + $1701
+*caseUnfold($2CF2) = ?caseUnfoldTable + $1704
+*caseUnfold($2CF3) = ?caseUnfoldTable + $1707
+*caseUnfold($A640) = ?caseUnfoldTable + $170A
+*caseUnfold($A641) = ?caseUnfoldTable + $170D
+*caseUnfold($A642) = ?caseUnfoldTable + $1710
+*caseUnfold($A643) = ?caseUnfoldTable + $1713
+*caseUnfold($A644) = ?caseUnfoldTable + $1716
+*caseUnfold($A645) = ?caseUnfoldTable + $1719
+*caseUnfold($A646) = ?caseUnfoldTable + $171C
+*caseUnfold($A647) = ?caseUnfoldTable + $171F
+*caseUnfold($A648) = ?caseUnfoldTable + $1722
+*caseUnfold($A649) = ?caseUnfoldTable + $1725
+*caseUnfold($A64C) = ?caseUnfoldTable + $1728
+*caseUnfold($A64D) = ?caseUnfoldTable + $172B
+*caseUnfold($A64E) = ?caseUnfoldTable + $172E
+*caseUnfold($A64F) = ?caseUnfoldTable + $1731
+*caseUnfold($A650) = ?caseUnfoldTable + $1734
+*caseUnfold($A651) = ?caseUnfoldTable + $1737
+*caseUnfold($A652) = ?caseUnfoldTable + $173A
+*caseUnfold($A653) = ?caseUnfoldTable + $173D
+*caseUnfold($A654) = ?caseUnfoldTable + $1740
+*caseUnfold($A655) = ?caseUnfoldTable + $1743
+*caseUnfold($A656) = ?caseUnfoldTable + $1746
+*caseUnfold($A657) = ?caseUnfoldTable + $1749
+*caseUnfold($A658) = ?caseUnfoldTable + $174C
+*caseUnfold($A659) = ?caseUnfoldTable + $174F
+*caseUnfold($A65A) = ?caseUnfoldTable + $1752
+*caseUnfold($A65B) = ?caseUnfoldTable + $1755
+*caseUnfold($A65C) = ?caseUnfoldTable + $1758
+*caseUnfold($A65D) = ?caseUnfoldTable + $175B
+*caseUnfold($A65E) = ?caseUnfoldTable + $175E
+*caseUnfold($A65F) = ?caseUnfoldTable + $1761
+*caseUnfold($A660) = ?caseUnfoldTable + $1764
+*caseUnfold($A661) = ?caseUnfoldTable + $1767
+*caseUnfold($A662) = ?caseUnfoldTable + $176A
+*caseUnfold($A663) = ?caseUnfoldTable + $176D
+*caseUnfold($A664) = ?caseUnfoldTable + $1770
+*caseUnfold($A665) = ?caseUnfoldTable + $1773
+*caseUnfold($A666) = ?caseUnfoldTable + $1776
+*caseUnfold($A667) = ?caseUnfoldTable + $1779
+*caseUnfold($A668) = ?caseUnfoldTable + $177C
+*caseUnfold($A669) = ?caseUnfoldTable + $177F
+*caseUnfold($A66A) = ?caseUnfoldTable + $1782
+*caseUnfold($A66B) = ?caseUnfoldTable + $1785
+*caseUnfold($A66C) = ?caseUnfoldTable + $1788
+*caseUnfold($A66D) = ?caseUnfoldTable + $178B
+*caseUnfold($A680) = ?caseUnfoldTable + $178E
+*caseUnfold($A681) = ?caseUnfoldTable + $1791
+*caseUnfold($A682) = ?caseUnfoldTable + $1794
+*caseUnfold($A683) = ?caseUnfoldTable + $1797
+*caseUnfold($A684) = ?caseUnfoldTable + $179A
+*caseUnfold($A685) = ?caseUnfoldTable + $179D
+*caseUnfold($A686) = ?caseUnfoldTable + $17A0
+*caseUnfold($A687) = ?caseUnfoldTable + $17A3
+*caseUnfold($A688) = ?caseUnfoldTable + $17A6
+*caseUnfold($A689) = ?caseUnfoldTable + $17A9
+*caseUnfold($A68A) = ?caseUnfoldTable + $17AC
+*caseUnfold($A68B) = ?caseUnfoldTable + $17AF
+*caseUnfold($A68C) = ?caseUnfoldTable + $17B2
+*caseUnfold($A68D) = ?caseUnfoldTable + $17B5
+*caseUnfold($A68E) = ?caseUnfoldTable + $17B8
+*caseUnfold($A68F) = ?caseUnfoldTable + $17BB
+*caseUnfold($A690) = ?caseUnfoldTable + $17BE
+*caseUnfold($A691) = ?caseUnfoldTable + $17C1
+*caseUnfold($A692) = ?caseUnfoldTable + $17C4
+*caseUnfold($A693) = ?caseUnfoldTable + $17C7
+*caseUnfold($A694) = ?caseUnfoldTable + $17CA
+*caseUnfold($A695) = ?caseUnfoldTable + $17CD
+*caseUnfold($A696) = ?caseUnfoldTable + $17D0
+*caseUnfold($A697) = ?caseUnfoldTable + $17D3
+*caseUnfold($A698) = ?caseUnfoldTable + $17D6
+*caseUnfold($A699) = ?caseUnfoldTable + $17D9
+*caseUnfold($A69A) = ?caseUnfoldTable + $17DC
+*caseUnfold($A69B) = ?caseUnfoldTable + $17DF
+*caseUnfold($A722) = ?caseUnfoldTable + $17E2
+*caseUnfold($A723) = ?caseUnfoldTable + $17E5
+*caseUnfold($A724) = ?caseUnfoldTable + $17E8
+*caseUnfold($A725) = ?caseUnfoldTable + $17EB
+*caseUnfold($A726) = ?caseUnfoldTable + $17EE
+*caseUnfold($A727) = ?caseUnfoldTable + $17F1
+*caseUnfold($A728) = ?caseUnfoldTable + $17F4
+*caseUnfold($A729) = ?caseUnfoldTable + $17F7
+*caseUnfold($A72A) = ?caseUnfoldTable + $17FA
+*caseUnfold($A72B) = ?caseUnfoldTable + $17FD
+*caseUnfold($A72C) = ?caseUnfoldTable + $1800
+*caseUnfold($A72D) = ?caseUnfoldTable + $1803
+*caseUnfold($A72E) = ?caseUnfoldTable + $1806
+*caseUnfold($A72F) = ?caseUnfoldTable + $1809
+*caseUnfold($A732) = ?caseUnfoldTable + $180C
+*caseUnfold($A733) = ?caseUnfoldTable + $180F
+*caseUnfold($A734) = ?caseUnfoldTable + $1812
+*caseUnfold($A735) = ?caseUnfoldTable + $1815
+*caseUnfold($A736) = ?caseUnfoldTable + $1818
+*caseUnfold($A737) = ?caseUnfoldTable + $181B
+*caseUnfold($A738) = ?caseUnfoldTable + $181E
+*caseUnfold($A739) = ?caseUnfoldTable + $1821
+*caseUnfold($A73A) = ?caseUnfoldTable + $1824
+*caseUnfold($A73B) = ?caseUnfoldTable + $1827
+*caseUnfold($A73C) = ?caseUnfoldTable + $182A
+*caseUnfold($A73D) = ?caseUnfoldTable + $182D
+*caseUnfold($A73E) = ?caseUnfoldTable + $1830
+*caseUnfold($A73F) = ?caseUnfoldTable + $1833
+*caseUnfold($A740) = ?caseUnfoldTable + $1836
+*caseUnfold($A741) = ?caseUnfoldTable + $1839
+*caseUnfold($A742) = ?caseUnfoldTable + $183C
+*caseUnfold($A743) = ?caseUnfoldTable + $183F
+*caseUnfold($A744) = ?caseUnfoldTable + $1842
+*caseUnfold($A745) = ?caseUnfoldTable + $1845
+*caseUnfold($A746) = ?caseUnfoldTable + $1848
+*caseUnfold($A747) = ?caseUnfoldTable + $184B
+*caseUnfold($A748) = ?caseUnfoldTable + $184E
+*caseUnfold($A749) = ?caseUnfoldTable + $1851
+*caseUnfold($A74A) = ?caseUnfoldTable + $1854
+*caseUnfold($A74B) = ?caseUnfoldTable + $1857
+*caseUnfold($A74C) = ?caseUnfoldTable + $185A
+*caseUnfold($A74D) = ?caseUnfoldTable + $185D
+*caseUnfold($A74E) = ?caseUnfoldTable + $1860
+*caseUnfold($A74F) = ?caseUnfoldTable + $1863
+*caseUnfold($A750) = ?caseUnfoldTable + $1866
+*caseUnfold($A751) = ?caseUnfoldTable + $1869
+*caseUnfold($A752) = ?caseUnfoldTable + $186C
+*caseUnfold($A753) = ?caseUnfoldTable + $186F
+*caseUnfold($A754) = ?caseUnfoldTable + $1872
+*caseUnfold($A755) = ?caseUnfoldTable + $1875
+*caseUnfold($A756) = ?caseUnfoldTable + $1878
+*caseUnfold($A757) = ?caseUnfoldTable + $187B
+*caseUnfold($A758) = ?caseUnfoldTable + $187E
+*caseUnfold($A759) = ?caseUnfoldTable + $1881
+*caseUnfold($A75A) = ?caseUnfoldTable + $1884
+*caseUnfold($A75B) = ?caseUnfoldTable + $1887
+*caseUnfold($A75C) = ?caseUnfoldTable + $188A
+*caseUnfold($A75D) = ?caseUnfoldTable + $188D
+*caseUnfold($A75E) = ?caseUnfoldTable + $1890
+*caseUnfold($A75F) = ?caseUnfoldTable + $1893
+*caseUnfold($A760) = ?caseUnfoldTable + $1896
+*caseUnfold($A761) = ?caseUnfoldTable + $1899
+*caseUnfold($A762) = ?caseUnfoldTable + $189C
+*caseUnfold($A763) = ?caseUnfoldTable + $189F
+*caseUnfold($A764) = ?caseUnfoldTable + $18A2
+*caseUnfold($A765) = ?caseUnfoldTable + $18A5
+*caseUnfold($A766) = ?caseUnfoldTable + $18A8
+*caseUnfold($A767) = ?caseUnfoldTable + $18AB
+*caseUnfold($A768) = ?caseUnfoldTable + $18AE
+*caseUnfold($A769) = ?caseUnfoldTable + $18B1
+*caseUnfold($A76A) = ?caseUnfoldTable + $18B4
+*caseUnfold($A76B) = ?caseUnfoldTable + $18B7
+*caseUnfold($A76C) = ?caseUnfoldTable + $18BA
+*caseUnfold($A76D) = ?caseUnfoldTable + $18BD
+*caseUnfold($A76E) = ?caseUnfoldTable + $18C0
+*caseUnfold($A76F) = ?caseUnfoldTable + $18C3
+*caseUnfold($A779) = ?caseUnfoldTable + $18C6
+*caseUnfold($A77A) = ?caseUnfoldTable + $18C9
+*caseUnfold($A77B) = ?caseUnfoldTable + $18CC
+*caseUnfold($A77C) = ?caseUnfoldTable + $18CF
+*caseUnfold($A77D) = ?caseUnfoldTable + $18D2
+*caseUnfold($1D79) = ?caseUnfoldTable + $18D5
+*caseUnfold($A77E) = ?caseUnfoldTable + $18D8
+*caseUnfold($A77F) = ?caseUnfoldTable + $18DB
+*caseUnfold($A780) = ?caseUnfoldTable + $18DE
+*caseUnfold($A781) = ?caseUnfoldTable + $18E1
+*caseUnfold($A782) = ?caseUnfoldTable + $18E4
+*caseUnfold($A783) = ?caseUnfoldTable + $18E7
+*caseUnfold($A784) = ?caseUnfoldTable + $18EA
+*caseUnfold($A785) = ?caseUnfoldTable + $18ED
+*caseUnfold($A786) = ?caseUnfoldTable + $18F0
+*caseUnfold($A787) = ?caseUnfoldTable + $18F3
+*caseUnfold($A78B) = ?caseUnfoldTable + $18F6
+*caseUnfold($A78C) = ?caseUnfoldTable + $18F9
+*caseUnfold($A78D) = ?caseUnfoldTable + $18FC
+*caseUnfold($0265) = ?caseUnfoldTable + $18FF
+*caseUnfold($A790) = ?caseUnfoldTable + $1902
+*caseUnfold($A791) = ?caseUnfoldTable + $1905
+*caseUnfold($A792) = ?caseUnfoldTable + $1908
+*caseUnfold($A793) = ?caseUnfoldTable + $190B
+*caseUnfold($A796) = ?caseUnfoldTable + $190E
+*caseUnfold($A797) = ?caseUnfoldTable + $1911
+*caseUnfold($A798) = ?caseUnfoldTable + $1914
+*caseUnfold($A799) = ?caseUnfoldTable + $1917
+*caseUnfold($A79A) = ?caseUnfoldTable + $191A
+*caseUnfold($A79B) = ?caseUnfoldTable + $191D
+*caseUnfold($A79C) = ?caseUnfoldTable + $1920
+*caseUnfold($A79D) = ?caseUnfoldTable + $1923
+*caseUnfold($A79E) = ?caseUnfoldTable + $1926
+*caseUnfold($A79F) = ?caseUnfoldTable + $1929
+*caseUnfold($A7A0) = ?caseUnfoldTable + $192C
+*caseUnfold($A7A1) = ?caseUnfoldTable + $192F
+*caseUnfold($A7A2) = ?caseUnfoldTable + $1932
+*caseUnfold($A7A3) = ?caseUnfoldTable + $1935
+*caseUnfold($A7A4) = ?caseUnfoldTable + $1938
+*caseUnfold($A7A5) = ?caseUnfoldTable + $193B
+*caseUnfold($A7A6) = ?caseUnfoldTable + $193E
+*caseUnfold($A7A7) = ?caseUnfoldTable + $1941
+*caseUnfold($A7A8) = ?caseUnfoldTable + $1944
+*caseUnfold($A7A9) = ?caseUnfoldTable + $1947
+*caseUnfold($A7AA) = ?caseUnfoldTable + $194A
+*caseUnfold($0266) = ?caseUnfoldTable + $194D
+*caseUnfold($A7AB) = ?caseUnfoldTable + $1950
+*caseUnfold($025C) = ?caseUnfoldTable + $1953
+*caseUnfold($A7AC) = ?caseUnfoldTable + $1956
+*caseUnfold($0261) = ?caseUnfoldTable + $1959
+*caseUnfold($A7AD) = ?caseUnfoldTable + $195C
+*caseUnfold($026C) = ?caseUnfoldTable + $195F
+*caseUnfold($A7AE) = ?caseUnfoldTable + $1962
+*caseUnfold($026A) = ?caseUnfoldTable + $1965
+*caseUnfold($A7B0) = ?caseUnfoldTable + $1968
+*caseUnfold($029E) = ?caseUnfoldTable + $196B
+*caseUnfold($A7B1) = ?caseUnfoldTable + $196E
+*caseUnfold($0287) = ?caseUnfoldTable + $1971
+*caseUnfold($A7B2) = ?caseUnfoldTable + $1974
+*caseUnfold($029D) = ?caseUnfoldTable + $1977
+*caseUnfold($A7B3) = ?caseUnfoldTable + $197A
+*caseUnfold($AB53) = ?caseUnfoldTable + $197D
+*caseUnfold($A7B4) = ?caseUnfoldTable + $1980
+*caseUnfold($A7B5) = ?caseUnfoldTable + $1983
+*caseUnfold($A7B6) = ?caseUnfoldTable + $1986
+*caseUnfold($A7B7) = ?caseUnfoldTable + $1989
+*caseUnfold($A7B8) = ?caseUnfoldTable + $198C
+*caseUnfold($A7B9) = ?caseUnfoldTable + $198F
+*caseUnfold($A7BA) = ?caseUnfoldTable + $1992
+*caseUnfold($A7BB) = ?caseUnfoldTable + $1995
+*caseUnfold($A7BC) = ?caseUnfoldTable + $1998
+*caseUnfold($A7BD) = ?caseUnfoldTable + $199B
+*caseUnfold($A7BE) = ?caseUnfoldTable + $199E
+*caseUnfold($A7BF) = ?caseUnfoldTable + $19A1
+*caseUnfold($A7C0) = ?caseUnfoldTable + $19A4
+*caseUnfold($A7C1) = ?caseUnfoldTable + $19A7
+*caseUnfold($A7C2) = ?caseUnfoldTable + $19AA
+*caseUnfold($A7C3) = ?caseUnfoldTable + $19AD
+*caseUnfold($A7C4) = ?caseUnfoldTable + $19B0
+*caseUnfold($A794) = ?caseUnfoldTable + $19B3
+*caseUnfold($A7C5) = ?caseUnfoldTable + $19B6
+*caseUnfold($0282) = ?caseUnfoldTable + $19B9
+*caseUnfold($A7C6) = ?caseUnfoldTable + $19BC
+*caseUnfold($1D8E) = ?caseUnfoldTable + $19BF
+*caseUnfold($A7C7) = ?caseUnfoldTable + $19C2
+*caseUnfold($A7C8) = ?caseUnfoldTable + $19C5
+*caseUnfold($A7C9) = ?caseUnfoldTable + $19C8
+*caseUnfold($A7CA) = ?caseUnfoldTable + $19CB
+*caseUnfold($A7D0) = ?caseUnfoldTable + $19CE
+*caseUnfold($A7D1) = ?caseUnfoldTable + $19D1
+*caseUnfold($A7D6) = ?caseUnfoldTable + $19D4
+*caseUnfold($A7D7) = ?caseUnfoldTable + $19D7
+*caseUnfold($A7D8) = ?caseUnfoldTable + $19DA
+*caseUnfold($A7D9) = ?caseUnfoldTable + $19DD
+*caseUnfold($A7F5) = ?caseUnfoldTable + $19E0
+*caseUnfold($A7F6) = ?caseUnfoldTable + $19E3
+*caseUnfold($AB70) = ?caseUnfoldTable + $19E6
+*caseUnfold($13A0) = ?caseUnfoldTable + $19E9
+*caseUnfold($AB71) = ?caseUnfoldTable + $19EC
+*caseUnfold($13A1) = ?caseUnfoldTable + $19EF
+*caseUnfold($AB72) = ?caseUnfoldTable + $19F2
+*caseUnfold($13A2) = ?caseUnfoldTable + $19F5
+*caseUnfold($AB73) = ?caseUnfoldTable + $19F8
+*caseUnfold($13A3) = ?caseUnfoldTable + $19FB
+*caseUnfold($AB74) = ?caseUnfoldTable + $19FE
+*caseUnfold($13A4) = ?caseUnfoldTable + $1A01
+*caseUnfold($AB75) = ?caseUnfoldTable + $1A04
+*caseUnfold($13A5) = ?caseUnfoldTable + $1A07
+*caseUnfold($AB76) = ?caseUnfoldTable + $1A0A
+*caseUnfold($13A6) = ?caseUnfoldTable + $1A0D
+*caseUnfold($AB77) = ?caseUnfoldTable + $1A10
+*caseUnfold($13A7) = ?caseUnfoldTable + $1A13
+*caseUnfold($AB78) = ?caseUnfoldTable + $1A16
+*caseUnfold($13A8) = ?caseUnfoldTable + $1A19
+*caseUnfold($AB79) = ?caseUnfoldTable + $1A1C
+*caseUnfold($13A9) = ?caseUnfoldTable + $1A1F
+*caseUnfold($AB7A) = ?caseUnfoldTable + $1A22
+*caseUnfold($13AA) = ?caseUnfoldTable + $1A25
+*caseUnfold($AB7B) = ?caseUnfoldTable + $1A28
+*caseUnfold($13AB) = ?caseUnfoldTable + $1A2B
+*caseUnfold($AB7C) = ?caseUnfoldTable + $1A2E
+*caseUnfold($13AC) = ?caseUnfoldTable + $1A31
+*caseUnfold($AB7D) = ?caseUnfoldTable + $1A34
+*caseUnfold($13AD) = ?caseUnfoldTable + $1A37
+*caseUnfold($AB7E) = ?caseUnfoldTable + $1A3A
+*caseUnfold($13AE) = ?caseUnfoldTable + $1A3D
+*caseUnfold($AB7F) = ?caseUnfoldTable + $1A40
+*caseUnfold($13AF) = ?caseUnfoldTable + $1A43
+*caseUnfold($AB80) = ?caseUnfoldTable + $1A46
+*caseUnfold($13B0) = ?caseUnfoldTable + $1A49
+*caseUnfold($AB81) = ?caseUnfoldTable + $1A4C
+*caseUnfold($13B1) = ?caseUnfoldTable + $1A4F
+*caseUnfold($AB82) = ?caseUnfoldTable + $1A52
+*caseUnfold($13B2) = ?caseUnfoldTable + $1A55
+*caseUnfold($AB83) = ?caseUnfoldTable + $1A58
+*caseUnfold($13B3) = ?caseUnfoldTable + $1A5B
+*caseUnfold($AB84) = ?caseUnfoldTable + $1A5E
+*caseUnfold($13B4) = ?caseUnfoldTable + $1A61
+*caseUnfold($AB85) = ?caseUnfoldTable + $1A64
+*caseUnfold($13B5) = ?caseUnfoldTable + $1A67
+*caseUnfold($AB86) = ?caseUnfoldTable + $1A6A
+*caseUnfold($13B6) = ?caseUnfoldTable + $1A6D
+*caseUnfold($AB87) = ?caseUnfoldTable + $1A70
+*caseUnfold($13B7) = ?caseUnfoldTable + $1A73
+*caseUnfold($AB88) = ?caseUnfoldTable + $1A76
+*caseUnfold($13B8) = ?caseUnfoldTable + $1A79
+*caseUnfold($AB89) = ?caseUnfoldTable + $1A7C
+*caseUnfold($13B9) = ?caseUnfoldTable + $1A7F
+*caseUnfold($AB8A) = ?caseUnfoldTable + $1A82
+*caseUnfold($13BA) = ?caseUnfoldTable + $1A85
+*caseUnfold($AB8B) = ?caseUnfoldTable + $1A88
+*caseUnfold($13BB) = ?caseUnfoldTable + $1A8B
+*caseUnfold($AB8C) = ?caseUnfoldTable + $1A8E
+*caseUnfold($13BC) = ?caseUnfoldTable + $1A91
+*caseUnfold($AB8D) = ?caseUnfoldTable + $1A94
+*caseUnfold($13BD) = ?caseUnfoldTable + $1A97
+*caseUnfold($AB8E) = ?caseUnfoldTable + $1A9A
+*caseUnfold($13BE) = ?caseUnfoldTable + $1A9D
+*caseUnfold($AB8F) = ?caseUnfoldTable + $1AA0
+*caseUnfold($13BF) = ?caseUnfoldTable + $1AA3
+*caseUnfold($AB90) = ?caseUnfoldTable + $1AA6
+*caseUnfold($13C0) = ?caseUnfoldTable + $1AA9
+*caseUnfold($AB91) = ?caseUnfoldTable + $1AAC
+*caseUnfold($13C1) = ?caseUnfoldTable + $1AAF
+*caseUnfold($AB92) = ?caseUnfoldTable + $1AB2
+*caseUnfold($13C2) = ?caseUnfoldTable + $1AB5
+*caseUnfold($AB93) = ?caseUnfoldTable + $1AB8
+*caseUnfold($13C3) = ?caseUnfoldTable + $1ABB
+*caseUnfold($AB94) = ?caseUnfoldTable + $1ABE
+*caseUnfold($13C4) = ?caseUnfoldTable + $1AC1
+*caseUnfold($AB95) = ?caseUnfoldTable + $1AC4
+*caseUnfold($13C5) = ?caseUnfoldTable + $1AC7
+*caseUnfold($AB96) = ?caseUnfoldTable + $1ACA
+*caseUnfold($13C6) = ?caseUnfoldTable + $1ACD
+*caseUnfold($AB97) = ?caseUnfoldTable + $1AD0
+*caseUnfold($13C7) = ?caseUnfoldTable + $1AD3
+*caseUnfold($AB98) = ?caseUnfoldTable + $1AD6
+*caseUnfold($13C8) = ?caseUnfoldTable + $1AD9
+*caseUnfold($AB99) = ?caseUnfoldTable + $1ADC
+*caseUnfold($13C9) = ?caseUnfoldTable + $1ADF
+*caseUnfold($AB9A) = ?caseUnfoldTable + $1AE2
+*caseUnfold($13CA) = ?caseUnfoldTable + $1AE5
+*caseUnfold($AB9B) = ?caseUnfoldTable + $1AE8
+*caseUnfold($13CB) = ?caseUnfoldTable + $1AEB
+*caseUnfold($AB9C) = ?caseUnfoldTable + $1AEE
+*caseUnfold($13CC) = ?caseUnfoldTable + $1AF1
+*caseUnfold($AB9D) = ?caseUnfoldTable + $1AF4
+*caseUnfold($13CD) = ?caseUnfoldTable + $1AF7
+*caseUnfold($AB9E) = ?caseUnfoldTable + $1AFA
+*caseUnfold($13CE) = ?caseUnfoldTable + $1AFD
+*caseUnfold($AB9F) = ?caseUnfoldTable + $1B00
+*caseUnfold($13CF) = ?caseUnfoldTable + $1B03
+*caseUnfold($ABA0) = ?caseUnfoldTable + $1B06
+*caseUnfold($13D0) = ?caseUnfoldTable + $1B09
+*caseUnfold($ABA1) = ?caseUnfoldTable + $1B0C
+*caseUnfold($13D1) = ?caseUnfoldTable + $1B0F
+*caseUnfold($ABA2) = ?caseUnfoldTable + $1B12
+*caseUnfold($13D2) = ?caseUnfoldTable + $1B15
+*caseUnfold($ABA3) = ?caseUnfoldTable + $1B18
+*caseUnfold($13D3) = ?caseUnfoldTable + $1B1B
+*caseUnfold($ABA4) = ?caseUnfoldTable + $1B1E
+*caseUnfold($13D4) = ?caseUnfoldTable + $1B21
+*caseUnfold($ABA5) = ?caseUnfoldTable + $1B24
+*caseUnfold($13D5) = ?caseUnfoldTable + $1B27
+*caseUnfold($ABA6) = ?caseUnfoldTable + $1B2A
+*caseUnfold($13D6) = ?caseUnfoldTable + $1B2D
+*caseUnfold($ABA7) = ?caseUnfoldTable + $1B30
+*caseUnfold($13D7) = ?caseUnfoldTable + $1B33
+*caseUnfold($ABA8) = ?caseUnfoldTable + $1B36
+*caseUnfold($13D8) = ?caseUnfoldTable + $1B39
+*caseUnfold($ABA9) = ?caseUnfoldTable + $1B3C
+*caseUnfold($13D9) = ?caseUnfoldTable + $1B3F
+*caseUnfold($ABAA) = ?caseUnfoldTable + $1B42
+*caseUnfold($13DA) = ?caseUnfoldTable + $1B45
+*caseUnfold($ABAB) = ?caseUnfoldTable + $1B48
+*caseUnfold($13DB) = ?caseUnfoldTable + $1B4B
+*caseUnfold($ABAC) = ?caseUnfoldTable + $1B4E
+*caseUnfold($13DC) = ?caseUnfoldTable + $1B51
+*caseUnfold($ABAD) = ?caseUnfoldTable + $1B54
+*caseUnfold($13DD) = ?caseUnfoldTable + $1B57
+*caseUnfold($ABAE) = ?caseUnfoldTable + $1B5A
+*caseUnfold($13DE) = ?caseUnfoldTable + $1B5D
+*caseUnfold($ABAF) = ?caseUnfoldTable + $1B60
+*caseUnfold($13DF) = ?caseUnfoldTable + $1B63
+*caseUnfold($ABB0) = ?caseUnfoldTable + $1B66
+*caseUnfold($13E0) = ?caseUnfoldTable + $1B69
+*caseUnfold($ABB1) = ?caseUnfoldTable + $1B6C
+*caseUnfold($13E1) = ?caseUnfoldTable + $1B6F
+*caseUnfold($ABB2) = ?caseUnfoldTable + $1B72
+*caseUnfold($13E2) = ?caseUnfoldTable + $1B75
+*caseUnfold($ABB3) = ?caseUnfoldTable + $1B78
+*caseUnfold($13E3) = ?caseUnfoldTable + $1B7B
+*caseUnfold($ABB4) = ?caseUnfoldTable + $1B7E
+*caseUnfold($13E4) = ?caseUnfoldTable + $1B81
+*caseUnfold($ABB5) = ?caseUnfoldTable + $1B84
+*caseUnfold($13E5) = ?caseUnfoldTable + $1B87
+*caseUnfold($ABB6) = ?caseUnfoldTable + $1B8A
+*caseUnfold($13E6) = ?caseUnfoldTable + $1B8D
+*caseUnfold($ABB7) = ?caseUnfoldTable + $1B90
+*caseUnfold($13E7) = ?caseUnfoldTable + $1B93
+*caseUnfold($ABB8) = ?caseUnfoldTable + $1B96
+*caseUnfold($13E8) = ?caseUnfoldTable + $1B99
+*caseUnfold($ABB9) = ?caseUnfoldTable + $1B9C
+*caseUnfold($13E9) = ?caseUnfoldTable + $1B9F
+*caseUnfold($ABBA) = ?caseUnfoldTable + $1BA2
+*caseUnfold($13EA) = ?caseUnfoldTable + $1BA5
+*caseUnfold($ABBB) = ?caseUnfoldTable + $1BA8
+*caseUnfold($13EB) = ?caseUnfoldTable + $1BAB
+*caseUnfold($ABBC) = ?caseUnfoldTable + $1BAE
+*caseUnfold($13EC) = ?caseUnfoldTable + $1BB1
+*caseUnfold($ABBD) = ?caseUnfoldTable + $1BB4
+*caseUnfold($13ED) = ?caseUnfoldTable + $1BB7
+*caseUnfold($ABBE) = ?caseUnfoldTable + $1BBA
+*caseUnfold($13EE) = ?caseUnfoldTable + $1BBD
+*caseUnfold($ABBF) = ?caseUnfoldTable + $1BC0
+*caseUnfold($13EF) = ?caseUnfoldTable + $1BC3
+*caseUnfold($FF21) = ?caseUnfoldTable + $1BC6
+*caseUnfold($FF41) = ?caseUnfoldTable + $1BC9
+*caseUnfold($FF22) = ?caseUnfoldTable + $1BCC
+*caseUnfold($FF42) = ?caseUnfoldTable + $1BCF
+*caseUnfold($FF23) = ?caseUnfoldTable + $1BD2
+*caseUnfold($FF43) = ?caseUnfoldTable + $1BD5
+*caseUnfold($FF24) = ?caseUnfoldTable + $1BD8
+*caseUnfold($FF44) = ?caseUnfoldTable + $1BDB
+*caseUnfold($FF25) = ?caseUnfoldTable + $1BDE
+*caseUnfold($FF45) = ?caseUnfoldTable + $1BE1
+*caseUnfold($FF26) = ?caseUnfoldTable + $1BE4
+*caseUnfold($FF46) = ?caseUnfoldTable + $1BE7
+*caseUnfold($FF27) = ?caseUnfoldTable + $1BEA
+*caseUnfold($FF47) = ?caseUnfoldTable + $1BED
+*caseUnfold($FF28) = ?caseUnfoldTable + $1BF0
+*caseUnfold($FF48) = ?caseUnfoldTable + $1BF3
+*caseUnfold($FF29) = ?caseUnfoldTable + $1BF6
+*caseUnfold($FF49) = ?caseUnfoldTable + $1BF9
+*caseUnfold($FF2A) = ?caseUnfoldTable + $1BFC
+*caseUnfold($FF4A) = ?caseUnfoldTable + $1BFF
+*caseUnfold($FF2B) = ?caseUnfoldTable + $1C02
+*caseUnfold($FF4B) = ?caseUnfoldTable + $1C05
+*caseUnfold($FF2C) = ?caseUnfoldTable + $1C08
+*caseUnfold($FF4C) = ?caseUnfoldTable + $1C0B
+*caseUnfold($FF2D) = ?caseUnfoldTable + $1C0E
+*caseUnfold($FF4D) = ?caseUnfoldTable + $1C11
+*caseUnfold($FF2E) = ?caseUnfoldTable + $1C14
+*caseUnfold($FF4E) = ?caseUnfoldTable + $1C17
+*caseUnfold($FF2F) = ?caseUnfoldTable + $1C1A
+*caseUnfold($FF4F) = ?caseUnfoldTable + $1C1D
+*caseUnfold($FF30) = ?caseUnfoldTable + $1C20
+*caseUnfold($FF50) = ?caseUnfoldTable + $1C23
+*caseUnfold($FF31) = ?caseUnfoldTable + $1C26
+*caseUnfold($FF51) = ?caseUnfoldTable + $1C29
+*caseUnfold($FF32) = ?caseUnfoldTable + $1C2C
+*caseUnfold($FF52) = ?caseUnfoldTable + $1C2F
+*caseUnfold($FF33) = ?caseUnfoldTable + $1C32
+*caseUnfold($FF53) = ?caseUnfoldTable + $1C35
+*caseUnfold($FF34) = ?caseUnfoldTable + $1C38
+*caseUnfold($FF54) = ?caseUnfoldTable + $1C3B
+*caseUnfold($FF35) = ?caseUnfoldTable + $1C3E
+*caseUnfold($FF55) = ?caseUnfoldTable + $1C41
+*caseUnfold($FF36) = ?caseUnfoldTable + $1C44
+*caseUnfold($FF56) = ?caseUnfoldTable + $1C47
+*caseUnfold($FF37) = ?caseUnfoldTable + $1C4A
+*caseUnfold($FF57) = ?caseUnfoldTable + $1C4D
+*caseUnfold($FF38) = ?caseUnfoldTable + $1C50
+*caseUnfold($FF58) = ?caseUnfoldTable + $1C53
+*caseUnfold($FF39) = ?caseUnfoldTable + $1C56
+*caseUnfold($FF59) = ?caseUnfoldTable + $1C59
+*caseUnfold($FF3A) = ?caseUnfoldTable + $1C5C
+*caseUnfold($FF5A) = ?caseUnfoldTable + $1C5F
+
+DataSection
+  caseUnfoldTable:
+  Data.a 0
+  Data.u $0061
+  Data.a 0
+  Data.u $0041
+  Data.a 0
+  Data.u $0062
+  Data.a 0
+  Data.u $0042
+  Data.a 0
+  Data.u $0063
+  Data.a 0
+  Data.u $0043
+  Data.a 0
+  Data.u $0064
+  Data.a 0
+  Data.u $0044
+  Data.a 0
+  Data.u $0065
+  Data.a 0
+  Data.u $0045
+  Data.a 0
+  Data.u $0066
+  Data.a 0
+  Data.u $0046
+  Data.a 0
+  Data.u $0067
+  Data.a 0
+  Data.u $0047
+  Data.a 0
+  Data.u $0068
+  Data.a 0
+  Data.u $0048
+  Data.a 0
+  Data.u $0069
+  Data.a 0
+  Data.u $0049
+  Data.a 0
+  Data.u $006A
+  Data.a 0
+  Data.u $004A
+  Data.a 1
+  Data.u $006B,$212A
+  Data.a 1
+  Data.u $004B,$212A
+  Data.a 1
+  Data.u $004B,$006B
+  Data.a 0
+  Data.u $006C
+  Data.a 0
+  Data.u $004C
+  Data.a 0
+  Data.u $006D
+  Data.a 0
+  Data.u $004D
+  Data.a 0
+  Data.u $006E
+  Data.a 0
+  Data.u $004E
+  Data.a 0
+  Data.u $006F
+  Data.a 0
+  Data.u $004F
+  Data.a 0
+  Data.u $0070
+  Data.a 0
+  Data.u $0050
+  Data.a 0
+  Data.u $0071
+  Data.a 0
+  Data.u $0051
+  Data.a 0
+  Data.u $0072
+  Data.a 0
+  Data.u $0052
+  Data.a 1
+  Data.u $0073,$017F
+  Data.a 1
+  Data.u $0053,$017F
+  Data.a 1
+  Data.u $0053,$0073
+  Data.a 0
+  Data.u $0074
+  Data.a 0
+  Data.u $0054
+  Data.a 0
+  Data.u $0075
+  Data.a 0
+  Data.u $0055
+  Data.a 0
+  Data.u $0076
+  Data.a 0
+  Data.u $0056
+  Data.a 0
+  Data.u $0077
+  Data.a 0
+  Data.u $0057
+  Data.a 0
+  Data.u $0078
+  Data.a 0
+  Data.u $0058
+  Data.a 0
+  Data.u $0079
+  Data.a 0
+  Data.u $0059
+  Data.a 0
+  Data.u $007A
+  Data.a 0
+  Data.u $005A
+  Data.a 1
+  Data.u $03BC,$039C
+  Data.a 1
+  Data.u $00B5,$039C
+  Data.a 1
+  Data.u $00B5,$03BC
+  Data.a 0
+  Data.u $00E0
+  Data.a 0
+  Data.u $00C0
+  Data.a 0
+  Data.u $00E1
+  Data.a 0
+  Data.u $00C1
+  Data.a 0
+  Data.u $00E2
+  Data.a 0
+  Data.u $00C2
+  Data.a 0
+  Data.u $00E3
+  Data.a 0
+  Data.u $00C3
+  Data.a 0
+  Data.u $00E4
+  Data.a 0
+  Data.u $00C4
+  Data.a 1
+  Data.u $00E5,$212B
+  Data.a 1
+  Data.u $00C5,$212B
+  Data.a 1
+  Data.u $00C5,$00E5
+  Data.a 0
+  Data.u $00E6
+  Data.a 0
+  Data.u $00C6
+  Data.a 0
+  Data.u $00E7
+  Data.a 0
+  Data.u $00C7
+  Data.a 0
+  Data.u $00E8
+  Data.a 0
+  Data.u $00C8
+  Data.a 0
+  Data.u $00E9
+  Data.a 0
+  Data.u $00C9
+  Data.a 0
+  Data.u $00EA
+  Data.a 0
+  Data.u $00CA
+  Data.a 0
+  Data.u $00EB
+  Data.a 0
+  Data.u $00CB
+  Data.a 0
+  Data.u $00EC
+  Data.a 0
+  Data.u $00CC
+  Data.a 0
+  Data.u $00ED
+  Data.a 0
+  Data.u $00CD
+  Data.a 0
+  Data.u $00EE
+  Data.a 0
+  Data.u $00CE
+  Data.a 0
+  Data.u $00EF
+  Data.a 0
+  Data.u $00CF
+  Data.a 0
+  Data.u $00F0
+  Data.a 0
+  Data.u $00D0
+  Data.a 0
+  Data.u $00F1
+  Data.a 0
+  Data.u $00D1
+  Data.a 0
+  Data.u $00F2
+  Data.a 0
+  Data.u $00D2
+  Data.a 0
+  Data.u $00F3
+  Data.a 0
+  Data.u $00D3
+  Data.a 0
+  Data.u $00F4
+  Data.a 0
+  Data.u $00D4
+  Data.a 0
+  Data.u $00F5
+  Data.a 0
+  Data.u $00D5
+  Data.a 0
+  Data.u $00F6
+  Data.a 0
+  Data.u $00D6
+  Data.a 0
+  Data.u $00F8
+  Data.a 0
+  Data.u $00D8
+  Data.a 0
+  Data.u $00F9
+  Data.a 0
+  Data.u $00D9
+  Data.a 0
+  Data.u $00FA
+  Data.a 0
+  Data.u $00DA
+  Data.a 0
+  Data.u $00FB
+  Data.a 0
+  Data.u $00DB
+  Data.a 0
+  Data.u $00FC
+  Data.a 0
+  Data.u $00DC
+  Data.a 0
+  Data.u $00FD
+  Data.a 0
+  Data.u $00DD
+  Data.a 0
+  Data.u $00FE
+  Data.a 0
+  Data.u $00DE
+  Data.a 0
+  Data.u $0101
+  Data.a 0
+  Data.u $0100
+  Data.a 0
+  Data.u $0103
+  Data.a 0
+  Data.u $0102
+  Data.a 0
+  Data.u $0105
+  Data.a 0
+  Data.u $0104
+  Data.a 0
+  Data.u $0107
+  Data.a 0
+  Data.u $0106
+  Data.a 0
+  Data.u $0109
+  Data.a 0
+  Data.u $0108
+  Data.a 0
+  Data.u $010B
+  Data.a 0
+  Data.u $010A
+  Data.a 0
+  Data.u $010D
+  Data.a 0
+  Data.u $010C
+  Data.a 0
+  Data.u $010F
+  Data.a 0
+  Data.u $010E
+  Data.a 0
+  Data.u $0111
+  Data.a 0
+  Data.u $0110
+  Data.a 0
+  Data.u $0113
+  Data.a 0
+  Data.u $0112
+  Data.a 0
+  Data.u $0115
+  Data.a 0
+  Data.u $0114
+  Data.a 0
+  Data.u $0117
+  Data.a 0
+  Data.u $0116
+  Data.a 0
+  Data.u $0119
+  Data.a 0
+  Data.u $0118
+  Data.a 0
+  Data.u $011B
+  Data.a 0
+  Data.u $011A
+  Data.a 0
+  Data.u $011D
+  Data.a 0
+  Data.u $011C
+  Data.a 0
+  Data.u $011F
+  Data.a 0
+  Data.u $011E
+  Data.a 0
+  Data.u $0121
+  Data.a 0
+  Data.u $0120
+  Data.a 0
+  Data.u $0123
+  Data.a 0
+  Data.u $0122
+  Data.a 0
+  Data.u $0125
+  Data.a 0
+  Data.u $0124
+  Data.a 0
+  Data.u $0127
+  Data.a 0
+  Data.u $0126
+  Data.a 0
+  Data.u $0129
+  Data.a 0
+  Data.u $0128
+  Data.a 0
+  Data.u $012B
+  Data.a 0
+  Data.u $012A
+  Data.a 0
+  Data.u $012D
+  Data.a 0
+  Data.u $012C
+  Data.a 0
+  Data.u $012F
+  Data.a 0
+  Data.u $012E
+  Data.a 0
+  Data.u $0133
+  Data.a 0
+  Data.u $0132
+  Data.a 0
+  Data.u $0135
+  Data.a 0
+  Data.u $0134
+  Data.a 0
+  Data.u $0137
+  Data.a 0
+  Data.u $0136
+  Data.a 0
+  Data.u $013A
+  Data.a 0
+  Data.u $0139
+  Data.a 0
+  Data.u $013C
+  Data.a 0
+  Data.u $013B
+  Data.a 0
+  Data.u $013E
+  Data.a 0
+  Data.u $013D
+  Data.a 0
+  Data.u $0140
+  Data.a 0
+  Data.u $013F
+  Data.a 0
+  Data.u $0142
+  Data.a 0
+  Data.u $0141
+  Data.a 0
+  Data.u $0144
+  Data.a 0
+  Data.u $0143
+  Data.a 0
+  Data.u $0146
+  Data.a 0
+  Data.u $0145
+  Data.a 0
+  Data.u $0148
+  Data.a 0
+  Data.u $0147
+  Data.a 0
+  Data.u $014B
+  Data.a 0
+  Data.u $014A
+  Data.a 0
+  Data.u $014D
+  Data.a 0
+  Data.u $014C
+  Data.a 0
+  Data.u $014F
+  Data.a 0
+  Data.u $014E
+  Data.a 0
+  Data.u $0151
+  Data.a 0
+  Data.u $0150
+  Data.a 0
+  Data.u $0153
+  Data.a 0
+  Data.u $0152
+  Data.a 0
+  Data.u $0155
+  Data.a 0
+  Data.u $0154
+  Data.a 0
+  Data.u $0157
+  Data.a 0
+  Data.u $0156
+  Data.a 0
+  Data.u $0159
+  Data.a 0
+  Data.u $0158
+  Data.a 0
+  Data.u $015B
+  Data.a 0
+  Data.u $015A
+  Data.a 0
+  Data.u $015D
+  Data.a 0
+  Data.u $015C
+  Data.a 0
+  Data.u $015F
+  Data.a 0
+  Data.u $015E
+  Data.a 0
+  Data.u $0161
+  Data.a 0
+  Data.u $0160
+  Data.a 0
+  Data.u $0163
+  Data.a 0
+  Data.u $0162
+  Data.a 0
+  Data.u $0165
+  Data.a 0
+  Data.u $0164
+  Data.a 0
+  Data.u $0167
+  Data.a 0
+  Data.u $0166
+  Data.a 0
+  Data.u $0169
+  Data.a 0
+  Data.u $0168
+  Data.a 0
+  Data.u $016B
+  Data.a 0
+  Data.u $016A
+  Data.a 0
+  Data.u $016D
+  Data.a 0
+  Data.u $016C
+  Data.a 0
+  Data.u $016F
+  Data.a 0
+  Data.u $016E
+  Data.a 0
+  Data.u $0171
+  Data.a 0
+  Data.u $0170
+  Data.a 0
+  Data.u $0173
+  Data.a 0
+  Data.u $0172
+  Data.a 0
+  Data.u $0175
+  Data.a 0
+  Data.u $0174
+  Data.a 0
+  Data.u $0177
+  Data.a 0
+  Data.u $0176
+  Data.a 0
+  Data.u $00FF
+  Data.a 0
+  Data.u $0178
+  Data.a 0
+  Data.u $017A
+  Data.a 0
+  Data.u $0179
+  Data.a 0
+  Data.u $017C
+  Data.a 0
+  Data.u $017B
+  Data.a 0
+  Data.u $017E
+  Data.a 0
+  Data.u $017D
+  Data.a 0
+  Data.u $0253
+  Data.a 0
+  Data.u $0181
+  Data.a 0
+  Data.u $0183
+  Data.a 0
+  Data.u $0182
+  Data.a 0
+  Data.u $0185
+  Data.a 0
+  Data.u $0184
+  Data.a 0
+  Data.u $0254
+  Data.a 0
+  Data.u $0186
+  Data.a 0
+  Data.u $0188
+  Data.a 0
+  Data.u $0187
+  Data.a 0
+  Data.u $0256
+  Data.a 0
+  Data.u $0189
+  Data.a 0
+  Data.u $0257
+  Data.a 0
+  Data.u $018A
+  Data.a 0
+  Data.u $018C
+  Data.a 0
+  Data.u $018B
+  Data.a 0
+  Data.u $01DD
+  Data.a 0
+  Data.u $018E
+  Data.a 0
+  Data.u $0259
+  Data.a 0
+  Data.u $018F
+  Data.a 0
+  Data.u $025B
+  Data.a 0
+  Data.u $0190
+  Data.a 0
+  Data.u $0192
+  Data.a 0
+  Data.u $0191
+  Data.a 0
+  Data.u $0260
+  Data.a 0
+  Data.u $0193
+  Data.a 0
+  Data.u $0263
+  Data.a 0
+  Data.u $0194
+  Data.a 0
+  Data.u $0269
+  Data.a 0
+  Data.u $0196
+  Data.a 0
+  Data.u $0268
+  Data.a 0
+  Data.u $0197
+  Data.a 0
+  Data.u $0199
+  Data.a 0
+  Data.u $0198
+  Data.a 0
+  Data.u $026F
+  Data.a 0
+  Data.u $019C
+  Data.a 0
+  Data.u $0272
+  Data.a 0
+  Data.u $019D
+  Data.a 0
+  Data.u $0275
+  Data.a 0
+  Data.u $019F
+  Data.a 0
+  Data.u $01A1
+  Data.a 0
+  Data.u $01A0
+  Data.a 0
+  Data.u $01A3
+  Data.a 0
+  Data.u $01A2
+  Data.a 0
+  Data.u $01A5
+  Data.a 0
+  Data.u $01A4
+  Data.a 0
+  Data.u $0280
+  Data.a 0
+  Data.u $01A6
+  Data.a 0
+  Data.u $01A8
+  Data.a 0
+  Data.u $01A7
+  Data.a 0
+  Data.u $0283
+  Data.a 0
+  Data.u $01A9
+  Data.a 0
+  Data.u $01AD
+  Data.a 0
+  Data.u $01AC
+  Data.a 0
+  Data.u $0288
+  Data.a 0
+  Data.u $01AE
+  Data.a 0
+  Data.u $01B0
+  Data.a 0
+  Data.u $01AF
+  Data.a 0
+  Data.u $028A
+  Data.a 0
+  Data.u $01B1
+  Data.a 0
+  Data.u $028B
+  Data.a 0
+  Data.u $01B2
+  Data.a 0
+  Data.u $01B4
+  Data.a 0
+  Data.u $01B3
+  Data.a 0
+  Data.u $01B6
+  Data.a 0
+  Data.u $01B5
+  Data.a 0
+  Data.u $0292
+  Data.a 0
+  Data.u $01B7
+  Data.a 0
+  Data.u $01B9
+  Data.a 0
+  Data.u $01B8
+  Data.a 0
+  Data.u $01BD
+  Data.a 0
+  Data.u $01BC
+  Data.a 1
+  Data.u $01C6,$01C5
+  Data.a 1
+  Data.u $01C4,$01C5
+  Data.a 1
+  Data.u $01C4,$01C6
+  Data.a 1
+  Data.u $01C9,$01C8
+  Data.a 1
+  Data.u $01C7,$01C8
+  Data.a 1
+  Data.u $01C7,$01C9
+  Data.a 1
+  Data.u $01CC,$01CB
+  Data.a 1
+  Data.u $01CA,$01CB
+  Data.a 1
+  Data.u $01CA,$01CC
+  Data.a 0
+  Data.u $01CE
+  Data.a 0
+  Data.u $01CD
+  Data.a 0
+  Data.u $01D0
+  Data.a 0
+  Data.u $01CF
+  Data.a 0
+  Data.u $01D2
+  Data.a 0
+  Data.u $01D1
+  Data.a 0
+  Data.u $01D4
+  Data.a 0
+  Data.u $01D3
+  Data.a 0
+  Data.u $01D6
+  Data.a 0
+  Data.u $01D5
+  Data.a 0
+  Data.u $01D8
+  Data.a 0
+  Data.u $01D7
+  Data.a 0
+  Data.u $01DA
+  Data.a 0
+  Data.u $01D9
+  Data.a 0
+  Data.u $01DC
+  Data.a 0
+  Data.u $01DB
+  Data.a 0
+  Data.u $01DF
+  Data.a 0
+  Data.u $01DE
+  Data.a 0
+  Data.u $01E1
+  Data.a 0
+  Data.u $01E0
+  Data.a 0
+  Data.u $01E3
+  Data.a 0
+  Data.u $01E2
+  Data.a 0
+  Data.u $01E5
+  Data.a 0
+  Data.u $01E4
+  Data.a 0
+  Data.u $01E7
+  Data.a 0
+  Data.u $01E6
+  Data.a 0
+  Data.u $01E9
+  Data.a 0
+  Data.u $01E8
+  Data.a 0
+  Data.u $01EB
+  Data.a 0
+  Data.u $01EA
+  Data.a 0
+  Data.u $01ED
+  Data.a 0
+  Data.u $01EC
+  Data.a 0
+  Data.u $01EF
+  Data.a 0
+  Data.u $01EE
+  Data.a 1
+  Data.u $01F3,$01F2
+  Data.a 1
+  Data.u $01F1,$01F2
+  Data.a 1
+  Data.u $01F1,$01F3
+  Data.a 0
+  Data.u $01F5
+  Data.a 0
+  Data.u $01F4
+  Data.a 0
+  Data.u $0195
+  Data.a 0
+  Data.u $01F6
+  Data.a 0
+  Data.u $01BF
+  Data.a 0
+  Data.u $01F7
+  Data.a 0
+  Data.u $01F9
+  Data.a 0
+  Data.u $01F8
+  Data.a 0
+  Data.u $01FB
+  Data.a 0
+  Data.u $01FA
+  Data.a 0
+  Data.u $01FD
+  Data.a 0
+  Data.u $01FC
+  Data.a 0
+  Data.u $01FF
+  Data.a 0
+  Data.u $01FE
+  Data.a 0
+  Data.u $0201
+  Data.a 0
+  Data.u $0200
+  Data.a 0
+  Data.u $0203
+  Data.a 0
+  Data.u $0202
+  Data.a 0
+  Data.u $0205
+  Data.a 0
+  Data.u $0204
+  Data.a 0
+  Data.u $0207
+  Data.a 0
+  Data.u $0206
+  Data.a 0
+  Data.u $0209
+  Data.a 0
+  Data.u $0208
+  Data.a 0
+  Data.u $020B
+  Data.a 0
+  Data.u $020A
+  Data.a 0
+  Data.u $020D
+  Data.a 0
+  Data.u $020C
+  Data.a 0
+  Data.u $020F
+  Data.a 0
+  Data.u $020E
+  Data.a 0
+  Data.u $0211
+  Data.a 0
+  Data.u $0210
+  Data.a 0
+  Data.u $0213
+  Data.a 0
+  Data.u $0212
+  Data.a 0
+  Data.u $0215
+  Data.a 0
+  Data.u $0214
+  Data.a 0
+  Data.u $0217
+  Data.a 0
+  Data.u $0216
+  Data.a 0
+  Data.u $0219
+  Data.a 0
+  Data.u $0218
+  Data.a 0
+  Data.u $021B
+  Data.a 0
+  Data.u $021A
+  Data.a 0
+  Data.u $021D
+  Data.a 0
+  Data.u $021C
+  Data.a 0
+  Data.u $021F
+  Data.a 0
+  Data.u $021E
+  Data.a 0
+  Data.u $019E
+  Data.a 0
+  Data.u $0220
+  Data.a 0
+  Data.u $0223
+  Data.a 0
+  Data.u $0222
+  Data.a 0
+  Data.u $0225
+  Data.a 0
+  Data.u $0224
+  Data.a 0
+  Data.u $0227
+  Data.a 0
+  Data.u $0226
+  Data.a 0
+  Data.u $0229
+  Data.a 0
+  Data.u $0228
+  Data.a 0
+  Data.u $022B
+  Data.a 0
+  Data.u $022A
+  Data.a 0
+  Data.u $022D
+  Data.a 0
+  Data.u $022C
+  Data.a 0
+  Data.u $022F
+  Data.a 0
+  Data.u $022E
+  Data.a 0
+  Data.u $0231
+  Data.a 0
+  Data.u $0230
+  Data.a 0
+  Data.u $0233
+  Data.a 0
+  Data.u $0232
+  Data.a 0
+  Data.u $2C65
+  Data.a 0
+  Data.u $023A
+  Data.a 0
+  Data.u $023C
+  Data.a 0
+  Data.u $023B
+  Data.a 0
+  Data.u $019A
+  Data.a 0
+  Data.u $023D
+  Data.a 0
+  Data.u $2C66
+  Data.a 0
+  Data.u $023E
+  Data.a 0
+  Data.u $0242
+  Data.a 0
+  Data.u $0241
+  Data.a 0
+  Data.u $0180
+  Data.a 0
+  Data.u $0243
+  Data.a 0
+  Data.u $0289
+  Data.a 0
+  Data.u $0244
+  Data.a 0
+  Data.u $028C
+  Data.a 0
+  Data.u $0245
+  Data.a 0
+  Data.u $0247
+  Data.a 0
+  Data.u $0246
+  Data.a 0
+  Data.u $0249
+  Data.a 0
+  Data.u $0248
+  Data.a 0
+  Data.u $024B
+  Data.a 0
+  Data.u $024A
+  Data.a 0
+  Data.u $024D
+  Data.a 0
+  Data.u $024C
+  Data.a 0
+  Data.u $024F
+  Data.a 0
+  Data.u $024E
+  Data.a 2
+  Data.u $03B9,$1FBE,$0399
+  Data.a 2
+  Data.u $0345,$1FBE,$0399
+  Data.a 2
+  Data.u $0345,$03B9,$0399
+  Data.a 2
+  Data.u $0345,$03B9,$1FBE
+  Data.a 0
+  Data.u $0371
+  Data.a 0
+  Data.u $0370
+  Data.a 0
+  Data.u $0373
+  Data.a 0
+  Data.u $0372
+  Data.a 0
+  Data.u $0377
+  Data.a 0
+  Data.u $0376
+  Data.a 0
+  Data.u $03F3
+  Data.a 0
+  Data.u $037F
+  Data.a 0
+  Data.u $03AC
+  Data.a 0
+  Data.u $0386
+  Data.a 0
+  Data.u $03AD
+  Data.a 0
+  Data.u $0388
+  Data.a 0
+  Data.u $03AE
+  Data.a 0
+  Data.u $0389
+  Data.a 0
+  Data.u $03AF
+  Data.a 0
+  Data.u $038A
+  Data.a 0
+  Data.u $03CC
+  Data.a 0
+  Data.u $038C
+  Data.a 0
+  Data.u $03CD
+  Data.a 0
+  Data.u $038E
+  Data.a 0
+  Data.u $03CE
+  Data.a 0
+  Data.u $038F
+  Data.a 0
+  Data.u $03B1
+  Data.a 0
+  Data.u $0391
+  Data.a 1
+  Data.u $03B2,$03D0
+  Data.a 1
+  Data.u $0392,$03D0
+  Data.a 1
+  Data.u $0392,$03B2
+  Data.a 0
+  Data.u $03B3
+  Data.a 0
+  Data.u $0393
+  Data.a 0
+  Data.u $03B4
+  Data.a 0
+  Data.u $0394
+  Data.a 1
+  Data.u $03B5,$03F5
+  Data.a 1
+  Data.u $0395,$03F5
+  Data.a 1
+  Data.u $0395,$03B5
+  Data.a 0
+  Data.u $03B6
+  Data.a 0
+  Data.u $0396
+  Data.a 0
+  Data.u $03B7
+  Data.a 0
+  Data.u $0397
+  Data.a 2
+  Data.u $03B8,$03F4,$03D1
+  Data.a 2
+  Data.u $0398,$03F4,$03D1
+  Data.a 2
+  Data.u $0398,$03B8,$03D1
+  Data.a 2
+  Data.u $0398,$03B8,$03F4
+  Data.a 1
+  Data.u $03BA,$03F0
+  Data.a 1
+  Data.u $039A,$03F0
+  Data.a 1
+  Data.u $039A,$03BA
+  Data.a 0
+  Data.u $03BB
+  Data.a 0
+  Data.u $039B
+  Data.a 0
+  Data.u $03BD
+  Data.a 0
+  Data.u $039D
+  Data.a 0
+  Data.u $03BE
+  Data.a 0
+  Data.u $039E
+  Data.a 0
+  Data.u $03BF
+  Data.a 0
+  Data.u $039F
+  Data.a 1
+  Data.u $03C0,$03D6
+  Data.a 1
+  Data.u $03A0,$03D6
+  Data.a 1
+  Data.u $03A0,$03C0
+  Data.a 1
+  Data.u $03C1,$03F1
+  Data.a 1
+  Data.u $03A1,$03F1
+  Data.a 1
+  Data.u $03A1,$03C1
+  Data.a 1
+  Data.u $03C3,$03C2
+  Data.a 1
+  Data.u $03A3,$03C2
+  Data.a 1
+  Data.u $03A3,$03C3
+  Data.a 0
+  Data.u $03C4
+  Data.a 0
+  Data.u $03A4
+  Data.a 0
+  Data.u $03C5
+  Data.a 0
+  Data.u $03A5
+  Data.a 1
+  Data.u $03C6,$03D5
+  Data.a 1
+  Data.u $03A6,$03D5
+  Data.a 1
+  Data.u $03A6,$03C6
+  Data.a 0
+  Data.u $03C7
+  Data.a 0
+  Data.u $03A7
+  Data.a 0
+  Data.u $03C8
+  Data.a 0
+  Data.u $03A8
+  Data.a 1
+  Data.u $03C9,$2126
+  Data.a 1
+  Data.u $03A9,$2126
+  Data.a 1
+  Data.u $03A9,$03C9
+  Data.a 0
+  Data.u $03CA
+  Data.a 0
+  Data.u $03AA
+  Data.a 0
+  Data.u $03CB
+  Data.a 0
+  Data.u $03AB
+  Data.a 0
+  Data.u $03D7
+  Data.a 0
+  Data.u $03CF
+  Data.a 0
+  Data.u $03D9
+  Data.a 0
+  Data.u $03D8
+  Data.a 0
+  Data.u $03DB
+  Data.a 0
+  Data.u $03DA
+  Data.a 0
+  Data.u $03DD
+  Data.a 0
+  Data.u $03DC
+  Data.a 0
+  Data.u $03DF
+  Data.a 0
+  Data.u $03DE
+  Data.a 0
+  Data.u $03E1
+  Data.a 0
+  Data.u $03E0
+  Data.a 0
+  Data.u $03E3
+  Data.a 0
+  Data.u $03E2
+  Data.a 0
+  Data.u $03E5
+  Data.a 0
+  Data.u $03E4
+  Data.a 0
+  Data.u $03E7
+  Data.a 0
+  Data.u $03E6
+  Data.a 0
+  Data.u $03E9
+  Data.a 0
+  Data.u $03E8
+  Data.a 0
+  Data.u $03EB
+  Data.a 0
+  Data.u $03EA
+  Data.a 0
+  Data.u $03ED
+  Data.a 0
+  Data.u $03EC
+  Data.a 0
+  Data.u $03EF
+  Data.a 0
+  Data.u $03EE
+  Data.a 0
+  Data.u $03F8
+  Data.a 0
+  Data.u $03F7
+  Data.a 0
+  Data.u $03F2
+  Data.a 0
+  Data.u $03F9
+  Data.a 0
+  Data.u $03FB
+  Data.a 0
+  Data.u $03FA
+  Data.a 0
+  Data.u $037B
+  Data.a 0
+  Data.u $03FD
+  Data.a 0
+  Data.u $037C
+  Data.a 0
+  Data.u $03FE
+  Data.a 0
+  Data.u $037D
+  Data.a 0
+  Data.u $03FF
+  Data.a 0
+  Data.u $0450
+  Data.a 0
+  Data.u $0400
+  Data.a 0
+  Data.u $0451
+  Data.a 0
+  Data.u $0401
+  Data.a 0
+  Data.u $0452
+  Data.a 0
+  Data.u $0402
+  Data.a 0
+  Data.u $0453
+  Data.a 0
+  Data.u $0403
+  Data.a 0
+  Data.u $0454
+  Data.a 0
+  Data.u $0404
+  Data.a 0
+  Data.u $0455
+  Data.a 0
+  Data.u $0405
+  Data.a 0
+  Data.u $0456
+  Data.a 0
+  Data.u $0406
+  Data.a 0
+  Data.u $0457
+  Data.a 0
+  Data.u $0407
+  Data.a 0
+  Data.u $0458
+  Data.a 0
+  Data.u $0408
+  Data.a 0
+  Data.u $0459
+  Data.a 0
+  Data.u $0409
+  Data.a 0
+  Data.u $045A
+  Data.a 0
+  Data.u $040A
+  Data.a 0
+  Data.u $045B
+  Data.a 0
+  Data.u $040B
+  Data.a 0
+  Data.u $045C
+  Data.a 0
+  Data.u $040C
+  Data.a 0
+  Data.u $045D
+  Data.a 0
+  Data.u $040D
+  Data.a 0
+  Data.u $045E
+  Data.a 0
+  Data.u $040E
+  Data.a 0
+  Data.u $045F
+  Data.a 0
+  Data.u $040F
+  Data.a 0
+  Data.u $0430
+  Data.a 0
+  Data.u $0410
+  Data.a 0
+  Data.u $0431
+  Data.a 0
+  Data.u $0411
+  Data.a 1
+  Data.u $0432,$1C80
+  Data.a 1
+  Data.u $0412,$1C80
+  Data.a 1
+  Data.u $0412,$0432
+  Data.a 0
+  Data.u $0433
+  Data.a 0
+  Data.u $0413
+  Data.a 1
+  Data.u $0434,$1C81
+  Data.a 1
+  Data.u $0414,$1C81
+  Data.a 1
+  Data.u $0414,$0434
+  Data.a 0
+  Data.u $0435
+  Data.a 0
+  Data.u $0415
+  Data.a 0
+  Data.u $0436
+  Data.a 0
+  Data.u $0416
+  Data.a 0
+  Data.u $0437
+  Data.a 0
+  Data.u $0417
+  Data.a 0
+  Data.u $0438
+  Data.a 0
+  Data.u $0418
+  Data.a 0
+  Data.u $0439
+  Data.a 0
+  Data.u $0419
+  Data.a 0
+  Data.u $043A
+  Data.a 0
+  Data.u $041A
+  Data.a 0
+  Data.u $043B
+  Data.a 0
+  Data.u $041B
+  Data.a 0
+  Data.u $043C
+  Data.a 0
+  Data.u $041C
+  Data.a 0
+  Data.u $043D
+  Data.a 0
+  Data.u $041D
+  Data.a 1
+  Data.u $043E,$1C82
+  Data.a 1
+  Data.u $041E,$1C82
+  Data.a 1
+  Data.u $041E,$043E
+  Data.a 0
+  Data.u $043F
+  Data.a 0
+  Data.u $041F
+  Data.a 0
+  Data.u $0440
+  Data.a 0
+  Data.u $0420
+  Data.a 1
+  Data.u $0441,$1C83
+  Data.a 1
+  Data.u $0421,$1C83
+  Data.a 1
+  Data.u $0421,$0441
+  Data.a 2
+  Data.u $0442,$1C85,$1C84
+  Data.a 2
+  Data.u $0422,$1C85,$1C84
+  Data.a 2
+  Data.u $0422,$0442,$1C84
+  Data.a 2
+  Data.u $0422,$0442,$1C85
+  Data.a 0
+  Data.u $0443
+  Data.a 0
+  Data.u $0423
+  Data.a 0
+  Data.u $0444
+  Data.a 0
+  Data.u $0424
+  Data.a 0
+  Data.u $0445
+  Data.a 0
+  Data.u $0425
+  Data.a 0
+  Data.u $0446
+  Data.a 0
+  Data.u $0426
+  Data.a 0
+  Data.u $0447
+  Data.a 0
+  Data.u $0427
+  Data.a 0
+  Data.u $0448
+  Data.a 0
+  Data.u $0428
+  Data.a 0
+  Data.u $0449
+  Data.a 0
+  Data.u $0429
+  Data.a 1
+  Data.u $044A,$1C86
+  Data.a 1
+  Data.u $042A,$1C86
+  Data.a 1
+  Data.u $042A,$044A
+  Data.a 0
+  Data.u $044B
+  Data.a 0
+  Data.u $042B
+  Data.a 0
+  Data.u $044C
+  Data.a 0
+  Data.u $042C
+  Data.a 0
+  Data.u $044D
+  Data.a 0
+  Data.u $042D
+  Data.a 0
+  Data.u $044E
+  Data.a 0
+  Data.u $042E
+  Data.a 0
+  Data.u $044F
+  Data.a 0
+  Data.u $042F
+  Data.a 0
+  Data.u $0461
+  Data.a 0
+  Data.u $0460
+  Data.a 1
+  Data.u $0463,$1C87
+  Data.a 1
+  Data.u $0462,$1C87
+  Data.a 1
+  Data.u $0462,$0463
+  Data.a 0
+  Data.u $0465
+  Data.a 0
+  Data.u $0464
+  Data.a 0
+  Data.u $0467
+  Data.a 0
+  Data.u $0466
+  Data.a 0
+  Data.u $0469
+  Data.a 0
+  Data.u $0468
+  Data.a 0
+  Data.u $046B
+  Data.a 0
+  Data.u $046A
+  Data.a 0
+  Data.u $046D
+  Data.a 0
+  Data.u $046C
+  Data.a 0
+  Data.u $046F
+  Data.a 0
+  Data.u $046E
+  Data.a 0
+  Data.u $0471
+  Data.a 0
+  Data.u $0470
+  Data.a 0
+  Data.u $0473
+  Data.a 0
+  Data.u $0472
+  Data.a 0
+  Data.u $0475
+  Data.a 0
+  Data.u $0474
+  Data.a 0
+  Data.u $0477
+  Data.a 0
+  Data.u $0476
+  Data.a 0
+  Data.u $0479
+  Data.a 0
+  Data.u $0478
+  Data.a 0
+  Data.u $047B
+  Data.a 0
+  Data.u $047A
+  Data.a 0
+  Data.u $047D
+  Data.a 0
+  Data.u $047C
+  Data.a 0
+  Data.u $047F
+  Data.a 0
+  Data.u $047E
+  Data.a 0
+  Data.u $0481
+  Data.a 0
+  Data.u $0480
+  Data.a 0
+  Data.u $048B
+  Data.a 0
+  Data.u $048A
+  Data.a 0
+  Data.u $048D
+  Data.a 0
+  Data.u $048C
+  Data.a 0
+  Data.u $048F
+  Data.a 0
+  Data.u $048E
+  Data.a 0
+  Data.u $0491
+  Data.a 0
+  Data.u $0490
+  Data.a 0
+  Data.u $0493
+  Data.a 0
+  Data.u $0492
+  Data.a 0
+  Data.u $0495
+  Data.a 0
+  Data.u $0494
+  Data.a 0
+  Data.u $0497
+  Data.a 0
+  Data.u $0496
+  Data.a 0
+  Data.u $0499
+  Data.a 0
+  Data.u $0498
+  Data.a 0
+  Data.u $049B
+  Data.a 0
+  Data.u $049A
+  Data.a 0
+  Data.u $049D
+  Data.a 0
+  Data.u $049C
+  Data.a 0
+  Data.u $049F
+  Data.a 0
+  Data.u $049E
+  Data.a 0
+  Data.u $04A1
+  Data.a 0
+  Data.u $04A0
+  Data.a 0
+  Data.u $04A3
+  Data.a 0
+  Data.u $04A2
+  Data.a 0
+  Data.u $04A5
+  Data.a 0
+  Data.u $04A4
+  Data.a 0
+  Data.u $04A7
+  Data.a 0
+  Data.u $04A6
+  Data.a 0
+  Data.u $04A9
+  Data.a 0
+  Data.u $04A8
+  Data.a 0
+  Data.u $04AB
+  Data.a 0
+  Data.u $04AA
+  Data.a 0
+  Data.u $04AD
+  Data.a 0
+  Data.u $04AC
+  Data.a 0
+  Data.u $04AF
+  Data.a 0
+  Data.u $04AE
+  Data.a 0
+  Data.u $04B1
+  Data.a 0
+  Data.u $04B0
+  Data.a 0
+  Data.u $04B3
+  Data.a 0
+  Data.u $04B2
+  Data.a 0
+  Data.u $04B5
+  Data.a 0
+  Data.u $04B4
+  Data.a 0
+  Data.u $04B7
+  Data.a 0
+  Data.u $04B6
+  Data.a 0
+  Data.u $04B9
+  Data.a 0
+  Data.u $04B8
+  Data.a 0
+  Data.u $04BB
+  Data.a 0
+  Data.u $04BA
+  Data.a 0
+  Data.u $04BD
+  Data.a 0
+  Data.u $04BC
+  Data.a 0
+  Data.u $04BF
+  Data.a 0
+  Data.u $04BE
+  Data.a 0
+  Data.u $04CF
+  Data.a 0
+  Data.u $04C0
+  Data.a 0
+  Data.u $04C2
+  Data.a 0
+  Data.u $04C1
+  Data.a 0
+  Data.u $04C4
+  Data.a 0
+  Data.u $04C3
+  Data.a 0
+  Data.u $04C6
+  Data.a 0
+  Data.u $04C5
+  Data.a 0
+  Data.u $04C8
+  Data.a 0
+  Data.u $04C7
+  Data.a 0
+  Data.u $04CA
+  Data.a 0
+  Data.u $04C9
+  Data.a 0
+  Data.u $04CC
+  Data.a 0
+  Data.u $04CB
+  Data.a 0
+  Data.u $04CE
+  Data.a 0
+  Data.u $04CD
+  Data.a 0
+  Data.u $04D1
+  Data.a 0
+  Data.u $04D0
+  Data.a 0
+  Data.u $04D3
+  Data.a 0
+  Data.u $04D2
+  Data.a 0
+  Data.u $04D5
+  Data.a 0
+  Data.u $04D4
+  Data.a 0
+  Data.u $04D7
+  Data.a 0
+  Data.u $04D6
+  Data.a 0
+  Data.u $04D9
+  Data.a 0
+  Data.u $04D8
+  Data.a 0
+  Data.u $04DB
+  Data.a 0
+  Data.u $04DA
+  Data.a 0
+  Data.u $04DD
+  Data.a 0
+  Data.u $04DC
+  Data.a 0
+  Data.u $04DF
+  Data.a 0
+  Data.u $04DE
+  Data.a 0
+  Data.u $04E1
+  Data.a 0
+  Data.u $04E0
+  Data.a 0
+  Data.u $04E3
+  Data.a 0
+  Data.u $04E2
+  Data.a 0
+  Data.u $04E5
+  Data.a 0
+  Data.u $04E4
+  Data.a 0
+  Data.u $04E7
+  Data.a 0
+  Data.u $04E6
+  Data.a 0
+  Data.u $04E9
+  Data.a 0
+  Data.u $04E8
+  Data.a 0
+  Data.u $04EB
+  Data.a 0
+  Data.u $04EA
+  Data.a 0
+  Data.u $04ED
+  Data.a 0
+  Data.u $04EC
+  Data.a 0
+  Data.u $04EF
+  Data.a 0
+  Data.u $04EE
+  Data.a 0
+  Data.u $04F1
+  Data.a 0
+  Data.u $04F0
+  Data.a 0
+  Data.u $04F3
+  Data.a 0
+  Data.u $04F2
+  Data.a 0
+  Data.u $04F5
+  Data.a 0
+  Data.u $04F4
+  Data.a 0
+  Data.u $04F7
+  Data.a 0
+  Data.u $04F6
+  Data.a 0
+  Data.u $04F9
+  Data.a 0
+  Data.u $04F8
+  Data.a 0
+  Data.u $04FB
+  Data.a 0
+  Data.u $04FA
+  Data.a 0
+  Data.u $04FD
+  Data.a 0
+  Data.u $04FC
+  Data.a 0
+  Data.u $04FF
+  Data.a 0
+  Data.u $04FE
+  Data.a 0
+  Data.u $0501
+  Data.a 0
+  Data.u $0500
+  Data.a 0
+  Data.u $0503
+  Data.a 0
+  Data.u $0502
+  Data.a 0
+  Data.u $0505
+  Data.a 0
+  Data.u $0504
+  Data.a 0
+  Data.u $0507
+  Data.a 0
+  Data.u $0506
+  Data.a 0
+  Data.u $0509
+  Data.a 0
+  Data.u $0508
+  Data.a 0
+  Data.u $050B
+  Data.a 0
+  Data.u $050A
+  Data.a 0
+  Data.u $050D
+  Data.a 0
+  Data.u $050C
+  Data.a 0
+  Data.u $050F
+  Data.a 0
+  Data.u $050E
+  Data.a 0
+  Data.u $0511
+  Data.a 0
+  Data.u $0510
+  Data.a 0
+  Data.u $0513
+  Data.a 0
+  Data.u $0512
+  Data.a 0
+  Data.u $0515
+  Data.a 0
+  Data.u $0514
+  Data.a 0
+  Data.u $0517
+  Data.a 0
+  Data.u $0516
+  Data.a 0
+  Data.u $0519
+  Data.a 0
+  Data.u $0518
+  Data.a 0
+  Data.u $051B
+  Data.a 0
+  Data.u $051A
+  Data.a 0
+  Data.u $051D
+  Data.a 0
+  Data.u $051C
+  Data.a 0
+  Data.u $051F
+  Data.a 0
+  Data.u $051E
+  Data.a 0
+  Data.u $0521
+  Data.a 0
+  Data.u $0520
+  Data.a 0
+  Data.u $0523
+  Data.a 0
+  Data.u $0522
+  Data.a 0
+  Data.u $0525
+  Data.a 0
+  Data.u $0524
+  Data.a 0
+  Data.u $0527
+  Data.a 0
+  Data.u $0526
+  Data.a 0
+  Data.u $0529
+  Data.a 0
+  Data.u $0528
+  Data.a 0
+  Data.u $052B
+  Data.a 0
+  Data.u $052A
+  Data.a 0
+  Data.u $052D
+  Data.a 0
+  Data.u $052C
+  Data.a 0
+  Data.u $052F
+  Data.a 0
+  Data.u $052E
+  Data.a 0
+  Data.u $0561
+  Data.a 0
+  Data.u $0531
+  Data.a 0
+  Data.u $0562
+  Data.a 0
+  Data.u $0532
+  Data.a 0
+  Data.u $0563
+  Data.a 0
+  Data.u $0533
+  Data.a 0
+  Data.u $0564
+  Data.a 0
+  Data.u $0534
+  Data.a 0
+  Data.u $0565
+  Data.a 0
+  Data.u $0535
+  Data.a 0
+  Data.u $0566
+  Data.a 0
+  Data.u $0536
+  Data.a 0
+  Data.u $0567
+  Data.a 0
+  Data.u $0537
+  Data.a 0
+  Data.u $0568
+  Data.a 0
+  Data.u $0538
+  Data.a 0
+  Data.u $0569
+  Data.a 0
+  Data.u $0539
+  Data.a 0
+  Data.u $056A
+  Data.a 0
+  Data.u $053A
+  Data.a 0
+  Data.u $056B
+  Data.a 0
+  Data.u $053B
+  Data.a 0
+  Data.u $056C
+  Data.a 0
+  Data.u $053C
+  Data.a 0
+  Data.u $056D
+  Data.a 0
+  Data.u $053D
+  Data.a 0
+  Data.u $056E
+  Data.a 0
+  Data.u $053E
+  Data.a 0
+  Data.u $056F
+  Data.a 0
+  Data.u $053F
+  Data.a 0
+  Data.u $0570
+  Data.a 0
+  Data.u $0540
+  Data.a 0
+  Data.u $0571
+  Data.a 0
+  Data.u $0541
+  Data.a 0
+  Data.u $0572
+  Data.a 0
+  Data.u $0542
+  Data.a 0
+  Data.u $0573
+  Data.a 0
+  Data.u $0543
+  Data.a 0
+  Data.u $0574
+  Data.a 0
+  Data.u $0544
+  Data.a 0
+  Data.u $0575
+  Data.a 0
+  Data.u $0545
+  Data.a 0
+  Data.u $0576
+  Data.a 0
+  Data.u $0546
+  Data.a 0
+  Data.u $0577
+  Data.a 0
+  Data.u $0547
+  Data.a 0
+  Data.u $0578
+  Data.a 0
+  Data.u $0548
+  Data.a 0
+  Data.u $0579
+  Data.a 0
+  Data.u $0549
+  Data.a 0
+  Data.u $057A
+  Data.a 0
+  Data.u $054A
+  Data.a 0
+  Data.u $057B
+  Data.a 0
+  Data.u $054B
+  Data.a 0
+  Data.u $057C
+  Data.a 0
+  Data.u $054C
+  Data.a 0
+  Data.u $057D
+  Data.a 0
+  Data.u $054D
+  Data.a 0
+  Data.u $057E
+  Data.a 0
+  Data.u $054E
+  Data.a 0
+  Data.u $057F
+  Data.a 0
+  Data.u $054F
+  Data.a 0
+  Data.u $0580
+  Data.a 0
+  Data.u $0550
+  Data.a 0
+  Data.u $0581
+  Data.a 0
+  Data.u $0551
+  Data.a 0
+  Data.u $0582
+  Data.a 0
+  Data.u $0552
+  Data.a 0
+  Data.u $0583
+  Data.a 0
+  Data.u $0553
+  Data.a 0
+  Data.u $0584
+  Data.a 0
+  Data.u $0554
+  Data.a 0
+  Data.u $0585
+  Data.a 0
+  Data.u $0555
+  Data.a 0
+  Data.u $0586
+  Data.a 0
+  Data.u $0556
+  Data.a 0
+  Data.u $2D00
+  Data.a 0
+  Data.u $10A0
+  Data.a 0
+  Data.u $2D01
+  Data.a 0
+  Data.u $10A1
+  Data.a 0
+  Data.u $2D02
+  Data.a 0
+  Data.u $10A2
+  Data.a 0
+  Data.u $2D03
+  Data.a 0
+  Data.u $10A3
+  Data.a 0
+  Data.u $2D04
+  Data.a 0
+  Data.u $10A4
+  Data.a 0
+  Data.u $2D05
+  Data.a 0
+  Data.u $10A5
+  Data.a 0
+  Data.u $2D06
+  Data.a 0
+  Data.u $10A6
+  Data.a 0
+  Data.u $2D07
+  Data.a 0
+  Data.u $10A7
+  Data.a 0
+  Data.u $2D08
+  Data.a 0
+  Data.u $10A8
+  Data.a 0
+  Data.u $2D09
+  Data.a 0
+  Data.u $10A9
+  Data.a 0
+  Data.u $2D0A
+  Data.a 0
+  Data.u $10AA
+  Data.a 0
+  Data.u $2D0B
+  Data.a 0
+  Data.u $10AB
+  Data.a 0
+  Data.u $2D0C
+  Data.a 0
+  Data.u $10AC
+  Data.a 0
+  Data.u $2D0D
+  Data.a 0
+  Data.u $10AD
+  Data.a 0
+  Data.u $2D0E
+  Data.a 0
+  Data.u $10AE
+  Data.a 0
+  Data.u $2D0F
+  Data.a 0
+  Data.u $10AF
+  Data.a 0
+  Data.u $2D10
+  Data.a 0
+  Data.u $10B0
+  Data.a 0
+  Data.u $2D11
+  Data.a 0
+  Data.u $10B1
+  Data.a 0
+  Data.u $2D12
+  Data.a 0
+  Data.u $10B2
+  Data.a 0
+  Data.u $2D13
+  Data.a 0
+  Data.u $10B3
+  Data.a 0
+  Data.u $2D14
+  Data.a 0
+  Data.u $10B4
+  Data.a 0
+  Data.u $2D15
+  Data.a 0
+  Data.u $10B5
+  Data.a 0
+  Data.u $2D16
+  Data.a 0
+  Data.u $10B6
+  Data.a 0
+  Data.u $2D17
+  Data.a 0
+  Data.u $10B7
+  Data.a 0
+  Data.u $2D18
+  Data.a 0
+  Data.u $10B8
+  Data.a 0
+  Data.u $2D19
+  Data.a 0
+  Data.u $10B9
+  Data.a 0
+  Data.u $2D1A
+  Data.a 0
+  Data.u $10BA
+  Data.a 0
+  Data.u $2D1B
+  Data.a 0
+  Data.u $10BB
+  Data.a 0
+  Data.u $2D1C
+  Data.a 0
+  Data.u $10BC
+  Data.a 0
+  Data.u $2D1D
+  Data.a 0
+  Data.u $10BD
+  Data.a 0
+  Data.u $2D1E
+  Data.a 0
+  Data.u $10BE
+  Data.a 0
+  Data.u $2D1F
+  Data.a 0
+  Data.u $10BF
+  Data.a 0
+  Data.u $2D20
+  Data.a 0
+  Data.u $10C0
+  Data.a 0
+  Data.u $2D21
+  Data.a 0
+  Data.u $10C1
+  Data.a 0
+  Data.u $2D22
+  Data.a 0
+  Data.u $10C2
+  Data.a 0
+  Data.u $2D23
+  Data.a 0
+  Data.u $10C3
+  Data.a 0
+  Data.u $2D24
+  Data.a 0
+  Data.u $10C4
+  Data.a 0
+  Data.u $2D25
+  Data.a 0
+  Data.u $10C5
+  Data.a 0
+  Data.u $2D27
+  Data.a 0
+  Data.u $10C7
+  Data.a 0
+  Data.u $2D2D
+  Data.a 0
+  Data.u $10CD
+  Data.a 0
+  Data.u $13F0
+  Data.a 0
+  Data.u $13F8
+  Data.a 0
+  Data.u $13F1
+  Data.a 0
+  Data.u $13F9
+  Data.a 0
+  Data.u $13F2
+  Data.a 0
+  Data.u $13FA
+  Data.a 0
+  Data.u $13F3
+  Data.a 0
+  Data.u $13FB
+  Data.a 0
+  Data.u $13F4
+  Data.a 0
+  Data.u $13FC
+  Data.a 0
+  Data.u $13F5
+  Data.a 0
+  Data.u $13FD
+  Data.a 1
+  Data.u $A64B,$A64A
+  Data.a 1
+  Data.u $1C88,$A64A
+  Data.a 1
+  Data.u $1C88,$A64B
+  Data.a 0
+  Data.u $10D0
+  Data.a 0
+  Data.u $1C90
+  Data.a 0
+  Data.u $10D1
+  Data.a 0
+  Data.u $1C91
+  Data.a 0
+  Data.u $10D2
+  Data.a 0
+  Data.u $1C92
+  Data.a 0
+  Data.u $10D3
+  Data.a 0
+  Data.u $1C93
+  Data.a 0
+  Data.u $10D4
+  Data.a 0
+  Data.u $1C94
+  Data.a 0
+  Data.u $10D5
+  Data.a 0
+  Data.u $1C95
+  Data.a 0
+  Data.u $10D6
+  Data.a 0
+  Data.u $1C96
+  Data.a 0
+  Data.u $10D7
+  Data.a 0
+  Data.u $1C97
+  Data.a 0
+  Data.u $10D8
+  Data.a 0
+  Data.u $1C98
+  Data.a 0
+  Data.u $10D9
+  Data.a 0
+  Data.u $1C99
+  Data.a 0
+  Data.u $10DA
+  Data.a 0
+  Data.u $1C9A
+  Data.a 0
+  Data.u $10DB
+  Data.a 0
+  Data.u $1C9B
+  Data.a 0
+  Data.u $10DC
+  Data.a 0
+  Data.u $1C9C
+  Data.a 0
+  Data.u $10DD
+  Data.a 0
+  Data.u $1C9D
+  Data.a 0
+  Data.u $10DE
+  Data.a 0
+  Data.u $1C9E
+  Data.a 0
+  Data.u $10DF
+  Data.a 0
+  Data.u $1C9F
+  Data.a 0
+  Data.u $10E0
+  Data.a 0
+  Data.u $1CA0
+  Data.a 0
+  Data.u $10E1
+  Data.a 0
+  Data.u $1CA1
+  Data.a 0
+  Data.u $10E2
+  Data.a 0
+  Data.u $1CA2
+  Data.a 0
+  Data.u $10E3
+  Data.a 0
+  Data.u $1CA3
+  Data.a 0
+  Data.u $10E4
+  Data.a 0
+  Data.u $1CA4
+  Data.a 0
+  Data.u $10E5
+  Data.a 0
+  Data.u $1CA5
+  Data.a 0
+  Data.u $10E6
+  Data.a 0
+  Data.u $1CA6
+  Data.a 0
+  Data.u $10E7
+  Data.a 0
+  Data.u $1CA7
+  Data.a 0
+  Data.u $10E8
+  Data.a 0
+  Data.u $1CA8
+  Data.a 0
+  Data.u $10E9
+  Data.a 0
+  Data.u $1CA9
+  Data.a 0
+  Data.u $10EA
+  Data.a 0
+  Data.u $1CAA
+  Data.a 0
+  Data.u $10EB
+  Data.a 0
+  Data.u $1CAB
+  Data.a 0
+  Data.u $10EC
+  Data.a 0
+  Data.u $1CAC
+  Data.a 0
+  Data.u $10ED
+  Data.a 0
+  Data.u $1CAD
+  Data.a 0
+  Data.u $10EE
+  Data.a 0
+  Data.u $1CAE
+  Data.a 0
+  Data.u $10EF
+  Data.a 0
+  Data.u $1CAF
+  Data.a 0
+  Data.u $10F0
+  Data.a 0
+  Data.u $1CB0
+  Data.a 0
+  Data.u $10F1
+  Data.a 0
+  Data.u $1CB1
+  Data.a 0
+  Data.u $10F2
+  Data.a 0
+  Data.u $1CB2
+  Data.a 0
+  Data.u $10F3
+  Data.a 0
+  Data.u $1CB3
+  Data.a 0
+  Data.u $10F4
+  Data.a 0
+  Data.u $1CB4
+  Data.a 0
+  Data.u $10F5
+  Data.a 0
+  Data.u $1CB5
+  Data.a 0
+  Data.u $10F6
+  Data.a 0
+  Data.u $1CB6
+  Data.a 0
+  Data.u $10F7
+  Data.a 0
+  Data.u $1CB7
+  Data.a 0
+  Data.u $10F8
+  Data.a 0
+  Data.u $1CB8
+  Data.a 0
+  Data.u $10F9
+  Data.a 0
+  Data.u $1CB9
+  Data.a 0
+  Data.u $10FA
+  Data.a 0
+  Data.u $1CBA
+  Data.a 0
+  Data.u $10FD
+  Data.a 0
+  Data.u $1CBD
+  Data.a 0
+  Data.u $10FE
+  Data.a 0
+  Data.u $1CBE
+  Data.a 0
+  Data.u $10FF
+  Data.a 0
+  Data.u $1CBF
+  Data.a 0
+  Data.u $1E01
+  Data.a 0
+  Data.u $1E00
+  Data.a 0
+  Data.u $1E03
+  Data.a 0
+  Data.u $1E02
+  Data.a 0
+  Data.u $1E05
+  Data.a 0
+  Data.u $1E04
+  Data.a 0
+  Data.u $1E07
+  Data.a 0
+  Data.u $1E06
+  Data.a 0
+  Data.u $1E09
+  Data.a 0
+  Data.u $1E08
+  Data.a 0
+  Data.u $1E0B
+  Data.a 0
+  Data.u $1E0A
+  Data.a 0
+  Data.u $1E0D
+  Data.a 0
+  Data.u $1E0C
+  Data.a 0
+  Data.u $1E0F
+  Data.a 0
+  Data.u $1E0E
+  Data.a 0
+  Data.u $1E11
+  Data.a 0
+  Data.u $1E10
+  Data.a 0
+  Data.u $1E13
+  Data.a 0
+  Data.u $1E12
+  Data.a 0
+  Data.u $1E15
+  Data.a 0
+  Data.u $1E14
+  Data.a 0
+  Data.u $1E17
+  Data.a 0
+  Data.u $1E16
+  Data.a 0
+  Data.u $1E19
+  Data.a 0
+  Data.u $1E18
+  Data.a 0
+  Data.u $1E1B
+  Data.a 0
+  Data.u $1E1A
+  Data.a 0
+  Data.u $1E1D
+  Data.a 0
+  Data.u $1E1C
+  Data.a 0
+  Data.u $1E1F
+  Data.a 0
+  Data.u $1E1E
+  Data.a 0
+  Data.u $1E21
+  Data.a 0
+  Data.u $1E20
+  Data.a 0
+  Data.u $1E23
+  Data.a 0
+  Data.u $1E22
+  Data.a 0
+  Data.u $1E25
+  Data.a 0
+  Data.u $1E24
+  Data.a 0
+  Data.u $1E27
+  Data.a 0
+  Data.u $1E26
+  Data.a 0
+  Data.u $1E29
+  Data.a 0
+  Data.u $1E28
+  Data.a 0
+  Data.u $1E2B
+  Data.a 0
+  Data.u $1E2A
+  Data.a 0
+  Data.u $1E2D
+  Data.a 0
+  Data.u $1E2C
+  Data.a 0
+  Data.u $1E2F
+  Data.a 0
+  Data.u $1E2E
+  Data.a 0
+  Data.u $1E31
+  Data.a 0
+  Data.u $1E30
+  Data.a 0
+  Data.u $1E33
+  Data.a 0
+  Data.u $1E32
+  Data.a 0
+  Data.u $1E35
+  Data.a 0
+  Data.u $1E34
+  Data.a 0
+  Data.u $1E37
+  Data.a 0
+  Data.u $1E36
+  Data.a 0
+  Data.u $1E39
+  Data.a 0
+  Data.u $1E38
+  Data.a 0
+  Data.u $1E3B
+  Data.a 0
+  Data.u $1E3A
+  Data.a 0
+  Data.u $1E3D
+  Data.a 0
+  Data.u $1E3C
+  Data.a 0
+  Data.u $1E3F
+  Data.a 0
+  Data.u $1E3E
+  Data.a 0
+  Data.u $1E41
+  Data.a 0
+  Data.u $1E40
+  Data.a 0
+  Data.u $1E43
+  Data.a 0
+  Data.u $1E42
+  Data.a 0
+  Data.u $1E45
+  Data.a 0
+  Data.u $1E44
+  Data.a 0
+  Data.u $1E47
+  Data.a 0
+  Data.u $1E46
+  Data.a 0
+  Data.u $1E49
+  Data.a 0
+  Data.u $1E48
+  Data.a 0
+  Data.u $1E4B
+  Data.a 0
+  Data.u $1E4A
+  Data.a 0
+  Data.u $1E4D
+  Data.a 0
+  Data.u $1E4C
+  Data.a 0
+  Data.u $1E4F
+  Data.a 0
+  Data.u $1E4E
+  Data.a 0
+  Data.u $1E51
+  Data.a 0
+  Data.u $1E50
+  Data.a 0
+  Data.u $1E53
+  Data.a 0
+  Data.u $1E52
+  Data.a 0
+  Data.u $1E55
+  Data.a 0
+  Data.u $1E54
+  Data.a 0
+  Data.u $1E57
+  Data.a 0
+  Data.u $1E56
+  Data.a 0
+  Data.u $1E59
+  Data.a 0
+  Data.u $1E58
+  Data.a 0
+  Data.u $1E5B
+  Data.a 0
+  Data.u $1E5A
+  Data.a 0
+  Data.u $1E5D
+  Data.a 0
+  Data.u $1E5C
+  Data.a 0
+  Data.u $1E5F
+  Data.a 0
+  Data.u $1E5E
+  Data.a 1
+  Data.u $1E61,$1E9B
+  Data.a 1
+  Data.u $1E60,$1E9B
+  Data.a 1
+  Data.u $1E60,$1E61
+  Data.a 0
+  Data.u $1E63
+  Data.a 0
+  Data.u $1E62
+  Data.a 0
+  Data.u $1E65
+  Data.a 0
+  Data.u $1E64
+  Data.a 0
+  Data.u $1E67
+  Data.a 0
+  Data.u $1E66
+  Data.a 0
+  Data.u $1E69
+  Data.a 0
+  Data.u $1E68
+  Data.a 0
+  Data.u $1E6B
+  Data.a 0
+  Data.u $1E6A
+  Data.a 0
+  Data.u $1E6D
+  Data.a 0
+  Data.u $1E6C
+  Data.a 0
+  Data.u $1E6F
+  Data.a 0
+  Data.u $1E6E
+  Data.a 0
+  Data.u $1E71
+  Data.a 0
+  Data.u $1E70
+  Data.a 0
+  Data.u $1E73
+  Data.a 0
+  Data.u $1E72
+  Data.a 0
+  Data.u $1E75
+  Data.a 0
+  Data.u $1E74
+  Data.a 0
+  Data.u $1E77
+  Data.a 0
+  Data.u $1E76
+  Data.a 0
+  Data.u $1E79
+  Data.a 0
+  Data.u $1E78
+  Data.a 0
+  Data.u $1E7B
+  Data.a 0
+  Data.u $1E7A
+  Data.a 0
+  Data.u $1E7D
+  Data.a 0
+  Data.u $1E7C
+  Data.a 0
+  Data.u $1E7F
+  Data.a 0
+  Data.u $1E7E
+  Data.a 0
+  Data.u $1E81
+  Data.a 0
+  Data.u $1E80
+  Data.a 0
+  Data.u $1E83
+  Data.a 0
+  Data.u $1E82
+  Data.a 0
+  Data.u $1E85
+  Data.a 0
+  Data.u $1E84
+  Data.a 0
+  Data.u $1E87
+  Data.a 0
+  Data.u $1E86
+  Data.a 0
+  Data.u $1E89
+  Data.a 0
+  Data.u $1E88
+  Data.a 0
+  Data.u $1E8B
+  Data.a 0
+  Data.u $1E8A
+  Data.a 0
+  Data.u $1E8D
+  Data.a 0
+  Data.u $1E8C
+  Data.a 0
+  Data.u $1E8F
+  Data.a 0
+  Data.u $1E8E
+  Data.a 0
+  Data.u $1E91
+  Data.a 0
+  Data.u $1E90
+  Data.a 0
+  Data.u $1E93
+  Data.a 0
+  Data.u $1E92
+  Data.a 0
+  Data.u $1E95
+  Data.a 0
+  Data.u $1E94
+  Data.a 0
+  Data.u $00DF
+  Data.a 0
+  Data.u $1E9E
+  Data.a 0
+  Data.u $1EA1
+  Data.a 0
+  Data.u $1EA0
+  Data.a 0
+  Data.u $1EA3
+  Data.a 0
+  Data.u $1EA2
+  Data.a 0
+  Data.u $1EA5
+  Data.a 0
+  Data.u $1EA4
+  Data.a 0
+  Data.u $1EA7
+  Data.a 0
+  Data.u $1EA6
+  Data.a 0
+  Data.u $1EA9
+  Data.a 0
+  Data.u $1EA8
+  Data.a 0
+  Data.u $1EAB
+  Data.a 0
+  Data.u $1EAA
+  Data.a 0
+  Data.u $1EAD
+  Data.a 0
+  Data.u $1EAC
+  Data.a 0
+  Data.u $1EAF
+  Data.a 0
+  Data.u $1EAE
+  Data.a 0
+  Data.u $1EB1
+  Data.a 0
+  Data.u $1EB0
+  Data.a 0
+  Data.u $1EB3
+  Data.a 0
+  Data.u $1EB2
+  Data.a 0
+  Data.u $1EB5
+  Data.a 0
+  Data.u $1EB4
+  Data.a 0
+  Data.u $1EB7
+  Data.a 0
+  Data.u $1EB6
+  Data.a 0
+  Data.u $1EB9
+  Data.a 0
+  Data.u $1EB8
+  Data.a 0
+  Data.u $1EBB
+  Data.a 0
+  Data.u $1EBA
+  Data.a 0
+  Data.u $1EBD
+  Data.a 0
+  Data.u $1EBC
+  Data.a 0
+  Data.u $1EBF
+  Data.a 0
+  Data.u $1EBE
+  Data.a 0
+  Data.u $1EC1
+  Data.a 0
+  Data.u $1EC0
+  Data.a 0
+  Data.u $1EC3
+  Data.a 0
+  Data.u $1EC2
+  Data.a 0
+  Data.u $1EC5
+  Data.a 0
+  Data.u $1EC4
+  Data.a 0
+  Data.u $1EC7
+  Data.a 0
+  Data.u $1EC6
+  Data.a 0
+  Data.u $1EC9
+  Data.a 0
+  Data.u $1EC8
+  Data.a 0
+  Data.u $1ECB
+  Data.a 0
+  Data.u $1ECA
+  Data.a 0
+  Data.u $1ECD
+  Data.a 0
+  Data.u $1ECC
+  Data.a 0
+  Data.u $1ECF
+  Data.a 0
+  Data.u $1ECE
+  Data.a 0
+  Data.u $1ED1
+  Data.a 0
+  Data.u $1ED0
+  Data.a 0
+  Data.u $1ED3
+  Data.a 0
+  Data.u $1ED2
+  Data.a 0
+  Data.u $1ED5
+  Data.a 0
+  Data.u $1ED4
+  Data.a 0
+  Data.u $1ED7
+  Data.a 0
+  Data.u $1ED6
+  Data.a 0
+  Data.u $1ED9
+  Data.a 0
+  Data.u $1ED8
+  Data.a 0
+  Data.u $1EDB
+  Data.a 0
+  Data.u $1EDA
+  Data.a 0
+  Data.u $1EDD
+  Data.a 0
+  Data.u $1EDC
+  Data.a 0
+  Data.u $1EDF
+  Data.a 0
+  Data.u $1EDE
+  Data.a 0
+  Data.u $1EE1
+  Data.a 0
+  Data.u $1EE0
+  Data.a 0
+  Data.u $1EE3
+  Data.a 0
+  Data.u $1EE2
+  Data.a 0
+  Data.u $1EE5
+  Data.a 0
+  Data.u $1EE4
+  Data.a 0
+  Data.u $1EE7
+  Data.a 0
+  Data.u $1EE6
+  Data.a 0
+  Data.u $1EE9
+  Data.a 0
+  Data.u $1EE8
+  Data.a 0
+  Data.u $1EEB
+  Data.a 0
+  Data.u $1EEA
+  Data.a 0
+  Data.u $1EED
+  Data.a 0
+  Data.u $1EEC
+  Data.a 0
+  Data.u $1EEF
+  Data.a 0
+  Data.u $1EEE
+  Data.a 0
+  Data.u $1EF1
+  Data.a 0
+  Data.u $1EF0
+  Data.a 0
+  Data.u $1EF3
+  Data.a 0
+  Data.u $1EF2
+  Data.a 0
+  Data.u $1EF5
+  Data.a 0
+  Data.u $1EF4
+  Data.a 0
+  Data.u $1EF7
+  Data.a 0
+  Data.u $1EF6
+  Data.a 0
+  Data.u $1EF9
+  Data.a 0
+  Data.u $1EF8
+  Data.a 0
+  Data.u $1EFB
+  Data.a 0
+  Data.u $1EFA
+  Data.a 0
+  Data.u $1EFD
+  Data.a 0
+  Data.u $1EFC
+  Data.a 0
+  Data.u $1EFF
+  Data.a 0
+  Data.u $1EFE
+  Data.a 0
+  Data.u $1F00
+  Data.a 0
+  Data.u $1F08
+  Data.a 0
+  Data.u $1F01
+  Data.a 0
+  Data.u $1F09
+  Data.a 0
+  Data.u $1F02
+  Data.a 0
+  Data.u $1F0A
+  Data.a 0
+  Data.u $1F03
+  Data.a 0
+  Data.u $1F0B
+  Data.a 0
+  Data.u $1F04
+  Data.a 0
+  Data.u $1F0C
+  Data.a 0
+  Data.u $1F05
+  Data.a 0
+  Data.u $1F0D
+  Data.a 0
+  Data.u $1F06
+  Data.a 0
+  Data.u $1F0E
+  Data.a 0
+  Data.u $1F07
+  Data.a 0
+  Data.u $1F0F
+  Data.a 0
+  Data.u $1F10
+  Data.a 0
+  Data.u $1F18
+  Data.a 0
+  Data.u $1F11
+  Data.a 0
+  Data.u $1F19
+  Data.a 0
+  Data.u $1F12
+  Data.a 0
+  Data.u $1F1A
+  Data.a 0
+  Data.u $1F13
+  Data.a 0
+  Data.u $1F1B
+  Data.a 0
+  Data.u $1F14
+  Data.a 0
+  Data.u $1F1C
+  Data.a 0
+  Data.u $1F15
+  Data.a 0
+  Data.u $1F1D
+  Data.a 0
+  Data.u $1F20
+  Data.a 0
+  Data.u $1F28
+  Data.a 0
+  Data.u $1F21
+  Data.a 0
+  Data.u $1F29
+  Data.a 0
+  Data.u $1F22
+  Data.a 0
+  Data.u $1F2A
+  Data.a 0
+  Data.u $1F23
+  Data.a 0
+  Data.u $1F2B
+  Data.a 0
+  Data.u $1F24
+  Data.a 0
+  Data.u $1F2C
+  Data.a 0
+  Data.u $1F25
+  Data.a 0
+  Data.u $1F2D
+  Data.a 0
+  Data.u $1F26
+  Data.a 0
+  Data.u $1F2E
+  Data.a 0
+  Data.u $1F27
+  Data.a 0
+  Data.u $1F2F
+  Data.a 0
+  Data.u $1F30
+  Data.a 0
+  Data.u $1F38
+  Data.a 0
+  Data.u $1F31
+  Data.a 0
+  Data.u $1F39
+  Data.a 0
+  Data.u $1F32
+  Data.a 0
+  Data.u $1F3A
+  Data.a 0
+  Data.u $1F33
+  Data.a 0
+  Data.u $1F3B
+  Data.a 0
+  Data.u $1F34
+  Data.a 0
+  Data.u $1F3C
+  Data.a 0
+  Data.u $1F35
+  Data.a 0
+  Data.u $1F3D
+  Data.a 0
+  Data.u $1F36
+  Data.a 0
+  Data.u $1F3E
+  Data.a 0
+  Data.u $1F37
+  Data.a 0
+  Data.u $1F3F
+  Data.a 0
+  Data.u $1F40
+  Data.a 0
+  Data.u $1F48
+  Data.a 0
+  Data.u $1F41
+  Data.a 0
+  Data.u $1F49
+  Data.a 0
+  Data.u $1F42
+  Data.a 0
+  Data.u $1F4A
+  Data.a 0
+  Data.u $1F43
+  Data.a 0
+  Data.u $1F4B
+  Data.a 0
+  Data.u $1F44
+  Data.a 0
+  Data.u $1F4C
+  Data.a 0
+  Data.u $1F45
+  Data.a 0
+  Data.u $1F4D
+  Data.a 0
+  Data.u $1F51
+  Data.a 0
+  Data.u $1F59
+  Data.a 0
+  Data.u $1F53
+  Data.a 0
+  Data.u $1F5B
+  Data.a 0
+  Data.u $1F55
+  Data.a 0
+  Data.u $1F5D
+  Data.a 0
+  Data.u $1F57
+  Data.a 0
+  Data.u $1F5F
+  Data.a 0
+  Data.u $1F60
+  Data.a 0
+  Data.u $1F68
+  Data.a 0
+  Data.u $1F61
+  Data.a 0
+  Data.u $1F69
+  Data.a 0
+  Data.u $1F62
+  Data.a 0
+  Data.u $1F6A
+  Data.a 0
+  Data.u $1F63
+  Data.a 0
+  Data.u $1F6B
+  Data.a 0
+  Data.u $1F64
+  Data.a 0
+  Data.u $1F6C
+  Data.a 0
+  Data.u $1F65
+  Data.a 0
+  Data.u $1F6D
+  Data.a 0
+  Data.u $1F66
+  Data.a 0
+  Data.u $1F6E
+  Data.a 0
+  Data.u $1F67
+  Data.a 0
+  Data.u $1F6F
+  Data.a 0
+  Data.u $1F80
+  Data.a 0
+  Data.u $1F88
+  Data.a 0
+  Data.u $1F81
+  Data.a 0
+  Data.u $1F89
+  Data.a 0
+  Data.u $1F82
+  Data.a 0
+  Data.u $1F8A
+  Data.a 0
+  Data.u $1F83
+  Data.a 0
+  Data.u $1F8B
+  Data.a 0
+  Data.u $1F84
+  Data.a 0
+  Data.u $1F8C
+  Data.a 0
+  Data.u $1F85
+  Data.a 0
+  Data.u $1F8D
+  Data.a 0
+  Data.u $1F86
+  Data.a 0
+  Data.u $1F8E
+  Data.a 0
+  Data.u $1F87
+  Data.a 0
+  Data.u $1F8F
+  Data.a 0
+  Data.u $1F90
+  Data.a 0
+  Data.u $1F98
+  Data.a 0
+  Data.u $1F91
+  Data.a 0
+  Data.u $1F99
+  Data.a 0
+  Data.u $1F92
+  Data.a 0
+  Data.u $1F9A
+  Data.a 0
+  Data.u $1F93
+  Data.a 0
+  Data.u $1F9B
+  Data.a 0
+  Data.u $1F94
+  Data.a 0
+  Data.u $1F9C
+  Data.a 0
+  Data.u $1F95
+  Data.a 0
+  Data.u $1F9D
+  Data.a 0
+  Data.u $1F96
+  Data.a 0
+  Data.u $1F9E
+  Data.a 0
+  Data.u $1F97
+  Data.a 0
+  Data.u $1F9F
+  Data.a 0
+  Data.u $1FA0
+  Data.a 0
+  Data.u $1FA8
+  Data.a 0
+  Data.u $1FA1
+  Data.a 0
+  Data.u $1FA9
+  Data.a 0
+  Data.u $1FA2
+  Data.a 0
+  Data.u $1FAA
+  Data.a 0
+  Data.u $1FA3
+  Data.a 0
+  Data.u $1FAB
+  Data.a 0
+  Data.u $1FA4
+  Data.a 0
+  Data.u $1FAC
+  Data.a 0
+  Data.u $1FA5
+  Data.a 0
+  Data.u $1FAD
+  Data.a 0
+  Data.u $1FA6
+  Data.a 0
+  Data.u $1FAE
+  Data.a 0
+  Data.u $1FA7
+  Data.a 0
+  Data.u $1FAF
+  Data.a 0
+  Data.u $1FB0
+  Data.a 0
+  Data.u $1FB8
+  Data.a 0
+  Data.u $1FB1
+  Data.a 0
+  Data.u $1FB9
+  Data.a 0
+  Data.u $1F70
+  Data.a 0
+  Data.u $1FBA
+  Data.a 0
+  Data.u $1F71
+  Data.a 0
+  Data.u $1FBB
+  Data.a 0
+  Data.u $1FB3
+  Data.a 0
+  Data.u $1FBC
+  Data.a 0
+  Data.u $1F72
+  Data.a 0
+  Data.u $1FC8
+  Data.a 0
+  Data.u $1F73
+  Data.a 0
+  Data.u $1FC9
+  Data.a 0
+  Data.u $1F74
+  Data.a 0
+  Data.u $1FCA
+  Data.a 0
+  Data.u $1F75
+  Data.a 0
+  Data.u $1FCB
+  Data.a 0
+  Data.u $1FC3
+  Data.a 0
+  Data.u $1FCC
+  Data.a 0
+  Data.u $1FD0
+  Data.a 0
+  Data.u $1FD8
+  Data.a 0
+  Data.u $1FD1
+  Data.a 0
+  Data.u $1FD9
+  Data.a 0
+  Data.u $1F76
+  Data.a 0
+  Data.u $1FDA
+  Data.a 0
+  Data.u $1F77
+  Data.a 0
+  Data.u $1FDB
+  Data.a 0
+  Data.u $1FE0
+  Data.a 0
+  Data.u $1FE8
+  Data.a 0
+  Data.u $1FE1
+  Data.a 0
+  Data.u $1FE9
+  Data.a 0
+  Data.u $1F7A
+  Data.a 0
+  Data.u $1FEA
+  Data.a 0
+  Data.u $1F7B
+  Data.a 0
+  Data.u $1FEB
+  Data.a 0
+  Data.u $1FE5
+  Data.a 0
+  Data.u $1FEC
+  Data.a 0
+  Data.u $1F78
+  Data.a 0
+  Data.u $1FF8
+  Data.a 0
+  Data.u $1F79
+  Data.a 0
+  Data.u $1FF9
+  Data.a 0
+  Data.u $1F7C
+  Data.a 0
+  Data.u $1FFA
+  Data.a 0
+  Data.u $1F7D
+  Data.a 0
+  Data.u $1FFB
+  Data.a 0
+  Data.u $1FF3
+  Data.a 0
+  Data.u $1FFC
+  Data.a 0
+  Data.u $214E
+  Data.a 0
+  Data.u $2132
+  Data.a 0
+  Data.u $2170
+  Data.a 0
+  Data.u $2160
+  Data.a 0
+  Data.u $2171
+  Data.a 0
+  Data.u $2161
+  Data.a 0
+  Data.u $2172
+  Data.a 0
+  Data.u $2162
+  Data.a 0
+  Data.u $2173
+  Data.a 0
+  Data.u $2163
+  Data.a 0
+  Data.u $2174
+  Data.a 0
+  Data.u $2164
+  Data.a 0
+  Data.u $2175
+  Data.a 0
+  Data.u $2165
+  Data.a 0
+  Data.u $2176
+  Data.a 0
+  Data.u $2166
+  Data.a 0
+  Data.u $2177
+  Data.a 0
+  Data.u $2167
+  Data.a 0
+  Data.u $2178
+  Data.a 0
+  Data.u $2168
+  Data.a 0
+  Data.u $2179
+  Data.a 0
+  Data.u $2169
+  Data.a 0
+  Data.u $217A
+  Data.a 0
+  Data.u $216A
+  Data.a 0
+  Data.u $217B
+  Data.a 0
+  Data.u $216B
+  Data.a 0
+  Data.u $217C
+  Data.a 0
+  Data.u $216C
+  Data.a 0
+  Data.u $217D
+  Data.a 0
+  Data.u $216D
+  Data.a 0
+  Data.u $217E
+  Data.a 0
+  Data.u $216E
+  Data.a 0
+  Data.u $217F
+  Data.a 0
+  Data.u $216F
+  Data.a 0
+  Data.u $2184
+  Data.a 0
+  Data.u $2183
+  Data.a 0
+  Data.u $24D0
+  Data.a 0
+  Data.u $24B6
+  Data.a 0
+  Data.u $24D1
+  Data.a 0
+  Data.u $24B7
+  Data.a 0
+  Data.u $24D2
+  Data.a 0
+  Data.u $24B8
+  Data.a 0
+  Data.u $24D3
+  Data.a 0
+  Data.u $24B9
+  Data.a 0
+  Data.u $24D4
+  Data.a 0
+  Data.u $24BA
+  Data.a 0
+  Data.u $24D5
+  Data.a 0
+  Data.u $24BB
+  Data.a 0
+  Data.u $24D6
+  Data.a 0
+  Data.u $24BC
+  Data.a 0
+  Data.u $24D7
+  Data.a 0
+  Data.u $24BD
+  Data.a 0
+  Data.u $24D8
+  Data.a 0
+  Data.u $24BE
+  Data.a 0
+  Data.u $24D9
+  Data.a 0
+  Data.u $24BF
+  Data.a 0
+  Data.u $24DA
+  Data.a 0
+  Data.u $24C0
+  Data.a 0
+  Data.u $24DB
+  Data.a 0
+  Data.u $24C1
+  Data.a 0
+  Data.u $24DC
+  Data.a 0
+  Data.u $24C2
+  Data.a 0
+  Data.u $24DD
+  Data.a 0
+  Data.u $24C3
+  Data.a 0
+  Data.u $24DE
+  Data.a 0
+  Data.u $24C4
+  Data.a 0
+  Data.u $24DF
+  Data.a 0
+  Data.u $24C5
+  Data.a 0
+  Data.u $24E0
+  Data.a 0
+  Data.u $24C6
+  Data.a 0
+  Data.u $24E1
+  Data.a 0
+  Data.u $24C7
+  Data.a 0
+  Data.u $24E2
+  Data.a 0
+  Data.u $24C8
+  Data.a 0
+  Data.u $24E3
+  Data.a 0
+  Data.u $24C9
+  Data.a 0
+  Data.u $24E4
+  Data.a 0
+  Data.u $24CA
+  Data.a 0
+  Data.u $24E5
+  Data.a 0
+  Data.u $24CB
+  Data.a 0
+  Data.u $24E6
+  Data.a 0
+  Data.u $24CC
+  Data.a 0
+  Data.u $24E7
+  Data.a 0
+  Data.u $24CD
+  Data.a 0
+  Data.u $24E8
+  Data.a 0
+  Data.u $24CE
+  Data.a 0
+  Data.u $24E9
+  Data.a 0
+  Data.u $24CF
+  Data.a 0
+  Data.u $2C30
+  Data.a 0
+  Data.u $2C00
+  Data.a 0
+  Data.u $2C31
+  Data.a 0
+  Data.u $2C01
+  Data.a 0
+  Data.u $2C32
+  Data.a 0
+  Data.u $2C02
+  Data.a 0
+  Data.u $2C33
+  Data.a 0
+  Data.u $2C03
+  Data.a 0
+  Data.u $2C34
+  Data.a 0
+  Data.u $2C04
+  Data.a 0
+  Data.u $2C35
+  Data.a 0
+  Data.u $2C05
+  Data.a 0
+  Data.u $2C36
+  Data.a 0
+  Data.u $2C06
+  Data.a 0
+  Data.u $2C37
+  Data.a 0
+  Data.u $2C07
+  Data.a 0
+  Data.u $2C38
+  Data.a 0
+  Data.u $2C08
+  Data.a 0
+  Data.u $2C39
+  Data.a 0
+  Data.u $2C09
+  Data.a 0
+  Data.u $2C3A
+  Data.a 0
+  Data.u $2C0A
+  Data.a 0
+  Data.u $2C3B
+  Data.a 0
+  Data.u $2C0B
+  Data.a 0
+  Data.u $2C3C
+  Data.a 0
+  Data.u $2C0C
+  Data.a 0
+  Data.u $2C3D
+  Data.a 0
+  Data.u $2C0D
+  Data.a 0
+  Data.u $2C3E
+  Data.a 0
+  Data.u $2C0E
+  Data.a 0
+  Data.u $2C3F
+  Data.a 0
+  Data.u $2C0F
+  Data.a 0
+  Data.u $2C40
+  Data.a 0
+  Data.u $2C10
+  Data.a 0
+  Data.u $2C41
+  Data.a 0
+  Data.u $2C11
+  Data.a 0
+  Data.u $2C42
+  Data.a 0
+  Data.u $2C12
+  Data.a 0
+  Data.u $2C43
+  Data.a 0
+  Data.u $2C13
+  Data.a 0
+  Data.u $2C44
+  Data.a 0
+  Data.u $2C14
+  Data.a 0
+  Data.u $2C45
+  Data.a 0
+  Data.u $2C15
+  Data.a 0
+  Data.u $2C46
+  Data.a 0
+  Data.u $2C16
+  Data.a 0
+  Data.u $2C47
+  Data.a 0
+  Data.u $2C17
+  Data.a 0
+  Data.u $2C48
+  Data.a 0
+  Data.u $2C18
+  Data.a 0
+  Data.u $2C49
+  Data.a 0
+  Data.u $2C19
+  Data.a 0
+  Data.u $2C4A
+  Data.a 0
+  Data.u $2C1A
+  Data.a 0
+  Data.u $2C4B
+  Data.a 0
+  Data.u $2C1B
+  Data.a 0
+  Data.u $2C4C
+  Data.a 0
+  Data.u $2C1C
+  Data.a 0
+  Data.u $2C4D
+  Data.a 0
+  Data.u $2C1D
+  Data.a 0
+  Data.u $2C4E
+  Data.a 0
+  Data.u $2C1E
+  Data.a 0
+  Data.u $2C4F
+  Data.a 0
+  Data.u $2C1F
+  Data.a 0
+  Data.u $2C50
+  Data.a 0
+  Data.u $2C20
+  Data.a 0
+  Data.u $2C51
+  Data.a 0
+  Data.u $2C21
+  Data.a 0
+  Data.u $2C52
+  Data.a 0
+  Data.u $2C22
+  Data.a 0
+  Data.u $2C53
+  Data.a 0
+  Data.u $2C23
+  Data.a 0
+  Data.u $2C54
+  Data.a 0
+  Data.u $2C24
+  Data.a 0
+  Data.u $2C55
+  Data.a 0
+  Data.u $2C25
+  Data.a 0
+  Data.u $2C56
+  Data.a 0
+  Data.u $2C26
+  Data.a 0
+  Data.u $2C57
+  Data.a 0
+  Data.u $2C27
+  Data.a 0
+  Data.u $2C58
+  Data.a 0
+  Data.u $2C28
+  Data.a 0
+  Data.u $2C59
+  Data.a 0
+  Data.u $2C29
+  Data.a 0
+  Data.u $2C5A
+  Data.a 0
+  Data.u $2C2A
+  Data.a 0
+  Data.u $2C5B
+  Data.a 0
+  Data.u $2C2B
+  Data.a 0
+  Data.u $2C5C
+  Data.a 0
+  Data.u $2C2C
+  Data.a 0
+  Data.u $2C5D
+  Data.a 0
+  Data.u $2C2D
+  Data.a 0
+  Data.u $2C5E
+  Data.a 0
+  Data.u $2C2E
+  Data.a 0
+  Data.u $2C5F
+  Data.a 0
+  Data.u $2C2F
+  Data.a 0
+  Data.u $2C61
+  Data.a 0
+  Data.u $2C60
+  Data.a 0
+  Data.u $026B
+  Data.a 0
+  Data.u $2C62
+  Data.a 0
+  Data.u $1D7D
+  Data.a 0
+  Data.u $2C63
+  Data.a 0
+  Data.u $027D
+  Data.a 0
+  Data.u $2C64
+  Data.a 0
+  Data.u $2C68
+  Data.a 0
+  Data.u $2C67
+  Data.a 0
+  Data.u $2C6A
+  Data.a 0
+  Data.u $2C69
+  Data.a 0
+  Data.u $2C6C
+  Data.a 0
+  Data.u $2C6B
+  Data.a 0
+  Data.u $0251
+  Data.a 0
+  Data.u $2C6D
+  Data.a 0
+  Data.u $0271
+  Data.a 0
+  Data.u $2C6E
+  Data.a 0
+  Data.u $0250
+  Data.a 0
+  Data.u $2C6F
+  Data.a 0
+  Data.u $0252
+  Data.a 0
+  Data.u $2C70
+  Data.a 0
+  Data.u $2C73
+  Data.a 0
+  Data.u $2C72
+  Data.a 0
+  Data.u $2C76
+  Data.a 0
+  Data.u $2C75
+  Data.a 0
+  Data.u $023F
+  Data.a 0
+  Data.u $2C7E
+  Data.a 0
+  Data.u $0240
+  Data.a 0
+  Data.u $2C7F
+  Data.a 0
+  Data.u $2C81
+  Data.a 0
+  Data.u $2C80
+  Data.a 0
+  Data.u $2C83
+  Data.a 0
+  Data.u $2C82
+  Data.a 0
+  Data.u $2C85
+  Data.a 0
+  Data.u $2C84
+  Data.a 0
+  Data.u $2C87
+  Data.a 0
+  Data.u $2C86
+  Data.a 0
+  Data.u $2C89
+  Data.a 0
+  Data.u $2C88
+  Data.a 0
+  Data.u $2C8B
+  Data.a 0
+  Data.u $2C8A
+  Data.a 0
+  Data.u $2C8D
+  Data.a 0
+  Data.u $2C8C
+  Data.a 0
+  Data.u $2C8F
+  Data.a 0
+  Data.u $2C8E
+  Data.a 0
+  Data.u $2C91
+  Data.a 0
+  Data.u $2C90
+  Data.a 0
+  Data.u $2C93
+  Data.a 0
+  Data.u $2C92
+  Data.a 0
+  Data.u $2C95
+  Data.a 0
+  Data.u $2C94
+  Data.a 0
+  Data.u $2C97
+  Data.a 0
+  Data.u $2C96
+  Data.a 0
+  Data.u $2C99
+  Data.a 0
+  Data.u $2C98
+  Data.a 0
+  Data.u $2C9B
+  Data.a 0
+  Data.u $2C9A
+  Data.a 0
+  Data.u $2C9D
+  Data.a 0
+  Data.u $2C9C
+  Data.a 0
+  Data.u $2C9F
+  Data.a 0
+  Data.u $2C9E
+  Data.a 0
+  Data.u $2CA1
+  Data.a 0
+  Data.u $2CA0
+  Data.a 0
+  Data.u $2CA3
+  Data.a 0
+  Data.u $2CA2
+  Data.a 0
+  Data.u $2CA5
+  Data.a 0
+  Data.u $2CA4
+  Data.a 0
+  Data.u $2CA7
+  Data.a 0
+  Data.u $2CA6
+  Data.a 0
+  Data.u $2CA9
+  Data.a 0
+  Data.u $2CA8
+  Data.a 0
+  Data.u $2CAB
+  Data.a 0
+  Data.u $2CAA
+  Data.a 0
+  Data.u $2CAD
+  Data.a 0
+  Data.u $2CAC
+  Data.a 0
+  Data.u $2CAF
+  Data.a 0
+  Data.u $2CAE
+  Data.a 0
+  Data.u $2CB1
+  Data.a 0
+  Data.u $2CB0
+  Data.a 0
+  Data.u $2CB3
+  Data.a 0
+  Data.u $2CB2
+  Data.a 0
+  Data.u $2CB5
+  Data.a 0
+  Data.u $2CB4
+  Data.a 0
+  Data.u $2CB7
+  Data.a 0
+  Data.u $2CB6
+  Data.a 0
+  Data.u $2CB9
+  Data.a 0
+  Data.u $2CB8
+  Data.a 0
+  Data.u $2CBB
+  Data.a 0
+  Data.u $2CBA
+  Data.a 0
+  Data.u $2CBD
+  Data.a 0
+  Data.u $2CBC
+  Data.a 0
+  Data.u $2CBF
+  Data.a 0
+  Data.u $2CBE
+  Data.a 0
+  Data.u $2CC1
+  Data.a 0
+  Data.u $2CC0
+  Data.a 0
+  Data.u $2CC3
+  Data.a 0
+  Data.u $2CC2
+  Data.a 0
+  Data.u $2CC5
+  Data.a 0
+  Data.u $2CC4
+  Data.a 0
+  Data.u $2CC7
+  Data.a 0
+  Data.u $2CC6
+  Data.a 0
+  Data.u $2CC9
+  Data.a 0
+  Data.u $2CC8
+  Data.a 0
+  Data.u $2CCB
+  Data.a 0
+  Data.u $2CCA
+  Data.a 0
+  Data.u $2CCD
+  Data.a 0
+  Data.u $2CCC
+  Data.a 0
+  Data.u $2CCF
+  Data.a 0
+  Data.u $2CCE
+  Data.a 0
+  Data.u $2CD1
+  Data.a 0
+  Data.u $2CD0
+  Data.a 0
+  Data.u $2CD3
+  Data.a 0
+  Data.u $2CD2
+  Data.a 0
+  Data.u $2CD5
+  Data.a 0
+  Data.u $2CD4
+  Data.a 0
+  Data.u $2CD7
+  Data.a 0
+  Data.u $2CD6
+  Data.a 0
+  Data.u $2CD9
+  Data.a 0
+  Data.u $2CD8
+  Data.a 0
+  Data.u $2CDB
+  Data.a 0
+  Data.u $2CDA
+  Data.a 0
+  Data.u $2CDD
+  Data.a 0
+  Data.u $2CDC
+  Data.a 0
+  Data.u $2CDF
+  Data.a 0
+  Data.u $2CDE
+  Data.a 0
+  Data.u $2CE1
+  Data.a 0
+  Data.u $2CE0
+  Data.a 0
+  Data.u $2CE3
+  Data.a 0
+  Data.u $2CE2
+  Data.a 0
+  Data.u $2CEC
+  Data.a 0
+  Data.u $2CEB
+  Data.a 0
+  Data.u $2CEE
+  Data.a 0
+  Data.u $2CED
+  Data.a 0
+  Data.u $2CF3
+  Data.a 0
+  Data.u $2CF2
+  Data.a 0
+  Data.u $A641
+  Data.a 0
+  Data.u $A640
+  Data.a 0
+  Data.u $A643
+  Data.a 0
+  Data.u $A642
+  Data.a 0
+  Data.u $A645
+  Data.a 0
+  Data.u $A644
+  Data.a 0
+  Data.u $A647
+  Data.a 0
+  Data.u $A646
+  Data.a 0
+  Data.u $A649
+  Data.a 0
+  Data.u $A648
+  Data.a 0
+  Data.u $A64D
+  Data.a 0
+  Data.u $A64C
+  Data.a 0
+  Data.u $A64F
+  Data.a 0
+  Data.u $A64E
+  Data.a 0
+  Data.u $A651
+  Data.a 0
+  Data.u $A650
+  Data.a 0
+  Data.u $A653
+  Data.a 0
+  Data.u $A652
+  Data.a 0
+  Data.u $A655
+  Data.a 0
+  Data.u $A654
+  Data.a 0
+  Data.u $A657
+  Data.a 0
+  Data.u $A656
+  Data.a 0
+  Data.u $A659
+  Data.a 0
+  Data.u $A658
+  Data.a 0
+  Data.u $A65B
+  Data.a 0
+  Data.u $A65A
+  Data.a 0
+  Data.u $A65D
+  Data.a 0
+  Data.u $A65C
+  Data.a 0
+  Data.u $A65F
+  Data.a 0
+  Data.u $A65E
+  Data.a 0
+  Data.u $A661
+  Data.a 0
+  Data.u $A660
+  Data.a 0
+  Data.u $A663
+  Data.a 0
+  Data.u $A662
+  Data.a 0
+  Data.u $A665
+  Data.a 0
+  Data.u $A664
+  Data.a 0
+  Data.u $A667
+  Data.a 0
+  Data.u $A666
+  Data.a 0
+  Data.u $A669
+  Data.a 0
+  Data.u $A668
+  Data.a 0
+  Data.u $A66B
+  Data.a 0
+  Data.u $A66A
+  Data.a 0
+  Data.u $A66D
+  Data.a 0
+  Data.u $A66C
+  Data.a 0
+  Data.u $A681
+  Data.a 0
+  Data.u $A680
+  Data.a 0
+  Data.u $A683
+  Data.a 0
+  Data.u $A682
+  Data.a 0
+  Data.u $A685
+  Data.a 0
+  Data.u $A684
+  Data.a 0
+  Data.u $A687
+  Data.a 0
+  Data.u $A686
+  Data.a 0
+  Data.u $A689
+  Data.a 0
+  Data.u $A688
+  Data.a 0
+  Data.u $A68B
+  Data.a 0
+  Data.u $A68A
+  Data.a 0
+  Data.u $A68D
+  Data.a 0
+  Data.u $A68C
+  Data.a 0
+  Data.u $A68F
+  Data.a 0
+  Data.u $A68E
+  Data.a 0
+  Data.u $A691
+  Data.a 0
+  Data.u $A690
+  Data.a 0
+  Data.u $A693
+  Data.a 0
+  Data.u $A692
+  Data.a 0
+  Data.u $A695
+  Data.a 0
+  Data.u $A694
+  Data.a 0
+  Data.u $A697
+  Data.a 0
+  Data.u $A696
+  Data.a 0
+  Data.u $A699
+  Data.a 0
+  Data.u $A698
+  Data.a 0
+  Data.u $A69B
+  Data.a 0
+  Data.u $A69A
+  Data.a 0
+  Data.u $A723
+  Data.a 0
+  Data.u $A722
+  Data.a 0
+  Data.u $A725
+  Data.a 0
+  Data.u $A724
+  Data.a 0
+  Data.u $A727
+  Data.a 0
+  Data.u $A726
+  Data.a 0
+  Data.u $A729
+  Data.a 0
+  Data.u $A728
+  Data.a 0
+  Data.u $A72B
+  Data.a 0
+  Data.u $A72A
+  Data.a 0
+  Data.u $A72D
+  Data.a 0
+  Data.u $A72C
+  Data.a 0
+  Data.u $A72F
+  Data.a 0
+  Data.u $A72E
+  Data.a 0
+  Data.u $A733
+  Data.a 0
+  Data.u $A732
+  Data.a 0
+  Data.u $A735
+  Data.a 0
+  Data.u $A734
+  Data.a 0
+  Data.u $A737
+  Data.a 0
+  Data.u $A736
+  Data.a 0
+  Data.u $A739
+  Data.a 0
+  Data.u $A738
+  Data.a 0
+  Data.u $A73B
+  Data.a 0
+  Data.u $A73A
+  Data.a 0
+  Data.u $A73D
+  Data.a 0
+  Data.u $A73C
+  Data.a 0
+  Data.u $A73F
+  Data.a 0
+  Data.u $A73E
+  Data.a 0
+  Data.u $A741
+  Data.a 0
+  Data.u $A740
+  Data.a 0
+  Data.u $A743
+  Data.a 0
+  Data.u $A742
+  Data.a 0
+  Data.u $A745
+  Data.a 0
+  Data.u $A744
+  Data.a 0
+  Data.u $A747
+  Data.a 0
+  Data.u $A746
+  Data.a 0
+  Data.u $A749
+  Data.a 0
+  Data.u $A748
+  Data.a 0
+  Data.u $A74B
+  Data.a 0
+  Data.u $A74A
+  Data.a 0
+  Data.u $A74D
+  Data.a 0
+  Data.u $A74C
+  Data.a 0
+  Data.u $A74F
+  Data.a 0
+  Data.u $A74E
+  Data.a 0
+  Data.u $A751
+  Data.a 0
+  Data.u $A750
+  Data.a 0
+  Data.u $A753
+  Data.a 0
+  Data.u $A752
+  Data.a 0
+  Data.u $A755
+  Data.a 0
+  Data.u $A754
+  Data.a 0
+  Data.u $A757
+  Data.a 0
+  Data.u $A756
+  Data.a 0
+  Data.u $A759
+  Data.a 0
+  Data.u $A758
+  Data.a 0
+  Data.u $A75B
+  Data.a 0
+  Data.u $A75A
+  Data.a 0
+  Data.u $A75D
+  Data.a 0
+  Data.u $A75C
+  Data.a 0
+  Data.u $A75F
+  Data.a 0
+  Data.u $A75E
+  Data.a 0
+  Data.u $A761
+  Data.a 0
+  Data.u $A760
+  Data.a 0
+  Data.u $A763
+  Data.a 0
+  Data.u $A762
+  Data.a 0
+  Data.u $A765
+  Data.a 0
+  Data.u $A764
+  Data.a 0
+  Data.u $A767
+  Data.a 0
+  Data.u $A766
+  Data.a 0
+  Data.u $A769
+  Data.a 0
+  Data.u $A768
+  Data.a 0
+  Data.u $A76B
+  Data.a 0
+  Data.u $A76A
+  Data.a 0
+  Data.u $A76D
+  Data.a 0
+  Data.u $A76C
+  Data.a 0
+  Data.u $A76F
+  Data.a 0
+  Data.u $A76E
+  Data.a 0
+  Data.u $A77A
+  Data.a 0
+  Data.u $A779
+  Data.a 0
+  Data.u $A77C
+  Data.a 0
+  Data.u $A77B
+  Data.a 0
+  Data.u $1D79
+  Data.a 0
+  Data.u $A77D
+  Data.a 0
+  Data.u $A77F
+  Data.a 0
+  Data.u $A77E
+  Data.a 0
+  Data.u $A781
+  Data.a 0
+  Data.u $A780
+  Data.a 0
+  Data.u $A783
+  Data.a 0
+  Data.u $A782
+  Data.a 0
+  Data.u $A785
+  Data.a 0
+  Data.u $A784
+  Data.a 0
+  Data.u $A787
+  Data.a 0
+  Data.u $A786
+  Data.a 0
+  Data.u $A78C
+  Data.a 0
+  Data.u $A78B
+  Data.a 0
+  Data.u $0265
+  Data.a 0
+  Data.u $A78D
+  Data.a 0
+  Data.u $A791
+  Data.a 0
+  Data.u $A790
+  Data.a 0
+  Data.u $A793
+  Data.a 0
+  Data.u $A792
+  Data.a 0
+  Data.u $A797
+  Data.a 0
+  Data.u $A796
+  Data.a 0
+  Data.u $A799
+  Data.a 0
+  Data.u $A798
+  Data.a 0
+  Data.u $A79B
+  Data.a 0
+  Data.u $A79A
+  Data.a 0
+  Data.u $A79D
+  Data.a 0
+  Data.u $A79C
+  Data.a 0
+  Data.u $A79F
+  Data.a 0
+  Data.u $A79E
+  Data.a 0
+  Data.u $A7A1
+  Data.a 0
+  Data.u $A7A0
+  Data.a 0
+  Data.u $A7A3
+  Data.a 0
+  Data.u $A7A2
+  Data.a 0
+  Data.u $A7A5
+  Data.a 0
+  Data.u $A7A4
+  Data.a 0
+  Data.u $A7A7
+  Data.a 0
+  Data.u $A7A6
+  Data.a 0
+  Data.u $A7A9
+  Data.a 0
+  Data.u $A7A8
+  Data.a 0
+  Data.u $0266
+  Data.a 0
+  Data.u $A7AA
+  Data.a 0
+  Data.u $025C
+  Data.a 0
+  Data.u $A7AB
+  Data.a 0
+  Data.u $0261
+  Data.a 0
+  Data.u $A7AC
+  Data.a 0
+  Data.u $026C
+  Data.a 0
+  Data.u $A7AD
+  Data.a 0
+  Data.u $026A
+  Data.a 0
+  Data.u $A7AE
+  Data.a 0
+  Data.u $029E
+  Data.a 0
+  Data.u $A7B0
+  Data.a 0
+  Data.u $0287
+  Data.a 0
+  Data.u $A7B1
+  Data.a 0
+  Data.u $029D
+  Data.a 0
+  Data.u $A7B2
+  Data.a 0
+  Data.u $AB53
+  Data.a 0
+  Data.u $A7B3
+  Data.a 0
+  Data.u $A7B5
+  Data.a 0
+  Data.u $A7B4
+  Data.a 0
+  Data.u $A7B7
+  Data.a 0
+  Data.u $A7B6
+  Data.a 0
+  Data.u $A7B9
+  Data.a 0
+  Data.u $A7B8
+  Data.a 0
+  Data.u $A7BB
+  Data.a 0
+  Data.u $A7BA
+  Data.a 0
+  Data.u $A7BD
+  Data.a 0
+  Data.u $A7BC
+  Data.a 0
+  Data.u $A7BF
+  Data.a 0
+  Data.u $A7BE
+  Data.a 0
+  Data.u $A7C1
+  Data.a 0
+  Data.u $A7C0
+  Data.a 0
+  Data.u $A7C3
+  Data.a 0
+  Data.u $A7C2
+  Data.a 0
+  Data.u $A794
+  Data.a 0
+  Data.u $A7C4
+  Data.a 0
+  Data.u $0282
+  Data.a 0
+  Data.u $A7C5
+  Data.a 0
+  Data.u $1D8E
+  Data.a 0
+  Data.u $A7C6
+  Data.a 0
+  Data.u $A7C8
+  Data.a 0
+  Data.u $A7C7
+  Data.a 0
+  Data.u $A7CA
+  Data.a 0
+  Data.u $A7C9
+  Data.a 0
+  Data.u $A7D1
+  Data.a 0
+  Data.u $A7D0
+  Data.a 0
+  Data.u $A7D7
+  Data.a 0
+  Data.u $A7D6
+  Data.a 0
+  Data.u $A7D9
+  Data.a 0
+  Data.u $A7D8
+  Data.a 0
+  Data.u $A7F6
+  Data.a 0
+  Data.u $A7F5
+  Data.a 0
+  Data.u $13A0
+  Data.a 0
+  Data.u $AB70
+  Data.a 0
+  Data.u $13A1
+  Data.a 0
+  Data.u $AB71
+  Data.a 0
+  Data.u $13A2
+  Data.a 0
+  Data.u $AB72
+  Data.a 0
+  Data.u $13A3
+  Data.a 0
+  Data.u $AB73
+  Data.a 0
+  Data.u $13A4
+  Data.a 0
+  Data.u $AB74
+  Data.a 0
+  Data.u $13A5
+  Data.a 0
+  Data.u $AB75
+  Data.a 0
+  Data.u $13A6
+  Data.a 0
+  Data.u $AB76
+  Data.a 0
+  Data.u $13A7
+  Data.a 0
+  Data.u $AB77
+  Data.a 0
+  Data.u $13A8
+  Data.a 0
+  Data.u $AB78
+  Data.a 0
+  Data.u $13A9
+  Data.a 0
+  Data.u $AB79
+  Data.a 0
+  Data.u $13AA
+  Data.a 0
+  Data.u $AB7A
+  Data.a 0
+  Data.u $13AB
+  Data.a 0
+  Data.u $AB7B
+  Data.a 0
+  Data.u $13AC
+  Data.a 0
+  Data.u $AB7C
+  Data.a 0
+  Data.u $13AD
+  Data.a 0
+  Data.u $AB7D
+  Data.a 0
+  Data.u $13AE
+  Data.a 0
+  Data.u $AB7E
+  Data.a 0
+  Data.u $13AF
+  Data.a 0
+  Data.u $AB7F
+  Data.a 0
+  Data.u $13B0
+  Data.a 0
+  Data.u $AB80
+  Data.a 0
+  Data.u $13B1
+  Data.a 0
+  Data.u $AB81
+  Data.a 0
+  Data.u $13B2
+  Data.a 0
+  Data.u $AB82
+  Data.a 0
+  Data.u $13B3
+  Data.a 0
+  Data.u $AB83
+  Data.a 0
+  Data.u $13B4
+  Data.a 0
+  Data.u $AB84
+  Data.a 0
+  Data.u $13B5
+  Data.a 0
+  Data.u $AB85
+  Data.a 0
+  Data.u $13B6
+  Data.a 0
+  Data.u $AB86
+  Data.a 0
+  Data.u $13B7
+  Data.a 0
+  Data.u $AB87
+  Data.a 0
+  Data.u $13B8
+  Data.a 0
+  Data.u $AB88
+  Data.a 0
+  Data.u $13B9
+  Data.a 0
+  Data.u $AB89
+  Data.a 0
+  Data.u $13BA
+  Data.a 0
+  Data.u $AB8A
+  Data.a 0
+  Data.u $13BB
+  Data.a 0
+  Data.u $AB8B
+  Data.a 0
+  Data.u $13BC
+  Data.a 0
+  Data.u $AB8C
+  Data.a 0
+  Data.u $13BD
+  Data.a 0
+  Data.u $AB8D
+  Data.a 0
+  Data.u $13BE
+  Data.a 0
+  Data.u $AB8E
+  Data.a 0
+  Data.u $13BF
+  Data.a 0
+  Data.u $AB8F
+  Data.a 0
+  Data.u $13C0
+  Data.a 0
+  Data.u $AB90
+  Data.a 0
+  Data.u $13C1
+  Data.a 0
+  Data.u $AB91
+  Data.a 0
+  Data.u $13C2
+  Data.a 0
+  Data.u $AB92
+  Data.a 0
+  Data.u $13C3
+  Data.a 0
+  Data.u $AB93
+  Data.a 0
+  Data.u $13C4
+  Data.a 0
+  Data.u $AB94
+  Data.a 0
+  Data.u $13C5
+  Data.a 0
+  Data.u $AB95
+  Data.a 0
+  Data.u $13C6
+  Data.a 0
+  Data.u $AB96
+  Data.a 0
+  Data.u $13C7
+  Data.a 0
+  Data.u $AB97
+  Data.a 0
+  Data.u $13C8
+  Data.a 0
+  Data.u $AB98
+  Data.a 0
+  Data.u $13C9
+  Data.a 0
+  Data.u $AB99
+  Data.a 0
+  Data.u $13CA
+  Data.a 0
+  Data.u $AB9A
+  Data.a 0
+  Data.u $13CB
+  Data.a 0
+  Data.u $AB9B
+  Data.a 0
+  Data.u $13CC
+  Data.a 0
+  Data.u $AB9C
+  Data.a 0
+  Data.u $13CD
+  Data.a 0
+  Data.u $AB9D
+  Data.a 0
+  Data.u $13CE
+  Data.a 0
+  Data.u $AB9E
+  Data.a 0
+  Data.u $13CF
+  Data.a 0
+  Data.u $AB9F
+  Data.a 0
+  Data.u $13D0
+  Data.a 0
+  Data.u $ABA0
+  Data.a 0
+  Data.u $13D1
+  Data.a 0
+  Data.u $ABA1
+  Data.a 0
+  Data.u $13D2
+  Data.a 0
+  Data.u $ABA2
+  Data.a 0
+  Data.u $13D3
+  Data.a 0
+  Data.u $ABA3
+  Data.a 0
+  Data.u $13D4
+  Data.a 0
+  Data.u $ABA4
+  Data.a 0
+  Data.u $13D5
+  Data.a 0
+  Data.u $ABA5
+  Data.a 0
+  Data.u $13D6
+  Data.a 0
+  Data.u $ABA6
+  Data.a 0
+  Data.u $13D7
+  Data.a 0
+  Data.u $ABA7
+  Data.a 0
+  Data.u $13D8
+  Data.a 0
+  Data.u $ABA8
+  Data.a 0
+  Data.u $13D9
+  Data.a 0
+  Data.u $ABA9
+  Data.a 0
+  Data.u $13DA
+  Data.a 0
+  Data.u $ABAA
+  Data.a 0
+  Data.u $13DB
+  Data.a 0
+  Data.u $ABAB
+  Data.a 0
+  Data.u $13DC
+  Data.a 0
+  Data.u $ABAC
+  Data.a 0
+  Data.u $13DD
+  Data.a 0
+  Data.u $ABAD
+  Data.a 0
+  Data.u $13DE
+  Data.a 0
+  Data.u $ABAE
+  Data.a 0
+  Data.u $13DF
+  Data.a 0
+  Data.u $ABAF
+  Data.a 0
+  Data.u $13E0
+  Data.a 0
+  Data.u $ABB0
+  Data.a 0
+  Data.u $13E1
+  Data.a 0
+  Data.u $ABB1
+  Data.a 0
+  Data.u $13E2
+  Data.a 0
+  Data.u $ABB2
+  Data.a 0
+  Data.u $13E3
+  Data.a 0
+  Data.u $ABB3
+  Data.a 0
+  Data.u $13E4
+  Data.a 0
+  Data.u $ABB4
+  Data.a 0
+  Data.u $13E5
+  Data.a 0
+  Data.u $ABB5
+  Data.a 0
+  Data.u $13E6
+  Data.a 0
+  Data.u $ABB6
+  Data.a 0
+  Data.u $13E7
+  Data.a 0
+  Data.u $ABB7
+  Data.a 0
+  Data.u $13E8
+  Data.a 0
+  Data.u $ABB8
+  Data.a 0
+  Data.u $13E9
+  Data.a 0
+  Data.u $ABB9
+  Data.a 0
+  Data.u $13EA
+  Data.a 0
+  Data.u $ABBA
+  Data.a 0
+  Data.u $13EB
+  Data.a 0
+  Data.u $ABBB
+  Data.a 0
+  Data.u $13EC
+  Data.a 0
+  Data.u $ABBC
+  Data.a 0
+  Data.u $13ED
+  Data.a 0
+  Data.u $ABBD
+  Data.a 0
+  Data.u $13EE
+  Data.a 0
+  Data.u $ABBE
+  Data.a 0
+  Data.u $13EF
+  Data.a 0
+  Data.u $ABBF
+  Data.a 0
+  Data.u $FF41
+  Data.a 0
+  Data.u $FF21
+  Data.a 0
+  Data.u $FF42
+  Data.a 0
+  Data.u $FF22
+  Data.a 0
+  Data.u $FF43
+  Data.a 0
+  Data.u $FF23
+  Data.a 0
+  Data.u $FF44
+  Data.a 0
+  Data.u $FF24
+  Data.a 0
+  Data.u $FF45
+  Data.a 0
+  Data.u $FF25
+  Data.a 0
+  Data.u $FF46
+  Data.a 0
+  Data.u $FF26
+  Data.a 0
+  Data.u $FF47
+  Data.a 0
+  Data.u $FF27
+  Data.a 0
+  Data.u $FF48
+  Data.a 0
+  Data.u $FF28
+  Data.a 0
+  Data.u $FF49
+  Data.a 0
+  Data.u $FF29
+  Data.a 0
+  Data.u $FF4A
+  Data.a 0
+  Data.u $FF2A
+  Data.a 0
+  Data.u $FF4B
+  Data.a 0
+  Data.u $FF2B
+  Data.a 0
+  Data.u $FF4C
+  Data.a 0
+  Data.u $FF2C
+  Data.a 0
+  Data.u $FF4D
+  Data.a 0
+  Data.u $FF2D
+  Data.a 0
+  Data.u $FF4E
+  Data.a 0
+  Data.u $FF2E
+  Data.a 0
+  Data.u $FF4F
+  Data.a 0
+  Data.u $FF2F
+  Data.a 0
+  Data.u $FF50
+  Data.a 0
+  Data.u $FF30
+  Data.a 0
+  Data.u $FF51
+  Data.a 0
+  Data.u $FF31
+  Data.a 0
+  Data.u $FF52
+  Data.a 0
+  Data.u $FF32
+  Data.a 0
+  Data.u $FF53
+  Data.a 0
+  Data.u $FF33
+  Data.a 0
+  Data.u $FF54
+  Data.a 0
+  Data.u $FF34
+  Data.a 0
+  Data.u $FF55
+  Data.a 0
+  Data.u $FF35
+  Data.a 0
+  Data.u $FF56
+  Data.a 0
+  Data.u $FF36
+  Data.a 0
+  Data.u $FF57
+  Data.a 0
+  Data.u $FF37
+  Data.a 0
+  Data.u $FF58
+  Data.a 0
+  Data.u $FF38
+  Data.a 0
+  Data.u $FF59
+  Data.a 0
+  Data.u $FF39
+  Data.a 0
+  Data.u $FF5A
+  Data.a 0
+  Data.u $FF3A
+EndDataSection
