@@ -452,7 +452,7 @@ Module RegEx
           Case 'f'
             result$ = #FF$
             *regExString\currentPosition + SizeOf(Unicode)
-          Case '\', ']', '-'
+          Case '\', '[', ']', '-'
             result$ = Chr(*regExString\currentPosition\u)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'd', 'D', 's', 'S', 'w', 'W'
