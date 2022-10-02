@@ -10,7 +10,7 @@ Procedure$ GetSymbolAsString(*state.RegEx::NfaStateStruc)
   ElseIf *state\stateType = RegEx::#StateType_SplitMove
     ProcedureReturn "Split"
   Else
-    ProcedureReturn RSet(Hex(*state\symbol), 2, "0")
+    ProcedureReturn RSet(Hex(*state\symbolRange\min), 2, "0") + "-" + RSet(Hex(*state\symbolRange\max), 2, "0")
   EndIf
 EndProcedure
 
@@ -36,14 +36,14 @@ ForEach *regEx\nfaPools()
   
   Debug Space(5) + "Initial state: " + *regEx\nfaPools()\initialNfaState
   Debug ""
-  Debug Space(5) + "| State               | Symbol   | Next state 1        | Next state 2        |"
-  Debug Space(5) + "| =================== | ======== | =================== | =================== |"
+  Debug Space(5) + "| State               | Symbol range | Next state 1        | Next state 2        |"
+  Debug Space(5) + "| =================== | ============ | =================== | =================== |"
   ForEach *regEx\nfaPools()\nfaStates()
     Debug Space(5) + "| " + LSet(Str(@*regEx\nfaPools()\nfaStates()), 19) +
-          " | " + LSet(GetSymbolAsString(*regEx\nfaPools()\nfaStates()), 8) +
+          " | " + LSet(GetSymbolAsString(*regEx\nfaPools()\nfaStates()), 12) +
           " | " + LSet(Str(*regEx\nfaPools()\nfaStates()\nextState1), 19) +
           " | " + LSet(Str(*regEx\nfaPools()\nfaStates()\nextState2), 19) + " |"
-    Debug Space(5) + "| ------------------- | -------- | ------------------- | ------------------- |"
+    Debug Space(5) + "| ------------------- | ------------ | ------------------- | ------------------- |"
   Next
   
   Debug ""

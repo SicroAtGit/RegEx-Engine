@@ -117,11 +117,18 @@ EndEnumeration
 ## Public Structures
 
 ```purebasic
+Structure NfaSymbolRangeStruc
+  min.a ; Minimum symbol value (0-255)
+  max.a ; Maximum symbol value (0-255)
+EndStructure
+```
+
+```purebasic
 Structure NfaStateStruc
-  stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
-  symbol.a                  ; Symbol (0-255)
-  *nextState1.NfaStateStruc ; Pointer to the first next NFA state
-  *nextState2.NfaStateStruc ; Pointer to the second next NFA state
+  stateType.u                     ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+  symbolRange.NfaSymbolRangeStruc ; Symbol range to be accepted
+  *nextState1.NfaStateStruc       ; Pointer to the first next NFA state
+  *nextState2.NfaStateStruc       ; Pointer to the second next NFA state
 EndStructure
 ```
 
