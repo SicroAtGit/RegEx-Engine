@@ -24,7 +24,7 @@ sizeOfArray = MemorySize(*regEx\dfaStatesPool) / SizeOf(RegEx::DfaStateStruc) - 
 For i = 1 To sizeOfArray
   If *regEx\dfaStatesPool\states[i]\isFinalState
     Debug "| " + LSet(Str(i) + " (final:" +
-                      Str(*regEx\dfaStatesPool\states[i]\isFinalState - RegEx::#Symbol_Final) +
+                      Str(*regEx\dfaStatesPool\states[i]\isFinalState - 1) +
                       ")", 19) +
           " | " + Space(6) +
           " | " + Space(19) + " |"

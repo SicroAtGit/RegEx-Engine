@@ -2,15 +2,15 @@
 IncludePath ".."
 IncludeFile "RegExEngine.pbi"
 
-Procedure$ GetSymbolAsString(symbol)
-  If symbol => RegEx::#Symbol_Final
-    ProcedureReturn "Final:" + Str(symbol - RegEx::#Symbol_Final)
-  ElseIf symbol = RegEx::#Symbol_Move
+Procedure$ GetSymbolAsString(*state.RegEx::NfaStateStruc)
+  If *state\stateType => RegEx::#StateType_Final
+    ProcedureReturn "Final:" + Str(*state\stateType - RegEx::#StateType_Final)
+  ElseIf *state\stateType = RegEx::#StateType_EpsilonMove
     ProcedureReturn "Move"
-  ElseIf symbol = RegEx::#Symbol_Split
+  ElseIf *state\stateType = RegEx::#StateType_SplitMove
     ProcedureReturn "Split"
   Else
-    ProcedureReturn RSet(Hex(symbol), 2, "0")
+    ProcedureReturn RSet(Hex(*state\symbol), 2, "0")
   EndIf
 EndProcedure
 
@@ -40,7 +40,7 @@ ForEach *regEx\nfaPools()
   Debug Space(5) + "| =================== | ======== | =================== | =================== |"
   ForEach *regEx\nfaPools()\nfaStates()
     Debug Space(5) + "| " + LSet(Str(@*regEx\nfaPools()\nfaStates()), 19) +
-          " | " + LSet(GetSymbolAsString(*regEx\nfaPools()\nfaStates()\symbol), 8) +
+          " | " + LSet(GetSymbolAsString(*regEx\nfaPools()\nfaStates()), 8) +
           " | " + LSet(Str(*regEx\nfaPools()\nfaStates()\nextState1), 19) +
           " | " + LSet(Str(*regEx\nfaPools()\nfaStates()\nextState2), 19) + " |"
     Debug Space(5) + "| ------------------- | -------- | ------------------- | ------------------- |"

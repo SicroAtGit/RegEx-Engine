@@ -1,7 +1,6 @@
 ﻿
 DeclareModule DfaMatcher
   
-  #Symbol_Final = 258     ; Used for NFA final state
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure DfaStateStruc
@@ -53,7 +52,7 @@ Module DfaMatcher
       If *dfaMemory\states[dfaState]\isFinalState
         lastFinalStateMatchLength = *stringPointer - *stringStartPos
         If *regExId
-          *regExId\i = *dfaMemory\states[dfaState]\isFinalState - #Symbol_Final
+          *regExId\i = *dfaMemory\states[dfaState]\isFinalState - 1
         EndIf
       EndIf
     ForEver

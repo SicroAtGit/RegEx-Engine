@@ -102,10 +102,11 @@ EndEnumeration
 ```
 
 ```purebasic
-Enumeration NfaSpecialSymbols 256
-  #Symbol_Move  ; Used for NFA epsilon moves
-  #Symbol_Split ; Used for NFA unions
-  #Symbol_Final ; Used for NFA final state
+Enumeration NfaStateTypes
+  #StateType_EpsilonMove ; Used for NFA epsilon moves
+  #StateType_SymbolMove  ; Used for NFA symbol moves
+  #StateType_SplitMove   ; Used for NFA unions
+  #StateType_Final       ; Used for NFA final state
 EndEnumeration
 ```
 
@@ -117,7 +118,8 @@ EndEnumeration
 
 ```purebasic
 Structure NfaStateStruc
-  symbol.u                  ; Symbol (0-255) or special symbol
+  stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+  symbol.a                  ; Symbol (0-255)
   *nextState1.NfaStateStruc ; Pointer to the first next NFA state
   *nextState2.NfaStateStruc ; Pointer to the second next NFA state
 EndStructure
@@ -191,7 +193,6 @@ If only the precompiled DFAs are needed in the software for matching and no new 
 ### Public Constants
 
 ```purebasic
-#Symbol_Final = 258     ; Used for NFA final state
 #State_DfaDeadState = 0 ; Index number of the DFA dead state
 ```
 

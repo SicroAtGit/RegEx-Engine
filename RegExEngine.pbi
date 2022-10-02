@@ -7,16 +7,18 @@ DeclareModule RegEx
     #RegExMode_NoCase ; Activates case-insensitive mode
   EndEnumeration
   
-  Enumeration NfaSpecialSymbols 256
-    #Symbol_Move  ; Used for NFA epsilon moves
-    #Symbol_Split ; Used for NFA unions
-    #Symbol_Final ; Used for NFA final state
+  Enumeration NfaStateTypes
+    #StateType_EpsilonMove ; Used for NFA epsilon moves
+    #StateType_SymbolMove  ; Used for NFA symbol moves
+    #StateType_SplitMove   ; Used for NFA unions
+    #StateType_Final       ; Used for NFA final state
   EndEnumeration
   
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure NfaStateStruc
-    symbol.u                  ; Symbol (0-255) or special symbol
+    stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+    symbol.a                  ; Symbol (0-255)
     *nextState1.NfaStateStruc ; Pointer to the first next NFA state
     *nextState2.NfaStateStruc ; Pointer to the second next NFA state
   EndStructure
@@ -155,13 +157,14 @@ Module RegEx
     If *resultNfa\startState = 0
       ProcedureReturn 0
     EndIf
+    *resultNfa\startState\stateType = #StateType_SymbolMove
     *resultNfa\startState\symbol = symbol
     
     *resultNfa\endState = CreateNfaState(nfaPool())
     If *resultNfa\endState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\endState\symbol = finalStateValue
+    *resultNfa\endState\stateType = finalStateValue
     
     *resultNfa\startState\nextState1 = *resultNfa\endState
     
@@ -175,6 +178,7 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     
+    *nfa1\endState\stateType = *nfa2\startState\stateType
     *nfa1\endState\symbol = *nfa2\startState\symbol
     *nfa1\endState\nextState1 = *nfa2\startState\nextState1
     *nfa1\endState\nextState2 = *nfa2\startState\nextState2
@@ -198,7 +202,7 @@ Module RegEx
     If *resultNfa\startState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\startState\symbol = #Symbol_Split
+    *resultNfa\startState\stateType = #StateType_SplitMove
     *resultNfa\startState\nextState1 = *nfa1\startState
     *resultNfa\startState\nextState2 = *nfa2\startState
     
@@ -206,12 +210,12 @@ Module RegEx
     If *resultNfa\endState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\endState\symbol = finalStateValue
+    *resultNfa\endState\stateType = finalStateValue
     
-    *nfa1\endState\symbol = #Symbol_Move
+    *nfa1\endState\stateType = #StateType_EpsilonMove
     *nfa1\endState\nextState1 = *resultNfa\endState
     
-    *nfa2\endState\symbol = #Symbol_Move
+    *nfa2\endState\stateType = #StateType_EpsilonMove
     *nfa2\endState\nextState1 = *resultNfa\endState
     
     ProcedureReturn *resultNfa
@@ -228,18 +232,18 @@ Module RegEx
     If *resultNfa\startState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\startState\symbol = #Symbol_Split
+    *resultNfa\startState\stateType = #StateType_SplitMove
     
     *resultNfa\endState = CreateNfaState(nfaPool())
     If *resultNfa\endState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\endState\symbol = finalStateValue
+    *resultNfa\endState\stateType = finalStateValue
     
     *resultNfa\startState\nextState1 = *nfa\startState
     *resultNfa\startState\nextState2 = *resultNfa\endState
     
-    *nfa\endState\symbol = #Symbol_Split
+    *nfa\endState\stateType = #StateType_SplitMove
     *nfa\endState\nextState1 = *resultNfa\endState
     *nfa\endState\nextState2 = *nfa\startState
     
@@ -257,17 +261,17 @@ Module RegEx
     If *resultNfa\startState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\startState\symbol = #Symbol_Move
+    *resultNfa\startState\stateType = #StateType_EpsilonMove
     
     *resultNfa\endState = CreateNfaState(nfaPool())
     If *resultNfa\endState = 0
       ProcedureReturn 0
     EndIf
-    *resultNfa\endState\symbol = finalStateValue
+    *resultNfa\endState\stateType = finalStateValue
     
     *resultNfa\startState\nextState1 = *nfa\startState
     
-    *nfa\endState\symbol = #Symbol_Split
+    *nfa\endState\stateType = #StateType_SplitMove
     *nfa\endState\nextState1 = *resultNfa\endState
     *nfa\endState\nextState2 = *nfa\startState
     
@@ -277,10 +281,25 @@ Module RegEx
   Procedure CreateNfaZeroOrOne(List nfaPool.NfaStateStruc(), *nfa.NfaStruc, finalStateValue)
     Protected.NfaStruc *nfa2, *resultNfa
     
-    *nfa2 = CreateNfaSymbol(nfaPool(), #Symbol_Move, finalStateValue)
+    *nfa2 = AllocateStructure(NfaStruc)
     If *nfa2 = 0
       ProcedureReturn 0
     EndIf
+    
+    *nfa2\startState = CreateNfaState(nfaPool())
+    If *nfa2\startState = 0
+      ProcedureReturn 0
+    EndIf
+    *nfa2\startState\stateType = #StateType_EpsilonMove
+    
+    *nfa2\endState = CreateNfaState(nfaPool())
+    If *nfa2\endState = 0
+      ProcedureReturn 0
+    EndIf
+    *nfa2\endState\stateType = finalStateValue
+    
+    *nfa2\startState\nextState1 = *nfa2\endState
+    
     *resultNfa = CreateNfaUnion(nfaPool(), *nfa, *nfa2, finalStateValue)
     FreeStructure(*nfa2)
     
@@ -913,7 +932,7 @@ Module RegEx
     EndIf
     
     If AddElement(*regExEngine\nfaPools())
-      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #Symbol_Final + regExId, @regExModes)
+      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #StateType_Final + regExId, @regExModes)
       If *resultNfa
         If *regExString\currentPosition\u <> 0
           ; If the RegEx string could not be parsed completely, there are syntax
@@ -947,10 +966,10 @@ Module RegEx
   ; Follows the epsilon-move states and adds the target states to the list.
   ; Used for the subset construction (NFA -> DFA conversion).
   Procedure AddState(*state.NfaStateStruc, List *states.NfaStateStruc())
-    If *state\symbol = #Symbol_Split
+    If *state\stateType = #StateType_SplitMove
       AddState(*state\nextState1, *states())
       AddState(*state\nextState2, *states())
-    ElseIf *state\symbol = #Symbol_Move
+    ElseIf *state\stateType = #StateType_EpsilonMove
       AddState(*state\nextState1, *states())
     Else
       
@@ -1036,8 +1055,8 @@ Module RegEx
       
       ForEach eClosures(dfaState)\nfaStates()
         *state = eClosures(dfaState)\nfaStates()
-        If *state\symbol => #Symbol_Final
-          *regExEngine\dfaStatesPool\states[dfaState]\isFinalState = *state\symbol
+        If *state\stateType => #StateType_Final
+          *regExEngine\dfaStatesPool\states[dfaState]\isFinalState = *state\stateType - #StateType_Final + 1
         Else
           AddState(*state\nextState1, symbols(Chr(*state\symbol))\nfaStates())
         EndIf
@@ -1108,12 +1127,12 @@ Module RegEx
     Repeat
       ForEach *currentStates()
         *state = *currentStates()
-        If *state\symbol = *string\a
+        If *state\stateType = #StateType_SymbolMove And *state\symbol = *string\a
           AddState(*state\nextState1, *nextStates())
-        ElseIf *state\symbol => #Symbol_Final
+        ElseIf *state\stateType => #StateType_Final
           lastFinalStateMatchLength = *string - *stringStartPos
           If *regExId
-            *regExId\i = *state\symbol - #Symbol_Final
+            *regExId\i = *state\stateType - #StateType_Final
           EndIf
         EndIf
       Next
@@ -1151,7 +1170,7 @@ Module RegEx
       If *regExEngine\dfaStatesPool\states[dfaState]\isFinalState
         lastFinalStateMatchLength = *string - *stringStartPos
         If *regExId
-          *regExId\i = *regExEngine\dfaStatesPool\states[dfaState]\isFinalState - #Symbol_Final
+          *regExId\i = *regExEngine\dfaStatesPool\states[dfaState]\isFinalState - 1
         EndIf
       EndIf
     ForEver
