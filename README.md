@@ -117,25 +117,25 @@ EndEnumeration
 ## Public Structures
 
 ```purebasic
-Structure NfaSymbolRangeStruc
-  min.a ; Minimum symbol value (0-255)
-  max.a ; Maximum symbol value (0-255)
+Structure ByteRangeStruc
+  min.a ; Minimum byte value (0-255)
+  max.a ; Maximum byte value (0-255)
 EndStructure
 ```
 
 ```purebasic
 Structure NfaStateStruc
-  stateType.u                     ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
-  symbolRange.NfaSymbolRangeStruc ; Symbol range to be accepted
-  *nextState1.NfaStateStruc       ; Pointer to the first next NFA state
-  *nextState2.NfaStateStruc       ; Pointer to the second next NFA state
+  stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+  byteRange.ByteRangeStruc  ; A byte range is used as a transition symbol
+  *nextState1.NfaStateStruc ; Pointer to the first next NFA state
+  *nextState2.NfaStateStruc ; Pointer to the second next NFA state
 EndStructure
 ```
 
 ```purebasic
 Structure DfaStateStruc
-  symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
+  nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
 EndStructure
 ```
 
@@ -207,8 +207,8 @@ If only the precompiled DFAs are needed in the software for matching and no new 
 
 ```purebasic
 Structure DfaStateStruc
-  symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
+  nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
 EndStructure
 ```
 

@@ -33,11 +33,11 @@ For i = 1 To sizeOfArray
   EndIf
   
   For i2 = 0 To 255
-    If *regEx\dfaStatesPool\states[i]\symbols[i2] <> RegEx::#State_DfaDeadState
+    If *regEx\dfaStatesPool\states[i]\nextState[i2] <> RegEx::#State_DfaDeadState
       hex$ = RSet(Hex(i2), 2, "0")
       Debug "| " + Space(19) +
             " | " + LSet(hex$, 6) +
-            " | " + LSet(Str(*regEx\dfaStatesPool\states[i]\symbols[i2]), 19) + " |"
+            " | " + LSet(Str(*regEx\dfaStatesPool\states[i]\nextState[i2]), 19) + " |"
     EndIf
   Next
   Debug "| ------------------- | ------ | ------------------- |"

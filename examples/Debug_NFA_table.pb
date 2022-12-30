@@ -10,7 +10,7 @@ Procedure$ GetSymbolAsString(*state.RegEx::NfaStateStruc)
   ElseIf *state\stateType = RegEx::#StateType_SplitMove
     ProcedureReturn "Split"
   Else
-    ProcedureReturn RSet(Hex(*state\symbolRange\min), 2, "0") + "-" + RSet(Hex(*state\symbolRange\max), 2, "0")
+    ProcedureReturn RSet(Hex(*state\byteRange\min), 2, "0") + "-" + RSet(Hex(*state\byteRange\max), 2, "0")
   EndIf
 EndProcedure
 

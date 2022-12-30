@@ -4,8 +4,8 @@ DeclareModule DfaMatcher
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure DfaStateStruc
-    symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-    isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
+    nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+    isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
   EndStructure
   
   Structure DfaStatesArrayStruc
@@ -42,7 +42,7 @@ Module DfaMatcher
     dfaState = 1 ; dfaState '0' is the dead state, so it will be skipped
     
     Repeat
-      dfaState = *dfaMemory\states[dfaState]\symbols[*stringPointer\a]
+      dfaState = *dfaMemory\states[dfaState]\nextState[*stringPointer\a]
       If dfaState = #State_DfaDeadState
         Break
       EndIf

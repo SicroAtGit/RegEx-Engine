@@ -16,21 +16,21 @@ DeclareModule RegEx
   
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
-  Structure NfaSymbolRangeStruc
-    min.a ; Minimum symbol value (0-255)
-    max.a ; Maximum symbol value (0-255)
+  Structure ByteRangeStruc
+    min.a ; Minimum byte value (0-255)
+    max.a ; Maximum byte value (0-255)
   EndStructure
   
   Structure NfaStateStruc
-    stateType.u                     ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
-    symbolRange.NfaSymbolRangeStruc ; Symbol range to be accepted
-    *nextState1.NfaStateStruc       ; Pointer to the first next NFA state
-    *nextState2.NfaStateStruc       ; Pointer to the second next NFA state
+    stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+    byteRange.ByteRangeStruc  ; A byte range is used as a transition symbol
+    *nextState1.NfaStateStruc ; Pointer to the first next NFA state
+    *nextState2.NfaStateStruc ; Pointer to the second next NFA state
   EndStructure
   
   Structure DfaStateStruc
-    symbols.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-    isFinalState.u ; Positive number if the DFA state is a final state, otherwise null
+    nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
+    isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
   EndStructure
   
   Structure DfaStatesArrayStruc
@@ -135,8 +135,8 @@ Module RegEx
   EndStructure
   
   Structure ByteRangesStruc
-    byte1.NfaSymbolRangeStruc
-    List byte2.NfaSymbolRangeStruc()
+    byte1Range.ByteRangeStruc
+    List byte2Ranges.ByteRangeStruc()
   EndStructure
   
   Global lastErrorMessages$
@@ -152,7 +152,7 @@ Module RegEx
     DeleteElement(nfaPool())
   EndProcedure
   
-  Procedure CreateNfaSymbolRange(List nfaPool.NfaStateStruc(), minSymbol, maxSymbol, finalStateValue)
+  Procedure CreateNfaByteRange(List nfaPool.NfaStateStruc(), minByteValue, maxByteValue, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
     If *resultNfa = 0
@@ -164,8 +164,8 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     *resultNfa\startState\stateType = #StateType_SymbolMove
-    *resultNfa\startState\symbolRange\min = minSymbol
-    *resultNfa\startState\symbolRange\max = maxSymbol
+    *resultNfa\startState\byteRange\min = minByteValue
+    *resultNfa\startState\byteRange\max = maxByteValue
     
     *resultNfa\endState = CreateNfaState(nfaPool())
     If *resultNfa\endState = 0
@@ -186,8 +186,8 @@ Module RegEx
     EndIf
     
     *nfa1\endState\stateType = *nfa2\startState\stateType
-    *nfa1\endState\symbolRange\min = *nfa2\startState\symbolRange\min
-    *nfa1\endState\symbolRange\max = *nfa2\startState\symbolRange\max
+    *nfa1\endState\byteRange\min = *nfa2\startState\byteRange\min
+    *nfa1\endState\byteRange\max = *nfa2\startState\byteRange\max
     *nfa1\endState\nextState1 = *nfa2\startState\nextState1
     *nfa1\endState\nextState2 = *nfa2\startState\nextState2
     
@@ -322,7 +322,7 @@ Module RegEx
   EndProcedure
   
   ; Creates from the byte tree the corresponding NFA construction
-  Procedure CreateNfaByteSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, isNegated = #False)
+  Procedure CreateNfaByteRangeSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, isNegated = #False)
     Protected.NfaStruc *nfa1, *nfa2, *base
     Protected.ByteRangesStruc NewList byteRanges()
     Protected byte1, byte2, previousByte1, isByte2Found, isIdentical
@@ -343,28 +343,28 @@ Module RegEx
               If Not AddElement(byteRanges())
                 ProcedureReturn 0
               EndIf
-              byteRanges()\byte1\min = byte1
-              byteRanges()\byte1\max = byte1
+              byteRanges()\byte1Range\min = byte1
+              byteRanges()\byte1Range\max = byte1
               previousByte1 = byte1
             EndIf
             isByte2Found = #False
-            ForEach byteRanges()\byte2()
-              If byteRanges()\byte2()\min =< byte2 And byteRanges()\byte2()\max => byte2
+            ForEach byteRanges()\byte2Ranges()
+              If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
                 isByte2Found = #True
-              ElseIf byteRanges()\byte2()\min - 1 = byte2
-                byteRanges()\byte2()\min - 1
+              ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
+                byteRanges()\byte2Ranges()\min - 1
                 isByte2Found = #True
-              ElseIf byteRanges()\byte2()\max + 1 = byte2
-                byteRanges()\byte2()\max + 1
+              ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
+                byteRanges()\byte2Ranges()\max + 1
                 isByte2Found = #True
               EndIf
             Next
             If Not isByte2Found
-              If Not AddElement(byteRanges()\byte2())
+              If Not AddElement(byteRanges()\byte2Ranges())
                 ProcedureReturn 0
               EndIf
-              byteRanges()\byte2()\min = byte2
-              byteRanges()\byte2()\max = byte2
+              byteRanges()\byte2Ranges()\min = byte2
+              byteRanges()\byte2Ranges()\max = byte2
             EndIf
           EndIf
         Next
@@ -382,28 +382,28 @@ Module RegEx
               If Not AddElement(byteRanges())
                 ProcedureReturn 0
               EndIf
-              byteRanges()\byte1\min = byte1
-              byteRanges()\byte1\max = byte1
+              byteRanges()\byte1Range\min = byte1
+              byteRanges()\byte1Range\max = byte1
               previousByte1 = byte1
             EndIf
             isByte2Found = #False
-            ForEach byteRanges()\byte2()
-              If byteRanges()\byte2()\min =< byte2 And byteRanges()\byte2()\max => byte2
+            ForEach byteRanges()\byte2Ranges()
+              If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
                 isByte2Found = #True
-              ElseIf byteRanges()\byte2()\min - 1 = byte2
-                byteRanges()\byte2()\min - 1
+              ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
+                byteRanges()\byte2Ranges()\min - 1
                 isByte2Found = #True
-              ElseIf byteRanges()\byte2()\max + 1 = byte2
-                byteRanges()\byte2()\max + 1
+              ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
+                byteRanges()\byte2Ranges()\max + 1
                 isByte2Found = #True
               EndIf
             Next
             If Not isByte2Found
-              If Not AddElement(byteRanges()\byte2())
+              If Not AddElement(byteRanges()\byte2Ranges())
                 ProcedureReturn 0
               EndIf
-              byteRanges()\byte2()\min = byte2
-              byteRanges()\byte2()\max = byte2
+              byteRanges()\byte2Ranges()\min = byte2
+              byteRanges()\byte2Ranges()\max = byte2
             EndIf
           EndIf
         Next
@@ -417,13 +417,13 @@ Module RegEx
         If @byteRanges() = *currentElement
           Continue
         EndIf
-        If ListSize(byteRanges()\byte2()) = ListSize(*currentElement\byte2())
-          ResetList(byteRanges()\byte2())
-          ResetList(*currentElement\byte2())
+        If ListSize(byteRanges()\byte2Ranges()) = ListSize(*currentElement\byte2Ranges())
+          ResetList(byteRanges()\byte2Ranges())
+          ResetList(*currentElement\byte2Ranges())
           isIdentical = #True
-          While NextElement(byteRanges()\byte2()) And NextElement(*currentElement\byte2())
-            If byteRanges()\byte2()\min <> *currentElement\byte2()\min Or
-               byteRanges()\byte2()\max <> *currentElement\byte2()\max
+          While NextElement(byteRanges()\byte2Ranges()) And NextElement(*currentElement\byte2Ranges())
+            If byteRanges()\byte2Ranges()\min <> *currentElement\byte2Ranges()\min Or
+               byteRanges()\byte2Ranges()\max <> *currentElement\byte2Ranges()\max
               isIdentical = #False
             EndIf
           Wend
@@ -431,13 +431,13 @@ Module RegEx
           isIdentical = #False
         EndIf
         If isIdentical
-          If *currentElement\byte1\min = byteRanges()\byte1\min And *currentElement\byte1\max = byteRanges()\byte1\max
+          If *currentElement\byte1Range\min = byteRanges()\byte1Range\min And *currentElement\byte1Range\max = byteRanges()\byte1Range\max
             DeleteElement(byteRanges())
-          ElseIf *currentElement\byte1\min - 1 = byteRanges()\byte1\min
-            *currentElement\byte1\min - 1
+          ElseIf *currentElement\byte1Range\min - 1 = byteRanges()\byte1Range\min
+            *currentElement\byte1Range\min - 1
             DeleteElement(byteRanges())
-          ElseIf *currentElement\byte1\max + 1 = byteRanges()\byte1\max
-            *currentElement\byte1\max + 1
+          ElseIf *currentElement\byte1Range\max + 1 = byteRanges()\byte1Range\max
+            *currentElement\byte1Range\max + 1
             DeleteElement(byteRanges())
           EndIf
         EndIf
@@ -446,15 +446,15 @@ Module RegEx
     Next
     
     ForEach byteRanges()
-      *nfa1 = CreateNfaSymbolRange(nfaPool(), byteRanges()\byte1\min, byteRanges()\byte1\max, finalStateValue)
+      *nfa1 = CreateNfaByteRange(nfaPool(), byteRanges()\byte1Range\min, byteRanges()\byte1Range\max, finalStateValue)
       *nfa2 = 0
-      ForEach byteRanges()\byte2()
+      ForEach byteRanges()\byte2Ranges()
         If *nfa2
           *nfa2 = CreateNfaUnion(nfaPool(), *nfa2,
-                                 CreateNfaSymbolRange(nfaPool(), byteRanges()\byte2()\min, byteRanges()\byte2()\max, finalStateValue),
+                                 CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue),
                                  finalStateValue)
         Else
-          *nfa2 = CreateNfaSymbolRange(nfaPool(), byteRanges()\byte2()\min, byteRanges()\byte2()\max, finalStateValue)
+          *nfa2 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
         EndIf
       Next
       If *base
@@ -669,7 +669,7 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     
-    ProcedureReturn CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue, isNegated)
+    ProcedureReturn CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, isNegated)
   EndProcedure
   
   Procedure ParseRegExModes(*regExString.RegExStringStruc, *regExModes.Integer)
@@ -770,54 +770,54 @@ Module RegEx
         *regExString\currentPosition + SizeOf(Unicode)
         Select *regExString\currentPosition\u
           Case 'r'
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), #CR, #CR, finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), 0, 0, finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), #CR, #CR, finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'n'
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), #LF, #LF, finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), 0, 0, finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), #LF, #LF, finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 't'
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), #TAB, #TAB, finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), 0, 0, finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), #TAB, #TAB, finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'f'
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), #FF, #FF, finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), 0, 0, finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), #FF, #FF, finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'd'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'D'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 's'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'S'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'w'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?WordByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'W'
             Dim byteSequences.b($FF, $FF)
             AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences)
-            *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'x'
             *regExString\currentPosition + SizeOf(Unicode)
@@ -828,15 +828,15 @@ Module RegEx
                                    #CRLF$
               ProcedureReturn 0
             EndIf
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
               count = *caseUnfold(char\u)\charsCount
               For ii = 0 To count
                 char\u = *caseUnfold(char\u)\chars[ii]
-                *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
                 *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
               Next
             EndIf
@@ -849,23 +849,23 @@ Module RegEx
                                    #CRLF$
               ProcedureReturn 0
             EndIf
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
               count = *caseUnfold(char\u)\charsCount
               For ii = 0 To count
                 char\u = *caseUnfold(char\u)\chars[ii]
-                *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
                 *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
               Next
             EndIf
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), *regExString\currentPosition\a[0], *regExString\currentPosition\a[0],
-                                         finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), *regExString\currentPosition\a[1], *regExString\currentPosition\a[1],
-                                         finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[0], *regExString\currentPosition\a[0],
+                                       finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[1], *regExString\currentPosition\a[1],
+                                       finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Default
@@ -878,7 +878,7 @@ Module RegEx
       Case '.'
         Dim byteSequences.b($FF, $FF)
         AddPredefinedByteSequences(byteSequences(), ?DotByteSequences)
-        *base = CreateNfaByteSequences(nfaPool(), byteSequences(), finalStateValue)
+        *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
         *regExString\currentPosition + SizeOf(Unicode)
       Case '*', '+', '?', '|'
         lastErrorMessages$ + "Symbol not allowed here: '" +
@@ -903,15 +903,15 @@ Module RegEx
         ProcedureReturn 0
       Default
         char\u = *regExString\currentPosition\u
-        *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-        *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+        *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+        *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
         If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
           count = *caseUnfold(char\u)\charsCount
           For ii = 0 To count
             char\u = *caseUnfold(char\u)\chars[ii]
-            *nfa1 = CreateNfaSymbolRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaSymbolRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
           Next
         EndIf
@@ -1162,7 +1162,7 @@ Module RegEx
         If *state\stateType => #StateType_Final
           *regExEngine\dfaStatesPool\states[dfaState]\isFinalState = *state\stateType - #StateType_Final + 1
         Else
-          For symbol = *state\symbolRange\min To *state\symbolRange\max
+          For symbol = *state\byteRange\min To *state\byteRange\max
             AddState(*state\nextState1, symbols(Chr(symbol))\nfaStates())
           Next
         EndIf
@@ -1171,7 +1171,7 @@ Module RegEx
       ForEach symbols()
         result = FindStatesSet(eClosures(), symbols()\nfaStates())
         If result
-          *regExEngine\dfaStatesPool\states[dfaState]\symbols[Asc(MapKey(symbols()))] = result
+          *regExEngine\dfaStatesPool\states[dfaState]\nextState[Asc(MapKey(symbols()))] = result
         Else
           sizeOfArray = ArraySize(eClosures())
           ReDim eClosures(sizeOfArray + 1)
@@ -1188,7 +1188,7 @@ Module RegEx
           If Not CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
             ProcedureReturn #False
           EndIf
-          *regExEngine\dfaStatesPool\states[dfaState]\symbols[Asc(MapKey(symbols()))] = sizeOfArray + 1
+          *regExEngine\dfaStatesPool\states[dfaState]\nextState[Asc(MapKey(symbols()))] = sizeOfArray + 1
         EndIf
       Next
       
@@ -1240,7 +1240,7 @@ Module RegEx
       ForEach *currentStates()
         *state = *currentStates()
         If *state\stateType = #StateType_SymbolMove
-          If *state\symbolRange\min =< *string\a And *state\symbolRange\max => *string\a
+          If *state\byteRange\min =< *string\a And *state\byteRange\max => *string\a
             AddState(*state\nextState1, *nextStates())
           EndIf
         ElseIf *state\stateType => #StateType_Final
@@ -1274,7 +1274,7 @@ Module RegEx
     ; dfaState '0' is the dead state, so it will be skipped.
     
     Repeat
-      dfaState = *regExEngine\dfaStatesPool\states[dfaState]\symbols[*string\a]
+      dfaState = *regExEngine\dfaStatesPool\states[dfaState]\nextState[*string\a]
       If dfaState = #State_DfaDeadState
         Break
       EndIf
