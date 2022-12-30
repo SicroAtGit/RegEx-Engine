@@ -340,7 +340,9 @@ Module RegEx
           
           If byteSequences(byte1, byte2)
             If previousByte1 <> byte1
-              AddElement(byteRanges())
+              If Not AddElement(byteRanges())
+                ProcedureReturn 0
+              EndIf
               byteRanges()\byte1\min = byte1
               byteRanges()\byte1\max = byte1
               previousByte1 = byte1
@@ -358,7 +360,9 @@ Module RegEx
               EndIf
             Next
             If Not isByte2Found
-              AddElement(byteRanges()\byte2())
+              If Not AddElement(byteRanges()\byte2())
+                ProcedureReturn 0
+              EndIf
               byteRanges()\byte2()\min = byte2
               byteRanges()\byte2()\max = byte2
             EndIf
@@ -375,7 +379,9 @@ Module RegEx
           
           If Not byteSequences(byte1, byte2)
             If previousByte1 <> byte1
-              AddElement(byteRanges())
+              If Not AddElement(byteRanges())
+                ProcedureReturn 0
+              EndIf
               byteRanges()\byte1\min = byte1
               byteRanges()\byte1\max = byte1
               previousByte1 = byte1
@@ -393,7 +399,9 @@ Module RegEx
               EndIf
             Next
             If Not isByte2Found
-              AddElement(byteRanges()\byte2())
+              If Not AddElement(byteRanges()\byte2())
+                ProcedureReturn 0
+              EndIf
               byteRanges()\byte2()\min = byte2
               byteRanges()\byte2()\max = byte2
             EndIf
@@ -1004,6 +1012,10 @@ Module RegEx
     Protected.NfaStruc *resultNfa
     Protected.RegExStringStruc *regExString
     
+    If *regExEngine = 0
+      ProcedureReturn #False
+    EndIf
+    
     lastErrorMessages$ = ""
     
     If regExString$ = ""
@@ -1118,6 +1130,10 @@ Module RegEx
     Protected sizeOfArray, dfaState, result, symbol
     Protected *newMemory
     
+    If *regExEngine = 0
+      ProcedureReturn #False
+    EndIf
+    
     If *regExEngine\isUseDfaFromMemory = #False And *regExEngine\dfaStatesPool
       FreeMemory(*regExEngine\dfaStatesPool)
     EndIf
@@ -1169,7 +1185,9 @@ Module RegEx
             *regExEngine\dfaStatesPool = 0
             ProcedureReturn #False
           EndIf
-          CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
+          If Not CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
+            ProcedureReturn #False
+          EndIf
           *regExEngine\dfaStatesPool\states[dfaState]\symbols[Asc(MapKey(symbols()))] = sizeOfArray + 1
         EndIf
       Next
@@ -1192,6 +1210,10 @@ Module RegEx
   
   Procedure UseDfaFromMemory(*dfaMemory)
     Protected.RegExEngineStruc *regExEngine
+    
+    If *dfaMemory = 0
+      ProcedureReturn 0
+    EndIf
     
     *regExEngine = AllocateStructure(RegExEngineStruc)
     If *regExEngine
@@ -1285,12 +1307,20 @@ Module RegEx
   Procedure ExportDfa(*regExEngine.RegExEngineStruc, filePath$)
     Protected file
     
+    If *regExEngine = 0 Or *regExEngine\dfaStatesPool = 0
+      ProcedureReturn #False
+    EndIf
+    
     file = CreateFile(#PB_Any, filePath$)
     If file = 0
       ProcedureReturn #False
     EndIf
     
-    WriteData(file, *regExEngine\dfaStatesPool, MemorySize(*regExEngine\dfaStatesPool))
+    If Not WriteData(file, *regExEngine\dfaStatesPool, MemorySize(*regExEngine\dfaStatesPool))
+      CloseFile(file)
+      ProcedureReturn #False
+    EndIf
+    
     CloseFile(file)
     ProcedureReturn #True
   EndProcedure
