@@ -143,6 +143,7 @@ Module RegEx
   
   Declare ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
   
+  ; Returns the pointer to `NfaStateStruc`. On error, null is returned.
   Procedure CreateNfaState(List nfaPool.NfaStateStruc())
     ProcedureReturn AddElement(nfaPool())
   EndProcedure
@@ -152,6 +153,8 @@ Module RegEx
     DeleteElement(nfaPool())
   EndProcedure
   
+  ; Creates a Thompson NFA with a state transition labeled with the symbol range.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaByteRange(List nfaPool.NfaStateStruc(), minByteValue, maxByteValue, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
@@ -178,6 +181,13 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; Creates a Thompson NFA concatenation.
+  ; With the Thompson NFA, there are two ways to do this:
+  ; - Connect the two NFAs with an epsilon transition
+  ; - End state of the first NFA is replaced by the start state of the second NFA.
+  ; Here, the second method is used because it avoids the need for an additional
+  ; NFA state.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaConcatenation(List nfaPool.NfaStateStruc(), *nfa1.NfaStruc, *nfa2.NfaStruc)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
@@ -199,6 +209,9 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; Creates a Thompson NFA union construction.
+  ; Note: In Thompson NFA, a union construction may only connect two states.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaUnion(List nfaPool.NfaStateStruc(), *nfa1.NfaStruc, *nfa2.NfaStruc, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
@@ -229,6 +242,8 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; Creates a Thompson NFA "kleene star" construction.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaZeroOrMore(List nfaPool.NfaStateStruc(), *nfa.NfaStruc, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
@@ -258,6 +273,10 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; This construction is a custom construction and not part of the Thompson NFA
+  ; constructions. It reduces required NFA states that one would have if
+  ; limited to the Thompson NFA constructions only.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaOneOrMore(List nfaPool.NfaStateStruc(), *nfa.NfaStruc, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)
     
@@ -286,6 +305,9 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; This construction is a custom construction and not part of the Thompson NFA
+  ; constructions.
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaZeroOrOne(List nfaPool.NfaStateStruc(), *nfa.NfaStruc, finalStateValue)
     Protected.NfaStruc *nfa2, *resultNfa
     
@@ -314,6 +336,7 @@ Module RegEx
     ProcedureReturn *resultNfa
   EndProcedure
   
+  ; Returns the RegEx string position as a number of characters
   Procedure GetCurrentCharacterPosition(*regExString.RegExStringStruc)
     Protected position = *regExString\currentPosition
     position - *regExString\startPosition
@@ -321,7 +344,13 @@ Module RegEx
     ProcedureReturn position + 1
   EndProcedure
   
-  ; Creates from the byte tree the corresponding NFA construction
+  ; Creates from the byte tree the corresponding Thompson NFA construction.
+  ; Byte ranges are combined into other byte ranges, if possible, in order to
+  ; reduce the number of byte ranges and thus the number of NFA states
+  ; required. Examples:
+  ; - byte ranges `[1-2][1-2]` and `[3-4][1-2]` are combined as `[1-4][1-2]`
+  ; - byte ranges `[1-2][1-2]` and `[1-2][3-4]` are combined as `[1-2][1-4]`
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaByteRangeSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, isNegated = #False)
     Protected.NfaStruc *nfa1, *nfa2, *base
     Protected.ByteRangesStruc NewList byteRanges()
@@ -339,6 +368,8 @@ Module RegEx
           EndIf
           
           If byteSequences(byte1, byte2)
+            
+            ; Avoid duplicate identical byte ranges
             If previousByte1 <> byte1
               If Not AddElement(byteRanges())
                 ProcedureReturn 0
@@ -347,6 +378,8 @@ Module RegEx
               byteRanges()\byte1Range\max = byte1
               previousByte1 = byte1
             EndIf
+            
+            ; Try to merge byte 2 ranges
             isByte2Found = #False
             ForEach byteRanges()\byte2Ranges()
               If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
@@ -366,6 +399,7 @@ Module RegEx
               byteRanges()\byte2Ranges()\min = byte2
               byteRanges()\byte2Ranges()\max = byte2
             EndIf
+            
           EndIf
         Next
       Next
@@ -373,11 +407,14 @@ Module RegEx
       For byte1 = 0 To $FF
         For byte2 = 0 To $FF
           
+          ; Skip null character
           If byte1 = 0 And byte2 = 0
-            Continue ; Skip null character
+            Continue
           EndIf
           
           If Not byteSequences(byte1, byte2)
+            
+            ; Avoid duplicate identical byte ranges
             If previousByte1 <> byte1
               If Not AddElement(byteRanges())
                 ProcedureReturn 0
@@ -386,6 +423,8 @@ Module RegEx
               byteRanges()\byte1Range\max = byte1
               previousByte1 = byte1
             EndIf
+            
+            ; Try to merge byte 2 ranges
             isByte2Found = #False
             ForEach byteRanges()\byte2Ranges()
               If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
@@ -405,11 +444,15 @@ Module RegEx
               byteRanges()\byte2Ranges()\min = byte2
               byteRanges()\byte2Ranges()\max = byte2
             EndIf
+            
           EndIf
         Next
       Next
     EndIf
     
+    ; Try to merge byte 1 ranges
+    ; Note: When merging a byte 1 range, the subordinate byte 2 ranges must
+    ; also be identical.
     ForEach byteRanges()
       *currentElement.ByteRangesStruc = @byteRanges()
       PushListPosition(byteRanges())
@@ -445,6 +488,8 @@ Module RegEx
       PopListPosition(byteRanges())
     Next
     
+    ; Iterate the minimized byte ranges and create the corresponding NFA
+    ; construction
     ForEach byteRanges()
       *nfa1 = CreateNfaByteRange(nfaPool(), byteRanges()\byte1Range\min, byteRanges()\byte1Range\max, finalStateValue)
       *nfa2 = 0
@@ -501,6 +546,7 @@ Module RegEx
     ForEver
   EndProcedure
   
+  ; Returns the hexadecimal number as an integer. On an error, null is returned.
   Procedure DecodeHexCode(*regExString.RegExStringStruc, requiredLength)
     Protected hexCode$
     
@@ -546,6 +592,8 @@ Module RegEx
     ProcedureReturn Val("$" + hexCode$)
   EndProcedure
   
+  ; Returns the current RegEx character class base symbol as a character.
+  ; On an error, a empty string is returned.
   Procedure$ ParseRegExCharacterClassBase(*regExString.RegExStringStruc)
     Protected result$
     
@@ -619,6 +667,7 @@ Module RegEx
     ProcedureReturn result$
   EndProcedure
   
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegExCharacterClass(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected base$, base2$
     Protected base, base2
@@ -672,6 +721,7 @@ Module RegEx
     ProcedureReturn CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, isNegated)
   EndProcedure
   
+  ; On success `#True` is returned, otherwise `#False`.
   Procedure ParseRegExModes(*regExString.RegExStringStruc, *regExModes.Integer)
     Protected oldPosition = *regExString\currentPosition
     
@@ -736,6 +786,7 @@ Module RegEx
     ProcedureReturn #True
   EndProcedure
   
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected.NfaStruc *base, *nfa1, *nfa2
     Protected Dim byteSequences.b($FF, $FF)
@@ -925,6 +976,7 @@ Module RegEx
     ProcedureReturn *base
   EndProcedure
   
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected.NfaStruc *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes)
     Protected.NfaStruc *factor
@@ -953,6 +1005,7 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected.NfaStruc *factor, *newFactor, *nextFactor
     
@@ -980,6 +1033,7 @@ Module RegEx
     ProcedureReturn *factor
   EndProcedure
   
+  ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
     Protected.NfaStruc *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes)
     Protected.NfaStruc *regEx, *union
@@ -1000,6 +1054,7 @@ Module RegEx
     EndIf
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure Init()
     Protected.RegExEngineStruc *regExEngine
     
@@ -1008,6 +1063,7 @@ Module RegEx
     ProcedureReturn *regExEngine
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)
     Protected.NfaStruc *resultNfa
     Protected.RegExStringStruc *regExString
@@ -1073,7 +1129,12 @@ Module RegEx
       AddState(*state\nextState1, *states())
     Else
       
-      ; Required to prevent endless recursion
+      ; Required to prevent an endless loop on the following RegExes:
+      ; - `x*x*`
+      ; - `x*x+`
+      ; - `x+x*`
+      ; - `x+x+`
+      ; `x` can also be a more complex RegEx.
       ForEach *states()
         If *states() = *state
           ProcedureReturn
@@ -1124,6 +1185,7 @@ Module RegEx
     ProcedureReturn result
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)
     Protected.EClosureStruc Dim eClosures(1), NewMap symbols()
     Protected.NfaStateStruc *state
@@ -1201,6 +1263,7 @@ Module RegEx
     ProcedureReturn #True
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure Free(*regExEngine.RegExEngineStruc)
     If *regExEngine\isUseDfaFromMemory = #False And *regExEngine\dfaStatesPool
       FreeMemory(*regExEngine\dfaStatesPool)
@@ -1208,6 +1271,7 @@ Module RegEx
     FreeStructure(*regExEngine)
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure UseDfaFromMemory(*dfaMemory)
     Protected.RegExEngineStruc *regExEngine
     
@@ -1224,6 +1288,7 @@ Module RegEx
     ProcedureReturn *regExEngine
   EndProcedure
   
+  ; Returns the longest match as byte length
   Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
     Protected.NfaStateStruc *state
     Protected.NfaStateStruc NewList *currentStates(), NewList *nextStates()
@@ -1264,6 +1329,7 @@ Module RegEx
     ProcedureReturn lastFinalStateMatchLength
   EndProcedure
   
+  ; Returns the longest match as byte length
   Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
     Protected dfaState, lastFinalStateMatchLength
     Protected *stringStartPos
@@ -1292,6 +1358,7 @@ Module RegEx
     ProcedureReturn lastFinalStateMatchLength
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)
     If *regExEngine\dfaStatesPool <> 0
       ProcedureReturn DfaMatch(*regExEngine, *string, *regExId)
@@ -1300,10 +1367,12 @@ Module RegEx
     EndIf
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure$ GetLastErrorMessages()
     ProcedureReturn lastErrorMessages$
   EndProcedure
   
+  ; Public Function. Description in the module declaration block.
   Procedure ExportDfa(*regExEngine.RegExEngineStruc, filePath$)
     Protected file
     
