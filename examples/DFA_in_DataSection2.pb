@@ -1,4 +1,6 @@
 ﻿
+EnableExplicit
+
 IncludeFile ".." + #PS$ + "DfaMatcher.pbi"
 
 If DfaMatcher::Match(?dfa, @"Test")

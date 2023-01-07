@@ -1,4 +1,6 @@
 ﻿
+EnableExplicit
+
 IncludeFile ".." + #PS$ + "RegExEngine.pbi"
 
 Define *regEx = RegEx::UseDfaFromMemory(?dfa)

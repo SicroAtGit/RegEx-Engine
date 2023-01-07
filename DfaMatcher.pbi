@@ -1,6 +1,8 @@
 ﻿
 DeclareModule DfaMatcher
   
+  EnableExplicit
+  
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure DfaStateStruc

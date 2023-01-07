@@ -1,4 +1,6 @@
 ﻿
+EnableExplicit
+
 IncludePath ".."
 IncludeFile "RegExEngine.pbi"
 
