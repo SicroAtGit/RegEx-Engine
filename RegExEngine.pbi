@@ -1123,7 +1123,9 @@ Module RegEx
   ; Used for the subset construction (NFA -> DFA conversion).
   Procedure AddState(*state.NfaStateStruc, List *states.NfaStateStruc())
     If *state\stateType = #StateType_SplitMove
-      AddState(*state\nextState1, *states())
+      If Not AddState(*state\nextState1, *states())
+        ProcedureReturn #False
+      EndIf
       AddState(*state\nextState2, *states())
     ElseIf *state\stateType = #StateType_EpsilonMove
       AddState(*state\nextState1, *states())
@@ -1137,13 +1139,15 @@ Module RegEx
       ; `x` can also be a more complex RegEx.
       ForEach *states()
         If *states() = *state
-          ProcedureReturn
+          ProcedureReturn #False
         EndIf
       Next
       
       AddElement(*states())
       *states() = *state
     EndIf
+    
+    ProcedureReturn #True
   EndProcedure
   
   ; Searches the epsilon closures for a set of NFA states and returns the
