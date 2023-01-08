@@ -55,7 +55,7 @@ Else
 EndIf
 ```
 
-More code examples can be found in the [`examples`](examples) directory.
+More code examples can be found in the [`Source/Examples`](Source/Examples) directory.
 
 ## Supported Syntax
 
