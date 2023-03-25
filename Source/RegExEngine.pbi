@@ -736,6 +736,7 @@ Module RegEx
       EndIf
       *regExString\currentPosition + SizeOf(Unicode)
       If *regExString\currentPosition\u = ')'
+        *regExString\currentPosition + SizeOf(Unicode)
         lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
                              Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                              #CRLF$
@@ -752,24 +753,19 @@ Module RegEx
               lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
                                    Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                    #CRLF$
+              *regExString\currentPosition + SizeOf(Unicode)
               ProcedureReturn #False
             EndIf
-            Repeat
-              Select *regExString\currentPosition\u
-                Case 'i'
-                  *regExString\currentPosition + SizeOf(Unicode)
-                  *regExModes\i & ~#RegExMode_NoCase
-                Case ')'
-                  *regExString\currentPosition + SizeOf(Unicode)
-                  oldPosition = *regExString\currentPosition
-                  Break 2
-                Default
-                  lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
-                                       Str(GetCurrentCharacterPosition(*regExString)) + "]" +
-                                       #CRLF$
-                  ProcedureReturn #False
-              EndSelect
-            ForEver
+            Select *regExString\currentPosition\u
+              Case 'i'
+                *regExString\currentPosition + SizeOf(Unicode)
+                *regExModes\i & ~#RegExMode_NoCase
+              Default
+                lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
+                                     Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                     #CRLF$
+                ProcedureReturn #False
+            EndSelect
           Case ')'
             *regExString\currentPosition + SizeOf(Unicode)
             oldPosition = *regExString\currentPosition
