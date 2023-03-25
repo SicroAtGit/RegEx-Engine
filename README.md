@@ -6,9 +6,9 @@ https://github.com/SicroAtGit/RegEx-Engine
 
 This RegEx engine compiles a regular expression into an NFA, optionally then into a very fast DFA, and can execute the NFA/DFA against a string.
 
-The NFA is built with the [Thompson's construction](https://en.wikipedia.org/wiki/Thompson%27s_construction) and with two extra constructions for `x+` and `x?`.
-
 When matching, the RegEx engine matches always the longest match among several possible matches. During this process, no backtracking is required, because all alternations are checked simultaneously.
+
+The RegExes can be assigned with RegEx ID numbers, which can be determined in case of a match. This useful for creating lexers, which is the main focus of the project. At the same time, the RegEx engine is kept flexible to be used for many other purposes as well.
 
 ## Examples
 
@@ -82,24 +82,25 @@ More code examples can be found in the [`Source/Examples`](Source/Examples) dire
 | `\W`    | Matches any character except the Unicode's character classes [Alphabetic, M, Nd, Pc, Join_Control](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=) |
 | `\x`    | Matches the character represented by the hex code (exactly two digits, `\x01` up to `\xFF`) |
 | `\u`    | Matches the character represented by the hex code (exactly four digits, `\u0001` up to `\uFFFF`) |
-| `(?i)`  | Activates the case-insensitive mode |
-| `(?-i)` | Deactivates the case-insensitive mode |
-| `(?a)`  | Activates the ASCII mode |
-| `(?-a)` | Deactivates the ASCII mode |
+| `(?m)`  | Toggles the RegEx mode states. `m` can be one or more flags. To deactivate a RegEx mode again, the flag must be prefixed with a minus sign |
 
 ## Unicode Support
 
-Like the native string functions in PureBasic, the RegEx engine uses the UCS-2 character encoding, which limits it to Unicode code points `\u0001` up to `\uFFFF` and interprets UTF-16 surrogate pairs as single characters.
+Like the native string functions in PureBasic: UCS-2 character encoding, UTF-16 surrogate pairs are interpreted as two single UCS-2 characters.
 
 ## Case-Insensitive Mode
+
+Flag: `i`
 
 The implementation uses [Unicode's Simple Case Folding](https://unicode.org/reports/tr18/#Simple_Loose_Matches) variant, but in reverse: Instead of mapping all character variations to a single character (folding), a single character is mapped to all character variations (unfolding). This is necessary because the DFA must know all valid characters.
 
 ## ASCII Mode
 
+Flag: `a`
+
 When activated, the predefined character classes will only match the corresponding ASCII characters. For example, `(?a)\w` will then match only `[a-zA-Z0-9_]`. The character encoding remains UCS-2 in this mode, i.e. `(?a)\W` matches all UCS-2 characters, but not `[a-zA-Z0-9_]`.
 
-This mode is also useful in combination with `#RegExMode_NoCase` when you want to lex keywords in a code, case-insensitive, but no case-folding should be applied:
+This RegEx mode is also useful in combination with `#RegExMode_NoCase` when you want to lex keywords in a code, case-insensitive, but no case-folding should be applied:
 
 - `(?i)set` corresponds to `[Ss\u017F][Ee][Tt]`
 - `(?ia)set` corresponds to `[Ss][Ee][Tt]`
@@ -183,7 +184,12 @@ Simplifies the return of the match as a string.
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
 
 - **`AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`**<br><br>
-Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched. With the optional `regExModes` parameter it can be defined which RegEx modes should be activated at the beginning.
+Compiles the RegEx into a NFA and adds the NFA then to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched. With the optional `regExModes` parameter it can be defined which RegEx modes should be activated at the beginning. Currently possible parameters are:
+
+  - `#RegExMode_NoCase` — Activates case-insensitive mode
+  - `#RegExMode_Ascii` — Activates ASCII mode
+
+  To set multiple parameters, combine them with the `|` operator (bitwise OR).
 
 - **`CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)`**<br><br>
 Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` then always uses the DFA and is much faster. Because the NFAs are no longer used after this, they are cleared by default. The clearing can be turned off by setting `clearNfa` to `#False`. On success `#True` is returned, otherwise `#False`. If a DFA already exists, the DFA will be freed before creating a new DFA.
@@ -240,6 +246,10 @@ Simplifies the return of the match as a string.
 - **`Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)`**<br><br>
 Runs the DFA against the string. The function requires the pointer to the string. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If an address to an integer variable was passed in the optional `*regExId` parameter, the RegEx ID number of the matched RegEx is written into it. If there are multiple RegExes that match the same string and have been assigned different RegEx ID numbers, the RegEx ID number of the last matched RegEx is taken, i.e. the last matched RegEx added with the `AddNfa()` function from the main module.
 
+## Would you like to contribute to the project?
+
+Then please check out [CONRTIBUTING](CONTRIBUTING.md) for details.
+
 ## License
 
-The project is licensed under the MIT license.
+The project is licensed under the [MIT license](LICENSE).
