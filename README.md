@@ -84,6 +84,8 @@ More code examples can be found in the [`Source/Examples`](Source/Examples) dire
 | `\u`    | Matches the character represented by the hex code (exactly four digits, `\u0001` up to `\uFFFF`) |
 | `(?i)`  | Activates the case-insensitive mode |
 | `(?-i)` | Deactivates the case-insensitive mode |
+| `(?a)`  | Activates the ASCII mode |
+| `(?-a)` | Deactivates the ASCII mode |
 
 ## Unicode Support
 
@@ -93,11 +95,21 @@ Like the native string functions in PureBasic, the RegEx engine uses the UCS-2 c
 
 The implementation uses [Unicode's Simple Case Folding](https://unicode.org/reports/tr18/#Simple_Loose_Matches) variant, but in reverse: Instead of mapping all character variations to a single character (folding), a single character is mapped to all character variations (unfolding). This is necessary because the DFA must know all valid characters.
 
+## ASCII Mode
+
+When activated, the predefined character classes will only match the corresponding ASCII characters. For example, `(?a)\w` will then match only `[a-zA-Z0-9_]`. The character encoding remains UCS-2 in this mode, i.e. `(?a)\W` matches all UCS-2 characters, but not `[a-zA-Z0-9_]`.
+
+This mode is also useful in combination with `#RegExMode_NoCase` when you want to lex keywords in a code, case-insensitive, but no case-folding should be applied:
+
+- `(?i)set` corresponds to `[Ss\u017F][Ee][Tt]`
+- `(?ia)set` corresponds to `[Ss][Ee][Tt]`
+
 ## Public Constants
 
 ```purebasic
 EnumerationBinary RegExModes
   #RegExMode_NoCase ; Activates case-insensitive mode
+  #RegExMode_Ascii  ; Activates ASCII mode
 EndEnumeration
 ```
 

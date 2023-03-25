@@ -5,6 +5,7 @@ DeclareModule RegEx
   
   EnumerationBinary RegExModes
     #RegExMode_NoCase ; Activates case-insensitive mode
+    #RegExMode_Ascii  ; Activates ASCII mode
   EndEnumeration
   
   Enumeration NfaStateTypes
@@ -520,12 +521,25 @@ Module RegEx
     For i = startValue To endValue
       char\u = i
       byteSequences(char\a[0], char\a[1]) = #True
-      If *regExModes And *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
-        count = *caseUnfold(char\u)\charsCount
-        For ii = 0 To count
-          char\u = *caseUnfold(char\u)\chars[ii]
-          byteSequences(char\a[0], char\a[1]) = #True
-        Next
+      If *regExModes And *regExModes\i & #RegExMode_NoCase
+        If *regExModes\i & #RegExMode_Ascii
+          Select char\u
+            Case 'A' To 'Z'
+              char\u = char\u + 32
+              byteSequences(char\a[0], char\a[1]) = #True
+            Case 'a' To 'z'
+              char\u = char\u - 32
+              byteSequences(char\a[0], char\a[1]) = #True
+          EndSelect
+        Else
+          If *caseUnfold(char\u)
+            count = *caseUnfold(char\u)\charsCount
+            For ii = 0 To count
+              char\u = *caseUnfold(char\u)\chars[ii]
+              byteSequences(char\a[0], char\a[1]) = #True
+            Next
+          EndIf
+        EndIf
       EndIf
     Next
   EndProcedure
@@ -747,6 +761,9 @@ Module RegEx
           Case 'i'
             *regExString\currentPosition + SizeOf(Unicode)
             *regExModes\i | #RegExMode_NoCase
+          Case 'a'
+            *regExString\currentPosition + SizeOf(Unicode)
+            *regExModes\i | #RegExMode_Ascii
           Case '-'
             *regExString\currentPosition + SizeOf(Unicode)
             If *regExString\currentPosition\u = ')'
@@ -760,6 +777,9 @@ Module RegEx
               Case 'i'
                 *regExString\currentPosition + SizeOf(Unicode)
                 *regExModes\i & ~#RegExMode_NoCase
+              Case 'a'
+                *regExString\currentPosition + SizeOf(Unicode)
+                *regExModes\i & ~#RegExMode_Ascii
               Default
                 lastErrorMessages$ + "Invalid RegEx mode setting [Pos: " +
                                      Str(GetCurrentCharacterPosition(*regExString)) + "]" +
@@ -838,32 +858,56 @@ Module RegEx
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'd'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'D'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 's'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'S'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'w'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?WordByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'W'
             Dim byteSequences.b($FF, $FF)
-            AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences)
+            If *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences_AsciiMode)
+            Else
+              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences)
+            EndIf
             *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'x'
@@ -878,14 +922,27 @@ Module RegEx
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
-              count = *caseUnfold(char\u)\charsCount
-              For ii = 0 To count
-                char\u = *caseUnfold(char\u)\chars[ii]
-                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-              Next
+            If *regExModes\i & #RegExMode_NoCase
+              If *regExModes\i & #RegExMode_Ascii
+                Select char\u
+                  Case 'A' To 'Z'
+                    char\u = char\u + 32
+                    byteSequences(char\a[0], char\a[1]) = #True
+                  Case 'a' To 'z'
+                    char\u = char\u - 32
+                    byteSequences(char\a[0], char\a[1]) = #True
+                EndSelect
+              Else
+                If *caseUnfold(char\u)
+                  count = *caseUnfold(char\u)\charsCount
+                  For ii = 0 To count
+                    char\u = *caseUnfold(char\u)\chars[ii]
+                    *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                    *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                    *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                  Next
+                EndIf
+              EndIf
             EndIf
           Case 'u'
             *regExString\currentPosition + SizeOf(Unicode)
@@ -899,14 +956,27 @@ Module RegEx
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
-              count = *caseUnfold(char\u)\charsCount
-              For ii = 0 To count
-                char\u = *caseUnfold(char\u)\chars[ii]
-                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-              Next
+            If *regExModes\i & #RegExMode_NoCase
+              If *regExModes\i & #RegExMode_Ascii
+                Select char\u
+                  Case 'A' To 'Z'
+                    char\u = char\u + 32
+                    byteSequences(char\a[0], char\a[1]) = #True
+                  Case 'a' To 'z'
+                    char\u = char\u - 32
+                    byteSequences(char\a[0], char\a[1]) = #True
+                EndSelect
+              Else
+                If *caseUnfold(char\u)
+                  count = *caseUnfold(char\u)\charsCount
+                  For ii = 0 To count
+                    char\u = *caseUnfold(char\u)\chars[ii]
+                    *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                    *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                    *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                  Next
+                EndIf
+              EndIf
             EndIf
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[0], *regExString\currentPosition\a[0],
@@ -953,14 +1023,27 @@ Module RegEx
         *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
         *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-        If *regExModes\i & #RegExMode_NoCase And *caseUnfold(char\u)
-          count = *caseUnfold(char\u)\charsCount
-          For ii = 0 To count
-            char\u = *caseUnfold(char\u)\chars[ii]
-            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-            *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
-          Next
+        If *regExModes\i & #RegExMode_NoCase
+          If *regExModes\i & #RegExMode_Ascii
+            Select char\u
+              Case 'A' To 'Z'
+                char\u = char\u + 32
+                byteSequences(char\a[0], char\a[1]) = #True
+              Case 'a' To 'z'
+                char\u = char\u - 32
+                byteSequences(char\a[0], char\a[1]) = #True
+            EndSelect
+          Else
+            If *caseUnfold(char\u)
+              count = *caseUnfold(char\u)\charsCount
+              For ii = 0 To count
+                char\u = *caseUnfold(char\u)\chars[ii]
+                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+              Next
+            EndIf
+          EndIf
         EndIf
         *regExString\currentPosition + SizeOf(Unicode)
     EndSelect

@@ -50,6 +50,10 @@ DataSection
   Data.u 65296, 65305
   Data.u 0
   
+  DigitByteSequences_AsciiMode:
+  Data.u 48, 57
+  Data.u 0
+  
   NoDigitByteSequences:
   Data.u 1, 47
   Data.u 58, 1631
@@ -91,6 +95,11 @@ DataSection
   Data.u 65306, $FFFF
   Data.u 0
   
+  NoDigitByteSequences_AsciiMode:
+  Data.u 1, 47
+  Data.u 58, $FFFF
+  Data.u 0
+  
   ; https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AWhite_Space%3A%5D&abb=on&esc=on&g=&i=
   WhiteSpaceByteSequences:
   Data.u 9, 13
@@ -106,6 +115,11 @@ DataSection
   Data.u 12288, 12288
   Data.u 0
   
+  WhiteSpaceByteSequences_AsciiMode:
+  Data.u 9, 13
+  Data.u 32, 32
+  Data.u 0
+  
   NoWhiteSpaceByteSequences:
   Data.u 1, 8
   Data.u 14, 31
@@ -118,6 +132,12 @@ DataSection
   Data.u 8240, 8286
   Data.u 8288, 12287
   Data.u 12288, $FFFF
+  Data.u 0
+  
+  NoWhiteSpaceByteSequences_AsciiMode:
+  Data.u 1, 8
+  Data.u 14, 31
+  Data.u 33, $FFFF
   Data.u 0
   
   ; https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B%3AAlphabetic%3A%5D%5B%3AM%3A%5D%5B%3ANd%3A%5D%5B%3APc%3A%5D%5B%3AJoin_Control%3A%5D&abb=on&esc=on&g=&i=
@@ -589,6 +609,13 @@ DataSection
   Data.u 65498, 65500
   Data.u 0
   
+  WordByteSequences_AsciiMode:
+  Data.u 48, 57
+  Data.u 65, 90
+  Data.u 95, 95
+  Data.u 97, 122
+  Data.u 0
+  
   NoWordByteSequences:
   Data.u 1, 47
   Data.u 58, 64
@@ -1019,6 +1046,14 @@ DataSection
   Data.u 65488, 65489
   Data.u 65496, 65497
   Data.u 65501, $FFFF
+  Data.u 0
+  
+  NoWordByteSequences_AsciiMode:
+  Data.u 1, 47
+  Data.u 58, 64
+  Data.u 91, 94
+  Data.u 96, 96
+  Data.u 123, $FFFF
   Data.u 0
   
 EndDataSection
