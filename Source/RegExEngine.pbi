@@ -353,7 +353,7 @@ Module RegEx
   ; - byte ranges `[1-2][1-2]` and `[1-2][3-4]` are combined as `[1-2][1-4]`
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaByteRangeSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, isNegated = #False)
-    Protected.NfaStruc *nfa1, *nfa2, *base
+    Protected.NfaStruc *nfa1, *nfa2, *nfa2_new, *nfa3, *base, *base_new
     Protected.ByteRangesStruc NewList byteRanges()
     Protected byte1, byte2, previousByte1, isByte2Found, isIdentical
     Protected *currentElement.ByteRangesStruc
@@ -496,17 +496,28 @@ Module RegEx
       *nfa2 = 0
       ForEach byteRanges()\byte2Ranges()
         If *nfa2
-          *nfa2 = CreateNfaUnion(nfaPool(), *nfa2,
-                                 CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue),
-                                 finalStateValue)
+          *nfa3 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
+          *nfa2_new = CreateNfaUnion(nfaPool(), *nfa2, *nfa3, finalStateValue)
+          FreeStructure(*nfa2)
+          FreeStructure(*nfa3)
+          *nfa2 = *nfa2_new
         Else
           *nfa2 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
         EndIf
       Next
       If *base
-        *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+        *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+        FreeStructure(*nfa1)
+        FreeStructure(*nfa2)
+        *nfa2 = *nfa2_new
+        *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+        FreeStructure(*base)
+        FreeStructure(*nfa2)
+        *base = *base_new
       Else
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+        FreeStructure(*nfa1)
+        FreeStructure(*nfa2)
       EndIf
     Next
     
@@ -804,7 +815,7 @@ Module RegEx
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected.NfaStruc *base, *nfa1, *nfa2
+    Protected.NfaStruc *base, *base_new, *nfa1, *nfa2, *nfa2_new
     Protected Dim byteSequences.b($FF, $FF)
     Protected.CharacterStruc char
     Protected regExModes, count, ii
@@ -840,21 +851,29 @@ Module RegEx
             *nfa1 = CreateNfaByteRange(nfaPool(), #CR, #CR, finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'n'
             *nfa1 = CreateNfaByteRange(nfaPool(), #LF, #LF, finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 't'
             *nfa1 = CreateNfaByteRange(nfaPool(), #TAB, #TAB, finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'f'
             *nfa1 = CreateNfaByteRange(nfaPool(), #FF, #FF, finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'd'
             Dim byteSequences.b($FF, $FF)
@@ -922,6 +941,8 @@ Module RegEx
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             If *regExModes\i & #RegExMode_NoCase
               If *regExModes\i & #RegExMode_Ascii
                 Select char\u
@@ -939,7 +960,14 @@ Module RegEx
                     char\u = *caseUnfold(char\u)\chars[ii]
                     *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
                     *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                    *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                    *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                    FreeStructure(*nfa1)
+                    FreeStructure(*nfa2)
+                    *nfa2 = *nfa2_new
+                    *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                    FreeStructure(*base)
+                    FreeStructure(*nfa2)
+                    *base = *base_new
                   Next
                 EndIf
               EndIf
@@ -956,6 +984,8 @@ Module RegEx
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
             *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             If *regExModes\i & #RegExMode_NoCase
               If *regExModes\i & #RegExMode_Ascii
                 Select char\u
@@ -973,7 +1003,14 @@ Module RegEx
                     char\u = *caseUnfold(char\u)\chars[ii]
                     *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
                     *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                    *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                    *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                    FreeStructure(*nfa1)
+                    FreeStructure(*nfa2)
+                    *nfa2 = *nfa2_new
+                    *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                    FreeStructure(*base)
+                    FreeStructure(*nfa2)
+                    *base = *base_new
                   Next
                 EndIf
               EndIf
@@ -984,6 +1021,8 @@ Module RegEx
             *nfa2 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[1], *regExString\currentPosition\a[1],
                                        finalStateValue)
             *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
             *regExString\currentPosition + SizeOf(Unicode)
           Default
             lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
@@ -1023,6 +1062,8 @@ Module RegEx
         *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
         *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
         *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+        FreeStructure(*nfa1)
+        FreeStructure(*nfa2)
         If *regExModes\i & #RegExMode_NoCase
           If *regExModes\i & #RegExMode_Ascii
             Select char\u
@@ -1040,7 +1081,14 @@ Module RegEx
                 char\u = *caseUnfold(char\u)\chars[ii]
                 *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
                 *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                *base = CreateNfaUnion(nfaPool(), *base, CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2), finalStateValue)
+                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                FreeStructure(*nfa1)
+                FreeStructure(*nfa2)
+                *nfa2 = *nfa2_new
+                *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                FreeStructure(*base)
+                FreeStructure(*nfa2)
+                *base = *base_new
               Next
             EndIf
           EndIf
@@ -1180,6 +1228,7 @@ Module RegEx
           ProcedureReturn #False
         EndIf
         *regExEngine\nfaPools()\initialNfaState = *resultNfa\startState
+        FreeStructure(*resultNfa)
       Else
         If *regExString\currentPosition\u = ')'
           ; If the RegEx string could not be parsed completely, there are syntax
