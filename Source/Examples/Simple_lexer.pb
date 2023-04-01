@@ -42,7 +42,7 @@ RegEx::AddNfa(*lexer, "\d+", #TokenType_Number)
 RegEx::AddNfa(*lexer, "'[^']*'", #TokenType_String)
 RegEx::AddNfa(*lexer, "[A-Za-z]+", #TokenType_Variable)
 RegEx::AddNfa(*lexer, "\s", #TokenType_Whitespace)
-; RegEx::CreateDfa(*lexer) ; <--- Please be a little patient if you want to try this
+; RegEx::CreateDfa(*lexer)
 
 Define code$ = "sum = 100 + 5" + #CRLF$ +
                "string = 'Example text'"
