@@ -12,7 +12,7 @@
 
 - Before developing big improvements/features, it is advisable to discuss this change in an issue beforehand. This way you don't risk wasting a lot of your time if the pull request ends up being rejected and not integrated. In addition, it can then be communicated in the issue who is working on the issue to prevent duplication of work.
 
-- For a pull request, a feature branch should be created from the `devel` branch and the `devel` branch should also be the target.
+- For a pull request, a feature branch should be created from the `main` branch and the `main` branch should also be the target.
 
 ## Rules For Commits
 
