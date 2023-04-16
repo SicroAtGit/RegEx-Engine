@@ -14,20 +14,21 @@ DeclareModule DfaMatcher
     states.DfaStateStruc[0] ; Array pointer to the DFA states
   EndStructure
   
-  ; Simplifies the return of the match as a string
+  ; Simplifies extracting the matched string via its memory address and length
+  ; info obtained from a `Match()` call.
   Macro GetString(_memoryAddress_, _lengthInBytes_)
     PeekS(_memoryAddress_, (_lengthInBytes_) >> 1)
   EndMacro
   
-  ; Runs the DFA against the string. The function requires the pointer to the
-  ; string. The match search will start from the beginning of the string. If a
-  ; match is found, the byte length of the match is returned, otherwise null.
-  ; If an address to an integer variable was passed in the optional `*regExId`
-  ; parameter, the RegEx ID number of the matched RegEx is written into it. If
-  ; there are multiple RegExes that match the same string and have been
-  ; assigned different RegEx ID numbers, the RegEx ID number of the last
-  ; matched RegEx is taken, i.e. the last matched RegEx added with the
-  ; `AddNfa()` function from the main module.
+  ; Runs the DFA against the target string, passed via a pointer.
+  ; The match search will start from the beginning of the string. If a match is
+  ; found, the byte length of the match is returned, otherwise null.
+  ; If the address of an integer variable was passed as the optional `*regExId`
+  ; parameter, the RegEx ID number of the matching RegEx is written into it.
+  ; If multiple RegExes match the same string, each having been assigned a
+  ; different RegEx ID number, the RegEx ID number of the last matching RegEx
+  ; will be picked, i.e. the matching RegEx that was last added with the
+  ; `AddNfa()` function.
   Declare Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)
   
 EndDeclareModule
