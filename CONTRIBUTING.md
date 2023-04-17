@@ -12,7 +12,7 @@
 
 - Before developing big improvements/features, it's advisable to discuss the proposed changes in an Issue beforehand. This way, you won't risk wasting a lot of your precious time if the pull request ends up being rejected and not integrated into the repository. Furthermore, announcing via Issues who's working on which feature (or planning to do so) prevents duplication of efforts.
 
-- For a pull request, a feature branch should be created from the `main` branch, and the pull request should target the `main` branch.
+- For a pull request, a feature branch should be created from the `dev` branch, and the pull request should target the `dev` branch.
 
 ## Commits Guidelines
 
