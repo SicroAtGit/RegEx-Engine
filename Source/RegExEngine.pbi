@@ -950,11 +950,19 @@ Module RegEx
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
-                    byteSequences(char\a[0], char\a[1]) = #True
                   Case 'a' To 'z'
                     char\u = char\u - 32
-                    byteSequences(char\a[0], char\a[1]) = #True
                 EndSelect
+                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                FreeStructure(*nfa1)
+                FreeStructure(*nfa2)
+                *nfa2 = *nfa2_new
+                *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                FreeStructure(*base)
+                FreeStructure(*nfa2)
+                *base = *base_new
               Else
                 If *caseUnfold(char\u)
                   count = *caseUnfold(char\u)\charsCount
@@ -993,11 +1001,19 @@ Module RegEx
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
-                    byteSequences(char\a[0], char\a[1]) = #True
                   Case 'a' To 'z'
                     char\u = char\u - 32
-                    byteSequences(char\a[0], char\a[1]) = #True
                 EndSelect
+                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                FreeStructure(*nfa1)
+                FreeStructure(*nfa2)
+                *nfa2 = *nfa2_new
+                *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                FreeStructure(*base)
+                FreeStructure(*nfa2)
+                *base = *base_new
               Else
                 If *caseUnfold(char\u)
                   count = *caseUnfold(char\u)\charsCount
@@ -1071,11 +1087,19 @@ Module RegEx
             Select char\u
               Case 'A' To 'Z'
                 char\u = char\u + 32
-                byteSequences(char\a[0], char\a[1]) = #True
               Case 'a' To 'z'
                 char\u = char\u - 32
-                byteSequences(char\a[0], char\a[1]) = #True
             EndSelect
+            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+            *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+            FreeStructure(*nfa1)
+            FreeStructure(*nfa2)
+            *nfa2 = *nfa2_new
+            *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+            FreeStructure(*base)
+            FreeStructure(*nfa2)
+            *base = *base_new
           Else
             If *caseUnfold(char\u)
               count = *caseUnfold(char\u)\charsCount
