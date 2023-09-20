@@ -1060,7 +1060,7 @@ Module RegEx
                              Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                              #CRLF$
         ProcedureReturn 0
-      Case ''
+      Case 0
         lastErrorMessages$ + "Empty RegEx not allowed [Pos: " +
                              Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                              #CRLF$
