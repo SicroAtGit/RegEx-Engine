@@ -9,11 +9,10 @@
 
 ## PureBasic Files
 ##################
-[attr]PureBasic text linguist-language=PureBasic gitlab-language=PureBasic
 *.cfg   text linguist-generated=true gitlab-generated=true
-*.pb    PureBasic
-*.pbf   PureBasic
-*.pbi   PureBasic
+*.pb    text linguist-language=PureBasic gitlab-language=PureBasic
+*.pbf   text linguist-language=PureBasic gitlab-language=PureBasic
+*.pbi   text linguist-language=PureBasic gitlab-language=PureBasic
 *.pbp   linguist-language=XML linguist-generated=true
 *.pbp   gitlab-language=XML gitlab-generated=true
 
