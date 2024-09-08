@@ -23,7 +23,7 @@ DeclareModule RegEx
   EndStructure
   
   Structure NfaStateStruc
-    stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_NfaFinal)
+    stateType.u               ; Type of the NFA state (regExId = stateType - #StateType_Final)
     byteRange.ByteRangeStruc  ; A byte range is used as a transition symbol
     *nextState1.NfaStateStruc ; Pointer to the first next NFA state
     *nextState2.NfaStateStruc ; Pointer to the second next NFA state
