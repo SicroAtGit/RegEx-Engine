@@ -61,9 +61,10 @@ DeclareModule RegEx
   
   ; Compiles the RegEx string into an NFA which is added to the NFAs pool
   ; in the RegEx engine. On success `#True` is returned, otherwise `#False`.
-  ; A unique number can be passed to `regExId` to determine later which RegEx
-  ; has matched. The optional `regExModes` parameter allows defining which
-  ; RegEx modes should be activated at the beginning.
+  ; A unique number (`0` to `(65535 - #StateType_Final)`) can be passed to
+  ; `regExId` to determine later which RegEx has matched. The optional
+  ; `regExModes` parameter allows defining which RegEx modes should be
+  ; activated at the beginning.
   Declare AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)
   
   ; Creates a single DFA from the existing NFAs in the RegEx engine.
@@ -1229,6 +1230,11 @@ Module RegEx
     
     If regExString$ = ""
       lastErrorMessages$ + "Empty RegEx not allowed" + #CRLF$
+      ProcedureReturn #False
+    EndIf
+    
+    If regExId > (65535 - #StateType_Final) Or regExId < 0
+      lastErrorMessages$ + "RegEx ID number must be in the range from 0 to " + Str(65535 - #StateType_Final) + #CRLF$
       ProcedureReturn #False
     EndIf
     

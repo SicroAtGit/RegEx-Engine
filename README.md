@@ -184,7 +184,7 @@ Simplifies extracting the matched string via its memory address and length info 
 Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
 
 - **`AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`**<br><br>
-Compiles the RegEx string into an NFA which is added to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number can be passed to `regExId` to determine later which RegEx has matched. The optional `regExModes` parameter allows defining which RegEx modes should be activated at the beginning; its currently supported values are:
+Compiles the RegEx string into an NFA which is added to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number (`0` to `(65535 - #StateType_Final)`) can be passed to `regExId` to determine later which RegEx has matched. The optional `regExModes` parameter allows defining which RegEx modes should be activated at the beginning; its currently supported values are:
 
     - `#RegExMode_NoCase` — Activates case-insensitive mode
     - `#RegExMode_Ascii` — Activates ASCII mode
