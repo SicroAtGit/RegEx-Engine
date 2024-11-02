@@ -2373,4720 +2373,7078 @@ Global Dim *caseUnfold.CaseUnfoldStruc($FFFF)
 
 DataSection
   caseUnfoldTable:
+  ; *caseUnfold($0041)
   Data.a 0
   Data.u $0061
+  ; *caseUnfold($0061)
   Data.a 0
   Data.u $0041
+  ; *caseUnfold($0042)
   Data.a 0
   Data.u $0062
+  ; *caseUnfold($0062)
   Data.a 0
   Data.u $0042
+  ; *caseUnfold($0043)
   Data.a 0
   Data.u $0063
+  ; *caseUnfold($0063)
   Data.a 0
   Data.u $0043
+  ; *caseUnfold($0044)
   Data.a 0
   Data.u $0064
+  ; *caseUnfold($0064)
   Data.a 0
   Data.u $0044
+  ; *caseUnfold($0045)
   Data.a 0
   Data.u $0065
+  ; *caseUnfold($0065)
   Data.a 0
   Data.u $0045
+  ; *caseUnfold($0046)
   Data.a 0
   Data.u $0066
+  ; *caseUnfold($0066)
   Data.a 0
   Data.u $0046
+  ; *caseUnfold($0047)
   Data.a 0
   Data.u $0067
+  ; *caseUnfold($0067)
   Data.a 0
   Data.u $0047
+  ; *caseUnfold($0048)
   Data.a 0
   Data.u $0068
+  ; *caseUnfold($0068)
   Data.a 0
   Data.u $0048
+  ; *caseUnfold($0049)
   Data.a 0
   Data.u $0069
+  ; *caseUnfold($0069)
   Data.a 0
   Data.u $0049
+  ; *caseUnfold($004A)
   Data.a 0
   Data.u $006A
+  ; *caseUnfold($006A)
   Data.a 0
   Data.u $004A
+  ; *caseUnfold($004B)
   Data.a 1
   Data.u $006B,$212A
+  ; *caseUnfold($006B)
   Data.a 1
   Data.u $004B,$212A
+  ; *caseUnfold($212A)
   Data.a 1
   Data.u $004B,$006B
+  ; *caseUnfold($004C)
   Data.a 0
   Data.u $006C
+  ; *caseUnfold($006C)
   Data.a 0
   Data.u $004C
+  ; *caseUnfold($004D)
   Data.a 0
   Data.u $006D
+  ; *caseUnfold($006D)
   Data.a 0
   Data.u $004D
+  ; *caseUnfold($004E)
   Data.a 0
   Data.u $006E
+  ; *caseUnfold($006E)
   Data.a 0
   Data.u $004E
+  ; *caseUnfold($004F)
   Data.a 0
   Data.u $006F
+  ; *caseUnfold($006F)
   Data.a 0
   Data.u $004F
+  ; *caseUnfold($0050)
   Data.a 0
   Data.u $0070
+  ; *caseUnfold($0070)
   Data.a 0
   Data.u $0050
+  ; *caseUnfold($0051)
   Data.a 0
   Data.u $0071
+  ; *caseUnfold($0071)
   Data.a 0
   Data.u $0051
+  ; *caseUnfold($0052)
   Data.a 0
   Data.u $0072
+  ; *caseUnfold($0072)
   Data.a 0
   Data.u $0052
+  ; *caseUnfold($0053)
   Data.a 1
   Data.u $0073,$017F
+  ; *caseUnfold($0073)
   Data.a 1
   Data.u $0053,$017F
+  ; *caseUnfold($017F)
   Data.a 1
   Data.u $0053,$0073
+  ; *caseUnfold($0054)
   Data.a 0
   Data.u $0074
+  ; *caseUnfold($0074)
   Data.a 0
   Data.u $0054
+  ; *caseUnfold($0055)
   Data.a 0
   Data.u $0075
+  ; *caseUnfold($0075)
   Data.a 0
   Data.u $0055
+  ; *caseUnfold($0056)
   Data.a 0
   Data.u $0076
+  ; *caseUnfold($0076)
   Data.a 0
   Data.u $0056
+  ; *caseUnfold($0057)
   Data.a 0
   Data.u $0077
+  ; *caseUnfold($0077)
   Data.a 0
   Data.u $0057
+  ; *caseUnfold($0058)
   Data.a 0
   Data.u $0078
+  ; *caseUnfold($0078)
   Data.a 0
   Data.u $0058
+  ; *caseUnfold($0059)
   Data.a 0
   Data.u $0079
+  ; *caseUnfold($0079)
   Data.a 0
   Data.u $0059
+  ; *caseUnfold($005A)
   Data.a 0
   Data.u $007A
+  ; *caseUnfold($007A)
   Data.a 0
   Data.u $005A
+  ; *caseUnfold($00B5)
   Data.a 1
   Data.u $03BC,$039C
+  ; *caseUnfold($03BC)
   Data.a 1
   Data.u $00B5,$039C
+  ; *caseUnfold($039C)
   Data.a 1
   Data.u $00B5,$03BC
+  ; *caseUnfold($00C0)
   Data.a 0
   Data.u $00E0
+  ; *caseUnfold($00E0)
   Data.a 0
   Data.u $00C0
+  ; *caseUnfold($00C1)
   Data.a 0
   Data.u $00E1
+  ; *caseUnfold($00E1)
   Data.a 0
   Data.u $00C1
+  ; *caseUnfold($00C2)
   Data.a 0
   Data.u $00E2
+  ; *caseUnfold($00E2)
   Data.a 0
   Data.u $00C2
+  ; *caseUnfold($00C3)
   Data.a 0
   Data.u $00E3
+  ; *caseUnfold($00E3)
   Data.a 0
   Data.u $00C3
+  ; *caseUnfold($00C4)
   Data.a 0
   Data.u $00E4
+  ; *caseUnfold($00E4)
   Data.a 0
   Data.u $00C4
+  ; *caseUnfold($00C5)
   Data.a 1
   Data.u $00E5,$212B
+  ; *caseUnfold($00E5)
   Data.a 1
   Data.u $00C5,$212B
+  ; *caseUnfold($212B)
   Data.a 1
   Data.u $00C5,$00E5
+  ; *caseUnfold($00C6)
   Data.a 0
   Data.u $00E6
+  ; *caseUnfold($00E6)
   Data.a 0
   Data.u $00C6
+  ; *caseUnfold($00C7)
   Data.a 0
   Data.u $00E7
+  ; *caseUnfold($00E7)
   Data.a 0
   Data.u $00C7
+  ; *caseUnfold($00C8)
   Data.a 0
   Data.u $00E8
+  ; *caseUnfold($00E8)
   Data.a 0
   Data.u $00C8
+  ; *caseUnfold($00C9)
   Data.a 0
   Data.u $00E9
+  ; *caseUnfold($00E9)
   Data.a 0
   Data.u $00C9
+  ; *caseUnfold($00CA)
   Data.a 0
   Data.u $00EA
+  ; *caseUnfold($00EA)
   Data.a 0
   Data.u $00CA
+  ; *caseUnfold($00CB)
   Data.a 0
   Data.u $00EB
+  ; *caseUnfold($00EB)
   Data.a 0
   Data.u $00CB
+  ; *caseUnfold($00CC)
   Data.a 0
   Data.u $00EC
+  ; *caseUnfold($00EC)
   Data.a 0
   Data.u $00CC
+  ; *caseUnfold($00CD)
   Data.a 0
   Data.u $00ED
+  ; *caseUnfold($00ED)
   Data.a 0
   Data.u $00CD
+  ; *caseUnfold($00CE)
   Data.a 0
   Data.u $00EE
+  ; *caseUnfold($00EE)
   Data.a 0
   Data.u $00CE
+  ; *caseUnfold($00CF)
   Data.a 0
   Data.u $00EF
+  ; *caseUnfold($00EF)
   Data.a 0
   Data.u $00CF
+  ; *caseUnfold($00D0)
   Data.a 0
   Data.u $00F0
+  ; *caseUnfold($00F0)
   Data.a 0
   Data.u $00D0
+  ; *caseUnfold($00D1)
   Data.a 0
   Data.u $00F1
+  ; *caseUnfold($00F1)
   Data.a 0
   Data.u $00D1
+  ; *caseUnfold($00D2)
   Data.a 0
   Data.u $00F2
+  ; *caseUnfold($00F2)
   Data.a 0
   Data.u $00D2
+  ; *caseUnfold($00D3)
   Data.a 0
   Data.u $00F3
+  ; *caseUnfold($00F3)
   Data.a 0
   Data.u $00D3
+  ; *caseUnfold($00D4)
   Data.a 0
   Data.u $00F4
+  ; *caseUnfold($00F4)
   Data.a 0
   Data.u $00D4
+  ; *caseUnfold($00D5)
   Data.a 0
   Data.u $00F5
+  ; *caseUnfold($00F5)
   Data.a 0
   Data.u $00D5
+  ; *caseUnfold($00D6)
   Data.a 0
   Data.u $00F6
+  ; *caseUnfold($00F6)
   Data.a 0
   Data.u $00D6
+  ; *caseUnfold($00D8)
   Data.a 0
   Data.u $00F8
+  ; *caseUnfold($00F8)
   Data.a 0
   Data.u $00D8
+  ; *caseUnfold($00D9)
   Data.a 0
   Data.u $00F9
+  ; *caseUnfold($00F9)
   Data.a 0
   Data.u $00D9
+  ; *caseUnfold($00DA)
   Data.a 0
   Data.u $00FA
+  ; *caseUnfold($00FA)
   Data.a 0
   Data.u $00DA
+  ; *caseUnfold($00DB)
   Data.a 0
   Data.u $00FB
+  ; *caseUnfold($00FB)
   Data.a 0
   Data.u $00DB
+  ; *caseUnfold($00DC)
   Data.a 0
   Data.u $00FC
+  ; *caseUnfold($00FC)
   Data.a 0
   Data.u $00DC
+  ; *caseUnfold($00DD)
   Data.a 0
   Data.u $00FD
+  ; *caseUnfold($00FD)
   Data.a 0
   Data.u $00DD
+  ; *caseUnfold($00DE)
   Data.a 0
   Data.u $00FE
+  ; *caseUnfold($00FE)
   Data.a 0
   Data.u $00DE
+  ; *caseUnfold($0100)
   Data.a 0
   Data.u $0101
+  ; *caseUnfold($0101)
   Data.a 0
   Data.u $0100
+  ; *caseUnfold($0102)
   Data.a 0
   Data.u $0103
+  ; *caseUnfold($0103)
   Data.a 0
   Data.u $0102
+  ; *caseUnfold($0104)
   Data.a 0
   Data.u $0105
+  ; *caseUnfold($0105)
   Data.a 0
   Data.u $0104
+  ; *caseUnfold($0106)
   Data.a 0
   Data.u $0107
+  ; *caseUnfold($0107)
   Data.a 0
   Data.u $0106
+  ; *caseUnfold($0108)
   Data.a 0
   Data.u $0109
+  ; *caseUnfold($0109)
   Data.a 0
   Data.u $0108
+  ; *caseUnfold($010A)
   Data.a 0
   Data.u $010B
+  ; *caseUnfold($010B)
   Data.a 0
   Data.u $010A
+  ; *caseUnfold($010C)
   Data.a 0
   Data.u $010D
+  ; *caseUnfold($010D)
   Data.a 0
   Data.u $010C
+  ; *caseUnfold($010E)
   Data.a 0
   Data.u $010F
+  ; *caseUnfold($010F)
   Data.a 0
   Data.u $010E
+  ; *caseUnfold($0110)
   Data.a 0
   Data.u $0111
+  ; *caseUnfold($0111)
   Data.a 0
   Data.u $0110
+  ; *caseUnfold($0112)
   Data.a 0
   Data.u $0113
+  ; *caseUnfold($0113)
   Data.a 0
   Data.u $0112
+  ; *caseUnfold($0114)
   Data.a 0
   Data.u $0115
+  ; *caseUnfold($0115)
   Data.a 0
   Data.u $0114
+  ; *caseUnfold($0116)
   Data.a 0
   Data.u $0117
+  ; *caseUnfold($0117)
   Data.a 0
   Data.u $0116
+  ; *caseUnfold($0118)
   Data.a 0
   Data.u $0119
+  ; *caseUnfold($0119)
   Data.a 0
   Data.u $0118
+  ; *caseUnfold($011A)
   Data.a 0
   Data.u $011B
+  ; *caseUnfold($011B)
   Data.a 0
   Data.u $011A
+  ; *caseUnfold($011C)
   Data.a 0
   Data.u $011D
+  ; *caseUnfold($011D)
   Data.a 0
   Data.u $011C
+  ; *caseUnfold($011E)
   Data.a 0
   Data.u $011F
+  ; *caseUnfold($011F)
   Data.a 0
   Data.u $011E
+  ; *caseUnfold($0120)
   Data.a 0
   Data.u $0121
+  ; *caseUnfold($0121)
   Data.a 0
   Data.u $0120
+  ; *caseUnfold($0122)
   Data.a 0
   Data.u $0123
+  ; *caseUnfold($0123)
   Data.a 0
   Data.u $0122
+  ; *caseUnfold($0124)
   Data.a 0
   Data.u $0125
+  ; *caseUnfold($0125)
   Data.a 0
   Data.u $0124
+  ; *caseUnfold($0126)
   Data.a 0
   Data.u $0127
+  ; *caseUnfold($0127)
   Data.a 0
   Data.u $0126
+  ; *caseUnfold($0128)
   Data.a 0
   Data.u $0129
+  ; *caseUnfold($0129)
   Data.a 0
   Data.u $0128
+  ; *caseUnfold($012A)
   Data.a 0
   Data.u $012B
+  ; *caseUnfold($012B)
   Data.a 0
   Data.u $012A
+  ; *caseUnfold($012C)
   Data.a 0
   Data.u $012D
+  ; *caseUnfold($012D)
   Data.a 0
   Data.u $012C
+  ; *caseUnfold($012E)
   Data.a 0
   Data.u $012F
+  ; *caseUnfold($012F)
   Data.a 0
   Data.u $012E
+  ; *caseUnfold($0132)
   Data.a 0
   Data.u $0133
+  ; *caseUnfold($0133)
   Data.a 0
   Data.u $0132
+  ; *caseUnfold($0134)
   Data.a 0
   Data.u $0135
+  ; *caseUnfold($0135)
   Data.a 0
   Data.u $0134
+  ; *caseUnfold($0136)
   Data.a 0
   Data.u $0137
+  ; *caseUnfold($0137)
   Data.a 0
   Data.u $0136
+  ; *caseUnfold($0139)
   Data.a 0
   Data.u $013A
+  ; *caseUnfold($013A)
   Data.a 0
   Data.u $0139
+  ; *caseUnfold($013B)
   Data.a 0
   Data.u $013C
+  ; *caseUnfold($013C)
   Data.a 0
   Data.u $013B
+  ; *caseUnfold($013D)
   Data.a 0
   Data.u $013E
+  ; *caseUnfold($013E)
   Data.a 0
   Data.u $013D
+  ; *caseUnfold($013F)
   Data.a 0
   Data.u $0140
+  ; *caseUnfold($0140)
   Data.a 0
   Data.u $013F
+  ; *caseUnfold($0141)
   Data.a 0
   Data.u $0142
+  ; *caseUnfold($0142)
   Data.a 0
   Data.u $0141
+  ; *caseUnfold($0143)
   Data.a 0
   Data.u $0144
+  ; *caseUnfold($0144)
   Data.a 0
   Data.u $0143
+  ; *caseUnfold($0145)
   Data.a 0
   Data.u $0146
+  ; *caseUnfold($0146)
   Data.a 0
   Data.u $0145
+  ; *caseUnfold($0147)
   Data.a 0
   Data.u $0148
+  ; *caseUnfold($0148)
   Data.a 0
   Data.u $0147
+  ; *caseUnfold($014A)
   Data.a 0
   Data.u $014B
+  ; *caseUnfold($014B)
   Data.a 0
   Data.u $014A
+  ; *caseUnfold($014C)
   Data.a 0
   Data.u $014D
+  ; *caseUnfold($014D)
   Data.a 0
   Data.u $014C
+  ; *caseUnfold($014E)
   Data.a 0
   Data.u $014F
+  ; *caseUnfold($014F)
   Data.a 0
   Data.u $014E
+  ; *caseUnfold($0150)
   Data.a 0
   Data.u $0151
+  ; *caseUnfold($0151)
   Data.a 0
   Data.u $0150
+  ; *caseUnfold($0152)
   Data.a 0
   Data.u $0153
+  ; *caseUnfold($0153)
   Data.a 0
   Data.u $0152
+  ; *caseUnfold($0154)
   Data.a 0
   Data.u $0155
+  ; *caseUnfold($0155)
   Data.a 0
   Data.u $0154
+  ; *caseUnfold($0156)
   Data.a 0
   Data.u $0157
+  ; *caseUnfold($0157)
   Data.a 0
   Data.u $0156
+  ; *caseUnfold($0158)
   Data.a 0
   Data.u $0159
+  ; *caseUnfold($0159)
   Data.a 0
   Data.u $0158
+  ; *caseUnfold($015A)
   Data.a 0
   Data.u $015B
+  ; *caseUnfold($015B)
   Data.a 0
   Data.u $015A
+  ; *caseUnfold($015C)
   Data.a 0
   Data.u $015D
+  ; *caseUnfold($015D)
   Data.a 0
   Data.u $015C
+  ; *caseUnfold($015E)
   Data.a 0
   Data.u $015F
+  ; *caseUnfold($015F)
   Data.a 0
   Data.u $015E
+  ; *caseUnfold($0160)
   Data.a 0
   Data.u $0161
+  ; *caseUnfold($0161)
   Data.a 0
   Data.u $0160
+  ; *caseUnfold($0162)
   Data.a 0
   Data.u $0163
+  ; *caseUnfold($0163)
   Data.a 0
   Data.u $0162
+  ; *caseUnfold($0164)
   Data.a 0
   Data.u $0165
+  ; *caseUnfold($0165)
   Data.a 0
   Data.u $0164
+  ; *caseUnfold($0166)
   Data.a 0
   Data.u $0167
+  ; *caseUnfold($0167)
   Data.a 0
   Data.u $0166
+  ; *caseUnfold($0168)
   Data.a 0
   Data.u $0169
+  ; *caseUnfold($0169)
   Data.a 0
   Data.u $0168
+  ; *caseUnfold($016A)
   Data.a 0
   Data.u $016B
+  ; *caseUnfold($016B)
   Data.a 0
   Data.u $016A
+  ; *caseUnfold($016C)
   Data.a 0
   Data.u $016D
+  ; *caseUnfold($016D)
   Data.a 0
   Data.u $016C
+  ; *caseUnfold($016E)
   Data.a 0
   Data.u $016F
+  ; *caseUnfold($016F)
   Data.a 0
   Data.u $016E
+  ; *caseUnfold($0170)
   Data.a 0
   Data.u $0171
+  ; *caseUnfold($0171)
   Data.a 0
   Data.u $0170
+  ; *caseUnfold($0172)
   Data.a 0
   Data.u $0173
+  ; *caseUnfold($0173)
   Data.a 0
   Data.u $0172
+  ; *caseUnfold($0174)
   Data.a 0
   Data.u $0175
+  ; *caseUnfold($0175)
   Data.a 0
   Data.u $0174
+  ; *caseUnfold($0176)
   Data.a 0
   Data.u $0177
+  ; *caseUnfold($0177)
   Data.a 0
   Data.u $0176
+  ; *caseUnfold($0178)
   Data.a 0
   Data.u $00FF
+  ; *caseUnfold($00FF)
   Data.a 0
   Data.u $0178
+  ; *caseUnfold($0179)
   Data.a 0
   Data.u $017A
+  ; *caseUnfold($017A)
   Data.a 0
   Data.u $0179
+  ; *caseUnfold($017B)
   Data.a 0
   Data.u $017C
+  ; *caseUnfold($017C)
   Data.a 0
   Data.u $017B
+  ; *caseUnfold($017D)
   Data.a 0
   Data.u $017E
+  ; *caseUnfold($017E)
   Data.a 0
   Data.u $017D
+  ; *caseUnfold($0181)
   Data.a 0
   Data.u $0253
+  ; *caseUnfold($0253)
   Data.a 0
   Data.u $0181
+  ; *caseUnfold($0182)
   Data.a 0
   Data.u $0183
+  ; *caseUnfold($0183)
   Data.a 0
   Data.u $0182
+  ; *caseUnfold($0184)
   Data.a 0
   Data.u $0185
+  ; *caseUnfold($0185)
   Data.a 0
   Data.u $0184
+  ; *caseUnfold($0186)
   Data.a 0
   Data.u $0254
+  ; *caseUnfold($0254)
   Data.a 0
   Data.u $0186
+  ; *caseUnfold($0187)
   Data.a 0
   Data.u $0188
+  ; *caseUnfold($0188)
   Data.a 0
   Data.u $0187
+  ; *caseUnfold($0189)
   Data.a 0
   Data.u $0256
+  ; *caseUnfold($0256)
   Data.a 0
   Data.u $0189
+  ; *caseUnfold($018A)
   Data.a 0
   Data.u $0257
+  ; *caseUnfold($0257)
   Data.a 0
   Data.u $018A
+  ; *caseUnfold($018B)
   Data.a 0
   Data.u $018C
+  ; *caseUnfold($018C)
   Data.a 0
   Data.u $018B
+  ; *caseUnfold($018E)
   Data.a 0
   Data.u $01DD
+  ; *caseUnfold($01DD)
   Data.a 0
   Data.u $018E
+  ; *caseUnfold($018F)
   Data.a 0
   Data.u $0259
+  ; *caseUnfold($0259)
   Data.a 0
   Data.u $018F
+  ; *caseUnfold($0190)
   Data.a 0
   Data.u $025B
+  ; *caseUnfold($025B)
   Data.a 0
   Data.u $0190
+  ; *caseUnfold($0191)
   Data.a 0
   Data.u $0192
+  ; *caseUnfold($0192)
   Data.a 0
   Data.u $0191
+  ; *caseUnfold($0193)
   Data.a 0
   Data.u $0260
+  ; *caseUnfold($0260)
   Data.a 0
   Data.u $0193
+  ; *caseUnfold($0194)
   Data.a 0
   Data.u $0263
+  ; *caseUnfold($0263)
   Data.a 0
   Data.u $0194
+  ; *caseUnfold($0196)
   Data.a 0
   Data.u $0269
+  ; *caseUnfold($0269)
   Data.a 0
   Data.u $0196
+  ; *caseUnfold($0197)
   Data.a 0
   Data.u $0268
+  ; *caseUnfold($0268)
   Data.a 0
   Data.u $0197
+  ; *caseUnfold($0198)
   Data.a 0
   Data.u $0199
+  ; *caseUnfold($0199)
   Data.a 0
   Data.u $0198
+  ; *caseUnfold($019C)
   Data.a 0
   Data.u $026F
+  ; *caseUnfold($026F)
   Data.a 0
   Data.u $019C
+  ; *caseUnfold($019D)
   Data.a 0
   Data.u $0272
+  ; *caseUnfold($0272)
   Data.a 0
   Data.u $019D
+  ; *caseUnfold($019F)
   Data.a 0
   Data.u $0275
+  ; *caseUnfold($0275)
   Data.a 0
   Data.u $019F
+  ; *caseUnfold($01A0)
   Data.a 0
   Data.u $01A1
+  ; *caseUnfold($01A1)
   Data.a 0
   Data.u $01A0
+  ; *caseUnfold($01A2)
   Data.a 0
   Data.u $01A3
+  ; *caseUnfold($01A3)
   Data.a 0
   Data.u $01A2
+  ; *caseUnfold($01A4)
   Data.a 0
   Data.u $01A5
+  ; *caseUnfold($01A5)
   Data.a 0
   Data.u $01A4
+  ; *caseUnfold($01A6)
   Data.a 0
   Data.u $0280
+  ; *caseUnfold($0280)
   Data.a 0
   Data.u $01A6
+  ; *caseUnfold($01A7)
   Data.a 0
   Data.u $01A8
+  ; *caseUnfold($01A8)
   Data.a 0
   Data.u $01A7
+  ; *caseUnfold($01A9)
   Data.a 0
   Data.u $0283
+  ; *caseUnfold($0283)
   Data.a 0
   Data.u $01A9
+  ; *caseUnfold($01AC)
   Data.a 0
   Data.u $01AD
+  ; *caseUnfold($01AD)
   Data.a 0
   Data.u $01AC
+  ; *caseUnfold($01AE)
   Data.a 0
   Data.u $0288
+  ; *caseUnfold($0288)
   Data.a 0
   Data.u $01AE
+  ; *caseUnfold($01AF)
   Data.a 0
   Data.u $01B0
+  ; *caseUnfold($01B0)
   Data.a 0
   Data.u $01AF
+  ; *caseUnfold($01B1)
   Data.a 0
   Data.u $028A
+  ; *caseUnfold($028A)
   Data.a 0
   Data.u $01B1
+  ; *caseUnfold($01B2)
   Data.a 0
   Data.u $028B
+  ; *caseUnfold($028B)
   Data.a 0
   Data.u $01B2
+  ; *caseUnfold($01B3)
   Data.a 0
   Data.u $01B4
+  ; *caseUnfold($01B4)
   Data.a 0
   Data.u $01B3
+  ; *caseUnfold($01B5)
   Data.a 0
   Data.u $01B6
+  ; *caseUnfold($01B6)
   Data.a 0
   Data.u $01B5
+  ; *caseUnfold($01B7)
   Data.a 0
   Data.u $0292
+  ; *caseUnfold($0292)
   Data.a 0
   Data.u $01B7
+  ; *caseUnfold($01B8)
   Data.a 0
   Data.u $01B9
+  ; *caseUnfold($01B9)
   Data.a 0
   Data.u $01B8
+  ; *caseUnfold($01BC)
   Data.a 0
   Data.u $01BD
+  ; *caseUnfold($01BD)
   Data.a 0
   Data.u $01BC
+  ; *caseUnfold($01C4)
   Data.a 1
   Data.u $01C6,$01C5
+  ; *caseUnfold($01C6)
   Data.a 1
   Data.u $01C4,$01C5
+  ; *caseUnfold($01C5)
   Data.a 1
   Data.u $01C4,$01C6
+  ; *caseUnfold($01C7)
   Data.a 1
   Data.u $01C9,$01C8
+  ; *caseUnfold($01C9)
   Data.a 1
   Data.u $01C7,$01C8
+  ; *caseUnfold($01C8)
   Data.a 1
   Data.u $01C7,$01C9
+  ; *caseUnfold($01CA)
   Data.a 1
   Data.u $01CC,$01CB
+  ; *caseUnfold($01CC)
   Data.a 1
   Data.u $01CA,$01CB
+  ; *caseUnfold($01CB)
   Data.a 1
   Data.u $01CA,$01CC
+  ; *caseUnfold($01CD)
   Data.a 0
   Data.u $01CE
+  ; *caseUnfold($01CE)
   Data.a 0
   Data.u $01CD
+  ; *caseUnfold($01CF)
   Data.a 0
   Data.u $01D0
+  ; *caseUnfold($01D0)
   Data.a 0
   Data.u $01CF
+  ; *caseUnfold($01D1)
   Data.a 0
   Data.u $01D2
+  ; *caseUnfold($01D2)
   Data.a 0
   Data.u $01D1
+  ; *caseUnfold($01D3)
   Data.a 0
   Data.u $01D4
+  ; *caseUnfold($01D4)
   Data.a 0
   Data.u $01D3
+  ; *caseUnfold($01D5)
   Data.a 0
   Data.u $01D6
+  ; *caseUnfold($01D6)
   Data.a 0
   Data.u $01D5
+  ; *caseUnfold($01D7)
   Data.a 0
   Data.u $01D8
+  ; *caseUnfold($01D8)
   Data.a 0
   Data.u $01D7
+  ; *caseUnfold($01D9)
   Data.a 0
   Data.u $01DA
+  ; *caseUnfold($01DA)
   Data.a 0
   Data.u $01D9
+  ; *caseUnfold($01DB)
   Data.a 0
   Data.u $01DC
+  ; *caseUnfold($01DC)
   Data.a 0
   Data.u $01DB
+  ; *caseUnfold($01DE)
   Data.a 0
   Data.u $01DF
+  ; *caseUnfold($01DF)
   Data.a 0
   Data.u $01DE
+  ; *caseUnfold($01E0)
   Data.a 0
   Data.u $01E1
+  ; *caseUnfold($01E1)
   Data.a 0
   Data.u $01E0
+  ; *caseUnfold($01E2)
   Data.a 0
   Data.u $01E3
+  ; *caseUnfold($01E3)
   Data.a 0
   Data.u $01E2
+  ; *caseUnfold($01E4)
   Data.a 0
   Data.u $01E5
+  ; *caseUnfold($01E5)
   Data.a 0
   Data.u $01E4
+  ; *caseUnfold($01E6)
   Data.a 0
   Data.u $01E7
+  ; *caseUnfold($01E7)
   Data.a 0
   Data.u $01E6
+  ; *caseUnfold($01E8)
   Data.a 0
   Data.u $01E9
+  ; *caseUnfold($01E9)
   Data.a 0
   Data.u $01E8
+  ; *caseUnfold($01EA)
   Data.a 0
   Data.u $01EB
+  ; *caseUnfold($01EB)
   Data.a 0
   Data.u $01EA
+  ; *caseUnfold($01EC)
   Data.a 0
   Data.u $01ED
+  ; *caseUnfold($01ED)
   Data.a 0
   Data.u $01EC
+  ; *caseUnfold($01EE)
   Data.a 0
   Data.u $01EF
+  ; *caseUnfold($01EF)
   Data.a 0
   Data.u $01EE
+  ; *caseUnfold($01F1)
   Data.a 1
   Data.u $01F3,$01F2
+  ; *caseUnfold($01F3)
   Data.a 1
   Data.u $01F1,$01F2
+  ; *caseUnfold($01F2)
   Data.a 1
   Data.u $01F1,$01F3
+  ; *caseUnfold($01F4)
   Data.a 0
   Data.u $01F5
+  ; *caseUnfold($01F5)
   Data.a 0
   Data.u $01F4
+  ; *caseUnfold($01F6)
   Data.a 0
   Data.u $0195
+  ; *caseUnfold($0195)
   Data.a 0
   Data.u $01F6
+  ; *caseUnfold($01F7)
   Data.a 0
   Data.u $01BF
+  ; *caseUnfold($01BF)
   Data.a 0
   Data.u $01F7
+  ; *caseUnfold($01F8)
   Data.a 0
   Data.u $01F9
+  ; *caseUnfold($01F9)
   Data.a 0
   Data.u $01F8
+  ; *caseUnfold($01FA)
   Data.a 0
   Data.u $01FB
+  ; *caseUnfold($01FB)
   Data.a 0
   Data.u $01FA
+  ; *caseUnfold($01FC)
   Data.a 0
   Data.u $01FD
+  ; *caseUnfold($01FD)
   Data.a 0
   Data.u $01FC
+  ; *caseUnfold($01FE)
   Data.a 0
   Data.u $01FF
+  ; *caseUnfold($01FF)
   Data.a 0
   Data.u $01FE
+  ; *caseUnfold($0200)
   Data.a 0
   Data.u $0201
+  ; *caseUnfold($0201)
   Data.a 0
   Data.u $0200
+  ; *caseUnfold($0202)
   Data.a 0
   Data.u $0203
+  ; *caseUnfold($0203)
   Data.a 0
   Data.u $0202
+  ; *caseUnfold($0204)
   Data.a 0
   Data.u $0205
+  ; *caseUnfold($0205)
   Data.a 0
   Data.u $0204
+  ; *caseUnfold($0206)
   Data.a 0
   Data.u $0207
+  ; *caseUnfold($0207)
   Data.a 0
   Data.u $0206
+  ; *caseUnfold($0208)
   Data.a 0
   Data.u $0209
+  ; *caseUnfold($0209)
   Data.a 0
   Data.u $0208
+  ; *caseUnfold($020A)
   Data.a 0
   Data.u $020B
+  ; *caseUnfold($020B)
   Data.a 0
   Data.u $020A
+  ; *caseUnfold($020C)
   Data.a 0
   Data.u $020D
+  ; *caseUnfold($020D)
   Data.a 0
   Data.u $020C
+  ; *caseUnfold($020E)
   Data.a 0
   Data.u $020F
+  ; *caseUnfold($020F)
   Data.a 0
   Data.u $020E
+  ; *caseUnfold($0210)
   Data.a 0
   Data.u $0211
+  ; *caseUnfold($0211)
   Data.a 0
   Data.u $0210
+  ; *caseUnfold($0212)
   Data.a 0
   Data.u $0213
+  ; *caseUnfold($0213)
   Data.a 0
   Data.u $0212
+  ; *caseUnfold($0214)
   Data.a 0
   Data.u $0215
+  ; *caseUnfold($0215)
   Data.a 0
   Data.u $0214
+  ; *caseUnfold($0216)
   Data.a 0
   Data.u $0217
+  ; *caseUnfold($0217)
   Data.a 0
   Data.u $0216
+  ; *caseUnfold($0218)
   Data.a 0
   Data.u $0219
+  ; *caseUnfold($0219)
   Data.a 0
   Data.u $0218
+  ; *caseUnfold($021A)
   Data.a 0
   Data.u $021B
+  ; *caseUnfold($021B)
   Data.a 0
   Data.u $021A
+  ; *caseUnfold($021C)
   Data.a 0
   Data.u $021D
+  ; *caseUnfold($021D)
   Data.a 0
   Data.u $021C
+  ; *caseUnfold($021E)
   Data.a 0
   Data.u $021F
+  ; *caseUnfold($021F)
   Data.a 0
   Data.u $021E
+  ; *caseUnfold($0220)
   Data.a 0
   Data.u $019E
+  ; *caseUnfold($019E)
   Data.a 0
   Data.u $0220
+  ; *caseUnfold($0222)
   Data.a 0
   Data.u $0223
+  ; *caseUnfold($0223)
   Data.a 0
   Data.u $0222
+  ; *caseUnfold($0224)
   Data.a 0
   Data.u $0225
+  ; *caseUnfold($0225)
   Data.a 0
   Data.u $0224
+  ; *caseUnfold($0226)
   Data.a 0
   Data.u $0227
+  ; *caseUnfold($0227)
   Data.a 0
   Data.u $0226
+  ; *caseUnfold($0228)
   Data.a 0
   Data.u $0229
+  ; *caseUnfold($0229)
   Data.a 0
   Data.u $0228
+  ; *caseUnfold($022A)
   Data.a 0
   Data.u $022B
+  ; *caseUnfold($022B)
   Data.a 0
   Data.u $022A
+  ; *caseUnfold($022C)
   Data.a 0
   Data.u $022D
+  ; *caseUnfold($022D)
   Data.a 0
   Data.u $022C
+  ; *caseUnfold($022E)
   Data.a 0
   Data.u $022F
+  ; *caseUnfold($022F)
   Data.a 0
   Data.u $022E
+  ; *caseUnfold($0230)
   Data.a 0
   Data.u $0231
+  ; *caseUnfold($0231)
   Data.a 0
   Data.u $0230
+  ; *caseUnfold($0232)
   Data.a 0
   Data.u $0233
+  ; *caseUnfold($0233)
   Data.a 0
   Data.u $0232
+  ; *caseUnfold($023A)
   Data.a 0
   Data.u $2C65
+  ; *caseUnfold($2C65)
   Data.a 0
   Data.u $023A
+  ; *caseUnfold($023B)
   Data.a 0
   Data.u $023C
+  ; *caseUnfold($023C)
   Data.a 0
   Data.u $023B
+  ; *caseUnfold($023D)
   Data.a 0
   Data.u $019A
+  ; *caseUnfold($019A)
   Data.a 0
   Data.u $023D
+  ; *caseUnfold($023E)
   Data.a 0
   Data.u $2C66
+  ; *caseUnfold($2C66)
   Data.a 0
   Data.u $023E
+  ; *caseUnfold($0241)
   Data.a 0
   Data.u $0242
+  ; *caseUnfold($0242)
   Data.a 0
   Data.u $0241
+  ; *caseUnfold($0243)
   Data.a 0
   Data.u $0180
+  ; *caseUnfold($0180)
   Data.a 0
   Data.u $0243
+  ; *caseUnfold($0244)
   Data.a 0
   Data.u $0289
+  ; *caseUnfold($0289)
   Data.a 0
   Data.u $0244
+  ; *caseUnfold($0245)
   Data.a 0
   Data.u $028C
+  ; *caseUnfold($028C)
   Data.a 0
   Data.u $0245
+  ; *caseUnfold($0246)
   Data.a 0
   Data.u $0247
+  ; *caseUnfold($0247)
   Data.a 0
   Data.u $0246
+  ; *caseUnfold($0248)
   Data.a 0
   Data.u $0249
+  ; *caseUnfold($0249)
   Data.a 0
   Data.u $0248
+  ; *caseUnfold($024A)
   Data.a 0
   Data.u $024B
+  ; *caseUnfold($024B)
   Data.a 0
   Data.u $024A
+  ; *caseUnfold($024C)
   Data.a 0
   Data.u $024D
+  ; *caseUnfold($024D)
   Data.a 0
   Data.u $024C
+  ; *caseUnfold($024E)
   Data.a 0
   Data.u $024F
+  ; *caseUnfold($024F)
   Data.a 0
   Data.u $024E
+  ; *caseUnfold($0345)
   Data.a 2
   Data.u $03B9,$1FBE,$0399
+  ; *caseUnfold($03B9)
   Data.a 2
   Data.u $0345,$1FBE,$0399
+  ; *caseUnfold($1FBE)
   Data.a 2
   Data.u $0345,$03B9,$0399
+  ; *caseUnfold($0399)
   Data.a 2
   Data.u $0345,$03B9,$1FBE
+  ; *caseUnfold($0370)
   Data.a 0
   Data.u $0371
+  ; *caseUnfold($0371)
   Data.a 0
   Data.u $0370
+  ; *caseUnfold($0372)
   Data.a 0
   Data.u $0373
+  ; *caseUnfold($0373)
   Data.a 0
   Data.u $0372
+  ; *caseUnfold($0376)
   Data.a 0
   Data.u $0377
+  ; *caseUnfold($0377)
   Data.a 0
   Data.u $0376
+  ; *caseUnfold($037F)
   Data.a 0
   Data.u $03F3
+  ; *caseUnfold($03F3)
   Data.a 0
   Data.u $037F
+  ; *caseUnfold($0386)
   Data.a 0
   Data.u $03AC
+  ; *caseUnfold($03AC)
   Data.a 0
   Data.u $0386
+  ; *caseUnfold($0388)
   Data.a 0
   Data.u $03AD
+  ; *caseUnfold($03AD)
   Data.a 0
   Data.u $0388
+  ; *caseUnfold($0389)
   Data.a 0
   Data.u $03AE
+  ; *caseUnfold($03AE)
   Data.a 0
   Data.u $0389
+  ; *caseUnfold($038A)
   Data.a 0
   Data.u $03AF
+  ; *caseUnfold($03AF)
   Data.a 0
   Data.u $038A
+  ; *caseUnfold($038C)
   Data.a 0
   Data.u $03CC
+  ; *caseUnfold($03CC)
   Data.a 0
   Data.u $038C
+  ; *caseUnfold($038E)
   Data.a 0
   Data.u $03CD
+  ; *caseUnfold($03CD)
   Data.a 0
   Data.u $038E
+  ; *caseUnfold($038F)
   Data.a 0
   Data.u $03CE
+  ; *caseUnfold($03CE)
   Data.a 0
   Data.u $038F
+  ; *caseUnfold($0391)
   Data.a 0
   Data.u $03B1
+  ; *caseUnfold($03B1)
   Data.a 0
   Data.u $0391
+  ; *caseUnfold($0392)
   Data.a 1
   Data.u $03B2,$03D0
+  ; *caseUnfold($03B2)
   Data.a 1
   Data.u $0392,$03D0
+  ; *caseUnfold($03D0)
   Data.a 1
   Data.u $0392,$03B2
+  ; *caseUnfold($0393)
   Data.a 0
   Data.u $03B3
+  ; *caseUnfold($03B3)
   Data.a 0
   Data.u $0393
+  ; *caseUnfold($0394)
   Data.a 0
   Data.u $03B4
+  ; *caseUnfold($03B4)
   Data.a 0
   Data.u $0394
+  ; *caseUnfold($0395)
   Data.a 1
   Data.u $03B5,$03F5
+  ; *caseUnfold($03B5)
   Data.a 1
   Data.u $0395,$03F5
+  ; *caseUnfold($03F5)
   Data.a 1
   Data.u $0395,$03B5
+  ; *caseUnfold($0396)
   Data.a 0
   Data.u $03B6
+  ; *caseUnfold($03B6)
   Data.a 0
   Data.u $0396
+  ; *caseUnfold($0397)
   Data.a 0
   Data.u $03B7
+  ; *caseUnfold($03B7)
   Data.a 0
   Data.u $0397
+  ; *caseUnfold($0398)
   Data.a 2
   Data.u $03B8,$03F4,$03D1
+  ; *caseUnfold($03B8)
   Data.a 2
   Data.u $0398,$03F4,$03D1
+  ; *caseUnfold($03F4)
   Data.a 2
   Data.u $0398,$03B8,$03D1
+  ; *caseUnfold($03D1)
   Data.a 2
   Data.u $0398,$03B8,$03F4
+  ; *caseUnfold($039A)
   Data.a 1
   Data.u $03BA,$03F0
+  ; *caseUnfold($03BA)
   Data.a 1
   Data.u $039A,$03F0
+  ; *caseUnfold($03F0)
   Data.a 1
   Data.u $039A,$03BA
+  ; *caseUnfold($039B)
   Data.a 0
   Data.u $03BB
+  ; *caseUnfold($03BB)
   Data.a 0
   Data.u $039B
+  ; *caseUnfold($039D)
   Data.a 0
   Data.u $03BD
+  ; *caseUnfold($03BD)
   Data.a 0
   Data.u $039D
+  ; *caseUnfold($039E)
   Data.a 0
   Data.u $03BE
+  ; *caseUnfold($03BE)
   Data.a 0
   Data.u $039E
+  ; *caseUnfold($039F)
   Data.a 0
   Data.u $03BF
+  ; *caseUnfold($03BF)
   Data.a 0
   Data.u $039F
+  ; *caseUnfold($03A0)
   Data.a 1
   Data.u $03C0,$03D6
+  ; *caseUnfold($03C0)
   Data.a 1
   Data.u $03A0,$03D6
+  ; *caseUnfold($03D6)
   Data.a 1
   Data.u $03A0,$03C0
+  ; *caseUnfold($03A1)
   Data.a 1
   Data.u $03C1,$03F1
+  ; *caseUnfold($03C1)
   Data.a 1
   Data.u $03A1,$03F1
+  ; *caseUnfold($03F1)
   Data.a 1
   Data.u $03A1,$03C1
+  ; *caseUnfold($03A3)
   Data.a 1
   Data.u $03C3,$03C2
+  ; *caseUnfold($03C3)
   Data.a 1
   Data.u $03A3,$03C2
+  ; *caseUnfold($03C2)
   Data.a 1
   Data.u $03A3,$03C3
+  ; *caseUnfold($03A4)
   Data.a 0
   Data.u $03C4
+  ; *caseUnfold($03C4)
   Data.a 0
   Data.u $03A4
+  ; *caseUnfold($03A5)
   Data.a 0
   Data.u $03C5
+  ; *caseUnfold($03C5)
   Data.a 0
   Data.u $03A5
+  ; *caseUnfold($03A6)
   Data.a 1
   Data.u $03C6,$03D5
+  ; *caseUnfold($03C6)
   Data.a 1
   Data.u $03A6,$03D5
+  ; *caseUnfold($03D5)
   Data.a 1
   Data.u $03A6,$03C6
+  ; *caseUnfold($03A7)
   Data.a 0
   Data.u $03C7
+  ; *caseUnfold($03C7)
   Data.a 0
   Data.u $03A7
+  ; *caseUnfold($03A8)
   Data.a 0
   Data.u $03C8
+  ; *caseUnfold($03C8)
   Data.a 0
   Data.u $03A8
+  ; *caseUnfold($03A9)
   Data.a 1
   Data.u $03C9,$2126
+  ; *caseUnfold($03C9)
   Data.a 1
   Data.u $03A9,$2126
+  ; *caseUnfold($2126)
   Data.a 1
   Data.u $03A9,$03C9
+  ; *caseUnfold($03AA)
   Data.a 0
   Data.u $03CA
+  ; *caseUnfold($03CA)
   Data.a 0
   Data.u $03AA
+  ; *caseUnfold($03AB)
   Data.a 0
   Data.u $03CB
+  ; *caseUnfold($03CB)
   Data.a 0
   Data.u $03AB
+  ; *caseUnfold($03CF)
   Data.a 0
   Data.u $03D7
+  ; *caseUnfold($03D7)
   Data.a 0
   Data.u $03CF
+  ; *caseUnfold($03D8)
   Data.a 0
   Data.u $03D9
+  ; *caseUnfold($03D9)
   Data.a 0
   Data.u $03D8
+  ; *caseUnfold($03DA)
   Data.a 0
   Data.u $03DB
+  ; *caseUnfold($03DB)
   Data.a 0
   Data.u $03DA
+  ; *caseUnfold($03DC)
   Data.a 0
   Data.u $03DD
+  ; *caseUnfold($03DD)
   Data.a 0
   Data.u $03DC
+  ; *caseUnfold($03DE)
   Data.a 0
   Data.u $03DF
+  ; *caseUnfold($03DF)
   Data.a 0
   Data.u $03DE
+  ; *caseUnfold($03E0)
   Data.a 0
   Data.u $03E1
+  ; *caseUnfold($03E1)
   Data.a 0
   Data.u $03E0
+  ; *caseUnfold($03E2)
   Data.a 0
   Data.u $03E3
+  ; *caseUnfold($03E3)
   Data.a 0
   Data.u $03E2
+  ; *caseUnfold($03E4)
   Data.a 0
   Data.u $03E5
+  ; *caseUnfold($03E5)
   Data.a 0
   Data.u $03E4
+  ; *caseUnfold($03E6)
   Data.a 0
   Data.u $03E7
+  ; *caseUnfold($03E7)
   Data.a 0
   Data.u $03E6
+  ; *caseUnfold($03E8)
   Data.a 0
   Data.u $03E9
+  ; *caseUnfold($03E9)
   Data.a 0
   Data.u $03E8
+  ; *caseUnfold($03EA)
   Data.a 0
   Data.u $03EB
+  ; *caseUnfold($03EB)
   Data.a 0
   Data.u $03EA
+  ; *caseUnfold($03EC)
   Data.a 0
   Data.u $03ED
+  ; *caseUnfold($03ED)
   Data.a 0
   Data.u $03EC
+  ; *caseUnfold($03EE)
   Data.a 0
   Data.u $03EF
+  ; *caseUnfold($03EF)
   Data.a 0
   Data.u $03EE
+  ; *caseUnfold($03F7)
   Data.a 0
   Data.u $03F8
+  ; *caseUnfold($03F8)
   Data.a 0
   Data.u $03F7
+  ; *caseUnfold($03F9)
   Data.a 0
   Data.u $03F2
+  ; *caseUnfold($03F2)
   Data.a 0
   Data.u $03F9
+  ; *caseUnfold($03FA)
   Data.a 0
   Data.u $03FB
+  ; *caseUnfold($03FB)
   Data.a 0
   Data.u $03FA
+  ; *caseUnfold($03FD)
   Data.a 0
   Data.u $037B
+  ; *caseUnfold($037B)
   Data.a 0
   Data.u $03FD
+  ; *caseUnfold($03FE)
   Data.a 0
   Data.u $037C
+  ; *caseUnfold($037C)
   Data.a 0
   Data.u $03FE
+  ; *caseUnfold($03FF)
   Data.a 0
   Data.u $037D
+  ; *caseUnfold($037D)
   Data.a 0
   Data.u $03FF
+  ; *caseUnfold($0400)
   Data.a 0
   Data.u $0450
+  ; *caseUnfold($0450)
   Data.a 0
   Data.u $0400
+  ; *caseUnfold($0401)
   Data.a 0
   Data.u $0451
+  ; *caseUnfold($0451)
   Data.a 0
   Data.u $0401
+  ; *caseUnfold($0402)
   Data.a 0
   Data.u $0452
+  ; *caseUnfold($0452)
   Data.a 0
   Data.u $0402
+  ; *caseUnfold($0403)
   Data.a 0
   Data.u $0453
+  ; *caseUnfold($0453)
   Data.a 0
   Data.u $0403
+  ; *caseUnfold($0404)
   Data.a 0
   Data.u $0454
+  ; *caseUnfold($0454)
   Data.a 0
   Data.u $0404
+  ; *caseUnfold($0405)
   Data.a 0
   Data.u $0455
+  ; *caseUnfold($0455)
   Data.a 0
   Data.u $0405
+  ; *caseUnfold($0406)
   Data.a 0
   Data.u $0456
+  ; *caseUnfold($0456)
   Data.a 0
   Data.u $0406
+  ; *caseUnfold($0407)
   Data.a 0
   Data.u $0457
+  ; *caseUnfold($0457)
   Data.a 0
   Data.u $0407
+  ; *caseUnfold($0408)
   Data.a 0
   Data.u $0458
+  ; *caseUnfold($0458)
   Data.a 0
   Data.u $0408
+  ; *caseUnfold($0409)
   Data.a 0
   Data.u $0459
+  ; *caseUnfold($0459)
   Data.a 0
   Data.u $0409
+  ; *caseUnfold($040A)
   Data.a 0
   Data.u $045A
+  ; *caseUnfold($045A)
   Data.a 0
   Data.u $040A
+  ; *caseUnfold($040B)
   Data.a 0
   Data.u $045B
+  ; *caseUnfold($045B)
   Data.a 0
   Data.u $040B
+  ; *caseUnfold($040C)
   Data.a 0
   Data.u $045C
+  ; *caseUnfold($045C)
   Data.a 0
   Data.u $040C
+  ; *caseUnfold($040D)
   Data.a 0
   Data.u $045D
+  ; *caseUnfold($045D)
   Data.a 0
   Data.u $040D
+  ; *caseUnfold($040E)
   Data.a 0
   Data.u $045E
+  ; *caseUnfold($045E)
   Data.a 0
   Data.u $040E
+  ; *caseUnfold($040F)
   Data.a 0
   Data.u $045F
+  ; *caseUnfold($045F)
   Data.a 0
   Data.u $040F
+  ; *caseUnfold($0410)
   Data.a 0
   Data.u $0430
+  ; *caseUnfold($0430)
   Data.a 0
   Data.u $0410
+  ; *caseUnfold($0411)
   Data.a 0
   Data.u $0431
+  ; *caseUnfold($0431)
   Data.a 0
   Data.u $0411
+  ; *caseUnfold($0412)
   Data.a 1
   Data.u $0432,$1C80
+  ; *caseUnfold($0432)
   Data.a 1
   Data.u $0412,$1C80
+  ; *caseUnfold($1C80)
   Data.a 1
   Data.u $0412,$0432
+  ; *caseUnfold($0413)
   Data.a 0
   Data.u $0433
+  ; *caseUnfold($0433)
   Data.a 0
   Data.u $0413
+  ; *caseUnfold($0414)
   Data.a 1
   Data.u $0434,$1C81
+  ; *caseUnfold($0434)
   Data.a 1
   Data.u $0414,$1C81
+  ; *caseUnfold($1C81)
   Data.a 1
   Data.u $0414,$0434
+  ; *caseUnfold($0415)
   Data.a 0
   Data.u $0435
+  ; *caseUnfold($0435)
   Data.a 0
   Data.u $0415
+  ; *caseUnfold($0416)
   Data.a 0
   Data.u $0436
+  ; *caseUnfold($0436)
   Data.a 0
   Data.u $0416
+  ; *caseUnfold($0417)
   Data.a 0
   Data.u $0437
+  ; *caseUnfold($0437)
   Data.a 0
   Data.u $0417
+  ; *caseUnfold($0418)
   Data.a 0
   Data.u $0438
+  ; *caseUnfold($0438)
   Data.a 0
   Data.u $0418
+  ; *caseUnfold($0419)
   Data.a 0
   Data.u $0439
+  ; *caseUnfold($0439)
   Data.a 0
   Data.u $0419
+  ; *caseUnfold($041A)
   Data.a 0
   Data.u $043A
+  ; *caseUnfold($043A)
   Data.a 0
   Data.u $041A
+  ; *caseUnfold($041B)
   Data.a 0
   Data.u $043B
+  ; *caseUnfold($043B)
   Data.a 0
   Data.u $041B
+  ; *caseUnfold($041C)
   Data.a 0
   Data.u $043C
+  ; *caseUnfold($043C)
   Data.a 0
   Data.u $041C
+  ; *caseUnfold($041D)
   Data.a 0
   Data.u $043D
+  ; *caseUnfold($043D)
   Data.a 0
   Data.u $041D
+  ; *caseUnfold($041E)
   Data.a 1
   Data.u $043E,$1C82
+  ; *caseUnfold($043E)
   Data.a 1
   Data.u $041E,$1C82
+  ; *caseUnfold($1C82)
   Data.a 1
   Data.u $041E,$043E
+  ; *caseUnfold($041F)
   Data.a 0
   Data.u $043F
+  ; *caseUnfold($043F)
   Data.a 0
   Data.u $041F
+  ; *caseUnfold($0420)
   Data.a 0
   Data.u $0440
+  ; *caseUnfold($0440)
   Data.a 0
   Data.u $0420
+  ; *caseUnfold($0421)
   Data.a 1
   Data.u $0441,$1C83
+  ; *caseUnfold($0441)
   Data.a 1
   Data.u $0421,$1C83
+  ; *caseUnfold($1C83)
   Data.a 1
   Data.u $0421,$0441
+  ; *caseUnfold($0422)
   Data.a 2
   Data.u $0442,$1C85,$1C84
+  ; *caseUnfold($0442)
   Data.a 2
   Data.u $0422,$1C85,$1C84
+  ; *caseUnfold($1C85)
   Data.a 2
   Data.u $0422,$0442,$1C84
+  ; *caseUnfold($1C84)
   Data.a 2
   Data.u $0422,$0442,$1C85
+  ; *caseUnfold($0423)
   Data.a 0
   Data.u $0443
+  ; *caseUnfold($0443)
   Data.a 0
   Data.u $0423
+  ; *caseUnfold($0424)
   Data.a 0
   Data.u $0444
+  ; *caseUnfold($0444)
   Data.a 0
   Data.u $0424
+  ; *caseUnfold($0425)
   Data.a 0
   Data.u $0445
+  ; *caseUnfold($0445)
   Data.a 0
   Data.u $0425
+  ; *caseUnfold($0426)
   Data.a 0
   Data.u $0446
+  ; *caseUnfold($0446)
   Data.a 0
   Data.u $0426
+  ; *caseUnfold($0427)
   Data.a 0
   Data.u $0447
+  ; *caseUnfold($0447)
   Data.a 0
   Data.u $0427
+  ; *caseUnfold($0428)
   Data.a 0
   Data.u $0448
+  ; *caseUnfold($0448)
   Data.a 0
   Data.u $0428
+  ; *caseUnfold($0429)
   Data.a 0
   Data.u $0449
+  ; *caseUnfold($0449)
   Data.a 0
   Data.u $0429
+  ; *caseUnfold($042A)
   Data.a 1
   Data.u $044A,$1C86
+  ; *caseUnfold($044A)
   Data.a 1
   Data.u $042A,$1C86
+  ; *caseUnfold($1C86)
   Data.a 1
   Data.u $042A,$044A
+  ; *caseUnfold($042B)
   Data.a 0
   Data.u $044B
+  ; *caseUnfold($044B)
   Data.a 0
   Data.u $042B
+  ; *caseUnfold($042C)
   Data.a 0
   Data.u $044C
+  ; *caseUnfold($044C)
   Data.a 0
   Data.u $042C
+  ; *caseUnfold($042D)
   Data.a 0
   Data.u $044D
+  ; *caseUnfold($044D)
   Data.a 0
   Data.u $042D
+  ; *caseUnfold($042E)
   Data.a 0
   Data.u $044E
+  ; *caseUnfold($044E)
   Data.a 0
   Data.u $042E
+  ; *caseUnfold($042F)
   Data.a 0
   Data.u $044F
+  ; *caseUnfold($044F)
   Data.a 0
   Data.u $042F
+  ; *caseUnfold($0460)
   Data.a 0
   Data.u $0461
+  ; *caseUnfold($0461)
   Data.a 0
   Data.u $0460
+  ; *caseUnfold($0462)
   Data.a 1
   Data.u $0463,$1C87
+  ; *caseUnfold($0463)
   Data.a 1
   Data.u $0462,$1C87
+  ; *caseUnfold($1C87)
   Data.a 1
   Data.u $0462,$0463
+  ; *caseUnfold($0464)
   Data.a 0
   Data.u $0465
+  ; *caseUnfold($0465)
   Data.a 0
   Data.u $0464
+  ; *caseUnfold($0466)
   Data.a 0
   Data.u $0467
+  ; *caseUnfold($0467)
   Data.a 0
   Data.u $0466
+  ; *caseUnfold($0468)
   Data.a 0
   Data.u $0469
+  ; *caseUnfold($0469)
   Data.a 0
   Data.u $0468
+  ; *caseUnfold($046A)
   Data.a 0
   Data.u $046B
+  ; *caseUnfold($046B)
   Data.a 0
   Data.u $046A
+  ; *caseUnfold($046C)
   Data.a 0
   Data.u $046D
+  ; *caseUnfold($046D)
   Data.a 0
   Data.u $046C
+  ; *caseUnfold($046E)
   Data.a 0
   Data.u $046F
+  ; *caseUnfold($046F)
   Data.a 0
   Data.u $046E
+  ; *caseUnfold($0470)
   Data.a 0
   Data.u $0471
+  ; *caseUnfold($0471)
   Data.a 0
   Data.u $0470
+  ; *caseUnfold($0472)
   Data.a 0
   Data.u $0473
+  ; *caseUnfold($0473)
   Data.a 0
   Data.u $0472
+  ; *caseUnfold($0474)
   Data.a 0
   Data.u $0475
+  ; *caseUnfold($0475)
   Data.a 0
   Data.u $0474
+  ; *caseUnfold($0476)
   Data.a 0
   Data.u $0477
+  ; *caseUnfold($0477)
   Data.a 0
   Data.u $0476
+  ; *caseUnfold($0478)
   Data.a 0
   Data.u $0479
+  ; *caseUnfold($0479)
   Data.a 0
   Data.u $0478
+  ; *caseUnfold($047A)
   Data.a 0
   Data.u $047B
+  ; *caseUnfold($047B)
   Data.a 0
   Data.u $047A
+  ; *caseUnfold($047C)
   Data.a 0
   Data.u $047D
+  ; *caseUnfold($047D)
   Data.a 0
   Data.u $047C
+  ; *caseUnfold($047E)
   Data.a 0
   Data.u $047F
+  ; *caseUnfold($047F)
   Data.a 0
   Data.u $047E
+  ; *caseUnfold($0480)
   Data.a 0
   Data.u $0481
+  ; *caseUnfold($0481)
   Data.a 0
   Data.u $0480
+  ; *caseUnfold($048A)
   Data.a 0
   Data.u $048B
+  ; *caseUnfold($048B)
   Data.a 0
   Data.u $048A
+  ; *caseUnfold($048C)
   Data.a 0
   Data.u $048D
+  ; *caseUnfold($048D)
   Data.a 0
   Data.u $048C
+  ; *caseUnfold($048E)
   Data.a 0
   Data.u $048F
+  ; *caseUnfold($048F)
   Data.a 0
   Data.u $048E
+  ; *caseUnfold($0490)
   Data.a 0
   Data.u $0491
+  ; *caseUnfold($0491)
   Data.a 0
   Data.u $0490
+  ; *caseUnfold($0492)
   Data.a 0
   Data.u $0493
+  ; *caseUnfold($0493)
   Data.a 0
   Data.u $0492
+  ; *caseUnfold($0494)
   Data.a 0
   Data.u $0495
+  ; *caseUnfold($0495)
   Data.a 0
   Data.u $0494
+  ; *caseUnfold($0496)
   Data.a 0
   Data.u $0497
+  ; *caseUnfold($0497)
   Data.a 0
   Data.u $0496
+  ; *caseUnfold($0498)
   Data.a 0
   Data.u $0499
+  ; *caseUnfold($0499)
   Data.a 0
   Data.u $0498
+  ; *caseUnfold($049A)
   Data.a 0
   Data.u $049B
+  ; *caseUnfold($049B)
   Data.a 0
   Data.u $049A
+  ; *caseUnfold($049C)
   Data.a 0
   Data.u $049D
+  ; *caseUnfold($049D)
   Data.a 0
   Data.u $049C
+  ; *caseUnfold($049E)
   Data.a 0
   Data.u $049F
+  ; *caseUnfold($049F)
   Data.a 0
   Data.u $049E
+  ; *caseUnfold($04A0)
   Data.a 0
   Data.u $04A1
+  ; *caseUnfold($04A1)
   Data.a 0
   Data.u $04A0
+  ; *caseUnfold($04A2)
   Data.a 0
   Data.u $04A3
+  ; *caseUnfold($04A3)
   Data.a 0
   Data.u $04A2
+  ; *caseUnfold($04A4)
   Data.a 0
   Data.u $04A5
+  ; *caseUnfold($04A5)
   Data.a 0
   Data.u $04A4
+  ; *caseUnfold($04A6)
   Data.a 0
   Data.u $04A7
+  ; *caseUnfold($04A7)
   Data.a 0
   Data.u $04A6
+  ; *caseUnfold($04A8)
   Data.a 0
   Data.u $04A9
+  ; *caseUnfold($04A9)
   Data.a 0
   Data.u $04A8
+  ; *caseUnfold($04AA)
   Data.a 0
   Data.u $04AB
+  ; *caseUnfold($04AB)
   Data.a 0
   Data.u $04AA
+  ; *caseUnfold($04AC)
   Data.a 0
   Data.u $04AD
+  ; *caseUnfold($04AD)
   Data.a 0
   Data.u $04AC
+  ; *caseUnfold($04AE)
   Data.a 0
   Data.u $04AF
+  ; *caseUnfold($04AF)
   Data.a 0
   Data.u $04AE
+  ; *caseUnfold($04B0)
   Data.a 0
   Data.u $04B1
+  ; *caseUnfold($04B1)
   Data.a 0
   Data.u $04B0
+  ; *caseUnfold($04B2)
   Data.a 0
   Data.u $04B3
+  ; *caseUnfold($04B3)
   Data.a 0
   Data.u $04B2
+  ; *caseUnfold($04B4)
   Data.a 0
   Data.u $04B5
+  ; *caseUnfold($04B5)
   Data.a 0
   Data.u $04B4
+  ; *caseUnfold($04B6)
   Data.a 0
   Data.u $04B7
+  ; *caseUnfold($04B7)
   Data.a 0
   Data.u $04B6
+  ; *caseUnfold($04B8)
   Data.a 0
   Data.u $04B9
+  ; *caseUnfold($04B9)
   Data.a 0
   Data.u $04B8
+  ; *caseUnfold($04BA)
   Data.a 0
   Data.u $04BB
+  ; *caseUnfold($04BB)
   Data.a 0
   Data.u $04BA
+  ; *caseUnfold($04BC)
   Data.a 0
   Data.u $04BD
+  ; *caseUnfold($04BD)
   Data.a 0
   Data.u $04BC
+  ; *caseUnfold($04BE)
   Data.a 0
   Data.u $04BF
+  ; *caseUnfold($04BF)
   Data.a 0
   Data.u $04BE
+  ; *caseUnfold($04C0)
   Data.a 0
   Data.u $04CF
+  ; *caseUnfold($04CF)
   Data.a 0
   Data.u $04C0
+  ; *caseUnfold($04C1)
   Data.a 0
   Data.u $04C2
+  ; *caseUnfold($04C2)
   Data.a 0
   Data.u $04C1
+  ; *caseUnfold($04C3)
   Data.a 0
   Data.u $04C4
+  ; *caseUnfold($04C4)
   Data.a 0
   Data.u $04C3
+  ; *caseUnfold($04C5)
   Data.a 0
   Data.u $04C6
+  ; *caseUnfold($04C6)
   Data.a 0
   Data.u $04C5
+  ; *caseUnfold($04C7)
   Data.a 0
   Data.u $04C8
+  ; *caseUnfold($04C8)
   Data.a 0
   Data.u $04C7
+  ; *caseUnfold($04C9)
   Data.a 0
   Data.u $04CA
+  ; *caseUnfold($04CA)
   Data.a 0
   Data.u $04C9
+  ; *caseUnfold($04CB)
   Data.a 0
   Data.u $04CC
+  ; *caseUnfold($04CC)
   Data.a 0
   Data.u $04CB
+  ; *caseUnfold($04CD)
   Data.a 0
   Data.u $04CE
+  ; *caseUnfold($04CE)
   Data.a 0
   Data.u $04CD
+  ; *caseUnfold($04D0)
   Data.a 0
   Data.u $04D1
+  ; *caseUnfold($04D1)
   Data.a 0
   Data.u $04D0
+  ; *caseUnfold($04D2)
   Data.a 0
   Data.u $04D3
+  ; *caseUnfold($04D3)
   Data.a 0
   Data.u $04D2
+  ; *caseUnfold($04D4)
   Data.a 0
   Data.u $04D5
+  ; *caseUnfold($04D5)
   Data.a 0
   Data.u $04D4
+  ; *caseUnfold($04D6)
   Data.a 0
   Data.u $04D7
+  ; *caseUnfold($04D7)
   Data.a 0
   Data.u $04D6
+  ; *caseUnfold($04D8)
   Data.a 0
   Data.u $04D9
+  ; *caseUnfold($04D9)
   Data.a 0
   Data.u $04D8
+  ; *caseUnfold($04DA)
   Data.a 0
   Data.u $04DB
+  ; *caseUnfold($04DB)
   Data.a 0
   Data.u $04DA
+  ; *caseUnfold($04DC)
   Data.a 0
   Data.u $04DD
+  ; *caseUnfold($04DD)
   Data.a 0
   Data.u $04DC
+  ; *caseUnfold($04DE)
   Data.a 0
   Data.u $04DF
+  ; *caseUnfold($04DF)
   Data.a 0
   Data.u $04DE
+  ; *caseUnfold($04E0)
   Data.a 0
   Data.u $04E1
+  ; *caseUnfold($04E1)
   Data.a 0
   Data.u $04E0
+  ; *caseUnfold($04E2)
   Data.a 0
   Data.u $04E3
+  ; *caseUnfold($04E3)
   Data.a 0
   Data.u $04E2
+  ; *caseUnfold($04E4)
   Data.a 0
   Data.u $04E5
+  ; *caseUnfold($04E5)
   Data.a 0
   Data.u $04E4
+  ; *caseUnfold($04E6)
   Data.a 0
   Data.u $04E7
+  ; *caseUnfold($04E7)
   Data.a 0
   Data.u $04E6
+  ; *caseUnfold($04E8)
   Data.a 0
   Data.u $04E9
+  ; *caseUnfold($04E9)
   Data.a 0
   Data.u $04E8
+  ; *caseUnfold($04EA)
   Data.a 0
   Data.u $04EB
+  ; *caseUnfold($04EB)
   Data.a 0
   Data.u $04EA
+  ; *caseUnfold($04EC)
   Data.a 0
   Data.u $04ED
+  ; *caseUnfold($04ED)
   Data.a 0
   Data.u $04EC
+  ; *caseUnfold($04EE)
   Data.a 0
   Data.u $04EF
+  ; *caseUnfold($04EF)
   Data.a 0
   Data.u $04EE
+  ; *caseUnfold($04F0)
   Data.a 0
   Data.u $04F1
+  ; *caseUnfold($04F1)
   Data.a 0
   Data.u $04F0
+  ; *caseUnfold($04F2)
   Data.a 0
   Data.u $04F3
+  ; *caseUnfold($04F3)
   Data.a 0
   Data.u $04F2
+  ; *caseUnfold($04F4)
   Data.a 0
   Data.u $04F5
+  ; *caseUnfold($04F5)
   Data.a 0
   Data.u $04F4
+  ; *caseUnfold($04F6)
   Data.a 0
   Data.u $04F7
+  ; *caseUnfold($04F7)
   Data.a 0
   Data.u $04F6
+  ; *caseUnfold($04F8)
   Data.a 0
   Data.u $04F9
+  ; *caseUnfold($04F9)
   Data.a 0
   Data.u $04F8
+  ; *caseUnfold($04FA)
   Data.a 0
   Data.u $04FB
+  ; *caseUnfold($04FB)
   Data.a 0
   Data.u $04FA
+  ; *caseUnfold($04FC)
   Data.a 0
   Data.u $04FD
+  ; *caseUnfold($04FD)
   Data.a 0
   Data.u $04FC
+  ; *caseUnfold($04FE)
   Data.a 0
   Data.u $04FF
+  ; *caseUnfold($04FF)
   Data.a 0
   Data.u $04FE
+  ; *caseUnfold($0500)
   Data.a 0
   Data.u $0501
+  ; *caseUnfold($0501)
   Data.a 0
   Data.u $0500
+  ; *caseUnfold($0502)
   Data.a 0
   Data.u $0503
+  ; *caseUnfold($0503)
   Data.a 0
   Data.u $0502
+  ; *caseUnfold($0504)
   Data.a 0
   Data.u $0505
+  ; *caseUnfold($0505)
   Data.a 0
   Data.u $0504
+  ; *caseUnfold($0506)
   Data.a 0
   Data.u $0507
+  ; *caseUnfold($0507)
   Data.a 0
   Data.u $0506
+  ; *caseUnfold($0508)
   Data.a 0
   Data.u $0509
+  ; *caseUnfold($0509)
   Data.a 0
   Data.u $0508
+  ; *caseUnfold($050A)
   Data.a 0
   Data.u $050B
+  ; *caseUnfold($050B)
   Data.a 0
   Data.u $050A
+  ; *caseUnfold($050C)
   Data.a 0
   Data.u $050D
+  ; *caseUnfold($050D)
   Data.a 0
   Data.u $050C
+  ; *caseUnfold($050E)
   Data.a 0
   Data.u $050F
+  ; *caseUnfold($050F)
   Data.a 0
   Data.u $050E
+  ; *caseUnfold($0510)
   Data.a 0
   Data.u $0511
+  ; *caseUnfold($0511)
   Data.a 0
   Data.u $0510
+  ; *caseUnfold($0512)
   Data.a 0
   Data.u $0513
+  ; *caseUnfold($0513)
   Data.a 0
   Data.u $0512
+  ; *caseUnfold($0514)
   Data.a 0
   Data.u $0515
+  ; *caseUnfold($0515)
   Data.a 0
   Data.u $0514
+  ; *caseUnfold($0516)
   Data.a 0
   Data.u $0517
+  ; *caseUnfold($0517)
   Data.a 0
   Data.u $0516
+  ; *caseUnfold($0518)
   Data.a 0
   Data.u $0519
+  ; *caseUnfold($0519)
   Data.a 0
   Data.u $0518
+  ; *caseUnfold($051A)
   Data.a 0
   Data.u $051B
+  ; *caseUnfold($051B)
   Data.a 0
   Data.u $051A
+  ; *caseUnfold($051C)
   Data.a 0
   Data.u $051D
+  ; *caseUnfold($051D)
   Data.a 0
   Data.u $051C
+  ; *caseUnfold($051E)
   Data.a 0
   Data.u $051F
+  ; *caseUnfold($051F)
   Data.a 0
   Data.u $051E
+  ; *caseUnfold($0520)
   Data.a 0
   Data.u $0521
+  ; *caseUnfold($0521)
   Data.a 0
   Data.u $0520
+  ; *caseUnfold($0522)
   Data.a 0
   Data.u $0523
+  ; *caseUnfold($0523)
   Data.a 0
   Data.u $0522
+  ; *caseUnfold($0524)
   Data.a 0
   Data.u $0525
+  ; *caseUnfold($0525)
   Data.a 0
   Data.u $0524
+  ; *caseUnfold($0526)
   Data.a 0
   Data.u $0527
+  ; *caseUnfold($0527)
   Data.a 0
   Data.u $0526
+  ; *caseUnfold($0528)
   Data.a 0
   Data.u $0529
+  ; *caseUnfold($0529)
   Data.a 0
   Data.u $0528
+  ; *caseUnfold($052A)
   Data.a 0
   Data.u $052B
+  ; *caseUnfold($052B)
   Data.a 0
   Data.u $052A
+  ; *caseUnfold($052C)
   Data.a 0
   Data.u $052D
+  ; *caseUnfold($052D)
   Data.a 0
   Data.u $052C
+  ; *caseUnfold($052E)
   Data.a 0
   Data.u $052F
+  ; *caseUnfold($052F)
   Data.a 0
   Data.u $052E
+  ; *caseUnfold($0531)
   Data.a 0
   Data.u $0561
+  ; *caseUnfold($0561)
   Data.a 0
   Data.u $0531
+  ; *caseUnfold($0532)
   Data.a 0
   Data.u $0562
+  ; *caseUnfold($0562)
   Data.a 0
   Data.u $0532
+  ; *caseUnfold($0533)
   Data.a 0
   Data.u $0563
+  ; *caseUnfold($0563)
   Data.a 0
   Data.u $0533
+  ; *caseUnfold($0534)
   Data.a 0
   Data.u $0564
+  ; *caseUnfold($0564)
   Data.a 0
   Data.u $0534
+  ; *caseUnfold($0535)
   Data.a 0
   Data.u $0565
+  ; *caseUnfold($0565)
   Data.a 0
   Data.u $0535
+  ; *caseUnfold($0536)
   Data.a 0
   Data.u $0566
+  ; *caseUnfold($0566)
   Data.a 0
   Data.u $0536
+  ; *caseUnfold($0537)
   Data.a 0
   Data.u $0567
+  ; *caseUnfold($0567)
   Data.a 0
   Data.u $0537
+  ; *caseUnfold($0538)
   Data.a 0
   Data.u $0568
+  ; *caseUnfold($0568)
   Data.a 0
   Data.u $0538
+  ; *caseUnfold($0539)
   Data.a 0
   Data.u $0569
+  ; *caseUnfold($0569)
   Data.a 0
   Data.u $0539
+  ; *caseUnfold($053A)
   Data.a 0
   Data.u $056A
+  ; *caseUnfold($056A)
   Data.a 0
   Data.u $053A
+  ; *caseUnfold($053B)
   Data.a 0
   Data.u $056B
+  ; *caseUnfold($056B)
   Data.a 0
   Data.u $053B
+  ; *caseUnfold($053C)
   Data.a 0
   Data.u $056C
+  ; *caseUnfold($056C)
   Data.a 0
   Data.u $053C
+  ; *caseUnfold($053D)
   Data.a 0
   Data.u $056D
+  ; *caseUnfold($056D)
   Data.a 0
   Data.u $053D
+  ; *caseUnfold($053E)
   Data.a 0
   Data.u $056E
+  ; *caseUnfold($056E)
   Data.a 0
   Data.u $053E
+  ; *caseUnfold($053F)
   Data.a 0
   Data.u $056F
+  ; *caseUnfold($056F)
   Data.a 0
   Data.u $053F
+  ; *caseUnfold($0540)
   Data.a 0
   Data.u $0570
+  ; *caseUnfold($0570)
   Data.a 0
   Data.u $0540
+  ; *caseUnfold($0541)
   Data.a 0
   Data.u $0571
+  ; *caseUnfold($0571)
   Data.a 0
   Data.u $0541
+  ; *caseUnfold($0542)
   Data.a 0
   Data.u $0572
+  ; *caseUnfold($0572)
   Data.a 0
   Data.u $0542
+  ; *caseUnfold($0543)
   Data.a 0
   Data.u $0573
+  ; *caseUnfold($0573)
   Data.a 0
   Data.u $0543
+  ; *caseUnfold($0544)
   Data.a 0
   Data.u $0574
+  ; *caseUnfold($0574)
   Data.a 0
   Data.u $0544
+  ; *caseUnfold($0545)
   Data.a 0
   Data.u $0575
+  ; *caseUnfold($0575)
   Data.a 0
   Data.u $0545
+  ; *caseUnfold($0546)
   Data.a 0
   Data.u $0576
+  ; *caseUnfold($0576)
   Data.a 0
   Data.u $0546
+  ; *caseUnfold($0547)
   Data.a 0
   Data.u $0577
+  ; *caseUnfold($0577)
   Data.a 0
   Data.u $0547
+  ; *caseUnfold($0548)
   Data.a 0
   Data.u $0578
+  ; *caseUnfold($0578)
   Data.a 0
   Data.u $0548
+  ; *caseUnfold($0549)
   Data.a 0
   Data.u $0579
+  ; *caseUnfold($0579)
   Data.a 0
   Data.u $0549
+  ; *caseUnfold($054A)
   Data.a 0
   Data.u $057A
+  ; *caseUnfold($057A)
   Data.a 0
   Data.u $054A
+  ; *caseUnfold($054B)
   Data.a 0
   Data.u $057B
+  ; *caseUnfold($057B)
   Data.a 0
   Data.u $054B
+  ; *caseUnfold($054C)
   Data.a 0
   Data.u $057C
+  ; *caseUnfold($057C)
   Data.a 0
   Data.u $054C
+  ; *caseUnfold($054D)
   Data.a 0
   Data.u $057D
+  ; *caseUnfold($057D)
   Data.a 0
   Data.u $054D
+  ; *caseUnfold($054E)
   Data.a 0
   Data.u $057E
+  ; *caseUnfold($057E)
   Data.a 0
   Data.u $054E
+  ; *caseUnfold($054F)
   Data.a 0
   Data.u $057F
+  ; *caseUnfold($057F)
   Data.a 0
   Data.u $054F
+  ; *caseUnfold($0550)
   Data.a 0
   Data.u $0580
+  ; *caseUnfold($0580)
   Data.a 0
   Data.u $0550
+  ; *caseUnfold($0551)
   Data.a 0
   Data.u $0581
+  ; *caseUnfold($0581)
   Data.a 0
   Data.u $0551
+  ; *caseUnfold($0552)
   Data.a 0
   Data.u $0582
+  ; *caseUnfold($0582)
   Data.a 0
   Data.u $0552
+  ; *caseUnfold($0553)
   Data.a 0
   Data.u $0583
+  ; *caseUnfold($0583)
   Data.a 0
   Data.u $0553
+  ; *caseUnfold($0554)
   Data.a 0
   Data.u $0584
+  ; *caseUnfold($0584)
   Data.a 0
   Data.u $0554
+  ; *caseUnfold($0555)
   Data.a 0
   Data.u $0585
+  ; *caseUnfold($0585)
   Data.a 0
   Data.u $0555
+  ; *caseUnfold($0556)
   Data.a 0
   Data.u $0586
+  ; *caseUnfold($0586)
   Data.a 0
   Data.u $0556
+  ; *caseUnfold($10A0)
   Data.a 0
   Data.u $2D00
+  ; *caseUnfold($2D00)
   Data.a 0
   Data.u $10A0
+  ; *caseUnfold($10A1)
   Data.a 0
   Data.u $2D01
+  ; *caseUnfold($2D01)
   Data.a 0
   Data.u $10A1
+  ; *caseUnfold($10A2)
   Data.a 0
   Data.u $2D02
+  ; *caseUnfold($2D02)
   Data.a 0
   Data.u $10A2
+  ; *caseUnfold($10A3)
   Data.a 0
   Data.u $2D03
+  ; *caseUnfold($2D03)
   Data.a 0
   Data.u $10A3
+  ; *caseUnfold($10A4)
   Data.a 0
   Data.u $2D04
+  ; *caseUnfold($2D04)
   Data.a 0
   Data.u $10A4
+  ; *caseUnfold($10A5)
   Data.a 0
   Data.u $2D05
+  ; *caseUnfold($2D05)
   Data.a 0
   Data.u $10A5
+  ; *caseUnfold($10A6)
   Data.a 0
   Data.u $2D06
+  ; *caseUnfold($2D06)
   Data.a 0
   Data.u $10A6
+  ; *caseUnfold($10A7)
   Data.a 0
   Data.u $2D07
+  ; *caseUnfold($2D07)
   Data.a 0
   Data.u $10A7
+  ; *caseUnfold($10A8)
   Data.a 0
   Data.u $2D08
+  ; *caseUnfold($2D08)
   Data.a 0
   Data.u $10A8
+  ; *caseUnfold($10A9)
   Data.a 0
   Data.u $2D09
+  ; *caseUnfold($2D09)
   Data.a 0
   Data.u $10A9
+  ; *caseUnfold($10AA)
   Data.a 0
   Data.u $2D0A
+  ; *caseUnfold($2D0A)
   Data.a 0
   Data.u $10AA
+  ; *caseUnfold($10AB)
   Data.a 0
   Data.u $2D0B
+  ; *caseUnfold($2D0B)
   Data.a 0
   Data.u $10AB
+  ; *caseUnfold($10AC)
   Data.a 0
   Data.u $2D0C
+  ; *caseUnfold($2D0C)
   Data.a 0
   Data.u $10AC
+  ; *caseUnfold($10AD)
   Data.a 0
   Data.u $2D0D
+  ; *caseUnfold($2D0D)
   Data.a 0
   Data.u $10AD
+  ; *caseUnfold($10AE)
   Data.a 0
   Data.u $2D0E
+  ; *caseUnfold($2D0E)
   Data.a 0
   Data.u $10AE
+  ; *caseUnfold($10AF)
   Data.a 0
   Data.u $2D0F
+  ; *caseUnfold($2D0F)
   Data.a 0
   Data.u $10AF
+  ; *caseUnfold($10B0)
   Data.a 0
   Data.u $2D10
+  ; *caseUnfold($2D10)
   Data.a 0
   Data.u $10B0
+  ; *caseUnfold($10B1)
   Data.a 0
   Data.u $2D11
+  ; *caseUnfold($2D11)
   Data.a 0
   Data.u $10B1
+  ; *caseUnfold($10B2)
   Data.a 0
   Data.u $2D12
+  ; *caseUnfold($2D12)
   Data.a 0
   Data.u $10B2
+  ; *caseUnfold($10B3)
   Data.a 0
   Data.u $2D13
+  ; *caseUnfold($2D13)
   Data.a 0
   Data.u $10B3
+  ; *caseUnfold($10B4)
   Data.a 0
   Data.u $2D14
+  ; *caseUnfold($2D14)
   Data.a 0
   Data.u $10B4
+  ; *caseUnfold($10B5)
   Data.a 0
   Data.u $2D15
+  ; *caseUnfold($2D15)
   Data.a 0
   Data.u $10B5
+  ; *caseUnfold($10B6)
   Data.a 0
   Data.u $2D16
+  ; *caseUnfold($2D16)
   Data.a 0
   Data.u $10B6
+  ; *caseUnfold($10B7)
   Data.a 0
   Data.u $2D17
+  ; *caseUnfold($2D17)
   Data.a 0
   Data.u $10B7
+  ; *caseUnfold($10B8)
   Data.a 0
   Data.u $2D18
+  ; *caseUnfold($2D18)
   Data.a 0
   Data.u $10B8
+  ; *caseUnfold($10B9)
   Data.a 0
   Data.u $2D19
+  ; *caseUnfold($2D19)
   Data.a 0
   Data.u $10B9
+  ; *caseUnfold($10BA)
   Data.a 0
   Data.u $2D1A
+  ; *caseUnfold($2D1A)
   Data.a 0
   Data.u $10BA
+  ; *caseUnfold($10BB)
   Data.a 0
   Data.u $2D1B
+  ; *caseUnfold($2D1B)
   Data.a 0
   Data.u $10BB
+  ; *caseUnfold($10BC)
   Data.a 0
   Data.u $2D1C
+  ; *caseUnfold($2D1C)
   Data.a 0
   Data.u $10BC
+  ; *caseUnfold($10BD)
   Data.a 0
   Data.u $2D1D
+  ; *caseUnfold($2D1D)
   Data.a 0
   Data.u $10BD
+  ; *caseUnfold($10BE)
   Data.a 0
   Data.u $2D1E
+  ; *caseUnfold($2D1E)
   Data.a 0
   Data.u $10BE
+  ; *caseUnfold($10BF)
   Data.a 0
   Data.u $2D1F
+  ; *caseUnfold($2D1F)
   Data.a 0
   Data.u $10BF
+  ; *caseUnfold($10C0)
   Data.a 0
   Data.u $2D20
+  ; *caseUnfold($2D20)
   Data.a 0
   Data.u $10C0
+  ; *caseUnfold($10C1)
   Data.a 0
   Data.u $2D21
+  ; *caseUnfold($2D21)
   Data.a 0
   Data.u $10C1
+  ; *caseUnfold($10C2)
   Data.a 0
   Data.u $2D22
+  ; *caseUnfold($2D22)
   Data.a 0
   Data.u $10C2
+  ; *caseUnfold($10C3)
   Data.a 0
   Data.u $2D23
+  ; *caseUnfold($2D23)
   Data.a 0
   Data.u $10C3
+  ; *caseUnfold($10C4)
   Data.a 0
   Data.u $2D24
+  ; *caseUnfold($2D24)
   Data.a 0
   Data.u $10C4
+  ; *caseUnfold($10C5)
   Data.a 0
   Data.u $2D25
+  ; *caseUnfold($2D25)
   Data.a 0
   Data.u $10C5
+  ; *caseUnfold($10C7)
   Data.a 0
   Data.u $2D27
+  ; *caseUnfold($2D27)
   Data.a 0
   Data.u $10C7
+  ; *caseUnfold($10CD)
   Data.a 0
   Data.u $2D2D
+  ; *caseUnfold($2D2D)
   Data.a 0
   Data.u $10CD
+  ; *caseUnfold($13F8)
   Data.a 0
   Data.u $13F0
+  ; *caseUnfold($13F0)
   Data.a 0
   Data.u $13F8
+  ; *caseUnfold($13F9)
   Data.a 0
   Data.u $13F1
+  ; *caseUnfold($13F1)
   Data.a 0
   Data.u $13F9
+  ; *caseUnfold($13FA)
   Data.a 0
   Data.u $13F2
+  ; *caseUnfold($13F2)
   Data.a 0
   Data.u $13FA
+  ; *caseUnfold($13FB)
   Data.a 0
   Data.u $13F3
+  ; *caseUnfold($13F3)
   Data.a 0
   Data.u $13FB
+  ; *caseUnfold($13FC)
   Data.a 0
   Data.u $13F4
+  ; *caseUnfold($13F4)
   Data.a 0
   Data.u $13FC
+  ; *caseUnfold($13FD)
   Data.a 0
   Data.u $13F5
+  ; *caseUnfold($13F5)
   Data.a 0
   Data.u $13FD
+  ; *caseUnfold($1C88)
   Data.a 1
   Data.u $A64B,$A64A
+  ; *caseUnfold($A64B)
   Data.a 1
   Data.u $1C88,$A64A
+  ; *caseUnfold($A64A)
   Data.a 1
   Data.u $1C88,$A64B
+  ; *caseUnfold($1C90)
   Data.a 0
   Data.u $10D0
+  ; *caseUnfold($10D0)
   Data.a 0
   Data.u $1C90
+  ; *caseUnfold($1C91)
   Data.a 0
   Data.u $10D1
+  ; *caseUnfold($10D1)
   Data.a 0
   Data.u $1C91
+  ; *caseUnfold($1C92)
   Data.a 0
   Data.u $10D2
+  ; *caseUnfold($10D2)
   Data.a 0
   Data.u $1C92
+  ; *caseUnfold($1C93)
   Data.a 0
   Data.u $10D3
+  ; *caseUnfold($10D3)
   Data.a 0
   Data.u $1C93
+  ; *caseUnfold($1C94)
   Data.a 0
   Data.u $10D4
+  ; *caseUnfold($10D4)
   Data.a 0
   Data.u $1C94
+  ; *caseUnfold($1C95)
   Data.a 0
   Data.u $10D5
+  ; *caseUnfold($10D5)
   Data.a 0
   Data.u $1C95
+  ; *caseUnfold($1C96)
   Data.a 0
   Data.u $10D6
+  ; *caseUnfold($10D6)
   Data.a 0
   Data.u $1C96
+  ; *caseUnfold($1C97)
   Data.a 0
   Data.u $10D7
+  ; *caseUnfold($10D7)
   Data.a 0
   Data.u $1C97
+  ; *caseUnfold($1C98)
   Data.a 0
   Data.u $10D8
+  ; *caseUnfold($10D8)
   Data.a 0
   Data.u $1C98
+  ; *caseUnfold($1C99)
   Data.a 0
   Data.u $10D9
+  ; *caseUnfold($10D9)
   Data.a 0
   Data.u $1C99
+  ; *caseUnfold($1C9A)
   Data.a 0
   Data.u $10DA
+  ; *caseUnfold($10DA)
   Data.a 0
   Data.u $1C9A
+  ; *caseUnfold($1C9B)
   Data.a 0
   Data.u $10DB
+  ; *caseUnfold($10DB)
   Data.a 0
   Data.u $1C9B
+  ; *caseUnfold($1C9C)
   Data.a 0
   Data.u $10DC
+  ; *caseUnfold($10DC)
   Data.a 0
   Data.u $1C9C
+  ; *caseUnfold($1C9D)
   Data.a 0
   Data.u $10DD
+  ; *caseUnfold($10DD)
   Data.a 0
   Data.u $1C9D
+  ; *caseUnfold($1C9E)
   Data.a 0
   Data.u $10DE
+  ; *caseUnfold($10DE)
   Data.a 0
   Data.u $1C9E
+  ; *caseUnfold($1C9F)
   Data.a 0
   Data.u $10DF
+  ; *caseUnfold($10DF)
   Data.a 0
   Data.u $1C9F
+  ; *caseUnfold($1CA0)
   Data.a 0
   Data.u $10E0
+  ; *caseUnfold($10E0)
   Data.a 0
   Data.u $1CA0
+  ; *caseUnfold($1CA1)
   Data.a 0
   Data.u $10E1
+  ; *caseUnfold($10E1)
   Data.a 0
   Data.u $1CA1
+  ; *caseUnfold($1CA2)
   Data.a 0
   Data.u $10E2
+  ; *caseUnfold($10E2)
   Data.a 0
   Data.u $1CA2
+  ; *caseUnfold($1CA3)
   Data.a 0
   Data.u $10E3
+  ; *caseUnfold($10E3)
   Data.a 0
   Data.u $1CA3
+  ; *caseUnfold($1CA4)
   Data.a 0
   Data.u $10E4
+  ; *caseUnfold($10E4)
   Data.a 0
   Data.u $1CA4
+  ; *caseUnfold($1CA5)
   Data.a 0
   Data.u $10E5
+  ; *caseUnfold($10E5)
   Data.a 0
   Data.u $1CA5
+  ; *caseUnfold($1CA6)
   Data.a 0
   Data.u $10E6
+  ; *caseUnfold($10E6)
   Data.a 0
   Data.u $1CA6
+  ; *caseUnfold($1CA7)
   Data.a 0
   Data.u $10E7
+  ; *caseUnfold($10E7)
   Data.a 0
   Data.u $1CA7
+  ; *caseUnfold($1CA8)
   Data.a 0
   Data.u $10E8
+  ; *caseUnfold($10E8)
   Data.a 0
   Data.u $1CA8
+  ; *caseUnfold($1CA9)
   Data.a 0
   Data.u $10E9
+  ; *caseUnfold($10E9)
   Data.a 0
   Data.u $1CA9
+  ; *caseUnfold($1CAA)
   Data.a 0
   Data.u $10EA
+  ; *caseUnfold($10EA)
   Data.a 0
   Data.u $1CAA
+  ; *caseUnfold($1CAB)
   Data.a 0
   Data.u $10EB
+  ; *caseUnfold($10EB)
   Data.a 0
   Data.u $1CAB
+  ; *caseUnfold($1CAC)
   Data.a 0
   Data.u $10EC
+  ; *caseUnfold($10EC)
   Data.a 0
   Data.u $1CAC
+  ; *caseUnfold($1CAD)
   Data.a 0
   Data.u $10ED
+  ; *caseUnfold($10ED)
   Data.a 0
   Data.u $1CAD
+  ; *caseUnfold($1CAE)
   Data.a 0
   Data.u $10EE
+  ; *caseUnfold($10EE)
   Data.a 0
   Data.u $1CAE
+  ; *caseUnfold($1CAF)
   Data.a 0
   Data.u $10EF
+  ; *caseUnfold($10EF)
   Data.a 0
   Data.u $1CAF
+  ; *caseUnfold($1CB0)
   Data.a 0
   Data.u $10F0
+  ; *caseUnfold($10F0)
   Data.a 0
   Data.u $1CB0
+  ; *caseUnfold($1CB1)
   Data.a 0
   Data.u $10F1
+  ; *caseUnfold($10F1)
   Data.a 0
   Data.u $1CB1
+  ; *caseUnfold($1CB2)
   Data.a 0
   Data.u $10F2
+  ; *caseUnfold($10F2)
   Data.a 0
   Data.u $1CB2
+  ; *caseUnfold($1CB3)
   Data.a 0
   Data.u $10F3
+  ; *caseUnfold($10F3)
   Data.a 0
   Data.u $1CB3
+  ; *caseUnfold($1CB4)
   Data.a 0
   Data.u $10F4
+  ; *caseUnfold($10F4)
   Data.a 0
   Data.u $1CB4
+  ; *caseUnfold($1CB5)
   Data.a 0
   Data.u $10F5
+  ; *caseUnfold($10F5)
   Data.a 0
   Data.u $1CB5
+  ; *caseUnfold($1CB6)
   Data.a 0
   Data.u $10F6
+  ; *caseUnfold($10F6)
   Data.a 0
   Data.u $1CB6
+  ; *caseUnfold($1CB7)
   Data.a 0
   Data.u $10F7
+  ; *caseUnfold($10F7)
   Data.a 0
   Data.u $1CB7
+  ; *caseUnfold($1CB8)
   Data.a 0
   Data.u $10F8
+  ; *caseUnfold($10F8)
   Data.a 0
   Data.u $1CB8
+  ; *caseUnfold($1CB9)
   Data.a 0
   Data.u $10F9
+  ; *caseUnfold($10F9)
   Data.a 0
   Data.u $1CB9
+  ; *caseUnfold($1CBA)
   Data.a 0
   Data.u $10FA
+  ; *caseUnfold($10FA)
   Data.a 0
   Data.u $1CBA
+  ; *caseUnfold($1CBD)
   Data.a 0
   Data.u $10FD
+  ; *caseUnfold($10FD)
   Data.a 0
   Data.u $1CBD
+  ; *caseUnfold($1CBE)
   Data.a 0
   Data.u $10FE
+  ; *caseUnfold($10FE)
   Data.a 0
   Data.u $1CBE
+  ; *caseUnfold($1CBF)
   Data.a 0
   Data.u $10FF
+  ; *caseUnfold($10FF)
   Data.a 0
   Data.u $1CBF
+  ; *caseUnfold($1E00)
   Data.a 0
   Data.u $1E01
+  ; *caseUnfold($1E01)
   Data.a 0
   Data.u $1E00
+  ; *caseUnfold($1E02)
   Data.a 0
   Data.u $1E03
+  ; *caseUnfold($1E03)
   Data.a 0
   Data.u $1E02
+  ; *caseUnfold($1E04)
   Data.a 0
   Data.u $1E05
+  ; *caseUnfold($1E05)
   Data.a 0
   Data.u $1E04
+  ; *caseUnfold($1E06)
   Data.a 0
   Data.u $1E07
+  ; *caseUnfold($1E07)
   Data.a 0
   Data.u $1E06
+  ; *caseUnfold($1E08)
   Data.a 0
   Data.u $1E09
+  ; *caseUnfold($1E09)
   Data.a 0
   Data.u $1E08
+  ; *caseUnfold($1E0A)
   Data.a 0
   Data.u $1E0B
+  ; *caseUnfold($1E0B)
   Data.a 0
   Data.u $1E0A
+  ; *caseUnfold($1E0C)
   Data.a 0
   Data.u $1E0D
+  ; *caseUnfold($1E0D)
   Data.a 0
   Data.u $1E0C
+  ; *caseUnfold($1E0E)
   Data.a 0
   Data.u $1E0F
+  ; *caseUnfold($1E0F)
   Data.a 0
   Data.u $1E0E
+  ; *caseUnfold($1E10)
   Data.a 0
   Data.u $1E11
+  ; *caseUnfold($1E11)
   Data.a 0
   Data.u $1E10
+  ; *caseUnfold($1E12)
   Data.a 0
   Data.u $1E13
+  ; *caseUnfold($1E13)
   Data.a 0
   Data.u $1E12
+  ; *caseUnfold($1E14)
   Data.a 0
   Data.u $1E15
+  ; *caseUnfold($1E15)
   Data.a 0
   Data.u $1E14
+  ; *caseUnfold($1E16)
   Data.a 0
   Data.u $1E17
+  ; *caseUnfold($1E17)
   Data.a 0
   Data.u $1E16
+  ; *caseUnfold($1E18)
   Data.a 0
   Data.u $1E19
+  ; *caseUnfold($1E19)
   Data.a 0
   Data.u $1E18
+  ; *caseUnfold($1E1A)
   Data.a 0
   Data.u $1E1B
+  ; *caseUnfold($1E1B)
   Data.a 0
   Data.u $1E1A
+  ; *caseUnfold($1E1C)
   Data.a 0
   Data.u $1E1D
+  ; *caseUnfold($1E1D)
   Data.a 0
   Data.u $1E1C
+  ; *caseUnfold($1E1E)
   Data.a 0
   Data.u $1E1F
+  ; *caseUnfold($1E1F)
   Data.a 0
   Data.u $1E1E
+  ; *caseUnfold($1E20)
   Data.a 0
   Data.u $1E21
+  ; *caseUnfold($1E21)
   Data.a 0
   Data.u $1E20
+  ; *caseUnfold($1E22)
   Data.a 0
   Data.u $1E23
+  ; *caseUnfold($1E23)
   Data.a 0
   Data.u $1E22
+  ; *caseUnfold($1E24)
   Data.a 0
   Data.u $1E25
+  ; *caseUnfold($1E25)
   Data.a 0
   Data.u $1E24
+  ; *caseUnfold($1E26)
   Data.a 0
   Data.u $1E27
+  ; *caseUnfold($1E27)
   Data.a 0
   Data.u $1E26
+  ; *caseUnfold($1E28)
   Data.a 0
   Data.u $1E29
+  ; *caseUnfold($1E29)
   Data.a 0
   Data.u $1E28
+  ; *caseUnfold($1E2A)
   Data.a 0
   Data.u $1E2B
+  ; *caseUnfold($1E2B)
   Data.a 0
   Data.u $1E2A
+  ; *caseUnfold($1E2C)
   Data.a 0
   Data.u $1E2D
+  ; *caseUnfold($1E2D)
   Data.a 0
   Data.u $1E2C
+  ; *caseUnfold($1E2E)
   Data.a 0
   Data.u $1E2F
+  ; *caseUnfold($1E2F)
   Data.a 0
   Data.u $1E2E
+  ; *caseUnfold($1E30)
   Data.a 0
   Data.u $1E31
+  ; *caseUnfold($1E31)
   Data.a 0
   Data.u $1E30
+  ; *caseUnfold($1E32)
   Data.a 0
   Data.u $1E33
+  ; *caseUnfold($1E33)
   Data.a 0
   Data.u $1E32
+  ; *caseUnfold($1E34)
   Data.a 0
   Data.u $1E35
+  ; *caseUnfold($1E35)
   Data.a 0
   Data.u $1E34
+  ; *caseUnfold($1E36)
   Data.a 0
   Data.u $1E37
+  ; *caseUnfold($1E37)
   Data.a 0
   Data.u $1E36
+  ; *caseUnfold($1E38)
   Data.a 0
   Data.u $1E39
+  ; *caseUnfold($1E39)
   Data.a 0
   Data.u $1E38
+  ; *caseUnfold($1E3A)
   Data.a 0
   Data.u $1E3B
+  ; *caseUnfold($1E3B)
   Data.a 0
   Data.u $1E3A
+  ; *caseUnfold($1E3C)
   Data.a 0
   Data.u $1E3D
+  ; *caseUnfold($1E3D)
   Data.a 0
   Data.u $1E3C
+  ; *caseUnfold($1E3E)
   Data.a 0
   Data.u $1E3F
+  ; *caseUnfold($1E3F)
   Data.a 0
   Data.u $1E3E
+  ; *caseUnfold($1E40)
   Data.a 0
   Data.u $1E41
+  ; *caseUnfold($1E41)
   Data.a 0
   Data.u $1E40
+  ; *caseUnfold($1E42)
   Data.a 0
   Data.u $1E43
+  ; *caseUnfold($1E43)
   Data.a 0
   Data.u $1E42
+  ; *caseUnfold($1E44)
   Data.a 0
   Data.u $1E45
+  ; *caseUnfold($1E45)
   Data.a 0
   Data.u $1E44
+  ; *caseUnfold($1E46)
   Data.a 0
   Data.u $1E47
+  ; *caseUnfold($1E47)
   Data.a 0
   Data.u $1E46
+  ; *caseUnfold($1E48)
   Data.a 0
   Data.u $1E49
+  ; *caseUnfold($1E49)
   Data.a 0
   Data.u $1E48
+  ; *caseUnfold($1E4A)
   Data.a 0
   Data.u $1E4B
+  ; *caseUnfold($1E4B)
   Data.a 0
   Data.u $1E4A
+  ; *caseUnfold($1E4C)
   Data.a 0
   Data.u $1E4D
+  ; *caseUnfold($1E4D)
   Data.a 0
   Data.u $1E4C
+  ; *caseUnfold($1E4E)
   Data.a 0
   Data.u $1E4F
+  ; *caseUnfold($1E4F)
   Data.a 0
   Data.u $1E4E
+  ; *caseUnfold($1E50)
   Data.a 0
   Data.u $1E51
+  ; *caseUnfold($1E51)
   Data.a 0
   Data.u $1E50
+  ; *caseUnfold($1E52)
   Data.a 0
   Data.u $1E53
+  ; *caseUnfold($1E53)
   Data.a 0
   Data.u $1E52
+  ; *caseUnfold($1E54)
   Data.a 0
   Data.u $1E55
+  ; *caseUnfold($1E55)
   Data.a 0
   Data.u $1E54
+  ; *caseUnfold($1E56)
   Data.a 0
   Data.u $1E57
+  ; *caseUnfold($1E57)
   Data.a 0
   Data.u $1E56
+  ; *caseUnfold($1E58)
   Data.a 0
   Data.u $1E59
+  ; *caseUnfold($1E59)
   Data.a 0
   Data.u $1E58
+  ; *caseUnfold($1E5A)
   Data.a 0
   Data.u $1E5B
+  ; *caseUnfold($1E5B)
   Data.a 0
   Data.u $1E5A
+  ; *caseUnfold($1E5C)
   Data.a 0
   Data.u $1E5D
+  ; *caseUnfold($1E5D)
   Data.a 0
   Data.u $1E5C
+  ; *caseUnfold($1E5E)
   Data.a 0
   Data.u $1E5F
+  ; *caseUnfold($1E5F)
   Data.a 0
   Data.u $1E5E
+  ; *caseUnfold($1E60)
   Data.a 1
   Data.u $1E61,$1E9B
+  ; *caseUnfold($1E61)
   Data.a 1
   Data.u $1E60,$1E9B
+  ; *caseUnfold($1E9B)
   Data.a 1
   Data.u $1E60,$1E61
+  ; *caseUnfold($1E62)
   Data.a 0
   Data.u $1E63
+  ; *caseUnfold($1E63)
   Data.a 0
   Data.u $1E62
+  ; *caseUnfold($1E64)
   Data.a 0
   Data.u $1E65
+  ; *caseUnfold($1E65)
   Data.a 0
   Data.u $1E64
+  ; *caseUnfold($1E66)
   Data.a 0
   Data.u $1E67
+  ; *caseUnfold($1E67)
   Data.a 0
   Data.u $1E66
+  ; *caseUnfold($1E68)
   Data.a 0
   Data.u $1E69
+  ; *caseUnfold($1E69)
   Data.a 0
   Data.u $1E68
+  ; *caseUnfold($1E6A)
   Data.a 0
   Data.u $1E6B
+  ; *caseUnfold($1E6B)
   Data.a 0
   Data.u $1E6A
+  ; *caseUnfold($1E6C)
   Data.a 0
   Data.u $1E6D
+  ; *caseUnfold($1E6D)
   Data.a 0
   Data.u $1E6C
+  ; *caseUnfold($1E6E)
   Data.a 0
   Data.u $1E6F
+  ; *caseUnfold($1E6F)
   Data.a 0
   Data.u $1E6E
+  ; *caseUnfold($1E70)
   Data.a 0
   Data.u $1E71
+  ; *caseUnfold($1E71)
   Data.a 0
   Data.u $1E70
+  ; *caseUnfold($1E72)
   Data.a 0
   Data.u $1E73
+  ; *caseUnfold($1E73)
   Data.a 0
   Data.u $1E72
+  ; *caseUnfold($1E74)
   Data.a 0
   Data.u $1E75
+  ; *caseUnfold($1E75)
   Data.a 0
   Data.u $1E74
+  ; *caseUnfold($1E76)
   Data.a 0
   Data.u $1E77
+  ; *caseUnfold($1E77)
   Data.a 0
   Data.u $1E76
+  ; *caseUnfold($1E78)
   Data.a 0
   Data.u $1E79
+  ; *caseUnfold($1E79)
   Data.a 0
   Data.u $1E78
+  ; *caseUnfold($1E7A)
   Data.a 0
   Data.u $1E7B
+  ; *caseUnfold($1E7B)
   Data.a 0
   Data.u $1E7A
+  ; *caseUnfold($1E7C)
   Data.a 0
   Data.u $1E7D
+  ; *caseUnfold($1E7D)
   Data.a 0
   Data.u $1E7C
+  ; *caseUnfold($1E7E)
   Data.a 0
   Data.u $1E7F
+  ; *caseUnfold($1E7F)
   Data.a 0
   Data.u $1E7E
+  ; *caseUnfold($1E80)
   Data.a 0
   Data.u $1E81
+  ; *caseUnfold($1E81)
   Data.a 0
   Data.u $1E80
+  ; *caseUnfold($1E82)
   Data.a 0
   Data.u $1E83
+  ; *caseUnfold($1E83)
   Data.a 0
   Data.u $1E82
+  ; *caseUnfold($1E84)
   Data.a 0
   Data.u $1E85
+  ; *caseUnfold($1E85)
   Data.a 0
   Data.u $1E84
+  ; *caseUnfold($1E86)
   Data.a 0
   Data.u $1E87
+  ; *caseUnfold($1E87)
   Data.a 0
   Data.u $1E86
+  ; *caseUnfold($1E88)
   Data.a 0
   Data.u $1E89
+  ; *caseUnfold($1E89)
   Data.a 0
   Data.u $1E88
+  ; *caseUnfold($1E8A)
   Data.a 0
   Data.u $1E8B
+  ; *caseUnfold($1E8B)
   Data.a 0
   Data.u $1E8A
+  ; *caseUnfold($1E8C)
   Data.a 0
   Data.u $1E8D
+  ; *caseUnfold($1E8D)
   Data.a 0
   Data.u $1E8C
+  ; *caseUnfold($1E8E)
   Data.a 0
   Data.u $1E8F
+  ; *caseUnfold($1E8F)
   Data.a 0
   Data.u $1E8E
+  ; *caseUnfold($1E90)
   Data.a 0
   Data.u $1E91
+  ; *caseUnfold($1E91)
   Data.a 0
   Data.u $1E90
+  ; *caseUnfold($1E92)
   Data.a 0
   Data.u $1E93
+  ; *caseUnfold($1E93)
   Data.a 0
   Data.u $1E92
+  ; *caseUnfold($1E94)
   Data.a 0
   Data.u $1E95
+  ; *caseUnfold($1E95)
   Data.a 0
   Data.u $1E94
+  ; *caseUnfold($1E9E)
   Data.a 0
   Data.u $00DF
+  ; *caseUnfold($00DF)
   Data.a 0
   Data.u $1E9E
+  ; *caseUnfold($1EA0)
   Data.a 0
   Data.u $1EA1
+  ; *caseUnfold($1EA1)
   Data.a 0
   Data.u $1EA0
+  ; *caseUnfold($1EA2)
   Data.a 0
   Data.u $1EA3
+  ; *caseUnfold($1EA3)
   Data.a 0
   Data.u $1EA2
+  ; *caseUnfold($1EA4)
   Data.a 0
   Data.u $1EA5
+  ; *caseUnfold($1EA5)
   Data.a 0
   Data.u $1EA4
+  ; *caseUnfold($1EA6)
   Data.a 0
   Data.u $1EA7
+  ; *caseUnfold($1EA7)
   Data.a 0
   Data.u $1EA6
+  ; *caseUnfold($1EA8)
   Data.a 0
   Data.u $1EA9
+  ; *caseUnfold($1EA9)
   Data.a 0
   Data.u $1EA8
+  ; *caseUnfold($1EAA)
   Data.a 0
   Data.u $1EAB
+  ; *caseUnfold($1EAB)
   Data.a 0
   Data.u $1EAA
+  ; *caseUnfold($1EAC)
   Data.a 0
   Data.u $1EAD
+  ; *caseUnfold($1EAD)
   Data.a 0
   Data.u $1EAC
+  ; *caseUnfold($1EAE)
   Data.a 0
   Data.u $1EAF
+  ; *caseUnfold($1EAF)
   Data.a 0
   Data.u $1EAE
+  ; *caseUnfold($1EB0)
   Data.a 0
   Data.u $1EB1
+  ; *caseUnfold($1EB1)
   Data.a 0
   Data.u $1EB0
+  ; *caseUnfold($1EB2)
   Data.a 0
   Data.u $1EB3
+  ; *caseUnfold($1EB3)
   Data.a 0
   Data.u $1EB2
+  ; *caseUnfold($1EB4)
   Data.a 0
   Data.u $1EB5
+  ; *caseUnfold($1EB5)
   Data.a 0
   Data.u $1EB4
+  ; *caseUnfold($1EB6)
   Data.a 0
   Data.u $1EB7
+  ; *caseUnfold($1EB7)
   Data.a 0
   Data.u $1EB6
+  ; *caseUnfold($1EB8)
   Data.a 0
   Data.u $1EB9
+  ; *caseUnfold($1EB9)
   Data.a 0
   Data.u $1EB8
+  ; *caseUnfold($1EBA)
   Data.a 0
   Data.u $1EBB
+  ; *caseUnfold($1EBB)
   Data.a 0
   Data.u $1EBA
+  ; *caseUnfold($1EBC)
   Data.a 0
   Data.u $1EBD
+  ; *caseUnfold($1EBD)
   Data.a 0
   Data.u $1EBC
+  ; *caseUnfold($1EBE)
   Data.a 0
   Data.u $1EBF
+  ; *caseUnfold($1EBF)
   Data.a 0
   Data.u $1EBE
+  ; *caseUnfold($1EC0)
   Data.a 0
   Data.u $1EC1
+  ; *caseUnfold($1EC1)
   Data.a 0
   Data.u $1EC0
+  ; *caseUnfold($1EC2)
   Data.a 0
   Data.u $1EC3
+  ; *caseUnfold($1EC3)
   Data.a 0
   Data.u $1EC2
+  ; *caseUnfold($1EC4)
   Data.a 0
   Data.u $1EC5
+  ; *caseUnfold($1EC5)
   Data.a 0
   Data.u $1EC4
+  ; *caseUnfold($1EC6)
   Data.a 0
   Data.u $1EC7
+  ; *caseUnfold($1EC7)
   Data.a 0
   Data.u $1EC6
+  ; *caseUnfold($1EC8)
   Data.a 0
   Data.u $1EC9
+  ; *caseUnfold($1EC9)
   Data.a 0
   Data.u $1EC8
+  ; *caseUnfold($1ECA)
   Data.a 0
   Data.u $1ECB
+  ; *caseUnfold($1ECB)
   Data.a 0
   Data.u $1ECA
+  ; *caseUnfold($1ECC)
   Data.a 0
   Data.u $1ECD
+  ; *caseUnfold($1ECD)
   Data.a 0
   Data.u $1ECC
+  ; *caseUnfold($1ECE)
   Data.a 0
   Data.u $1ECF
+  ; *caseUnfold($1ECF)
   Data.a 0
   Data.u $1ECE
+  ; *caseUnfold($1ED0)
   Data.a 0
   Data.u $1ED1
+  ; *caseUnfold($1ED1)
   Data.a 0
   Data.u $1ED0
+  ; *caseUnfold($1ED2)
   Data.a 0
   Data.u $1ED3
+  ; *caseUnfold($1ED3)
   Data.a 0
   Data.u $1ED2
+  ; *caseUnfold($1ED4)
   Data.a 0
   Data.u $1ED5
+  ; *caseUnfold($1ED5)
   Data.a 0
   Data.u $1ED4
+  ; *caseUnfold($1ED6)
   Data.a 0
   Data.u $1ED7
+  ; *caseUnfold($1ED7)
   Data.a 0
   Data.u $1ED6
+  ; *caseUnfold($1ED8)
   Data.a 0
   Data.u $1ED9
+  ; *caseUnfold($1ED9)
   Data.a 0
   Data.u $1ED8
+  ; *caseUnfold($1EDA)
   Data.a 0
   Data.u $1EDB
+  ; *caseUnfold($1EDB)
   Data.a 0
   Data.u $1EDA
+  ; *caseUnfold($1EDC)
   Data.a 0
   Data.u $1EDD
+  ; *caseUnfold($1EDD)
   Data.a 0
   Data.u $1EDC
+  ; *caseUnfold($1EDE)
   Data.a 0
   Data.u $1EDF
+  ; *caseUnfold($1EDF)
   Data.a 0
   Data.u $1EDE
+  ; *caseUnfold($1EE0)
   Data.a 0
   Data.u $1EE1
+  ; *caseUnfold($1EE1)
   Data.a 0
   Data.u $1EE0
+  ; *caseUnfold($1EE2)
   Data.a 0
   Data.u $1EE3
+  ; *caseUnfold($1EE3)
   Data.a 0
   Data.u $1EE2
+  ; *caseUnfold($1EE4)
   Data.a 0
   Data.u $1EE5
+  ; *caseUnfold($1EE5)
   Data.a 0
   Data.u $1EE4
+  ; *caseUnfold($1EE6)
   Data.a 0
   Data.u $1EE7
+  ; *caseUnfold($1EE7)
   Data.a 0
   Data.u $1EE6
+  ; *caseUnfold($1EE8)
   Data.a 0
   Data.u $1EE9
+  ; *caseUnfold($1EE9)
   Data.a 0
   Data.u $1EE8
+  ; *caseUnfold($1EEA)
   Data.a 0
   Data.u $1EEB
+  ; *caseUnfold($1EEB)
   Data.a 0
   Data.u $1EEA
+  ; *caseUnfold($1EEC)
   Data.a 0
   Data.u $1EED
+  ; *caseUnfold($1EED)
   Data.a 0
   Data.u $1EEC
+  ; *caseUnfold($1EEE)
   Data.a 0
   Data.u $1EEF
+  ; *caseUnfold($1EEF)
   Data.a 0
   Data.u $1EEE
+  ; *caseUnfold($1EF0)
   Data.a 0
   Data.u $1EF1
+  ; *caseUnfold($1EF1)
   Data.a 0
   Data.u $1EF0
+  ; *caseUnfold($1EF2)
   Data.a 0
   Data.u $1EF3
+  ; *caseUnfold($1EF3)
   Data.a 0
   Data.u $1EF2
+  ; *caseUnfold($1EF4)
   Data.a 0
   Data.u $1EF5
+  ; *caseUnfold($1EF5)
   Data.a 0
   Data.u $1EF4
+  ; *caseUnfold($1EF6)
   Data.a 0
   Data.u $1EF7
+  ; *caseUnfold($1EF7)
   Data.a 0
   Data.u $1EF6
+  ; *caseUnfold($1EF8)
   Data.a 0
   Data.u $1EF9
+  ; *caseUnfold($1EF9)
   Data.a 0
   Data.u $1EF8
+  ; *caseUnfold($1EFA)
   Data.a 0
   Data.u $1EFB
+  ; *caseUnfold($1EFB)
   Data.a 0
   Data.u $1EFA
+  ; *caseUnfold($1EFC)
   Data.a 0
   Data.u $1EFD
+  ; *caseUnfold($1EFD)
   Data.a 0
   Data.u $1EFC
+  ; *caseUnfold($1EFE)
   Data.a 0
   Data.u $1EFF
+  ; *caseUnfold($1EFF)
   Data.a 0
   Data.u $1EFE
+  ; *caseUnfold($1F08)
   Data.a 0
   Data.u $1F00
+  ; *caseUnfold($1F00)
   Data.a 0
   Data.u $1F08
+  ; *caseUnfold($1F09)
   Data.a 0
   Data.u $1F01
+  ; *caseUnfold($1F01)
   Data.a 0
   Data.u $1F09
+  ; *caseUnfold($1F0A)
   Data.a 0
   Data.u $1F02
+  ; *caseUnfold($1F02)
   Data.a 0
   Data.u $1F0A
+  ; *caseUnfold($1F0B)
   Data.a 0
   Data.u $1F03
+  ; *caseUnfold($1F03)
   Data.a 0
   Data.u $1F0B
+  ; *caseUnfold($1F0C)
   Data.a 0
   Data.u $1F04
+  ; *caseUnfold($1F04)
   Data.a 0
   Data.u $1F0C
+  ; *caseUnfold($1F0D)
   Data.a 0
   Data.u $1F05
+  ; *caseUnfold($1F05)
   Data.a 0
   Data.u $1F0D
+  ; *caseUnfold($1F0E)
   Data.a 0
   Data.u $1F06
+  ; *caseUnfold($1F06)
   Data.a 0
   Data.u $1F0E
+  ; *caseUnfold($1F0F)
   Data.a 0
   Data.u $1F07
+  ; *caseUnfold($1F07)
   Data.a 0
   Data.u $1F0F
+  ; *caseUnfold($1F18)
   Data.a 0
   Data.u $1F10
+  ; *caseUnfold($1F10)
   Data.a 0
   Data.u $1F18
+  ; *caseUnfold($1F19)
   Data.a 0
   Data.u $1F11
+  ; *caseUnfold($1F11)
   Data.a 0
   Data.u $1F19
+  ; *caseUnfold($1F1A)
   Data.a 0
   Data.u $1F12
+  ; *caseUnfold($1F12)
   Data.a 0
   Data.u $1F1A
+  ; *caseUnfold($1F1B)
   Data.a 0
   Data.u $1F13
+  ; *caseUnfold($1F13)
   Data.a 0
   Data.u $1F1B
+  ; *caseUnfold($1F1C)
   Data.a 0
   Data.u $1F14
+  ; *caseUnfold($1F14)
   Data.a 0
   Data.u $1F1C
+  ; *caseUnfold($1F1D)
   Data.a 0
   Data.u $1F15
+  ; *caseUnfold($1F15)
   Data.a 0
   Data.u $1F1D
+  ; *caseUnfold($1F28)
   Data.a 0
   Data.u $1F20
+  ; *caseUnfold($1F20)
   Data.a 0
   Data.u $1F28
+  ; *caseUnfold($1F29)
   Data.a 0
   Data.u $1F21
+  ; *caseUnfold($1F21)
   Data.a 0
   Data.u $1F29
+  ; *caseUnfold($1F2A)
   Data.a 0
   Data.u $1F22
+  ; *caseUnfold($1F22)
   Data.a 0
   Data.u $1F2A
+  ; *caseUnfold($1F2B)
   Data.a 0
   Data.u $1F23
+  ; *caseUnfold($1F23)
   Data.a 0
   Data.u $1F2B
+  ; *caseUnfold($1F2C)
   Data.a 0
   Data.u $1F24
+  ; *caseUnfold($1F24)
   Data.a 0
   Data.u $1F2C
+  ; *caseUnfold($1F2D)
   Data.a 0
   Data.u $1F25
+  ; *caseUnfold($1F25)
   Data.a 0
   Data.u $1F2D
+  ; *caseUnfold($1F2E)
   Data.a 0
   Data.u $1F26
+  ; *caseUnfold($1F26)
   Data.a 0
   Data.u $1F2E
+  ; *caseUnfold($1F2F)
   Data.a 0
   Data.u $1F27
+  ; *caseUnfold($1F27)
   Data.a 0
   Data.u $1F2F
+  ; *caseUnfold($1F38)
   Data.a 0
   Data.u $1F30
+  ; *caseUnfold($1F30)
   Data.a 0
   Data.u $1F38
+  ; *caseUnfold($1F39)
   Data.a 0
   Data.u $1F31
+  ; *caseUnfold($1F31)
   Data.a 0
   Data.u $1F39
+  ; *caseUnfold($1F3A)
   Data.a 0
   Data.u $1F32
+  ; *caseUnfold($1F32)
   Data.a 0
   Data.u $1F3A
+  ; *caseUnfold($1F3B)
   Data.a 0
   Data.u $1F33
+  ; *caseUnfold($1F33)
   Data.a 0
   Data.u $1F3B
+  ; *caseUnfold($1F3C)
   Data.a 0
   Data.u $1F34
+  ; *caseUnfold($1F34)
   Data.a 0
   Data.u $1F3C
+  ; *caseUnfold($1F3D)
   Data.a 0
   Data.u $1F35
+  ; *caseUnfold($1F35)
   Data.a 0
   Data.u $1F3D
+  ; *caseUnfold($1F3E)
   Data.a 0
   Data.u $1F36
+  ; *caseUnfold($1F36)
   Data.a 0
   Data.u $1F3E
+  ; *caseUnfold($1F3F)
   Data.a 0
   Data.u $1F37
+  ; *caseUnfold($1F37)
   Data.a 0
   Data.u $1F3F
+  ; *caseUnfold($1F48)
   Data.a 0
   Data.u $1F40
+  ; *caseUnfold($1F40)
   Data.a 0
   Data.u $1F48
+  ; *caseUnfold($1F49)
   Data.a 0
   Data.u $1F41
+  ; *caseUnfold($1F41)
   Data.a 0
   Data.u $1F49
+  ; *caseUnfold($1F4A)
   Data.a 0
   Data.u $1F42
+  ; *caseUnfold($1F42)
   Data.a 0
   Data.u $1F4A
+  ; *caseUnfold($1F4B)
   Data.a 0
   Data.u $1F43
+  ; *caseUnfold($1F43)
   Data.a 0
   Data.u $1F4B
+  ; *caseUnfold($1F4C)
   Data.a 0
   Data.u $1F44
+  ; *caseUnfold($1F44)
   Data.a 0
   Data.u $1F4C
+  ; *caseUnfold($1F4D)
   Data.a 0
   Data.u $1F45
+  ; *caseUnfold($1F45)
   Data.a 0
   Data.u $1F4D
+  ; *caseUnfold($1F59)
   Data.a 0
   Data.u $1F51
+  ; *caseUnfold($1F51)
   Data.a 0
   Data.u $1F59
+  ; *caseUnfold($1F5B)
   Data.a 0
   Data.u $1F53
+  ; *caseUnfold($1F53)
   Data.a 0
   Data.u $1F5B
+  ; *caseUnfold($1F5D)
   Data.a 0
   Data.u $1F55
+  ; *caseUnfold($1F55)
   Data.a 0
   Data.u $1F5D
+  ; *caseUnfold($1F5F)
   Data.a 0
   Data.u $1F57
+  ; *caseUnfold($1F57)
   Data.a 0
   Data.u $1F5F
+  ; *caseUnfold($1F68)
   Data.a 0
   Data.u $1F60
+  ; *caseUnfold($1F60)
   Data.a 0
   Data.u $1F68
+  ; *caseUnfold($1F69)
   Data.a 0
   Data.u $1F61
+  ; *caseUnfold($1F61)
   Data.a 0
   Data.u $1F69
+  ; *caseUnfold($1F6A)
   Data.a 0
   Data.u $1F62
+  ; *caseUnfold($1F62)
   Data.a 0
   Data.u $1F6A
+  ; *caseUnfold($1F6B)
   Data.a 0
   Data.u $1F63
+  ; *caseUnfold($1F63)
   Data.a 0
   Data.u $1F6B
+  ; *caseUnfold($1F6C)
   Data.a 0
   Data.u $1F64
+  ; *caseUnfold($1F64)
   Data.a 0
   Data.u $1F6C
+  ; *caseUnfold($1F6D)
   Data.a 0
   Data.u $1F65
+  ; *caseUnfold($1F65)
   Data.a 0
   Data.u $1F6D
+  ; *caseUnfold($1F6E)
   Data.a 0
   Data.u $1F66
+  ; *caseUnfold($1F66)
   Data.a 0
   Data.u $1F6E
+  ; *caseUnfold($1F6F)
   Data.a 0
   Data.u $1F67
+  ; *caseUnfold($1F67)
   Data.a 0
   Data.u $1F6F
+  ; *caseUnfold($1F88)
   Data.a 0
   Data.u $1F80
+  ; *caseUnfold($1F80)
   Data.a 0
   Data.u $1F88
+  ; *caseUnfold($1F89)
   Data.a 0
   Data.u $1F81
+  ; *caseUnfold($1F81)
   Data.a 0
   Data.u $1F89
+  ; *caseUnfold($1F8A)
   Data.a 0
   Data.u $1F82
+  ; *caseUnfold($1F82)
   Data.a 0
   Data.u $1F8A
+  ; *caseUnfold($1F8B)
   Data.a 0
   Data.u $1F83
+  ; *caseUnfold($1F83)
   Data.a 0
   Data.u $1F8B
+  ; *caseUnfold($1F8C)
   Data.a 0
   Data.u $1F84
+  ; *caseUnfold($1F84)
   Data.a 0
   Data.u $1F8C
+  ; *caseUnfold($1F8D)
   Data.a 0
   Data.u $1F85
+  ; *caseUnfold($1F85)
   Data.a 0
   Data.u $1F8D
+  ; *caseUnfold($1F8E)
   Data.a 0
   Data.u $1F86
+  ; *caseUnfold($1F86)
   Data.a 0
   Data.u $1F8E
+  ; *caseUnfold($1F8F)
   Data.a 0
   Data.u $1F87
+  ; *caseUnfold($1F87)
   Data.a 0
   Data.u $1F8F
+  ; *caseUnfold($1F98)
   Data.a 0
   Data.u $1F90
+  ; *caseUnfold($1F90)
   Data.a 0
   Data.u $1F98
+  ; *caseUnfold($1F99)
   Data.a 0
   Data.u $1F91
+  ; *caseUnfold($1F91)
   Data.a 0
   Data.u $1F99
+  ; *caseUnfold($1F9A)
   Data.a 0
   Data.u $1F92
+  ; *caseUnfold($1F92)
   Data.a 0
   Data.u $1F9A
+  ; *caseUnfold($1F9B)
   Data.a 0
   Data.u $1F93
+  ; *caseUnfold($1F93)
   Data.a 0
   Data.u $1F9B
+  ; *caseUnfold($1F9C)
   Data.a 0
   Data.u $1F94
+  ; *caseUnfold($1F94)
   Data.a 0
   Data.u $1F9C
+  ; *caseUnfold($1F9D)
   Data.a 0
   Data.u $1F95
+  ; *caseUnfold($1F95)
   Data.a 0
   Data.u $1F9D
+  ; *caseUnfold($1F9E)
   Data.a 0
   Data.u $1F96
+  ; *caseUnfold($1F96)
   Data.a 0
   Data.u $1F9E
+  ; *caseUnfold($1F9F)
   Data.a 0
   Data.u $1F97
+  ; *caseUnfold($1F97)
   Data.a 0
   Data.u $1F9F
+  ; *caseUnfold($1FA8)
   Data.a 0
   Data.u $1FA0
+  ; *caseUnfold($1FA0)
   Data.a 0
   Data.u $1FA8
+  ; *caseUnfold($1FA9)
   Data.a 0
   Data.u $1FA1
+  ; *caseUnfold($1FA1)
   Data.a 0
   Data.u $1FA9
+  ; *caseUnfold($1FAA)
   Data.a 0
   Data.u $1FA2
+  ; *caseUnfold($1FA2)
   Data.a 0
   Data.u $1FAA
+  ; *caseUnfold($1FAB)
   Data.a 0
   Data.u $1FA3
+  ; *caseUnfold($1FA3)
   Data.a 0
   Data.u $1FAB
+  ; *caseUnfold($1FAC)
   Data.a 0
   Data.u $1FA4
+  ; *caseUnfold($1FA4)
   Data.a 0
   Data.u $1FAC
+  ; *caseUnfold($1FAD)
   Data.a 0
   Data.u $1FA5
+  ; *caseUnfold($1FA5)
   Data.a 0
   Data.u $1FAD
+  ; *caseUnfold($1FAE)
   Data.a 0
   Data.u $1FA6
+  ; *caseUnfold($1FA6)
   Data.a 0
   Data.u $1FAE
+  ; *caseUnfold($1FAF)
   Data.a 0
   Data.u $1FA7
+  ; *caseUnfold($1FA7)
   Data.a 0
   Data.u $1FAF
+  ; *caseUnfold($1FB8)
   Data.a 0
   Data.u $1FB0
+  ; *caseUnfold($1FB0)
   Data.a 0
   Data.u $1FB8
+  ; *caseUnfold($1FB9)
   Data.a 0
   Data.u $1FB1
+  ; *caseUnfold($1FB1)
   Data.a 0
   Data.u $1FB9
+  ; *caseUnfold($1FBA)
   Data.a 0
   Data.u $1F70
+  ; *caseUnfold($1F70)
   Data.a 0
   Data.u $1FBA
+  ; *caseUnfold($1FBB)
   Data.a 0
   Data.u $1F71
+  ; *caseUnfold($1F71)
   Data.a 0
   Data.u $1FBB
+  ; *caseUnfold($1FBC)
   Data.a 0
   Data.u $1FB3
+  ; *caseUnfold($1FB3)
   Data.a 0
   Data.u $1FBC
+  ; *caseUnfold($1FC8)
   Data.a 0
   Data.u $1F72
+  ; *caseUnfold($1F72)
   Data.a 0
   Data.u $1FC8
+  ; *caseUnfold($1FC9)
   Data.a 0
   Data.u $1F73
+  ; *caseUnfold($1F73)
   Data.a 0
   Data.u $1FC9
+  ; *caseUnfold($1FCA)
   Data.a 0
   Data.u $1F74
+  ; *caseUnfold($1F74)
   Data.a 0
   Data.u $1FCA
+  ; *caseUnfold($1FCB)
   Data.a 0
   Data.u $1F75
+  ; *caseUnfold($1F75)
   Data.a 0
   Data.u $1FCB
+  ; *caseUnfold($1FCC)
   Data.a 0
   Data.u $1FC3
+  ; *caseUnfold($1FC3)
   Data.a 0
   Data.u $1FCC
+  ; *caseUnfold($1FD8)
   Data.a 0
   Data.u $1FD0
+  ; *caseUnfold($1FD0)
   Data.a 0
   Data.u $1FD8
+  ; *caseUnfold($1FD9)
   Data.a 0
   Data.u $1FD1
+  ; *caseUnfold($1FD1)
   Data.a 0
   Data.u $1FD9
+  ; *caseUnfold($1FDA)
   Data.a 0
   Data.u $1F76
+  ; *caseUnfold($1F76)
   Data.a 0
   Data.u $1FDA
+  ; *caseUnfold($1FDB)
   Data.a 0
   Data.u $1F77
+  ; *caseUnfold($1F77)
   Data.a 0
   Data.u $1FDB
+  ; *caseUnfold($1FE8)
   Data.a 0
   Data.u $1FE0
+  ; *caseUnfold($1FE0)
   Data.a 0
   Data.u $1FE8
+  ; *caseUnfold($1FE9)
   Data.a 0
   Data.u $1FE1
+  ; *caseUnfold($1FE1)
   Data.a 0
   Data.u $1FE9
+  ; *caseUnfold($1FEA)
   Data.a 0
   Data.u $1F7A
+  ; *caseUnfold($1F7A)
   Data.a 0
   Data.u $1FEA
+  ; *caseUnfold($1FEB)
   Data.a 0
   Data.u $1F7B
+  ; *caseUnfold($1F7B)
   Data.a 0
   Data.u $1FEB
+  ; *caseUnfold($1FEC)
   Data.a 0
   Data.u $1FE5
+  ; *caseUnfold($1FE5)
   Data.a 0
   Data.u $1FEC
+  ; *caseUnfold($1FF8)
   Data.a 0
   Data.u $1F78
+  ; *caseUnfold($1F78)
   Data.a 0
   Data.u $1FF8
+  ; *caseUnfold($1FF9)
   Data.a 0
   Data.u $1F79
+  ; *caseUnfold($1F79)
   Data.a 0
   Data.u $1FF9
+  ; *caseUnfold($1FFA)
   Data.a 0
   Data.u $1F7C
+  ; *caseUnfold($1F7C)
   Data.a 0
   Data.u $1FFA
+  ; *caseUnfold($1FFB)
   Data.a 0
   Data.u $1F7D
+  ; *caseUnfold($1F7D)
   Data.a 0
   Data.u $1FFB
+  ; *caseUnfold($1FFC)
   Data.a 0
   Data.u $1FF3
+  ; *caseUnfold($1FF3)
   Data.a 0
   Data.u $1FFC
+  ; *caseUnfold($2132)
   Data.a 0
   Data.u $214E
+  ; *caseUnfold($214E)
   Data.a 0
   Data.u $2132
+  ; *caseUnfold($2160)
   Data.a 0
   Data.u $2170
+  ; *caseUnfold($2170)
   Data.a 0
   Data.u $2160
+  ; *caseUnfold($2161)
   Data.a 0
   Data.u $2171
+  ; *caseUnfold($2171)
   Data.a 0
   Data.u $2161
+  ; *caseUnfold($2162)
   Data.a 0
   Data.u $2172
+  ; *caseUnfold($2172)
   Data.a 0
   Data.u $2162
+  ; *caseUnfold($2163)
   Data.a 0
   Data.u $2173
+  ; *caseUnfold($2173)
   Data.a 0
   Data.u $2163
+  ; *caseUnfold($2164)
   Data.a 0
   Data.u $2174
+  ; *caseUnfold($2174)
   Data.a 0
   Data.u $2164
+  ; *caseUnfold($2165)
   Data.a 0
   Data.u $2175
+  ; *caseUnfold($2175)
   Data.a 0
   Data.u $2165
+  ; *caseUnfold($2166)
   Data.a 0
   Data.u $2176
+  ; *caseUnfold($2176)
   Data.a 0
   Data.u $2166
+  ; *caseUnfold($2167)
   Data.a 0
   Data.u $2177
+  ; *caseUnfold($2177)
   Data.a 0
   Data.u $2167
+  ; *caseUnfold($2168)
   Data.a 0
   Data.u $2178
+  ; *caseUnfold($2178)
   Data.a 0
   Data.u $2168
+  ; *caseUnfold($2169)
   Data.a 0
   Data.u $2179
+  ; *caseUnfold($2179)
   Data.a 0
   Data.u $2169
+  ; *caseUnfold($216A)
   Data.a 0
   Data.u $217A
+  ; *caseUnfold($217A)
   Data.a 0
   Data.u $216A
+  ; *caseUnfold($216B)
   Data.a 0
   Data.u $217B
+  ; *caseUnfold($217B)
   Data.a 0
   Data.u $216B
+  ; *caseUnfold($216C)
   Data.a 0
   Data.u $217C
+  ; *caseUnfold($217C)
   Data.a 0
   Data.u $216C
+  ; *caseUnfold($216D)
   Data.a 0
   Data.u $217D
+  ; *caseUnfold($217D)
   Data.a 0
   Data.u $216D
+  ; *caseUnfold($216E)
   Data.a 0
   Data.u $217E
+  ; *caseUnfold($217E)
   Data.a 0
   Data.u $216E
+  ; *caseUnfold($216F)
   Data.a 0
   Data.u $217F
+  ; *caseUnfold($217F)
   Data.a 0
   Data.u $216F
+  ; *caseUnfold($2183)
   Data.a 0
   Data.u $2184
+  ; *caseUnfold($2184)
   Data.a 0
   Data.u $2183
+  ; *caseUnfold($24B6)
   Data.a 0
   Data.u $24D0
+  ; *caseUnfold($24D0)
   Data.a 0
   Data.u $24B6
+  ; *caseUnfold($24B7)
   Data.a 0
   Data.u $24D1
+  ; *caseUnfold($24D1)
   Data.a 0
   Data.u $24B7
+  ; *caseUnfold($24B8)
   Data.a 0
   Data.u $24D2
+  ; *caseUnfold($24D2)
   Data.a 0
   Data.u $24B8
+  ; *caseUnfold($24B9)
   Data.a 0
   Data.u $24D3
+  ; *caseUnfold($24D3)
   Data.a 0
   Data.u $24B9
+  ; *caseUnfold($24BA)
   Data.a 0
   Data.u $24D4
+  ; *caseUnfold($24D4)
   Data.a 0
   Data.u $24BA
+  ; *caseUnfold($24BB)
   Data.a 0
   Data.u $24D5
+  ; *caseUnfold($24D5)
   Data.a 0
   Data.u $24BB
+  ; *caseUnfold($24BC)
   Data.a 0
   Data.u $24D6
+  ; *caseUnfold($24D6)
   Data.a 0
   Data.u $24BC
+  ; *caseUnfold($24BD)
   Data.a 0
   Data.u $24D7
+  ; *caseUnfold($24D7)
   Data.a 0
   Data.u $24BD
+  ; *caseUnfold($24BE)
   Data.a 0
   Data.u $24D8
+  ; *caseUnfold($24D8)
   Data.a 0
   Data.u $24BE
+  ; *caseUnfold($24BF)
   Data.a 0
   Data.u $24D9
+  ; *caseUnfold($24D9)
   Data.a 0
   Data.u $24BF
+  ; *caseUnfold($24C0)
   Data.a 0
   Data.u $24DA
+  ; *caseUnfold($24DA)
   Data.a 0
   Data.u $24C0
+  ; *caseUnfold($24C1)
   Data.a 0
   Data.u $24DB
+  ; *caseUnfold($24DB)
   Data.a 0
   Data.u $24C1
+  ; *caseUnfold($24C2)
   Data.a 0
   Data.u $24DC
+  ; *caseUnfold($24DC)
   Data.a 0
   Data.u $24C2
+  ; *caseUnfold($24C3)
   Data.a 0
   Data.u $24DD
+  ; *caseUnfold($24DD)
   Data.a 0
   Data.u $24C3
+  ; *caseUnfold($24C4)
   Data.a 0
   Data.u $24DE
+  ; *caseUnfold($24DE)
   Data.a 0
   Data.u $24C4
+  ; *caseUnfold($24C5)
   Data.a 0
   Data.u $24DF
+  ; *caseUnfold($24DF)
   Data.a 0
   Data.u $24C5
+  ; *caseUnfold($24C6)
   Data.a 0
   Data.u $24E0
+  ; *caseUnfold($24E0)
   Data.a 0
   Data.u $24C6
+  ; *caseUnfold($24C7)
   Data.a 0
   Data.u $24E1
+  ; *caseUnfold($24E1)
   Data.a 0
   Data.u $24C7
+  ; *caseUnfold($24C8)
   Data.a 0
   Data.u $24E2
+  ; *caseUnfold($24E2)
   Data.a 0
   Data.u $24C8
+  ; *caseUnfold($24C9)
   Data.a 0
   Data.u $24E3
+  ; *caseUnfold($24E3)
   Data.a 0
   Data.u $24C9
+  ; *caseUnfold($24CA)
   Data.a 0
   Data.u $24E4
+  ; *caseUnfold($24E4)
   Data.a 0
   Data.u $24CA
+  ; *caseUnfold($24CB)
   Data.a 0
   Data.u $24E5
+  ; *caseUnfold($24E5)
   Data.a 0
   Data.u $24CB
+  ; *caseUnfold($24CC)
   Data.a 0
   Data.u $24E6
+  ; *caseUnfold($24E6)
   Data.a 0
   Data.u $24CC
+  ; *caseUnfold($24CD)
   Data.a 0
   Data.u $24E7
+  ; *caseUnfold($24E7)
   Data.a 0
   Data.u $24CD
+  ; *caseUnfold($24CE)
   Data.a 0
   Data.u $24E8
+  ; *caseUnfold($24E8)
   Data.a 0
   Data.u $24CE
+  ; *caseUnfold($24CF)
   Data.a 0
   Data.u $24E9
+  ; *caseUnfold($24E9)
   Data.a 0
   Data.u $24CF
+  ; *caseUnfold($2C00)
   Data.a 0
   Data.u $2C30
+  ; *caseUnfold($2C30)
   Data.a 0
   Data.u $2C00
+  ; *caseUnfold($2C01)
   Data.a 0
   Data.u $2C31
+  ; *caseUnfold($2C31)
   Data.a 0
   Data.u $2C01
+  ; *caseUnfold($2C02)
   Data.a 0
   Data.u $2C32
+  ; *caseUnfold($2C32)
   Data.a 0
   Data.u $2C02
+  ; *caseUnfold($2C03)
   Data.a 0
   Data.u $2C33
+  ; *caseUnfold($2C33)
   Data.a 0
   Data.u $2C03
+  ; *caseUnfold($2C04)
   Data.a 0
   Data.u $2C34
+  ; *caseUnfold($2C34)
   Data.a 0
   Data.u $2C04
+  ; *caseUnfold($2C05)
   Data.a 0
   Data.u $2C35
+  ; *caseUnfold($2C35)
   Data.a 0
   Data.u $2C05
+  ; *caseUnfold($2C06)
   Data.a 0
   Data.u $2C36
+  ; *caseUnfold($2C36)
   Data.a 0
   Data.u $2C06
+  ; *caseUnfold($2C07)
   Data.a 0
   Data.u $2C37
+  ; *caseUnfold($2C37)
   Data.a 0
   Data.u $2C07
+  ; *caseUnfold($2C08)
   Data.a 0
   Data.u $2C38
+  ; *caseUnfold($2C38)
   Data.a 0
   Data.u $2C08
+  ; *caseUnfold($2C09)
   Data.a 0
   Data.u $2C39
+  ; *caseUnfold($2C39)
   Data.a 0
   Data.u $2C09
+  ; *caseUnfold($2C0A)
   Data.a 0
   Data.u $2C3A
+  ; *caseUnfold($2C3A)
   Data.a 0
   Data.u $2C0A
+  ; *caseUnfold($2C0B)
   Data.a 0
   Data.u $2C3B
+  ; *caseUnfold($2C3B)
   Data.a 0
   Data.u $2C0B
+  ; *caseUnfold($2C0C)
   Data.a 0
   Data.u $2C3C
+  ; *caseUnfold($2C3C)
   Data.a 0
   Data.u $2C0C
+  ; *caseUnfold($2C0D)
   Data.a 0
   Data.u $2C3D
+  ; *caseUnfold($2C3D)
   Data.a 0
   Data.u $2C0D
+  ; *caseUnfold($2C0E)
   Data.a 0
   Data.u $2C3E
+  ; *caseUnfold($2C3E)
   Data.a 0
   Data.u $2C0E
+  ; *caseUnfold($2C0F)
   Data.a 0
   Data.u $2C3F
+  ; *caseUnfold($2C3F)
   Data.a 0
   Data.u $2C0F
+  ; *caseUnfold($2C10)
   Data.a 0
   Data.u $2C40
+  ; *caseUnfold($2C40)
   Data.a 0
   Data.u $2C10
+  ; *caseUnfold($2C11)
   Data.a 0
   Data.u $2C41
+  ; *caseUnfold($2C41)
   Data.a 0
   Data.u $2C11
+  ; *caseUnfold($2C12)
   Data.a 0
   Data.u $2C42
+  ; *caseUnfold($2C42)
   Data.a 0
   Data.u $2C12
+  ; *caseUnfold($2C13)
   Data.a 0
   Data.u $2C43
+  ; *caseUnfold($2C43)
   Data.a 0
   Data.u $2C13
+  ; *caseUnfold($2C14)
   Data.a 0
   Data.u $2C44
+  ; *caseUnfold($2C44)
   Data.a 0
   Data.u $2C14
+  ; *caseUnfold($2C15)
   Data.a 0
   Data.u $2C45
+  ; *caseUnfold($2C45)
   Data.a 0
   Data.u $2C15
+  ; *caseUnfold($2C16)
   Data.a 0
   Data.u $2C46
+  ; *caseUnfold($2C46)
   Data.a 0
   Data.u $2C16
+  ; *caseUnfold($2C17)
   Data.a 0
   Data.u $2C47
+  ; *caseUnfold($2C47)
   Data.a 0
   Data.u $2C17
+  ; *caseUnfold($2C18)
   Data.a 0
   Data.u $2C48
+  ; *caseUnfold($2C48)
   Data.a 0
   Data.u $2C18
+  ; *caseUnfold($2C19)
   Data.a 0
   Data.u $2C49
+  ; *caseUnfold($2C49)
   Data.a 0
   Data.u $2C19
+  ; *caseUnfold($2C1A)
   Data.a 0
   Data.u $2C4A
+  ; *caseUnfold($2C4A)
   Data.a 0
   Data.u $2C1A
+  ; *caseUnfold($2C1B)
   Data.a 0
   Data.u $2C4B
+  ; *caseUnfold($2C4B)
   Data.a 0
   Data.u $2C1B
+  ; *caseUnfold($2C1C)
   Data.a 0
   Data.u $2C4C
+  ; *caseUnfold($2C4C)
   Data.a 0
   Data.u $2C1C
+  ; *caseUnfold($2C1D)
   Data.a 0
   Data.u $2C4D
+  ; *caseUnfold($2C4D)
   Data.a 0
   Data.u $2C1D
+  ; *caseUnfold($2C1E)
   Data.a 0
   Data.u $2C4E
+  ; *caseUnfold($2C4E)
   Data.a 0
   Data.u $2C1E
+  ; *caseUnfold($2C1F)
   Data.a 0
   Data.u $2C4F
+  ; *caseUnfold($2C4F)
   Data.a 0
   Data.u $2C1F
+  ; *caseUnfold($2C20)
   Data.a 0
   Data.u $2C50
+  ; *caseUnfold($2C50)
   Data.a 0
   Data.u $2C20
+  ; *caseUnfold($2C21)
   Data.a 0
   Data.u $2C51
+  ; *caseUnfold($2C51)
   Data.a 0
   Data.u $2C21
+  ; *caseUnfold($2C22)
   Data.a 0
   Data.u $2C52
+  ; *caseUnfold($2C52)
   Data.a 0
   Data.u $2C22
+  ; *caseUnfold($2C23)
   Data.a 0
   Data.u $2C53
+  ; *caseUnfold($2C53)
   Data.a 0
   Data.u $2C23
+  ; *caseUnfold($2C24)
   Data.a 0
   Data.u $2C54
+  ; *caseUnfold($2C54)
   Data.a 0
   Data.u $2C24
+  ; *caseUnfold($2C25)
   Data.a 0
   Data.u $2C55
+  ; *caseUnfold($2C55)
   Data.a 0
   Data.u $2C25
+  ; *caseUnfold($2C26)
   Data.a 0
   Data.u $2C56
+  ; *caseUnfold($2C56)
   Data.a 0
   Data.u $2C26
+  ; *caseUnfold($2C27)
   Data.a 0
   Data.u $2C57
+  ; *caseUnfold($2C57)
   Data.a 0
   Data.u $2C27
+  ; *caseUnfold($2C28)
   Data.a 0
   Data.u $2C58
+  ; *caseUnfold($2C58)
   Data.a 0
   Data.u $2C28
+  ; *caseUnfold($2C29)
   Data.a 0
   Data.u $2C59
+  ; *caseUnfold($2C59)
   Data.a 0
   Data.u $2C29
+  ; *caseUnfold($2C2A)
   Data.a 0
   Data.u $2C5A
+  ; *caseUnfold($2C5A)
   Data.a 0
   Data.u $2C2A
+  ; *caseUnfold($2C2B)
   Data.a 0
   Data.u $2C5B
+  ; *caseUnfold($2C5B)
   Data.a 0
   Data.u $2C2B
+  ; *caseUnfold($2C2C)
   Data.a 0
   Data.u $2C5C
+  ; *caseUnfold($2C5C)
   Data.a 0
   Data.u $2C2C
+  ; *caseUnfold($2C2D)
   Data.a 0
   Data.u $2C5D
+  ; *caseUnfold($2C5D)
   Data.a 0
   Data.u $2C2D
+  ; *caseUnfold($2C2E)
   Data.a 0
   Data.u $2C5E
+  ; *caseUnfold($2C5E)
   Data.a 0
   Data.u $2C2E
+  ; *caseUnfold($2C2F)
   Data.a 0
   Data.u $2C5F
+  ; *caseUnfold($2C5F)
   Data.a 0
   Data.u $2C2F
+  ; *caseUnfold($2C60)
   Data.a 0
   Data.u $2C61
+  ; *caseUnfold($2C61)
   Data.a 0
   Data.u $2C60
+  ; *caseUnfold($2C62)
   Data.a 0
   Data.u $026B
+  ; *caseUnfold($026B)
   Data.a 0
   Data.u $2C62
+  ; *caseUnfold($2C63)
   Data.a 0
   Data.u $1D7D
+  ; *caseUnfold($1D7D)
   Data.a 0
   Data.u $2C63
+  ; *caseUnfold($2C64)
   Data.a 0
   Data.u $027D
+  ; *caseUnfold($027D)
   Data.a 0
   Data.u $2C64
+  ; *caseUnfold($2C67)
   Data.a 0
   Data.u $2C68
+  ; *caseUnfold($2C68)
   Data.a 0
   Data.u $2C67
+  ; *caseUnfold($2C69)
   Data.a 0
   Data.u $2C6A
+  ; *caseUnfold($2C6A)
   Data.a 0
   Data.u $2C69
+  ; *caseUnfold($2C6B)
   Data.a 0
   Data.u $2C6C
+  ; *caseUnfold($2C6C)
   Data.a 0
   Data.u $2C6B
+  ; *caseUnfold($2C6D)
   Data.a 0
   Data.u $0251
+  ; *caseUnfold($0251)
   Data.a 0
   Data.u $2C6D
+  ; *caseUnfold($2C6E)
   Data.a 0
   Data.u $0271
+  ; *caseUnfold($0271)
   Data.a 0
   Data.u $2C6E
+  ; *caseUnfold($2C6F)
   Data.a 0
   Data.u $0250
+  ; *caseUnfold($0250)
   Data.a 0
   Data.u $2C6F
+  ; *caseUnfold($2C70)
   Data.a 0
   Data.u $0252
+  ; *caseUnfold($0252)
   Data.a 0
   Data.u $2C70
+  ; *caseUnfold($2C72)
   Data.a 0
   Data.u $2C73
+  ; *caseUnfold($2C73)
   Data.a 0
   Data.u $2C72
+  ; *caseUnfold($2C75)
   Data.a 0
   Data.u $2C76
+  ; *caseUnfold($2C76)
   Data.a 0
   Data.u $2C75
+  ; *caseUnfold($2C7E)
   Data.a 0
   Data.u $023F
+  ; *caseUnfold($023F)
   Data.a 0
   Data.u $2C7E
+  ; *caseUnfold($2C7F)
   Data.a 0
   Data.u $0240
+  ; *caseUnfold($0240)
   Data.a 0
   Data.u $2C7F
+  ; *caseUnfold($2C80)
   Data.a 0
   Data.u $2C81
+  ; *caseUnfold($2C81)
   Data.a 0
   Data.u $2C80
+  ; *caseUnfold($2C82)
   Data.a 0
   Data.u $2C83
+  ; *caseUnfold($2C83)
   Data.a 0
   Data.u $2C82
+  ; *caseUnfold($2C84)
   Data.a 0
   Data.u $2C85
+  ; *caseUnfold($2C85)
   Data.a 0
   Data.u $2C84
+  ; *caseUnfold($2C86)
   Data.a 0
   Data.u $2C87
+  ; *caseUnfold($2C87)
   Data.a 0
   Data.u $2C86
+  ; *caseUnfold($2C88)
   Data.a 0
   Data.u $2C89
+  ; *caseUnfold($2C89)
   Data.a 0
   Data.u $2C88
+  ; *caseUnfold($2C8A)
   Data.a 0
   Data.u $2C8B
+  ; *caseUnfold($2C8B)
   Data.a 0
   Data.u $2C8A
+  ; *caseUnfold($2C8C)
   Data.a 0
   Data.u $2C8D
+  ; *caseUnfold($2C8D)
   Data.a 0
   Data.u $2C8C
+  ; *caseUnfold($2C8E)
   Data.a 0
   Data.u $2C8F
+  ; *caseUnfold($2C8F)
   Data.a 0
   Data.u $2C8E
+  ; *caseUnfold($2C90)
   Data.a 0
   Data.u $2C91
+  ; *caseUnfold($2C91)
   Data.a 0
   Data.u $2C90
+  ; *caseUnfold($2C92)
   Data.a 0
   Data.u $2C93
+  ; *caseUnfold($2C93)
   Data.a 0
   Data.u $2C92
+  ; *caseUnfold($2C94)
   Data.a 0
   Data.u $2C95
+  ; *caseUnfold($2C95)
   Data.a 0
   Data.u $2C94
+  ; *caseUnfold($2C96)
   Data.a 0
   Data.u $2C97
+  ; *caseUnfold($2C97)
   Data.a 0
   Data.u $2C96
+  ; *caseUnfold($2C98)
   Data.a 0
   Data.u $2C99
+  ; *caseUnfold($2C99)
   Data.a 0
   Data.u $2C98
+  ; *caseUnfold($2C9A)
   Data.a 0
   Data.u $2C9B
+  ; *caseUnfold($2C9B)
   Data.a 0
   Data.u $2C9A
+  ; *caseUnfold($2C9C)
   Data.a 0
   Data.u $2C9D
+  ; *caseUnfold($2C9D)
   Data.a 0
   Data.u $2C9C
+  ; *caseUnfold($2C9E)
   Data.a 0
   Data.u $2C9F
+  ; *caseUnfold($2C9F)
   Data.a 0
   Data.u $2C9E
+  ; *caseUnfold($2CA0)
   Data.a 0
   Data.u $2CA1
+  ; *caseUnfold($2CA1)
   Data.a 0
   Data.u $2CA0
+  ; *caseUnfold($2CA2)
   Data.a 0
   Data.u $2CA3
+  ; *caseUnfold($2CA3)
   Data.a 0
   Data.u $2CA2
+  ; *caseUnfold($2CA4)
   Data.a 0
   Data.u $2CA5
+  ; *caseUnfold($2CA5)
   Data.a 0
   Data.u $2CA4
+  ; *caseUnfold($2CA6)
   Data.a 0
   Data.u $2CA7
+  ; *caseUnfold($2CA7)
   Data.a 0
   Data.u $2CA6
+  ; *caseUnfold($2CA8)
   Data.a 0
   Data.u $2CA9
+  ; *caseUnfold($2CA9)
   Data.a 0
   Data.u $2CA8
+  ; *caseUnfold($2CAA)
   Data.a 0
   Data.u $2CAB
+  ; *caseUnfold($2CAB)
   Data.a 0
   Data.u $2CAA
+  ; *caseUnfold($2CAC)
   Data.a 0
   Data.u $2CAD
+  ; *caseUnfold($2CAD)
   Data.a 0
   Data.u $2CAC
+  ; *caseUnfold($2CAE)
   Data.a 0
   Data.u $2CAF
+  ; *caseUnfold($2CAF)
   Data.a 0
   Data.u $2CAE
+  ; *caseUnfold($2CB0)
   Data.a 0
   Data.u $2CB1
+  ; *caseUnfold($2CB1)
   Data.a 0
   Data.u $2CB0
+  ; *caseUnfold($2CB2)
   Data.a 0
   Data.u $2CB3
+  ; *caseUnfold($2CB3)
   Data.a 0
   Data.u $2CB2
+  ; *caseUnfold($2CB4)
   Data.a 0
   Data.u $2CB5
+  ; *caseUnfold($2CB5)
   Data.a 0
   Data.u $2CB4
+  ; *caseUnfold($2CB6)
   Data.a 0
   Data.u $2CB7
+  ; *caseUnfold($2CB7)
   Data.a 0
   Data.u $2CB6
+  ; *caseUnfold($2CB8)
   Data.a 0
   Data.u $2CB9
+  ; *caseUnfold($2CB9)
   Data.a 0
   Data.u $2CB8
+  ; *caseUnfold($2CBA)
   Data.a 0
   Data.u $2CBB
+  ; *caseUnfold($2CBB)
   Data.a 0
   Data.u $2CBA
+  ; *caseUnfold($2CBC)
   Data.a 0
   Data.u $2CBD
+  ; *caseUnfold($2CBD)
   Data.a 0
   Data.u $2CBC
+  ; *caseUnfold($2CBE)
   Data.a 0
   Data.u $2CBF
+  ; *caseUnfold($2CBF)
   Data.a 0
   Data.u $2CBE
+  ; *caseUnfold($2CC0)
   Data.a 0
   Data.u $2CC1
+  ; *caseUnfold($2CC1)
   Data.a 0
   Data.u $2CC0
+  ; *caseUnfold($2CC2)
   Data.a 0
   Data.u $2CC3
+  ; *caseUnfold($2CC3)
   Data.a 0
   Data.u $2CC2
+  ; *caseUnfold($2CC4)
   Data.a 0
   Data.u $2CC5
+  ; *caseUnfold($2CC5)
   Data.a 0
   Data.u $2CC4
+  ; *caseUnfold($2CC6)
   Data.a 0
   Data.u $2CC7
+  ; *caseUnfold($2CC7)
   Data.a 0
   Data.u $2CC6
+  ; *caseUnfold($2CC8)
   Data.a 0
   Data.u $2CC9
+  ; *caseUnfold($2CC9)
   Data.a 0
   Data.u $2CC8
+  ; *caseUnfold($2CCA)
   Data.a 0
   Data.u $2CCB
+  ; *caseUnfold($2CCB)
   Data.a 0
   Data.u $2CCA
+  ; *caseUnfold($2CCC)
   Data.a 0
   Data.u $2CCD
+  ; *caseUnfold($2CCD)
   Data.a 0
   Data.u $2CCC
+  ; *caseUnfold($2CCE)
   Data.a 0
   Data.u $2CCF
+  ; *caseUnfold($2CCF)
   Data.a 0
   Data.u $2CCE
+  ; *caseUnfold($2CD0)
   Data.a 0
   Data.u $2CD1
+  ; *caseUnfold($2CD1)
   Data.a 0
   Data.u $2CD0
+  ; *caseUnfold($2CD2)
   Data.a 0
   Data.u $2CD3
+  ; *caseUnfold($2CD3)
   Data.a 0
   Data.u $2CD2
+  ; *caseUnfold($2CD4)
   Data.a 0
   Data.u $2CD5
+  ; *caseUnfold($2CD5)
   Data.a 0
   Data.u $2CD4
+  ; *caseUnfold($2CD6)
   Data.a 0
   Data.u $2CD7
+  ; *caseUnfold($2CD7)
   Data.a 0
   Data.u $2CD6
+  ; *caseUnfold($2CD8)
   Data.a 0
   Data.u $2CD9
+  ; *caseUnfold($2CD9)
   Data.a 0
   Data.u $2CD8
+  ; *caseUnfold($2CDA)
   Data.a 0
   Data.u $2CDB
+  ; *caseUnfold($2CDB)
   Data.a 0
   Data.u $2CDA
+  ; *caseUnfold($2CDC)
   Data.a 0
   Data.u $2CDD
+  ; *caseUnfold($2CDD)
   Data.a 0
   Data.u $2CDC
+  ; *caseUnfold($2CDE)
   Data.a 0
   Data.u $2CDF
+  ; *caseUnfold($2CDF)
   Data.a 0
   Data.u $2CDE
+  ; *caseUnfold($2CE0)
   Data.a 0
   Data.u $2CE1
+  ; *caseUnfold($2CE1)
   Data.a 0
   Data.u $2CE0
+  ; *caseUnfold($2CE2)
   Data.a 0
   Data.u $2CE3
+  ; *caseUnfold($2CE3)
   Data.a 0
   Data.u $2CE2
+  ; *caseUnfold($2CEB)
   Data.a 0
   Data.u $2CEC
+  ; *caseUnfold($2CEC)
   Data.a 0
   Data.u $2CEB
+  ; *caseUnfold($2CED)
   Data.a 0
   Data.u $2CEE
+  ; *caseUnfold($2CEE)
   Data.a 0
   Data.u $2CED
+  ; *caseUnfold($2CF2)
   Data.a 0
   Data.u $2CF3
+  ; *caseUnfold($2CF3)
   Data.a 0
   Data.u $2CF2
+  ; *caseUnfold($A640)
   Data.a 0
   Data.u $A641
+  ; *caseUnfold($A641)
   Data.a 0
   Data.u $A640
+  ; *caseUnfold($A642)
   Data.a 0
   Data.u $A643
+  ; *caseUnfold($A643)
   Data.a 0
   Data.u $A642
+  ; *caseUnfold($A644)
   Data.a 0
   Data.u $A645
+  ; *caseUnfold($A645)
   Data.a 0
   Data.u $A644
+  ; *caseUnfold($A646)
   Data.a 0
   Data.u $A647
+  ; *caseUnfold($A647)
   Data.a 0
   Data.u $A646
+  ; *caseUnfold($A648)
   Data.a 0
   Data.u $A649
+  ; *caseUnfold($A649)
   Data.a 0
   Data.u $A648
+  ; *caseUnfold($A64C)
   Data.a 0
   Data.u $A64D
+  ; *caseUnfold($A64D)
   Data.a 0
   Data.u $A64C
+  ; *caseUnfold($A64E)
   Data.a 0
   Data.u $A64F
+  ; *caseUnfold($A64F)
   Data.a 0
   Data.u $A64E
+  ; *caseUnfold($A650)
   Data.a 0
   Data.u $A651
+  ; *caseUnfold($A651)
   Data.a 0
   Data.u $A650
+  ; *caseUnfold($A652)
   Data.a 0
   Data.u $A653
+  ; *caseUnfold($A653)
   Data.a 0
   Data.u $A652
+  ; *caseUnfold($A654)
   Data.a 0
   Data.u $A655
+  ; *caseUnfold($A655)
   Data.a 0
   Data.u $A654
+  ; *caseUnfold($A656)
   Data.a 0
   Data.u $A657
+  ; *caseUnfold($A657)
   Data.a 0
   Data.u $A656
+  ; *caseUnfold($A658)
   Data.a 0
   Data.u $A659
+  ; *caseUnfold($A659)
   Data.a 0
   Data.u $A658
+  ; *caseUnfold($A65A)
   Data.a 0
   Data.u $A65B
+  ; *caseUnfold($A65B)
   Data.a 0
   Data.u $A65A
+  ; *caseUnfold($A65C)
   Data.a 0
   Data.u $A65D
+  ; *caseUnfold($A65D)
   Data.a 0
   Data.u $A65C
+  ; *caseUnfold($A65E)
   Data.a 0
   Data.u $A65F
+  ; *caseUnfold($A65F)
   Data.a 0
   Data.u $A65E
+  ; *caseUnfold($A660)
   Data.a 0
   Data.u $A661
+  ; *caseUnfold($A661)
   Data.a 0
   Data.u $A660
+  ; *caseUnfold($A662)
   Data.a 0
   Data.u $A663
+  ; *caseUnfold($A663)
   Data.a 0
   Data.u $A662
+  ; *caseUnfold($A664)
   Data.a 0
   Data.u $A665
+  ; *caseUnfold($A665)
   Data.a 0
   Data.u $A664
+  ; *caseUnfold($A666)
   Data.a 0
   Data.u $A667
+  ; *caseUnfold($A667)
   Data.a 0
   Data.u $A666
+  ; *caseUnfold($A668)
   Data.a 0
   Data.u $A669
+  ; *caseUnfold($A669)
   Data.a 0
   Data.u $A668
+  ; *caseUnfold($A66A)
   Data.a 0
   Data.u $A66B
+  ; *caseUnfold($A66B)
   Data.a 0
   Data.u $A66A
+  ; *caseUnfold($A66C)
   Data.a 0
   Data.u $A66D
+  ; *caseUnfold($A66D)
   Data.a 0
   Data.u $A66C
+  ; *caseUnfold($A680)
   Data.a 0
   Data.u $A681
+  ; *caseUnfold($A681)
   Data.a 0
   Data.u $A680
+  ; *caseUnfold($A682)
   Data.a 0
   Data.u $A683
+  ; *caseUnfold($A683)
   Data.a 0
   Data.u $A682
+  ; *caseUnfold($A684)
   Data.a 0
   Data.u $A685
+  ; *caseUnfold($A685)
   Data.a 0
   Data.u $A684
+  ; *caseUnfold($A686)
   Data.a 0
   Data.u $A687
+  ; *caseUnfold($A687)
   Data.a 0
   Data.u $A686
+  ; *caseUnfold($A688)
   Data.a 0
   Data.u $A689
+  ; *caseUnfold($A689)
   Data.a 0
   Data.u $A688
+  ; *caseUnfold($A68A)
   Data.a 0
   Data.u $A68B
+  ; *caseUnfold($A68B)
   Data.a 0
   Data.u $A68A
+  ; *caseUnfold($A68C)
   Data.a 0
   Data.u $A68D
+  ; *caseUnfold($A68D)
   Data.a 0
   Data.u $A68C
+  ; *caseUnfold($A68E)
   Data.a 0
   Data.u $A68F
+  ; *caseUnfold($A68F)
   Data.a 0
   Data.u $A68E
+  ; *caseUnfold($A690)
   Data.a 0
   Data.u $A691
+  ; *caseUnfold($A691)
   Data.a 0
   Data.u $A690
+  ; *caseUnfold($A692)
   Data.a 0
   Data.u $A693
+  ; *caseUnfold($A693)
   Data.a 0
   Data.u $A692
+  ; *caseUnfold($A694)
   Data.a 0
   Data.u $A695
+  ; *caseUnfold($A695)
   Data.a 0
   Data.u $A694
+  ; *caseUnfold($A696)
   Data.a 0
   Data.u $A697
+  ; *caseUnfold($A697)
   Data.a 0
   Data.u $A696
+  ; *caseUnfold($A698)
   Data.a 0
   Data.u $A699
+  ; *caseUnfold($A699)
   Data.a 0
   Data.u $A698
+  ; *caseUnfold($A69A)
   Data.a 0
   Data.u $A69B
+  ; *caseUnfold($A69B)
   Data.a 0
   Data.u $A69A
+  ; *caseUnfold($A722)
   Data.a 0
   Data.u $A723
+  ; *caseUnfold($A723)
   Data.a 0
   Data.u $A722
+  ; *caseUnfold($A724)
   Data.a 0
   Data.u $A725
+  ; *caseUnfold($A725)
   Data.a 0
   Data.u $A724
+  ; *caseUnfold($A726)
   Data.a 0
   Data.u $A727
+  ; *caseUnfold($A727)
   Data.a 0
   Data.u $A726
+  ; *caseUnfold($A728)
   Data.a 0
   Data.u $A729
+  ; *caseUnfold($A729)
   Data.a 0
   Data.u $A728
+  ; *caseUnfold($A72A)
   Data.a 0
   Data.u $A72B
+  ; *caseUnfold($A72B)
   Data.a 0
   Data.u $A72A
+  ; *caseUnfold($A72C)
   Data.a 0
   Data.u $A72D
+  ; *caseUnfold($A72D)
   Data.a 0
   Data.u $A72C
+  ; *caseUnfold($A72E)
   Data.a 0
   Data.u $A72F
+  ; *caseUnfold($A72F)
   Data.a 0
   Data.u $A72E
+  ; *caseUnfold($A732)
   Data.a 0
   Data.u $A733
+  ; *caseUnfold($A733)
   Data.a 0
   Data.u $A732
+  ; *caseUnfold($A734)
   Data.a 0
   Data.u $A735
+  ; *caseUnfold($A735)
   Data.a 0
   Data.u $A734
+  ; *caseUnfold($A736)
   Data.a 0
   Data.u $A737
+  ; *caseUnfold($A737)
   Data.a 0
   Data.u $A736
+  ; *caseUnfold($A738)
   Data.a 0
   Data.u $A739
+  ; *caseUnfold($A739)
   Data.a 0
   Data.u $A738
+  ; *caseUnfold($A73A)
   Data.a 0
   Data.u $A73B
+  ; *caseUnfold($A73B)
   Data.a 0
   Data.u $A73A
+  ; *caseUnfold($A73C)
   Data.a 0
   Data.u $A73D
+  ; *caseUnfold($A73D)
   Data.a 0
   Data.u $A73C
+  ; *caseUnfold($A73E)
   Data.a 0
   Data.u $A73F
+  ; *caseUnfold($A73F)
   Data.a 0
   Data.u $A73E
+  ; *caseUnfold($A740)
   Data.a 0
   Data.u $A741
+  ; *caseUnfold($A741)
   Data.a 0
   Data.u $A740
+  ; *caseUnfold($A742)
   Data.a 0
   Data.u $A743
+  ; *caseUnfold($A743)
   Data.a 0
   Data.u $A742
+  ; *caseUnfold($A744)
   Data.a 0
   Data.u $A745
+  ; *caseUnfold($A745)
   Data.a 0
   Data.u $A744
+  ; *caseUnfold($A746)
   Data.a 0
   Data.u $A747
+  ; *caseUnfold($A747)
   Data.a 0
   Data.u $A746
+  ; *caseUnfold($A748)
   Data.a 0
   Data.u $A749
+  ; *caseUnfold($A749)
   Data.a 0
   Data.u $A748
+  ; *caseUnfold($A74A)
   Data.a 0
   Data.u $A74B
+  ; *caseUnfold($A74B)
   Data.a 0
   Data.u $A74A
+  ; *caseUnfold($A74C)
   Data.a 0
   Data.u $A74D
+  ; *caseUnfold($A74D)
   Data.a 0
   Data.u $A74C
+  ; *caseUnfold($A74E)
   Data.a 0
   Data.u $A74F
+  ; *caseUnfold($A74F)
   Data.a 0
   Data.u $A74E
+  ; *caseUnfold($A750)
   Data.a 0
   Data.u $A751
+  ; *caseUnfold($A751)
   Data.a 0
   Data.u $A750
+  ; *caseUnfold($A752)
   Data.a 0
   Data.u $A753
+  ; *caseUnfold($A753)
   Data.a 0
   Data.u $A752
+  ; *caseUnfold($A754)
   Data.a 0
   Data.u $A755
+  ; *caseUnfold($A755)
   Data.a 0
   Data.u $A754
+  ; *caseUnfold($A756)
   Data.a 0
   Data.u $A757
+  ; *caseUnfold($A757)
   Data.a 0
   Data.u $A756
+  ; *caseUnfold($A758)
   Data.a 0
   Data.u $A759
+  ; *caseUnfold($A759)
   Data.a 0
   Data.u $A758
+  ; *caseUnfold($A75A)
   Data.a 0
   Data.u $A75B
+  ; *caseUnfold($A75B)
   Data.a 0
   Data.u $A75A
+  ; *caseUnfold($A75C)
   Data.a 0
   Data.u $A75D
+  ; *caseUnfold($A75D)
   Data.a 0
   Data.u $A75C
+  ; *caseUnfold($A75E)
   Data.a 0
   Data.u $A75F
+  ; *caseUnfold($A75F)
   Data.a 0
   Data.u $A75E
+  ; *caseUnfold($A760)
   Data.a 0
   Data.u $A761
+  ; *caseUnfold($A761)
   Data.a 0
   Data.u $A760
+  ; *caseUnfold($A762)
   Data.a 0
   Data.u $A763
+  ; *caseUnfold($A763)
   Data.a 0
   Data.u $A762
+  ; *caseUnfold($A764)
   Data.a 0
   Data.u $A765
+  ; *caseUnfold($A765)
   Data.a 0
   Data.u $A764
+  ; *caseUnfold($A766)
   Data.a 0
   Data.u $A767
+  ; *caseUnfold($A767)
   Data.a 0
   Data.u $A766
+  ; *caseUnfold($A768)
   Data.a 0
   Data.u $A769
+  ; *caseUnfold($A769)
   Data.a 0
   Data.u $A768
+  ; *caseUnfold($A76A)
   Data.a 0
   Data.u $A76B
+  ; *caseUnfold($A76B)
   Data.a 0
   Data.u $A76A
+  ; *caseUnfold($A76C)
   Data.a 0
   Data.u $A76D
+  ; *caseUnfold($A76D)
   Data.a 0
   Data.u $A76C
+  ; *caseUnfold($A76E)
   Data.a 0
   Data.u $A76F
+  ; *caseUnfold($A76F)
   Data.a 0
   Data.u $A76E
+  ; *caseUnfold($A779)
   Data.a 0
   Data.u $A77A
+  ; *caseUnfold($A77A)
   Data.a 0
   Data.u $A779
+  ; *caseUnfold($A77B)
   Data.a 0
   Data.u $A77C
+  ; *caseUnfold($A77C)
   Data.a 0
   Data.u $A77B
+  ; *caseUnfold($A77D)
   Data.a 0
   Data.u $1D79
+  ; *caseUnfold($1D79)
   Data.a 0
   Data.u $A77D
+  ; *caseUnfold($A77E)
   Data.a 0
   Data.u $A77F
+  ; *caseUnfold($A77F)
   Data.a 0
   Data.u $A77E
+  ; *caseUnfold($A780)
   Data.a 0
   Data.u $A781
+  ; *caseUnfold($A781)
   Data.a 0
   Data.u $A780
+  ; *caseUnfold($A782)
   Data.a 0
   Data.u $A783
+  ; *caseUnfold($A783)
   Data.a 0
   Data.u $A782
+  ; *caseUnfold($A784)
   Data.a 0
   Data.u $A785
+  ; *caseUnfold($A785)
   Data.a 0
   Data.u $A784
+  ; *caseUnfold($A786)
   Data.a 0
   Data.u $A787
+  ; *caseUnfold($A787)
   Data.a 0
   Data.u $A786
+  ; *caseUnfold($A78B)
   Data.a 0
   Data.u $A78C
+  ; *caseUnfold($A78C)
   Data.a 0
   Data.u $A78B
+  ; *caseUnfold($A78D)
   Data.a 0
   Data.u $0265
+  ; *caseUnfold($0265)
   Data.a 0
   Data.u $A78D
+  ; *caseUnfold($A790)
   Data.a 0
   Data.u $A791
+  ; *caseUnfold($A791)
   Data.a 0
   Data.u $A790
+  ; *caseUnfold($A792)
   Data.a 0
   Data.u $A793
+  ; *caseUnfold($A793)
   Data.a 0
   Data.u $A792
+  ; *caseUnfold($A796)
   Data.a 0
   Data.u $A797
+  ; *caseUnfold($A797)
   Data.a 0
   Data.u $A796
+  ; *caseUnfold($A798)
   Data.a 0
   Data.u $A799
+  ; *caseUnfold($A799)
   Data.a 0
   Data.u $A798
+  ; *caseUnfold($A79A)
   Data.a 0
   Data.u $A79B
+  ; *caseUnfold($A79B)
   Data.a 0
   Data.u $A79A
+  ; *caseUnfold($A79C)
   Data.a 0
   Data.u $A79D
+  ; *caseUnfold($A79D)
   Data.a 0
   Data.u $A79C
+  ; *caseUnfold($A79E)
   Data.a 0
   Data.u $A79F
+  ; *caseUnfold($A79F)
   Data.a 0
   Data.u $A79E
+  ; *caseUnfold($A7A0)
   Data.a 0
   Data.u $A7A1
+  ; *caseUnfold($A7A1)
   Data.a 0
   Data.u $A7A0
+  ; *caseUnfold($A7A2)
   Data.a 0
   Data.u $A7A3
+  ; *caseUnfold($A7A3)
   Data.a 0
   Data.u $A7A2
+  ; *caseUnfold($A7A4)
   Data.a 0
   Data.u $A7A5
+  ; *caseUnfold($A7A5)
   Data.a 0
   Data.u $A7A4
+  ; *caseUnfold($A7A6)
   Data.a 0
   Data.u $A7A7
+  ; *caseUnfold($A7A7)
   Data.a 0
   Data.u $A7A6
+  ; *caseUnfold($A7A8)
   Data.a 0
   Data.u $A7A9
+  ; *caseUnfold($A7A9)
   Data.a 0
   Data.u $A7A8
+  ; *caseUnfold($A7AA)
   Data.a 0
   Data.u $0266
+  ; *caseUnfold($0266)
   Data.a 0
   Data.u $A7AA
+  ; *caseUnfold($A7AB)
   Data.a 0
   Data.u $025C
+  ; *caseUnfold($025C)
   Data.a 0
   Data.u $A7AB
+  ; *caseUnfold($A7AC)
   Data.a 0
   Data.u $0261
+  ; *caseUnfold($0261)
   Data.a 0
   Data.u $A7AC
+  ; *caseUnfold($A7AD)
   Data.a 0
   Data.u $026C
+  ; *caseUnfold($026C)
   Data.a 0
   Data.u $A7AD
+  ; *caseUnfold($A7AE)
   Data.a 0
   Data.u $026A
+  ; *caseUnfold($026A)
   Data.a 0
   Data.u $A7AE
+  ; *caseUnfold($A7B0)
   Data.a 0
   Data.u $029E
+  ; *caseUnfold($029E)
   Data.a 0
   Data.u $A7B0
+  ; *caseUnfold($A7B1)
   Data.a 0
   Data.u $0287
+  ; *caseUnfold($0287)
   Data.a 0
   Data.u $A7B1
+  ; *caseUnfold($A7B2)
   Data.a 0
   Data.u $029D
+  ; *caseUnfold($029D)
   Data.a 0
   Data.u $A7B2
+  ; *caseUnfold($A7B3)
   Data.a 0
   Data.u $AB53
+  ; *caseUnfold($AB53)
   Data.a 0
   Data.u $A7B3
+  ; *caseUnfold($A7B4)
   Data.a 0
   Data.u $A7B5
+  ; *caseUnfold($A7B5)
   Data.a 0
   Data.u $A7B4
+  ; *caseUnfold($A7B6)
   Data.a 0
   Data.u $A7B7
+  ; *caseUnfold($A7B7)
   Data.a 0
   Data.u $A7B6
+  ; *caseUnfold($A7B8)
   Data.a 0
   Data.u $A7B9
+  ; *caseUnfold($A7B9)
   Data.a 0
   Data.u $A7B8
+  ; *caseUnfold($A7BA)
   Data.a 0
   Data.u $A7BB
+  ; *caseUnfold($A7BB)
   Data.a 0
   Data.u $A7BA
+  ; *caseUnfold($A7BC)
   Data.a 0
   Data.u $A7BD
+  ; *caseUnfold($A7BD)
   Data.a 0
   Data.u $A7BC
+  ; *caseUnfold($A7BE)
   Data.a 0
   Data.u $A7BF
+  ; *caseUnfold($A7BF)
   Data.a 0
   Data.u $A7BE
+  ; *caseUnfold($A7C0)
   Data.a 0
   Data.u $A7C1
+  ; *caseUnfold($A7C1)
   Data.a 0
   Data.u $A7C0
+  ; *caseUnfold($A7C2)
   Data.a 0
   Data.u $A7C3
+  ; *caseUnfold($A7C3)
   Data.a 0
   Data.u $A7C2
+  ; *caseUnfold($A7C4)
   Data.a 0
   Data.u $A794
+  ; *caseUnfold($A794)
   Data.a 0
   Data.u $A7C4
+  ; *caseUnfold($A7C5)
   Data.a 0
   Data.u $0282
+  ; *caseUnfold($0282)
   Data.a 0
   Data.u $A7C5
+  ; *caseUnfold($A7C6)
   Data.a 0
   Data.u $1D8E
+  ; *caseUnfold($1D8E)
   Data.a 0
   Data.u $A7C6
+  ; *caseUnfold($A7C7)
   Data.a 0
   Data.u $A7C8
+  ; *caseUnfold($A7C8)
   Data.a 0
   Data.u $A7C7
+  ; *caseUnfold($A7C9)
   Data.a 0
   Data.u $A7CA
+  ; *caseUnfold($A7CA)
   Data.a 0
   Data.u $A7C9
+  ; *caseUnfold($A7D0)
   Data.a 0
   Data.u $A7D1
+  ; *caseUnfold($A7D1)
   Data.a 0
   Data.u $A7D0
+  ; *caseUnfold($A7D6)
   Data.a 0
   Data.u $A7D7
+  ; *caseUnfold($A7D7)
   Data.a 0
   Data.u $A7D6
+  ; *caseUnfold($A7D8)
   Data.a 0
   Data.u $A7D9
+  ; *caseUnfold($A7D9)
   Data.a 0
   Data.u $A7D8
+  ; *caseUnfold($A7F5)
   Data.a 0
   Data.u $A7F6
+  ; *caseUnfold($A7F6)
   Data.a 0
   Data.u $A7F5
+  ; *caseUnfold($AB70)
   Data.a 0
   Data.u $13A0
+  ; *caseUnfold($13A0)
   Data.a 0
   Data.u $AB70
+  ; *caseUnfold($AB71)
   Data.a 0
   Data.u $13A1
+  ; *caseUnfold($13A1)
   Data.a 0
   Data.u $AB71
+  ; *caseUnfold($AB72)
   Data.a 0
   Data.u $13A2
+  ; *caseUnfold($13A2)
   Data.a 0
   Data.u $AB72
+  ; *caseUnfold($AB73)
   Data.a 0
   Data.u $13A3
+  ; *caseUnfold($13A3)
   Data.a 0
   Data.u $AB73
+  ; *caseUnfold($AB74)
   Data.a 0
   Data.u $13A4
+  ; *caseUnfold($13A4)
   Data.a 0
   Data.u $AB74
+  ; *caseUnfold($AB75)
   Data.a 0
   Data.u $13A5
+  ; *caseUnfold($13A5)
   Data.a 0
   Data.u $AB75
+  ; *caseUnfold($AB76)
   Data.a 0
   Data.u $13A6
+  ; *caseUnfold($13A6)
   Data.a 0
   Data.u $AB76
+  ; *caseUnfold($AB77)
   Data.a 0
   Data.u $13A7
+  ; *caseUnfold($13A7)
   Data.a 0
   Data.u $AB77
+  ; *caseUnfold($AB78)
   Data.a 0
   Data.u $13A8
+  ; *caseUnfold($13A8)
   Data.a 0
   Data.u $AB78
+  ; *caseUnfold($AB79)
   Data.a 0
   Data.u $13A9
+  ; *caseUnfold($13A9)
   Data.a 0
   Data.u $AB79
+  ; *caseUnfold($AB7A)
   Data.a 0
   Data.u $13AA
+  ; *caseUnfold($13AA)
   Data.a 0
   Data.u $AB7A
+  ; *caseUnfold($AB7B)
   Data.a 0
   Data.u $13AB
+  ; *caseUnfold($13AB)
   Data.a 0
   Data.u $AB7B
+  ; *caseUnfold($AB7C)
   Data.a 0
   Data.u $13AC
+  ; *caseUnfold($13AC)
   Data.a 0
   Data.u $AB7C
+  ; *caseUnfold($AB7D)
   Data.a 0
   Data.u $13AD
+  ; *caseUnfold($13AD)
   Data.a 0
   Data.u $AB7D
+  ; *caseUnfold($AB7E)
   Data.a 0
   Data.u $13AE
+  ; *caseUnfold($13AE)
   Data.a 0
   Data.u $AB7E
+  ; *caseUnfold($AB7F)
   Data.a 0
   Data.u $13AF
+  ; *caseUnfold($13AF)
   Data.a 0
   Data.u $AB7F
+  ; *caseUnfold($AB80)
   Data.a 0
   Data.u $13B0
+  ; *caseUnfold($13B0)
   Data.a 0
   Data.u $AB80
+  ; *caseUnfold($AB81)
   Data.a 0
   Data.u $13B1
+  ; *caseUnfold($13B1)
   Data.a 0
   Data.u $AB81
+  ; *caseUnfold($AB82)
   Data.a 0
   Data.u $13B2
+  ; *caseUnfold($13B2)
   Data.a 0
   Data.u $AB82
+  ; *caseUnfold($AB83)
   Data.a 0
   Data.u $13B3
+  ; *caseUnfold($13B3)
   Data.a 0
   Data.u $AB83
+  ; *caseUnfold($AB84)
   Data.a 0
   Data.u $13B4
+  ; *caseUnfold($13B4)
   Data.a 0
   Data.u $AB84
+  ; *caseUnfold($AB85)
   Data.a 0
   Data.u $13B5
+  ; *caseUnfold($13B5)
   Data.a 0
   Data.u $AB85
+  ; *caseUnfold($AB86)
   Data.a 0
   Data.u $13B6
+  ; *caseUnfold($13B6)
   Data.a 0
   Data.u $AB86
+  ; *caseUnfold($AB87)
   Data.a 0
   Data.u $13B7
+  ; *caseUnfold($13B7)
   Data.a 0
   Data.u $AB87
+  ; *caseUnfold($AB88)
   Data.a 0
   Data.u $13B8
+  ; *caseUnfold($13B8)
   Data.a 0
   Data.u $AB88
+  ; *caseUnfold($AB89)
   Data.a 0
   Data.u $13B9
+  ; *caseUnfold($13B9)
   Data.a 0
   Data.u $AB89
+  ; *caseUnfold($AB8A)
   Data.a 0
   Data.u $13BA
+  ; *caseUnfold($13BA)
   Data.a 0
   Data.u $AB8A
+  ; *caseUnfold($AB8B)
   Data.a 0
   Data.u $13BB
+  ; *caseUnfold($13BB)
   Data.a 0
   Data.u $AB8B
+  ; *caseUnfold($AB8C)
   Data.a 0
   Data.u $13BC
+  ; *caseUnfold($13BC)
   Data.a 0
   Data.u $AB8C
+  ; *caseUnfold($AB8D)
   Data.a 0
   Data.u $13BD
+  ; *caseUnfold($13BD)
   Data.a 0
   Data.u $AB8D
+  ; *caseUnfold($AB8E)
   Data.a 0
   Data.u $13BE
+  ; *caseUnfold($13BE)
   Data.a 0
   Data.u $AB8E
+  ; *caseUnfold($AB8F)
   Data.a 0
   Data.u $13BF
+  ; *caseUnfold($13BF)
   Data.a 0
   Data.u $AB8F
+  ; *caseUnfold($AB90)
   Data.a 0
   Data.u $13C0
+  ; *caseUnfold($13C0)
   Data.a 0
   Data.u $AB90
+  ; *caseUnfold($AB91)
   Data.a 0
   Data.u $13C1
+  ; *caseUnfold($13C1)
   Data.a 0
   Data.u $AB91
+  ; *caseUnfold($AB92)
   Data.a 0
   Data.u $13C2
+  ; *caseUnfold($13C2)
   Data.a 0
   Data.u $AB92
+  ; *caseUnfold($AB93)
   Data.a 0
   Data.u $13C3
+  ; *caseUnfold($13C3)
   Data.a 0
   Data.u $AB93
+  ; *caseUnfold($AB94)
   Data.a 0
   Data.u $13C4
+  ; *caseUnfold($13C4)
   Data.a 0
   Data.u $AB94
+  ; *caseUnfold($AB95)
   Data.a 0
   Data.u $13C5
+  ; *caseUnfold($13C5)
   Data.a 0
   Data.u $AB95
+  ; *caseUnfold($AB96)
   Data.a 0
   Data.u $13C6
+  ; *caseUnfold($13C6)
   Data.a 0
   Data.u $AB96
+  ; *caseUnfold($AB97)
   Data.a 0
   Data.u $13C7
+  ; *caseUnfold($13C7)
   Data.a 0
   Data.u $AB97
+  ; *caseUnfold($AB98)
   Data.a 0
   Data.u $13C8
+  ; *caseUnfold($13C8)
   Data.a 0
   Data.u $AB98
+  ; *caseUnfold($AB99)
   Data.a 0
   Data.u $13C9
+  ; *caseUnfold($13C9)
   Data.a 0
   Data.u $AB99
+  ; *caseUnfold($AB9A)
   Data.a 0
   Data.u $13CA
+  ; *caseUnfold($13CA)
   Data.a 0
   Data.u $AB9A
+  ; *caseUnfold($AB9B)
   Data.a 0
   Data.u $13CB
+  ; *caseUnfold($13CB)
   Data.a 0
   Data.u $AB9B
+  ; *caseUnfold($AB9C)
   Data.a 0
   Data.u $13CC
+  ; *caseUnfold($13CC)
   Data.a 0
   Data.u $AB9C
+  ; *caseUnfold($AB9D)
   Data.a 0
   Data.u $13CD
+  ; *caseUnfold($13CD)
   Data.a 0
   Data.u $AB9D
+  ; *caseUnfold($AB9E)
   Data.a 0
   Data.u $13CE
+  ; *caseUnfold($13CE)
   Data.a 0
   Data.u $AB9E
+  ; *caseUnfold($AB9F)
   Data.a 0
   Data.u $13CF
+  ; *caseUnfold($13CF)
   Data.a 0
   Data.u $AB9F
+  ; *caseUnfold($ABA0)
   Data.a 0
   Data.u $13D0
+  ; *caseUnfold($13D0)
   Data.a 0
   Data.u $ABA0
+  ; *caseUnfold($ABA1)
   Data.a 0
   Data.u $13D1
+  ; *caseUnfold($13D1)
   Data.a 0
   Data.u $ABA1
+  ; *caseUnfold($ABA2)
   Data.a 0
   Data.u $13D2
+  ; *caseUnfold($13D2)
   Data.a 0
   Data.u $ABA2
+  ; *caseUnfold($ABA3)
   Data.a 0
   Data.u $13D3
+  ; *caseUnfold($13D3)
   Data.a 0
   Data.u $ABA3
+  ; *caseUnfold($ABA4)
   Data.a 0
   Data.u $13D4
+  ; *caseUnfold($13D4)
   Data.a 0
   Data.u $ABA4
+  ; *caseUnfold($ABA5)
   Data.a 0
   Data.u $13D5
+  ; *caseUnfold($13D5)
   Data.a 0
   Data.u $ABA5
+  ; *caseUnfold($ABA6)
   Data.a 0
   Data.u $13D6
+  ; *caseUnfold($13D6)
   Data.a 0
   Data.u $ABA6
+  ; *caseUnfold($ABA7)
   Data.a 0
   Data.u $13D7
+  ; *caseUnfold($13D7)
   Data.a 0
   Data.u $ABA7
+  ; *caseUnfold($ABA8)
   Data.a 0
   Data.u $13D8
+  ; *caseUnfold($13D8)
   Data.a 0
   Data.u $ABA8
+  ; *caseUnfold($ABA9)
   Data.a 0
   Data.u $13D9
+  ; *caseUnfold($13D9)
   Data.a 0
   Data.u $ABA9
+  ; *caseUnfold($ABAA)
   Data.a 0
   Data.u $13DA
+  ; *caseUnfold($13DA)
   Data.a 0
   Data.u $ABAA
+  ; *caseUnfold($ABAB)
   Data.a 0
   Data.u $13DB
+  ; *caseUnfold($13DB)
   Data.a 0
   Data.u $ABAB
+  ; *caseUnfold($ABAC)
   Data.a 0
   Data.u $13DC
+  ; *caseUnfold($13DC)
   Data.a 0
   Data.u $ABAC
+  ; *caseUnfold($ABAD)
   Data.a 0
   Data.u $13DD
+  ; *caseUnfold($13DD)
   Data.a 0
   Data.u $ABAD
+  ; *caseUnfold($ABAE)
   Data.a 0
   Data.u $13DE
+  ; *caseUnfold($13DE)
   Data.a 0
   Data.u $ABAE
+  ; *caseUnfold($ABAF)
   Data.a 0
   Data.u $13DF
+  ; *caseUnfold($13DF)
   Data.a 0
   Data.u $ABAF
+  ; *caseUnfold($ABB0)
   Data.a 0
   Data.u $13E0
+  ; *caseUnfold($13E0)
   Data.a 0
   Data.u $ABB0
+  ; *caseUnfold($ABB1)
   Data.a 0
   Data.u $13E1
+  ; *caseUnfold($13E1)
   Data.a 0
   Data.u $ABB1
+  ; *caseUnfold($ABB2)
   Data.a 0
   Data.u $13E2
+  ; *caseUnfold($13E2)
   Data.a 0
   Data.u $ABB2
+  ; *caseUnfold($ABB3)
   Data.a 0
   Data.u $13E3
+  ; *caseUnfold($13E3)
   Data.a 0
   Data.u $ABB3
+  ; *caseUnfold($ABB4)
   Data.a 0
   Data.u $13E4
+  ; *caseUnfold($13E4)
   Data.a 0
   Data.u $ABB4
+  ; *caseUnfold($ABB5)
   Data.a 0
   Data.u $13E5
+  ; *caseUnfold($13E5)
   Data.a 0
   Data.u $ABB5
+  ; *caseUnfold($ABB6)
   Data.a 0
   Data.u $13E6
+  ; *caseUnfold($13E6)
   Data.a 0
   Data.u $ABB6
+  ; *caseUnfold($ABB7)
   Data.a 0
   Data.u $13E7
+  ; *caseUnfold($13E7)
   Data.a 0
   Data.u $ABB7
+  ; *caseUnfold($ABB8)
   Data.a 0
   Data.u $13E8
+  ; *caseUnfold($13E8)
   Data.a 0
   Data.u $ABB8
+  ; *caseUnfold($ABB9)
   Data.a 0
   Data.u $13E9
+  ; *caseUnfold($13E9)
   Data.a 0
   Data.u $ABB9
+  ; *caseUnfold($ABBA)
   Data.a 0
   Data.u $13EA
+  ; *caseUnfold($13EA)
   Data.a 0
   Data.u $ABBA
+  ; *caseUnfold($ABBB)
   Data.a 0
   Data.u $13EB
+  ; *caseUnfold($13EB)
   Data.a 0
   Data.u $ABBB
+  ; *caseUnfold($ABBC)
   Data.a 0
   Data.u $13EC
+  ; *caseUnfold($13EC)
   Data.a 0
   Data.u $ABBC
+  ; *caseUnfold($ABBD)
   Data.a 0
   Data.u $13ED
+  ; *caseUnfold($13ED)
   Data.a 0
   Data.u $ABBD
+  ; *caseUnfold($ABBE)
   Data.a 0
   Data.u $13EE
+  ; *caseUnfold($13EE)
   Data.a 0
   Data.u $ABBE
+  ; *caseUnfold($ABBF)
   Data.a 0
   Data.u $13EF
+  ; *caseUnfold($13EF)
   Data.a 0
   Data.u $ABBF
+  ; *caseUnfold($FF21)
   Data.a 0
   Data.u $FF41
+  ; *caseUnfold($FF41)
   Data.a 0
   Data.u $FF21
+  ; *caseUnfold($FF22)
   Data.a 0
   Data.u $FF42
+  ; *caseUnfold($FF42)
   Data.a 0
   Data.u $FF22
+  ; *caseUnfold($FF23)
   Data.a 0
   Data.u $FF43
+  ; *caseUnfold($FF43)
   Data.a 0
   Data.u $FF23
+  ; *caseUnfold($FF24)
   Data.a 0
   Data.u $FF44
+  ; *caseUnfold($FF44)
   Data.a 0
   Data.u $FF24
+  ; *caseUnfold($FF25)
   Data.a 0
   Data.u $FF45
+  ; *caseUnfold($FF45)
   Data.a 0
   Data.u $FF25
+  ; *caseUnfold($FF26)
   Data.a 0
   Data.u $FF46
+  ; *caseUnfold($FF46)
   Data.a 0
   Data.u $FF26
+  ; *caseUnfold($FF27)
   Data.a 0
   Data.u $FF47
+  ; *caseUnfold($FF47)
   Data.a 0
   Data.u $FF27
+  ; *caseUnfold($FF28)
   Data.a 0
   Data.u $FF48
+  ; *caseUnfold($FF48)
   Data.a 0
   Data.u $FF28
+  ; *caseUnfold($FF29)
   Data.a 0
   Data.u $FF49
+  ; *caseUnfold($FF49)
   Data.a 0
   Data.u $FF29
+  ; *caseUnfold($FF2A)
   Data.a 0
   Data.u $FF4A
+  ; *caseUnfold($FF4A)
   Data.a 0
   Data.u $FF2A
+  ; *caseUnfold($FF2B)
   Data.a 0
   Data.u $FF4B
+  ; *caseUnfold($FF4B)
   Data.a 0
   Data.u $FF2B
+  ; *caseUnfold($FF2C)
   Data.a 0
   Data.u $FF4C
+  ; *caseUnfold($FF4C)
   Data.a 0
   Data.u $FF2C
+  ; *caseUnfold($FF2D)
   Data.a 0
   Data.u $FF4D
+  ; *caseUnfold($FF4D)
   Data.a 0
   Data.u $FF2D
+  ; *caseUnfold($FF2E)
   Data.a 0
   Data.u $FF4E
+  ; *caseUnfold($FF4E)
   Data.a 0
   Data.u $FF2E
+  ; *caseUnfold($FF2F)
   Data.a 0
   Data.u $FF4F
+  ; *caseUnfold($FF4F)
   Data.a 0
   Data.u $FF2F
+  ; *caseUnfold($FF30)
   Data.a 0
   Data.u $FF50
+  ; *caseUnfold($FF50)
   Data.a 0
   Data.u $FF30
+  ; *caseUnfold($FF31)
   Data.a 0
   Data.u $FF51
+  ; *caseUnfold($FF51)
   Data.a 0
   Data.u $FF31
+  ; *caseUnfold($FF32)
   Data.a 0
   Data.u $FF52
+  ; *caseUnfold($FF52)
   Data.a 0
   Data.u $FF32
+  ; *caseUnfold($FF33)
   Data.a 0
   Data.u $FF53
+  ; *caseUnfold($FF53)
   Data.a 0
   Data.u $FF33
+  ; *caseUnfold($FF34)
   Data.a 0
   Data.u $FF54
+  ; *caseUnfold($FF54)
   Data.a 0
   Data.u $FF34
+  ; *caseUnfold($FF35)
   Data.a 0
   Data.u $FF55
+  ; *caseUnfold($FF55)
   Data.a 0
   Data.u $FF35
+  ; *caseUnfold($FF36)
   Data.a 0
   Data.u $FF56
+  ; *caseUnfold($FF56)
   Data.a 0
   Data.u $FF36
+  ; *caseUnfold($FF37)
   Data.a 0
   Data.u $FF57
+  ; *caseUnfold($FF57)
   Data.a 0
   Data.u $FF37
+  ; *caseUnfold($FF38)
   Data.a 0
   Data.u $FF58
+  ; *caseUnfold($FF58)
   Data.a 0
   Data.u $FF38
+  ; *caseUnfold($FF39)
   Data.a 0
   Data.u $FF59
+  ; *caseUnfold($FF59)
   Data.a 0
   Data.u $FF39
+  ; *caseUnfold($FF3A)
   Data.a 0
   Data.u $FF5A
+  ; *caseUnfold($FF5A)
   Data.a 0
   Data.u $FF3A
 EndDataSection

@@ -129,6 +129,7 @@ ForEach subLists()
       offsetOfCountOfChars + SizeOf(Unicode)
     Next
     PopListPosition(subLists()\chars())
+    allDataSectionLines$ + "  ; *caseUnfold($" + RSet(Hex(currentChar), maxHexCodeLength, "0") + ")" + #CRLF$
     allDataSectionLines$ + "  Data.a " + Str(countOfChars) + #CRLF$ +
                            "  Data.u " + chars$ + #CRLF$
   Next
