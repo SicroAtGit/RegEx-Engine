@@ -1,7 +1,7 @@
 ﻿
 EnableExplicit
 
-IncludeFile ".." + #PS$ + "RegExEngine.pbi"
+IncludeFile ".." + #PS$ + ".." + #PS$ + "RegExEngine.pbi"
 
 Define *regEx = RegEx::UseDfaFromMemory(?dfa)
 
