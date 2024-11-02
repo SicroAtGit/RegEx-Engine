@@ -111,7 +111,23 @@ This RegEx mode is also useful in combination with `#RegExMode_NoCase` when you 
 - `(?i)set` corresponds to `[Ss\u017F][Ee][Tt]`
 - `(?ia)set` corresponds to `[Ss][Ee][Tt]`
 
+## Single-byte Engine Mode
+
+This feature allows to create a RegEx engine with a single-byte mode.
+
+When a RegEx engine is created with this mode, it will no longer support the UCS-2 characters `\u0001` - `\uFFFF`, but only `\u0001` - `\u00FF`. This means that it will only support UCS-2 characters where the second byte is zero. If the RegEx contains characters outside this range, an error will occur.
+
+This mode also activates the ASCII mode, which can't be deactivated with `(?-a)` in the RegEx.
+
+Since the second byte must always be zero, this check is then done in the `Match` function. This way the NFA/DFA can save many states, making it much smaller.
+
 ## Public Constants
+
+```purebasic
+EnumerationBinary RegExEngineModes
+  #RegExEngineMode_SingleByte ; Activates single-byte mode
+EndEnumeration
+```
 
 ```purebasic
 EnumerationBinary RegExModes
@@ -176,6 +192,7 @@ Structure RegExEngineStruc
   List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
   *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
   isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
+  regExEngineModes.i
 EndStructure
 ```
 
@@ -187,7 +204,9 @@ Simplifies extracting the matched string via its memory address and length info 
 ## Public Functions
 
 - **`Init()`**<br><br>
-Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
+Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned. The optional `regExEngineModes` parameter allows defining which RegExEngine modes should be activated; its currently supported values are:
+
+    - `#RegExEngineMode_SingleByte` — Activates single-byte mode
 
 - **`AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`**<br><br>
 Compiles the RegEx string into an NFA which is added to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number (`0` to `(65535 - #StateType_Final)`) can be passed to `regExId` to determine later which RegEx has matched. The optional `regExModes` parameter allows defining which RegEx modes should be activated at the beginning; its currently supported values are:

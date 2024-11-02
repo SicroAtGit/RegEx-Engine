@@ -35,22 +35,44 @@ EndDeclareModule
 
 Module DfaMatcher
   
+  EnumerationBinary RegExEngineModes
+    #RegExEngineMode_SingleByte ; Activates single-byte mode
+  EndEnumeration
+  
+  Structure CharacterStruc
+    StructureUnion
+      u.u
+      a.a[2]
+    EndStructureUnion
+  EndStructure
+  
   Procedure Match(*dfaMemory.DfaStatesArrayStruc, *string.Unicode, *regExId.Integer = 0)
-    Protected.Ascii *stringPointer
+    Protected.CharacterStruc *stringPointer
     Protected *stringStartPos
-    Protected dfaState, lastFinalStateMatchLength
+    Protected dfaState, lastFinalStateMatchLength, regExEngineModes
     
     *stringPointer = *string
     *stringStartPos = *string
     dfaState = 1 ; dfaState '0' is the dead state, so it will be skipped
     
+    regExEngineModes = PeekI(*dfaMemory)
+    *dfaMemory + SizeOf(Integer)
+    
     Repeat
-      dfaState = *dfaMemory\states[dfaState]\nextState[*stringPointer\a]
+      If regExEngineModes & #RegExEngineMode_SingleByte And *stringPointer\u > $FF
+        Break
+      EndIf
+      
+      dfaState = *dfaMemory\states[dfaState]\nextState[*stringPointer\a[0]]
       If dfaState = #State_DfaDeadState
         Break
       EndIf
       
-      *stringPointer + SizeOf(Ascii)
+      If regExEngineModes & #RegExEngineMode_SingleByte
+        *stringPointer + SizeOf(Unicode) ; Skip also the second byte of the UCS-2 character
+      Else
+        *stringPointer + SizeOf(Ascii)
+      EndIf
       
       If *dfaMemory\states[dfaState]\isFinalState
         lastFinalStateMatchLength = *stringPointer - *stringStartPos
