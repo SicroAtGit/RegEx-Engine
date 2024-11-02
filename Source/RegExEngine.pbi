@@ -869,7 +869,7 @@ Module RegEx
     Protected.NfaStruc *base, *base_new, *nfa1, *nfa2, *nfa2_new
     Protected Dim byteSequences.b($FF, $FF)
     Protected.CharacterStruc char
-    Protected regExModes, count, ii
+    Protected regExModes, count, ii, isFound
     
     If ParseRegExModes(*regExString, *regExModes) = #False
       ProcedureReturn 0
@@ -1022,26 +1022,31 @@ Module RegEx
             EndIf
             If *regExModes\i & #RegExMode_NoCase
               If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+                isFound = #False
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
+                    isFound = #True
                   Case 'a' To 'z'
                     char\u = char\u - 32
+                    isFound = #True
                 EndSelect
-                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                If regExEngineModes & #RegExEngineMode_SingleByte
-                  *nfa2 = *nfa1
-                Else
-                  *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                  *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-                  FreeStructure(*nfa1)
+                If isFound
+                  *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                  If regExEngineModes & #RegExEngineMode_SingleByte
+                    *nfa2 = *nfa1
+                  Else
+                    *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                    *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                    FreeStructure(*nfa1)
+                    FreeStructure(*nfa2)
+                    *nfa2 = *nfa2_new
+                  EndIf
+                  *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                  FreeStructure(*base)
                   FreeStructure(*nfa2)
-                  *nfa2 = *nfa2_new
+                  *base = *base_new
                 EndIf
-                *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
-                FreeStructure(*base)
-                FreeStructure(*nfa2)
-                *base = *base_new
               Else
                 If *caseUnfold(char\u)
                   count = *caseUnfold(char\u)\charsCount
@@ -1088,26 +1093,31 @@ Module RegEx
             EndIf
             If *regExModes\i & #RegExMode_NoCase
               If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+                isFound = #False
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
+                    isFound = #True
                   Case 'a' To 'z'
                     char\u = char\u - 32
+                    isFound = #True
                 EndSelect
-                *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                If regExEngineModes & #RegExEngineMode_SingleByte
-                  *nfa2 = *nfa1
-                Else
-                  *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                  *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-                  FreeStructure(*nfa1)
+                If isFound
+                  *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+                  If regExEngineModes & #RegExEngineMode_SingleByte
+                    *nfa2 = *nfa1
+                  Else
+                    *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                    *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                    FreeStructure(*nfa1)
+                    FreeStructure(*nfa2)
+                    *nfa2 = *nfa2_new
+                  EndIf
+                  *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+                  FreeStructure(*base)
                   FreeStructure(*nfa2)
-                  *nfa2 = *nfa2_new
+                  *base = *base_new
                 EndIf
-                *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
-                FreeStructure(*base)
-                FreeStructure(*nfa2)
-                *base = *base_new
               Else
                 If *caseUnfold(char\u)
                   count = *caseUnfold(char\u)\charsCount
@@ -1199,26 +1209,31 @@ Module RegEx
         EndIf
         If *regExModes\i & #RegExMode_NoCase
           If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+            isFound = #False
             Select char\u
               Case 'A' To 'Z'
                 char\u = char\u + 32
+                isFound = #True
               Case 'a' To 'z'
                 char\u = char\u - 32
+                isFound = #True
             EndSelect
-            *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            If regExEngineModes & #RegExEngineMode_SingleByte
-              *nfa2 = *nfa1
-            Else
-              *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-              *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-              FreeStructure(*nfa1)
+            If isFound
+              *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
+              If regExEngineModes & #RegExEngineMode_SingleByte
+                *nfa2 = *nfa1
+              Else
+                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                FreeStructure(*nfa1)
+                FreeStructure(*nfa2)
+                *nfa2 = *nfa2_new
+              EndIf
+              *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+              FreeStructure(*base)
               FreeStructure(*nfa2)
-              *nfa2 = *nfa2_new
+              *base = *base_new
             EndIf
-            *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
-            FreeStructure(*base)
-            FreeStructure(*nfa2)
-            *base = *base_new
           Else
             If *caseUnfold(char\u)
               count = *caseUnfold(char\u)\charsCount
