@@ -8,7 +8,7 @@ This RegEx engine compiles a regular expression string into an NFA, and can opti
 
 The RegEx engine will always return the longest possible match among several possible matches. During this process no backtracking is required, because all alternations are checked simultaneously.
 
-RegExes can be assigned unique RegEx ID numbers, which allow to determine which RegEx matched when executing multiple RegExs simultaneously. This feature is useful for creating lexers, which is the main focus of the project. At the same time, the RegEx engine is kept flexible, so that it might be employed in a variety of other contexts, beside lexers creation.
+RegExes can be assigned unique RegEx ID numbers, which allow to determine which RegEx matched when executing multiple RegExes simultaneously. This feature is useful for creating lexers, which is the main focus of the project. At the same time, the RegEx engine is kept flexible, so that it might be employed in a variety of other contexts, beside lexers creation.
 
 ## Examples
 
@@ -73,22 +73,22 @@ More code examples can be found in the [`Source/Examples/`][Examples] directory.
 | `x+`    | One or more consecutive `x` |
 | `x?`    | Zero or one `x` |
 | `(` `)` | Groups a regular expression. Groups inherit the active modes of their parent context. Mode changes within a group have no effect on the surrounding contexts. |
-| `\*`    | Escapes the metacharacter `*` and treats it as a literal character.<br>Works also with the other metacharacters: `\|` `+` `?` `(` `)` `\` |
-| `\r`    | Matches the carriage return character (`\x0D`) |
-| `\n`    | Matches the line feed character (`\x0A`) |
-| `\t`    | Matches the horizontal tab character (`\x09`) |
-| `\f`    | Matches the form feed character (`\x0C`) |
-| `[x]`   | Where `x` can be a combination of: single literal character, escape sequence, or range (`a-c`) |
-| `.`     | Matches any character except `\r` and `\n` |
-| `\d`    | Matches Unicode characters class [Nd] |
-| `\D`    | Matches any character except those in Unicode characters class [Nd] |
-| `\s`    | Matches Unicode characters class [White_Space] |
-| `\S`    | Matches any character except those in Unicode characters class [White_Space] |
-| `\w`    | Matches Unicode characters classes [Alphabetic, M, Nd, Pc and Join_Control] |
-| `\W`    | Matches any character except those in Unicode characters classes [Alphabetic, M, Nd, Pc and Join_Control] |
-| `\x`    | Matches the character represented by the two digit hex code `x` (`\x01`–`\xFF`) |
-| `\u`    | Matches the character represented by the four digit hex code `u` (`\u0001`–`\uFFFF`) |
-| `(?m)`  | Toggles the RegEx mode states. `m` can be one or more flags. To deactivate a RegEx mode prefix a flag with a minus sign |
+| `\`     | Escapes the metacharacters (character with special meaning). The example `\*` is interpreted as the literal character `*`. |
+| `\r`    | Escape sequence that matches the carriage return character (`\x0D`). |
+| `\n`    | Escape sequence that matches the line feed character (`\x0A`). |
+| `\t`    | Escape sequence that matches the horizontal tab character (`\x09`). |
+| `\f`    | Escape sequence that matches the form feed character (`\x0C`). |
+| `[` `]` | Custom character class. The example `[a0-9\t]` matches `a`, `0` to `9` and the horizontal tab character. Character classes are not allowed. |
+| `.`     | Predefined character class that matches any character except `\r` and `\n`. |
+| `\d`    | Predefined character class that matches Unicode characters class [Nd]. |
+| `\D`    | Predefined character class matches any character except those in Unicode characters class [Nd]. |
+| `\s`    | Predefined character class matches Unicode characters class [White_Space]. |
+| `\S`    | Predefined character class that matches any character except those in Unicode characters class [White_Space]. |
+| `\w`    | Predefined character class that matches Unicode characters classes [Alphabetic, M, Nd, Pc and Join_Control]. |
+| `\W`    | Predefined character class that matches any character except those in Unicode characters classes [Alphabetic, M, Nd, Pc and Join_Control]. |
+| `\x`    | Escape sequence that matches the character represented by the two digit hex code `x` (`\x01`–`\xFF`). |
+| `\u`    | Escape sequence that matches the character represented by the four digit hex code `u` (`\u0001`–`\uFFFF`). |
+| `(?m)`  | Toggles the RegEx mode states. `m` can be one or more flags. To deactivate a RegEx mode prefix a flag with a minus sign. |
 
 ## Unicode Support
 
@@ -106,7 +106,7 @@ Flag: `a`
 
 When active, the predefined character classes will only match the corresponding ASCII characters. For example, `(?a)\w` will match only `[a-zA-Z0-9_]`. The character encoding remains UCS-2 in this mode, i.e. `(?a)\W` matches all UCS-2 characters except `[a-zA-Z0-9_]`.
 
-This RegEx mode is also useful in combination with `#RegExMode_NoCase` when you want to lex for keywords within source code, case-insensitively, but no case-folding should be applied:
+This RegEx mode is also useful in combination with `#RegExMode_NoCase` when you want to lex for keywords within source code, case-insensitively, but no Unicode case-folding should be applied:
 
 - `(?i)set` corresponds to `[Ss\u017F][Ee][Tt]`
 - `(?ia)set` corresponds to `[Ss][Ee][Tt]`
