@@ -18,8 +18,10 @@ RegExes can be assigned unique RegEx ID numbers, which allow to determine which 
 *regEx = RegEx::Init()
 If *regEx
   RegEx::AddNfa(*regEx, "test|example")
-  If RegEx::Match(*regEx, @"example")
-    Debug "Match!"
+  text$ = "example"
+  length = RegEx::Match(*regEx, @text$)
+  If length
+    Debug "Match: " + RegEx::GetString(@text$, length)
   Else
     Debug "No match!"
   EndIf
@@ -41,10 +43,14 @@ EndEnumeration
 If *regEx
   RegEx::AddNfa(*regEx, "\w+", #RegExId_Word)
   RegEx::AddNfa(*regEx, "\d+", #RegExId_Number)
-  If RegEx::Match(*regEx, @"example", @regExId)
+  text$ = "example"
+  length = RegEx::Match(*regEx, @text$, @regExId)
+  If length
     Select regExId
-      Case #RegExId_Word:   Debug "Match is a word!"
-      Case #RegExId_Number: Debug "Match is a number!"
+      Case #RegExId_Word
+        Debug "Match is a word: " + RegEx::GetString(@text$, length)
+      Case #RegExId_Number
+        Debug "Match is a number: " + RegEx::GetString(@text$, length)
     EndSelect
   Else
     Debug "No match!"
