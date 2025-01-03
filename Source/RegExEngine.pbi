@@ -38,6 +38,7 @@ DeclareModule RegEx
   Structure DfaStateStruc
     nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
     isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
+                     ; (regExId = isFinalState - 1)
   EndStructure
   
   Structure DfaStatesArrayStruc
@@ -169,7 +170,7 @@ Module RegEx
     DeleteElement(nfaPool())
   EndProcedure
   
-  ; Creates a Thompson NFA with a state transition labeled with the symbol range.
+  ; Creates a Thompson NFA with a state transition labeled with a byte range as symbol.
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
   Procedure CreateNfaByteRange(List nfaPool.NfaStateStruc(), minByteValue, maxByteValue, finalStateValue)
     Protected.NfaStruc *resultNfa = AllocateStructure(NfaStruc)

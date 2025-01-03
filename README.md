@@ -170,7 +170,7 @@ EndStructure
 ```purebasic
 Structure DfaStateStruc
   nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
+  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null (regExId = isFinalState - 1)
 EndStructure
 ```
 
@@ -257,7 +257,7 @@ EndEnumeration
 ```purebasic
 Structure DfaStateStruc
   nextState.u[256] ; Index is the symbol (0-255) and the value is the next DFA state
-  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null
+  isFinalState.u   ; Positive number if the DFA state is a final state, otherwise null (regExId = isFinalState - 1)
 EndStructure
 ```
 
