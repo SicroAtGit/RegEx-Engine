@@ -5,6 +5,10 @@ DeclareModule RegEx
   
   EnableExplicit
   
+  EnumerationBinary RegExEngineModes
+    #RegExEngineMode_SingleByte ; Activates single-byte mode
+  EndEnumeration
+  
   EnumerationBinary RegExModes
     #RegExMode_NoCase ; Activates case-insensitive mode
     #RegExMode_Ascii  ; Activates ASCII mode
@@ -49,6 +53,7 @@ DeclareModule RegEx
     List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
     *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
     isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
+    regExEngineModes.i
   EndStructure
   
   ; Simplifies extracting the matched string via its memory address and length
@@ -58,8 +63,10 @@ DeclareModule RegEx
   EndMacro
   
   ; Creates a new RegEx engine and returns the pointer to the
-  ; `RegExEngineStruc` structure. If an error occurred null is returned.
-  Declare Init()
+  ; `RegExEngineStruc` structure. If an error occurred null is returned. The
+  ; optional `regExEngineModes` parameter allows defining which RegExEngine
+  ; modes should be activated. 
+  Declare Init(regExEngineModes = 0)
   
   ; Compiles the RegEx string into an NFA which is added to the NFAs pool
   ; in the RegEx engine. On success `#True` is returned, otherwise `#False`.
@@ -85,7 +92,10 @@ DeclareModule RegEx
   ; is immediately ready for use, without requiring to call `Init()`, `AddNfa()`
   ; or `CreateDfa()`.
   ; On success the pointer to `RegExEngineStruc` is returned, otherwise null.
-  Declare UseDfaFromMemory(*dfaMemory)
+  ; If RegEx engine modes were set during DFA creation, the identical modes
+  ; must be set again for this optional parameter `regExEngineModes` so that
+  ; the DFA can be processed correctly.
+  Declare UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)
   
   ; Runs the RegEx engine against the target string, passed via a pointer.
   ; The match search will start from the beginning of the string. If a match is
@@ -147,7 +157,7 @@ Module RegEx
   
   Global lastErrorMessages$
   
-  Declare ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+  Declare ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
   
   ; Returns the pointer to `NfaStateStruc`. On error, null is returned.
   Procedure CreateNfaState(List nfaPool.NfaStateStruc())
@@ -357,17 +367,23 @@ Module RegEx
   ; - byte ranges `[1-2][1-2]` and `[3-4][1-2]` are combined as `[1-4][1-2]`
   ; - byte ranges `[1-2][1-2]` and `[1-2][3-4]` are combined as `[1-2][1-4]`
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure CreateNfaByteRangeSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, isNegated = #False)
+  Procedure CreateNfaByteRangeSequences(List nfaPool.NfaStateStruc(), Array byteSequences.b(2), finalStateValue, regExEngineModes, isNegated = #False)
     Protected.NfaStruc *nfa1, *nfa2, *nfa2_new, *nfa3, *base, *base_new
     Protected.ByteRangesStruc NewList byteRanges()
-    Protected byte1, byte2, previousByte1, isByte2Found, isIdentical
+    Protected byte1, byte2, byte2_max, previousByte1, isByte2Found, isIdentical
     Protected *currentElement.ByteRangesStruc
+    
+    If regExEngineModes & #RegExEngineMode_SingleByte
+      byte2_max = 0
+    Else
+      byte2_max = $FF
+    EndIf
     
     previousByte1 = -1
     
     If Not isNegated
       For byte1 = 0 To $FF
-        For byte2 = 0 To $FF
+        For byte2 = 0 To byte2_max
           
           If byte1 = 0 And byte2 = 0
             Continue ; Skip null character
@@ -386,24 +402,26 @@ Module RegEx
             EndIf
             
             ; Try to merge byte 2 ranges
-            isByte2Found = #False
-            ForEach byteRanges()\byte2Ranges()
-              If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
-                isByte2Found = #True
-              ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
-                byteRanges()\byte2Ranges()\min - 1
-                isByte2Found = #True
-              ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
-                byteRanges()\byte2Ranges()\max + 1
-                isByte2Found = #True
+            If Not (regExEngineModes & #RegExEngineMode_SingleByte)
+              isByte2Found = #False
+              ForEach byteRanges()\byte2Ranges()
+                If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
+                  isByte2Found = #True
+                ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
+                  byteRanges()\byte2Ranges()\min - 1
+                  isByte2Found = #True
+                ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
+                  byteRanges()\byte2Ranges()\max + 1
+                  isByte2Found = #True
+                EndIf
+              Next
+              If Not isByte2Found
+                If Not AddElement(byteRanges()\byte2Ranges())
+                  ProcedureReturn 0
+                EndIf
+                byteRanges()\byte2Ranges()\min = byte2
+                byteRanges()\byte2Ranges()\max = byte2
               EndIf
-            Next
-            If Not isByte2Found
-              If Not AddElement(byteRanges()\byte2Ranges())
-                ProcedureReturn 0
-              EndIf
-              byteRanges()\byte2Ranges()\min = byte2
-              byteRanges()\byte2Ranges()\max = byte2
             EndIf
             
           EndIf
@@ -411,7 +429,7 @@ Module RegEx
       Next
     Else
       For byte1 = 0 To $FF
-        For byte2 = 0 To $FF
+        For byte2 = 0 To byte2_max
           
           ; Skip null character
           If byte1 = 0 And byte2 = 0
@@ -431,24 +449,26 @@ Module RegEx
             EndIf
             
             ; Try to merge byte 2 ranges
-            isByte2Found = #False
-            ForEach byteRanges()\byte2Ranges()
-              If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
-                isByte2Found = #True
-              ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
-                byteRanges()\byte2Ranges()\min - 1
-                isByte2Found = #True
-              ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
-                byteRanges()\byte2Ranges()\max + 1
-                isByte2Found = #True
+            If Not (regExEngineModes & #RegExEngineMode_SingleByte)
+              isByte2Found = #False
+              ForEach byteRanges()\byte2Ranges()
+                If byteRanges()\byte2Ranges()\min =< byte2 And byteRanges()\byte2Ranges()\max => byte2
+                  isByte2Found = #True
+                ElseIf byteRanges()\byte2Ranges()\min - 1 = byte2
+                  byteRanges()\byte2Ranges()\min - 1
+                  isByte2Found = #True
+                ElseIf byteRanges()\byte2Ranges()\max + 1 = byte2
+                  byteRanges()\byte2Ranges()\max + 1
+                  isByte2Found = #True
+                EndIf
+              Next
+              If Not isByte2Found
+                If Not AddElement(byteRanges()\byte2Ranges())
+                  ProcedureReturn 0
+                EndIf
+                byteRanges()\byte2Ranges()\min = byte2
+                byteRanges()\byte2Ranges()\max = byte2
               EndIf
-            Next
-            If Not isByte2Found
-              If Not AddElement(byteRanges()\byte2Ranges())
-                ProcedureReturn 0
-              EndIf
-              byteRanges()\byte2Ranges()\min = byte2
-              byteRanges()\byte2Ranges()\max = byte2
             EndIf
             
           EndIf
@@ -498,31 +518,42 @@ Module RegEx
     ; construction
     ForEach byteRanges()
       *nfa1 = CreateNfaByteRange(nfaPool(), byteRanges()\byte1Range\min, byteRanges()\byte1Range\max, finalStateValue)
-      *nfa2 = 0
-      ForEach byteRanges()\byte2Ranges()
-        If *nfa2
-          *nfa3 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
-          *nfa2_new = CreateNfaUnion(nfaPool(), *nfa2, *nfa3, finalStateValue)
-          FreeStructure(*nfa2)
-          FreeStructure(*nfa3)
-          *nfa2 = *nfa2_new
+      If regExEngineModes & #RegExEngineMode_SingleByte
+        If *base
+          *base_new = CreateNfaUnion(nfaPool(), *base, *nfa1, finalStateValue)
+          FreeStructure(*base)
+          FreeStructure(*nfa1)
+          *base = *base_new
         Else
-          *nfa2 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
+          *base = *nfa1
         EndIf
-      Next
-      If *base
-        *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-        FreeStructure(*nfa1)
-        FreeStructure(*nfa2)
-        *nfa2 = *nfa2_new
-        *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
-        FreeStructure(*base)
-        FreeStructure(*nfa2)
-        *base = *base_new
       Else
-        *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-        FreeStructure(*nfa1)
-        FreeStructure(*nfa2)
+        *nfa2 = 0
+        ForEach byteRanges()\byte2Ranges()
+          If *nfa2
+            *nfa3 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
+            *nfa2_new = CreateNfaUnion(nfaPool(), *nfa2, *nfa3, finalStateValue)
+            FreeStructure(*nfa2)
+            FreeStructure(*nfa3)
+            *nfa2 = *nfa2_new
+          Else
+            *nfa2 = CreateNfaByteRange(nfaPool(), byteRanges()\byte2Ranges()\min, byteRanges()\byte2Ranges()\max, finalStateValue)
+          EndIf
+        Next
+        If *base
+          *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+          FreeStructure(*nfa1)
+          FreeStructure(*nfa2)
+          *nfa2 = *nfa2_new
+          *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
+          FreeStructure(*base)
+          FreeStructure(*nfa2)
+          *base = *base_new
+        Else
+          *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+          FreeStructure(*nfa1)
+          FreeStructure(*nfa2)
+        EndIf
       EndIf
     Next
     
@@ -530,7 +561,7 @@ Module RegEx
   EndProcedure
   
   ; Adds the byte sequence to the byte tree
-  Procedure AddByteSequence(Array byteSequences.b(2), startValue, endValue, *regExModes.Integer = 0)
+  Procedure AddByteSequence(Array byteSequences.b(2), startValue, endValue, regExEngineModes, *regExModes.Integer = 0)
     Protected i, ii, count
     Protected.CharacterStruc char
     
@@ -538,7 +569,7 @@ Module RegEx
       char\u = i
       byteSequences(char\a[0], char\a[1]) = #True
       If *regExModes And *regExModes\i & #RegExMode_NoCase
-        If *regExModes\i & #RegExMode_Ascii
+        If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
           Select char\u
             Case 'A' To 'Z'
               char\u = char\u + 32
@@ -561,7 +592,7 @@ Module RegEx
   EndProcedure
   
   ; Adds the predefined byte sequences to the byte tree
-  Procedure AddPredefinedByteSequences(Array byteSequences.b(2), *label)
+  Procedure AddPredefinedByteSequences(Array byteSequences.b(2), *label, regExEngineModes)
     Protected offset, startValue, endValue
     
     Repeat
@@ -572,7 +603,7 @@ Module RegEx
       offset + SizeOf(Unicode)
       endValue = PeekU(*label + offset)
       offset + SizeOf(Unicode)
-      AddByteSequence(byteSequences(), startValue, endValue)
+      AddByteSequence(byteSequences(), startValue, endValue, regExEngineModes)
     ForEver
   EndProcedure
   
@@ -698,7 +729,7 @@ Module RegEx
   EndProcedure
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure ParseRegExCharacterClass(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+  Procedure ParseRegExCharacterClass(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
     Protected base$, base2$
     Protected base, base2
     Protected Dim byteSequences.b($FF, $FF)
@@ -722,6 +753,15 @@ Module RegEx
       If base = 0
         ProcedureReturn 0
       EndIf
+      If regExEngineModes & #RegExEngineMode_SingleByte
+        If base > $FF
+          lastErrorMessages$ + "Character exceeds valid range in active single-byte " +
+                               "mode (max: \xFF) [Pos: " +
+                               Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                               #CRLF$
+          ProcedureReturn 0
+        EndIf
+      EndIf
       If *regExString\currentPosition\u = '-'
         *regExString\currentPosition + SizeOf(Unicode)
         base2$ = ParseRegExCharacterClassBase(*regExString)
@@ -729,15 +769,24 @@ Module RegEx
         If base2 = 0
           ProcedureReturn 0
         EndIf
+        If regExEngineModes & #RegExEngineMode_SingleByte
+          If base2 > $FF
+            lastErrorMessages$ + "Character exceeds valid range in active single-byte " +
+                                 "mode (max: \xFF) [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
+            ProcedureReturn 0
+          EndIf
+        EndIf
         If base > base2
           lastErrorMessages$ + "Range out of order (`[z-a]` must be `[a-z]`, for example) [Pos: " +
                                Str(GetCurrentCharacterPosition(*regExString)) + "]" +
                                #CRLF$
           ProcedureReturn 0
         EndIf
-        AddByteSequence(byteSequences(), base, base2, *regExModes)
+        AddByteSequence(byteSequences(), base, base2, regExEngineModes, *regExModes)
       Else
-        AddByteSequence(byteSequences(), base, base, *regExModes)
+        AddByteSequence(byteSequences(), base, base, regExEngineModes, *regExModes)
       EndIf
     Wend
     
@@ -748,7 +797,7 @@ Module RegEx
       ProcedureReturn 0
     EndIf
     
-    ProcedureReturn CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, isNegated)
+    ProcedureReturn CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes, isNegated)
   EndProcedure
   
   ; On success `#True` is returned, otherwise `#False`.
@@ -819,7 +868,7 @@ Module RegEx
   EndProcedure
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+  Procedure ParseRegExBase(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
     Protected.NfaStruc *base, *base_new, *nfa1, *nfa2, *nfa2_new
     Protected Dim byteSequences.b($FF, $FF)
     Protected.CharacterStruc char
@@ -834,7 +883,7 @@ Module RegEx
     Select *regExString\currentPosition\u
       Case '('
         *regExString\currentPosition + SizeOf(Unicode)
-        *base = ParseRegEx(nfaPool(), *regExString, finalStateValue, @regExModes)
+        *base = ParseRegEx(nfaPool(), *regExString, finalStateValue, @regExModes, regExEngineModes)
         If *regExString\currentPosition\u <> ')'
           lastErrorMessages$ + "Missing closing round bracket [Pos: " +
                                Str(GetCurrentCharacterPosition(*regExString)) + "]" +
@@ -844,7 +893,7 @@ Module RegEx
         *regExString\currentPosition + SizeOf(Unicode)
       Case '['
         *regExString\currentPosition + SizeOf(Unicode)
-        *base = ParseRegExCharacterClass(nfaPool(), *regExString, finalStateValue, *regExModes)
+        *base = ParseRegExCharacterClass(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
         If *base = 0
           ProcedureReturn 0
         EndIf
@@ -854,85 +903,107 @@ Module RegEx
         Select *regExString\currentPosition\u
           Case 'r'
             *nfa1 = CreateNfaByteRange(nfaPool(), #CR, #CR, finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'n'
             *nfa1 = CreateNfaByteRange(nfaPool(), #LF, #LF, finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             *regExString\currentPosition + SizeOf(Unicode)
           Case 't'
             *nfa1 = CreateNfaByteRange(nfaPool(), #TAB, #TAB, finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'f'
             *nfa1 = CreateNfaByteRange(nfaPool(), #FF, #FF, finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), 0, 0, finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'd'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences_AsciiMode)
+            If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?DigitByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'D'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences_AsciiMode)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences_SingleByteMode, regExEngineModes)
+            ElseIf *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?NoDigitByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 's'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences_AsciiMode)
+            If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?WhiteSpaceByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'S'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences_AsciiMode)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences_SingleByteMode, regExEngineModes)
+            ElseIf *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?NoWhiteSpaceByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'w'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences_AsciiMode)
+            If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?WordByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'W'
             Dim byteSequences.b($FF, $FF)
-            If *regExModes\i & #RegExMode_Ascii
-              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences_AsciiMode)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences_SingleByteMode, regExEngineModes)
+            ElseIf *regExModes\i & #RegExMode_Ascii
+              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences_AsciiMode, regExEngineModes)
             Else
-              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences)
+              AddPredefinedByteSequences(byteSequences(), ?NoWordByteSequences, regExEngineModes)
             EndIf
-            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+            *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
             *regExString\currentPosition + SizeOf(Unicode)
           Case 'x'
             *regExString\currentPosition + SizeOf(Unicode)
@@ -944,12 +1015,16 @@ Module RegEx
               ProcedureReturn 0
             EndIf
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             If *regExModes\i & #RegExMode_NoCase
-              If *regExModes\i & #RegExMode_Ascii
+              If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
@@ -957,11 +1032,15 @@ Module RegEx
                     char\u = char\u - 32
                 EndSelect
                 *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-                FreeStructure(*nfa1)
-                FreeStructure(*nfa2)
-                *nfa2 = *nfa2_new
+                If regExEngineModes & #RegExEngineMode_SingleByte
+                  *nfa2 = *nfa1
+                Else
+                  *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                  *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                  FreeStructure(*nfa1)
+                  FreeStructure(*nfa2)
+                  *nfa2 = *nfa2_new
+                EndIf
                 *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
                 FreeStructure(*base)
                 FreeStructure(*nfa2)
@@ -994,13 +1073,24 @@ Module RegEx
                                    #CRLF$
               ProcedureReturn 0
             EndIf
+            If regExEngineModes & #RegExEngineMode_SingleByte And char\u > $FF
+              lastErrorMessages$ + "Character exceeds valid range in active single-byte " +
+                                   "mode (max: \xFF) [Pos: " +
+                                   Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                   #CRLF$
+              ProcedureReturn 0
+            EndIf
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             If *regExModes\i & #RegExMode_NoCase
-              If *regExModes\i & #RegExMode_Ascii
+              If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
                 Select char\u
                   Case 'A' To 'Z'
                     char\u = char\u + 32
@@ -1008,11 +1098,15 @@ Module RegEx
                     char\u = char\u - 32
                 EndSelect
                 *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-                *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-                *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-                FreeStructure(*nfa1)
-                FreeStructure(*nfa2)
-                *nfa2 = *nfa2_new
+                If regExEngineModes & #RegExEngineMode_SingleByte
+                  *nfa2 = *nfa1
+                Else
+                  *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+                  *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+                  FreeStructure(*nfa1)
+                  FreeStructure(*nfa2)
+                  *nfa2 = *nfa2_new
+                EndIf
                 *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
                 FreeStructure(*base)
                 FreeStructure(*nfa2)
@@ -1039,11 +1133,15 @@ Module RegEx
           Case '*', '+', '?', '|', '(', ')', '\', '.', '[', ']'
             *nfa1 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[0], *regExString\currentPosition\a[0],
                                        finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[1], *regExString\currentPosition\a[1],
-                                       finalStateValue)
-            *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *base = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), *regExString\currentPosition\a[1], *regExString\currentPosition\a[1],
+                                         finalStateValue)
+              *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+            EndIf
             *regExString\currentPosition + SizeOf(Unicode)
           Default
             lastErrorMessages$ + "Symbol to be escaped is invalid: '" +
@@ -1054,8 +1152,12 @@ Module RegEx
         EndSelect
       Case '.'
         Dim byteSequences.b($FF, $FF)
-        AddPredefinedByteSequences(byteSequences(), ?DotByteSequences)
-        *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue)
+        If regExEngineModes & #RegExEngineMode_SingleByte
+          AddPredefinedByteSequences(byteSequences(), ?DotByteSequences_SingleByteMode, regExEngineModes)
+        Else
+          AddPredefinedByteSequences(byteSequences(), ?DotByteSequences, regExEngineModes)
+        EndIf
+        *base = CreateNfaByteRangeSequences(nfaPool(), byteSequences(), finalStateValue, regExEngineModes)
         *regExString\currentPosition + SizeOf(Unicode)
       Case '*', '+', '?', '|'
         lastErrorMessages$ + "Symbol not allowed here: '" +
@@ -1080,13 +1182,26 @@ Module RegEx
         ProcedureReturn 0
       Default
         char\u = *regExString\currentPosition\u
+        If regExEngineModes & #RegExEngineMode_SingleByte
+          If char\u > $FF
+            lastErrorMessages$ + "Character exceeds valid range in active single-byte " +
+                                 "mode (max: \xFF) [Pos: " +
+                                 Str(GetCurrentCharacterPosition(*regExString)) + "]" +
+                                 #CRLF$
+            ProcedureReturn 0
+          EndIf
+        EndIf
         *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-        *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-        *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-        FreeStructure(*nfa1)
-        FreeStructure(*nfa2)
+        If regExEngineModes & #RegExEngineMode_SingleByte
+          *base = *nfa1
+        Else
+          *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+          *base = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+          FreeStructure(*nfa1)
+          FreeStructure(*nfa2)
+        EndIf
         If *regExModes\i & #RegExMode_NoCase
-          If *regExModes\i & #RegExMode_Ascii
+          If *regExModes\i & #RegExMode_Ascii Or regExEngineModes & #RegExEngineMode_SingleByte
             Select char\u
               Case 'A' To 'Z'
                 char\u = char\u + 32
@@ -1094,11 +1209,15 @@ Module RegEx
                 char\u = char\u - 32
             EndSelect
             *nfa1 = CreateNfaByteRange(nfaPool(), char\a[0], char\a[0], finalStateValue)
-            *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
-            *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
-            FreeStructure(*nfa1)
-            FreeStructure(*nfa2)
-            *nfa2 = *nfa2_new
+            If regExEngineModes & #RegExEngineMode_SingleByte
+              *nfa2 = *nfa1
+            Else
+              *nfa2 = CreateNfaByteRange(nfaPool(), char\a[1], char\a[1], finalStateValue)
+              *nfa2_new = CreateNfaConcatenation(nfaPool(), *nfa1, *nfa2)
+              FreeStructure(*nfa1)
+              FreeStructure(*nfa2)
+              *nfa2 = *nfa2_new
+            EndIf
             *base_new = CreateNfaUnion(nfaPool(), *base, *nfa2, finalStateValue)
             FreeStructure(*base)
             FreeStructure(*nfa2)
@@ -1133,8 +1252,8 @@ Module RegEx
   EndProcedure
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected.NfaStruc *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes)
+  Procedure ParseRegExFactor(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
+    Protected.NfaStruc *base = ParseRegExBase(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
     Protected.NfaStruc *factor
     
     If *base = 0
@@ -1162,10 +1281,10 @@ Module RegEx
   EndProcedure
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
+  Procedure ParseRegExTerm(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
     Protected.NfaStruc *factor, *newFactor, *nextFactor
     
-    *factor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes)
+    *factor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
     
     If *factor = 0
       ProcedureReturn 0
@@ -1174,7 +1293,7 @@ Module RegEx
     While *regExString\currentPosition\u <> 0 And *regExString\currentPosition\u <> ')' And
           *regExString\currentPosition\u <> '|'
       
-      *nextFactor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes)
+      *nextFactor = ParseRegExFactor(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
       
       If *nextFactor = 0
         ProcedureReturn 0
@@ -1190,13 +1309,13 @@ Module RegEx
   EndProcedure
   
   ; Returns a pointer to a `NfaStruc`. On an error, null is returned.
-  Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer)
-    Protected.NfaStruc *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes)
+  Procedure ParseRegEx(List nfaPool.NfaStateStruc(), *regExString.RegExStringStruc, finalStateValue, *regExModes.Integer, regExEngineModes)
+    Protected.NfaStruc *term = ParseRegExTerm(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
     Protected.NfaStruc *regEx, *union
     
     If *term And *regExString\currentPosition\u = '|'
       *regExString\currentPosition + SizeOf(Unicode)
-      *regEx = ParseRegEx(nfaPool(), *regExString, finalStateValue, *regExModes)
+      *regEx = ParseRegEx(nfaPool(), *regExString, finalStateValue, *regExModes, regExEngineModes)
       If *regEx
         *union = CreateNfaUnion(nfaPool(), *term, *regEx, finalStateValue)
       Else
@@ -1211,10 +1330,13 @@ Module RegEx
   EndProcedure
   
   ; Public Function. Description in the module declaration block.
-  Procedure Init()
+  Procedure Init(regExEngineModes = 0)
     Protected.RegExEngineStruc *regExEngine
     
     *regExEngine = AllocateStructure(RegExEngineStruc)
+    If *regExEngine
+      *regExEngine\regExEngineModes = regExEngineModes
+    EndIf
     
     ProcedureReturn *regExEngine
   EndProcedure
@@ -1249,7 +1371,7 @@ Module RegEx
     EndIf
     
     If AddElement(*regExEngine\nfaPools())
-      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #StateType_Final + regExId, @regExModes)
+      *resultNfa = ParseRegEx(*regExEngine\nfaPools()\nfaStates(), *regExString, #StateType_Final + regExId, @regExModes, *regExEngine\regExEngineModes)
       If *resultNfa
         If *regExString\currentPosition\u <> 0
           ; If the RegEx string could not be parsed completely, there are syntax
@@ -1463,7 +1585,7 @@ Module RegEx
   EndProcedure
   
   ; Public Function. Description in the module declaration block.
-  Procedure UseDfaFromMemory(*dfaMemory)
+  Procedure UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)
     Protected.RegExEngineStruc *regExEngine
     
     If *dfaMemory = 0
@@ -1474,13 +1596,14 @@ Module RegEx
     If *regExEngine
       *regExEngine\dfaStatesPool = *dfaMemory
       *regExEngine\isUseDfaFromMemory = #True
+      *regExEngine\regExEngineModes = regExEngineModes
     EndIf
     
     ProcedureReturn *regExEngine
   EndProcedure
   
   ; Returns the longest match as byte length
-  Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
+  Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.CharacterStruc, *regExId.Integer)
     Protected.NfaStateStruc *state
     Protected.AvlTree::AvlTreeStruc *currentStates, *nextStates
     Protected.AvlTree::AvlNodeStruc *node
@@ -1502,8 +1625,17 @@ Module RegEx
       While *node
         *state = *node\key
         If *state\stateType = #StateType_SymbolMove
-          If *state\byteRange\min =< *string\a And *state\byteRange\max => *string\a
-            AddState(*state\nextState1, *nextStates)
+          If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
+            If *string\u > $FF
+              Break
+            EndIf
+            If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
+              AddState(*state\nextState1, *nextStates)
+            EndIf
+          Else
+            If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
+              AddState(*state\nextState1, *nextStates)
+            EndIf
           EndIf
         ElseIf *state\stateType => #StateType_Final
           lastFinalStateMatchLength = *string - *stringStartPos
@@ -1522,7 +1654,11 @@ Module RegEx
       *currentStates = *nextStates
       *nextStates = AvlTree::Init()
       
-      *string + SizeOf(Ascii)
+      If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
+        *string + SizeOf(Unicode) ; Skip also the second byte of the UCS-2 character
+      Else
+        *string + SizeOf(Ascii)
+      EndIf
     ForEver
     
     AvlTree::Free(*currentStates)
@@ -1532,7 +1668,7 @@ Module RegEx
   EndProcedure
   
   ; Returns the longest match as byte length
-  Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.Ascii, *regExId.Integer)
+  Procedure DfaMatch(*regExEngine.RegExEngineStruc, *string.CharacterStruc, *regExId.Integer)
     Protected dfaState, lastFinalStateMatchLength
     Protected *stringStartPos
     
@@ -1542,12 +1678,20 @@ Module RegEx
     ; dfaState '0' is the dead state, so it will be skipped.
     
     Repeat
-      dfaState = *regExEngine\dfaStatesPool\states[dfaState]\nextState[*string\a]
+      If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte And *string\u > $FF
+        Break
+      EndIf
+      
+      dfaState = *regExEngine\dfaStatesPool\states[dfaState]\nextState[*string\a[0]]
       If dfaState = #State_DfaDeadState
         Break
       EndIf
       
-      *string + SizeOf(Ascii)
+      If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
+        *string + SizeOf(Unicode) ; Skip also the second byte of the UCS-2 character
+      Else
+        *string + SizeOf(Ascii)
+      EndIf
       
       If *regExEngine\dfaStatesPool\states[dfaState]\isFinalState
         lastFinalStateMatchLength = *string - *stringStartPos

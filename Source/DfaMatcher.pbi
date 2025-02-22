@@ -3,6 +3,10 @@ DeclareModule DfaMatcher
   
   EnableExplicit
   
+  EnumerationBinary RegExEngineModes
+    #RegExEngineMode_SingleByte ; Activates single-byte mode
+  EndEnumeration
+  
   #State_DfaDeadState = 0 ; Index number of the DFA dead state
   
   Structure DfaStateStruc
@@ -28,15 +32,24 @@ DeclareModule DfaMatcher
   ; If multiple RegExes match the same string, each having been assigned a
   ; different RegEx ID number, the RegEx ID number of the last matching RegEx
   ; will be picked, i.e. the matching RegEx that was last added with the
-  ; `AddNfa()` function.
-  Declare Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)
+  ; `AddNfa()` function.  If RegEx engine modes were set during DFA creation,
+  ; the identical modes must be set again for this optional parameter
+  ; `regExEngineModes` so that the DFA can be processed correctly.
+  Declare Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)
   
 EndDeclareModule
 
 Module DfaMatcher
   
-  Procedure Match(*dfaMemory.DfaStatesArrayStruc, *string.Unicode, *regExId.Integer = 0)
-    Protected.Ascii *stringPointer
+  Structure CharacterStruc
+    StructureUnion
+      u.u
+      a.a[2]
+    EndStructureUnion
+  EndStructure
+  
+  Procedure Match(*dfaMemory.DfaStatesArrayStruc, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)
+    Protected.CharacterStruc *stringPointer
     Protected *stringStartPos
     Protected dfaState, lastFinalStateMatchLength
     
@@ -45,12 +58,20 @@ Module DfaMatcher
     dfaState = 1 ; dfaState '0' is the dead state, so it will be skipped
     
     Repeat
-      dfaState = *dfaMemory\states[dfaState]\nextState[*stringPointer\a]
+      If regExEngineModes & #RegExEngineMode_SingleByte And *stringPointer\u > $FF
+        Break
+      EndIf
+      
+      dfaState = *dfaMemory\states[dfaState]\nextState[*stringPointer\a[0]]
       If dfaState = #State_DfaDeadState
         Break
       EndIf
       
-      *stringPointer + SizeOf(Ascii)
+      If regExEngineModes & #RegExEngineMode_SingleByte
+        *stringPointer + SizeOf(Unicode) ; Skip also the second byte of the UCS-2 character
+      Else
+        *stringPointer + SizeOf(Ascii)
+      EndIf
       
       If *dfaMemory\states[dfaState]\isFinalState
         lastFinalStateMatchLength = *stringPointer - *stringStartPos

@@ -111,7 +111,23 @@ This RegEx mode is also useful in combination with `#RegExMode_NoCase` when you 
 - `(?i)set` corresponds to `[Ss\u017F][Ee][Tt]`
 - `(?ia)set` corresponds to `[Ss][Ee][Tt]`
 
+## Single-byte Engine Mode
+
+This feature allows to create a RegEx engine with a single-byte mode.
+
+When a RegEx engine is created with this mode, it will no longer support the UCS-2 characters `\u0001` - `\uFFFF`, but only `\u0001` - `\u00FF`. This means that it will only support UCS-2 characters where the second byte is zero. If the RegEx contains characters outside this range, an error will occur.
+
+This mode also activates the ASCII mode, which can't be deactivated with `(?-a)` in the RegEx.
+
+Since the second byte must always be zero, this check is then done in the `Match` function. This way the NFA/DFA can save many states, making it much smaller.
+
 ## Public Constants
+
+```purebasic
+EnumerationBinary RegExEngineModes
+  #RegExEngineMode_SingleByte ; Activates single-byte mode
+EndEnumeration
+```
 
 ```purebasic
 EnumerationBinary RegExModes
@@ -176,6 +192,7 @@ Structure RegExEngineStruc
   List nfaPools.NfaPoolStruc()       ; Holds all NFA pools
   *dfaStatesPool.DfaStatesArrayStruc ; Holds all DFA states
   isUseDfaFromMemory.b               ; `#True` if `UseDfaFromMemory()` was used, otherwise `#False`
+  regExEngineModes.i
 EndStructure
 ```
 
@@ -186,8 +203,10 @@ Simplifies extracting the matched string via its memory address and length info 
 
 ## Public Functions
 
-- **`Init()`**<br><br>
-Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned.
+- **`Init(regExEngineModes = 0)`**<br><br>
+Creates a new RegEx engine and returns the pointer to the `RegExEngineStruc` structure. If an error occurred null is returned. The optional `regExEngineModes` parameter allows defining which RegExEngine modes should be activated; its currently supported values are:
+
+    - `#RegExEngineMode_SingleByte` — Activates single-byte mode
 
 - **`AddNfa(*regExEngine.RegExEngineStruc, regExString$, regExId = 0, regExModes = 0)`**<br><br>
 Compiles the RegEx string into an NFA which is added to the NFAs pool in the RegEx engine. On success `#True` is returned, otherwise `#False`. A unique number (`0` to `(65535 - #StateType_Final)`) can be passed to `regExId` to determine later which RegEx has matched. The optional `regExModes` parameter allows defining which RegEx modes should be activated at the beginning; its currently supported values are:
@@ -203,8 +222,8 @@ Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` will 
 - **`Free(*regExEngine.RegExEngineStruc)`**<br><br>
 Frees the RegEx engine.
 
-- **`UseDfaFromMemory(*dfaMemory)`**<br><br>
-Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After calling this procedure, the RegEx engine is immediately ready for use, without requiring to call `Init()`, `AddNfa()` or `CreateDfa()`. On success the pointer to `RegExEngineStruc` is returned, otherwise null.
+- **`UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)`**<br><br>
+Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After calling this procedure, the RegEx engine is immediately ready for use, without requiring to call `Init()`, `AddNfa()` or `CreateDfa()`. On success the pointer to `RegExEngineStruc` is returned, otherwise null. If RegEx engine modes were set during DFA creation, the identical modes must be set again for this optional parameter `regExEngineModes` so that the DFA can be processed correctly.
 
 - **`Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)`**<br><br>
 Runs the RegEx engine against the target string, passed via a pointer. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If the address of an integer variable was passed as the optional `*regExId` parameter, the RegEx ID number of the matching RegEx is written into it. If multiple RegExes match the same string, each having been assigned a different RegEx ID number, the RegEx ID number of the last matching RegEx will be picked, i.e. the matching RegEx that was last added with the `AddNfa()` function.
@@ -222,6 +241,12 @@ The reduced module `DfaMatcher` provides only a DFA matcher which uses the preco
 If only the precompiled DFAs are needed in the software, for matching, and no new NFAs/DFAs are to be created at runtime, then the reduced module can be used. This way the software is not unnecessarily bloated with the large Unicode tables and the rest of the code found in the main module.
 
 ### Public Constants
+
+```purebasic
+EnumerationBinary RegExEngineModes
+  #RegExEngineMode_SingleByte ; Activates single-byte mode
+EndEnumeration
+```
 
 ```purebasic
 #State_DfaDeadState = 0 ; Index number of the DFA dead state
@@ -249,8 +274,8 @@ Simplifies extracting the matched string via its memory address and length info 
 
 ### Public Functions
 
-- **`Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0)`**<br><br>
-Runs the DFA against the target string, passed via a pointer. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If the address of an integer variable was passed as the optional `*regExId` parameter, the RegEx ID number of the matching RegEx is written into it. If multiple RegExes match the same string, each having been assigned a different RegEx ID number, the RegEx ID number of the last matching RegEx will be picked, i.e. the matching RegEx that was last added with the `AddNfa()` function.
+- **`Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)`**<br><br>
+Runs the DFA against the target string, passed via a pointer. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If the address of an integer variable was passed as the optional `*regExId` parameter, the RegEx ID number of the matching RegEx is written into it. If multiple RegExes match the same string, each having been assigned a different RegEx ID number, the RegEx ID number of the last matching RegEx will be picked, i.e. the matching RegEx that was last added with the `AddNfa()` function. If RegEx engine modes were set during DFA creation, the identical modes must be set again for this optional parameter `regExEngineModes` so that the DFA can be processed correctly.
 
 ## Would you like to contribute to the project?
 
