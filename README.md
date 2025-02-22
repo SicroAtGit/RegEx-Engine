@@ -222,7 +222,7 @@ Creates a single DFA from the existing NFAs in the RegEx engine. `Match()` will 
 - **`Free(*regExEngine.RegExEngineStruc)`**<br><br>
 Frees the RegEx engine.
 
-- **`UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)`**<br><br>
+- **`UseDfaFromMemory(*dfaMemory.DfaStatesArrayStruc, regExEngineModes = 0)`**<br><br>
 Creates a new RegEx engine and assigns an existing DFA stored in external memory to the RegEx engine. After calling this procedure, the RegEx engine is immediately ready for use, without requiring to call `Init()`, `AddNfa()` or `CreateDfa()`. On success the pointer to `RegExEngineStruc` is returned, otherwise null. If RegEx engine modes were set during DFA creation, the identical modes must be set again for this optional parameter `regExEngineModes` so that the DFA can be processed correctly.
 
 - **`Match(*regExEngine.RegExEngineStruc, *string.Unicode, *regExId.Integer = 0)`**<br><br>
@@ -274,7 +274,7 @@ Simplifies extracting the matched string via its memory address and length info 
 
 ### Public Functions
 
-- **`Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)`**<br><br>
+- **`Match(*dfaMemory.DfaStatesArrayStruc, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)`**<br><br>
 Runs the DFA against the target string, passed via a pointer. The match search will start from the beginning of the string. If a match is found, the byte length of the match is returned, otherwise null. If the address of an integer variable was passed as the optional `*regExId` parameter, the RegEx ID number of the matching RegEx is written into it. If multiple RegExes match the same string, each having been assigned a different RegEx ID number, the RegEx ID number of the last matching RegEx will be picked, i.e. the matching RegEx that was last added with the `AddNfa()` function. If RegEx engine modes were set during DFA creation, the identical modes must be set again for this optional parameter `regExEngineModes` so that the DFA can be processed correctly.
 
 ## Would you like to contribute to the project?

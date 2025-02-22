@@ -36,7 +36,7 @@ DeclareModule DfaMatcher
   ; `AddNfa()` function.  If RegEx engine modes were set during DFA creation,
   ; the identical modes must be set again for this optional parameter
   ; `regExEngineModes` so that the DFA can be processed correctly.
-  Declare Match(*dfaMemory, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)
+  Declare Match(*dfaMemory.DfaStatesArrayStruc, *string.Unicode, *regExId.Integer = 0, regExEngineModes = 0)
   
 EndDeclareModule
 

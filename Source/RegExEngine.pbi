@@ -96,7 +96,7 @@ DeclareModule RegEx
   ; If RegEx engine modes were set during DFA creation, the identical modes
   ; must be set again for this optional parameter `regExEngineModes` so that
   ; the DFA can be processed correctly.
-  Declare UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)
+  Declare UseDfaFromMemory(*dfaMemory.DfaStatesArrayStruc, regExEngineModes = 0)
   
   ; Runs the RegEx engine against the target string, passed via a pointer.
   ; The match search will start from the beginning of the string. If a match is
@@ -1601,7 +1601,7 @@ Module RegEx
   EndProcedure
   
   ; Public Function. Description in the module declaration block.
-  Procedure UseDfaFromMemory(*dfaMemory, regExEngineModes = 0)
+  Procedure UseDfaFromMemory(*dfaMemory.DfaStatesArrayStruc, regExEngineModes = 0)
     Protected.RegExEngineStruc *regExEngine
     
     If *dfaMemory = 0
