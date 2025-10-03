@@ -1608,17 +1608,11 @@ Module RegEx
       ForEach *currentStates()
         *state = *currentStates()
         If *state\stateType = #StateType_SymbolMove
-          If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
-            If *string\u > $FF
-              Break
-            EndIf
-            If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
-              AddState(*state\nextState1, *nextStates())
-            EndIf
-          Else
-            If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
-              AddState(*state\nextState1, *nextStates())
-            EndIf
+          If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte And *string\u > $FF
+            Break
+          EndIf
+          If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
+            AddState(*state\nextState1, *nextStates())
           EndIf
         ElseIf *state\stateType => #StateType_Final
           lastFinalStateMatchLength = *string - *stringStartPos
