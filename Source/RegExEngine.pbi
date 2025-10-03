@@ -1,6 +1,4 @@
 ﻿
-IncludeFile "AvlTree.pbi"
-
 DeclareModule RegEx
   
   EnableExplicit
@@ -136,7 +134,7 @@ Module RegEx
   EndStructure
   
   Structure EClosureStruc
-    *nfaStates.AvlTree::AvlTreeStruc
+    List *nfaStates.NfaStateStruc()
   EndStructure
   
   Structure CharacterStruc
@@ -1421,14 +1419,14 @@ Module RegEx
   
   ; Follows the epsilon-move states and adds the target states to the list.
   ; Used for the subset construction (NFA -> DFA conversion).
-  Procedure AddState(*state.NfaStateStruc, *states.AvlTree::AvlTreeStruc)
+  Procedure AddState(*state.NfaStateStruc, List *states.NfaStateStruc())
     If *state\stateType = #StateType_SplitMove
-      If Not AddState(*state\nextState1, *states)
+      If Not AddState(*state\nextState1, *states())
         ProcedureReturn #False
       EndIf
-      AddState(*state\nextState2, *states)
+      AddState(*state\nextState2, *states())
     ElseIf *state\stateType = #StateType_EpsilonMove
-      AddState(*state\nextState1, *states)
+      AddState(*state\nextState1, *states())
     Else
       
       ; Required to prevent an endless loop on the following RegExes:
@@ -1437,11 +1435,14 @@ Module RegEx
       ; - `x+x*`
       ; - `x+x+`
       ; `x` can also be a more complex RegEx.
-      If AvlTree::Search(*states, *state)
-        ProcedureReturn #False
-      EndIf
+      ForEach *states()
+        If *states() = *state
+          ProcedureReturn #False
+        EndIf
+      Next
       
-      AvlTree::Insert(*states, *state)
+      AddElement(*states())
+      *states() = *state
     EndIf
     
     ProcedureReturn #True
@@ -1451,12 +1452,11 @@ Module RegEx
   ; position of the set. The position number and the DFA state number are
   ; identical.
   ; Used for the subset construction (NFA -> DFA conversion).
-  Procedure FindStatesSet(Array eClosures.EClosureStruc(1), *states.AvlTree::AvlTreeStruc)
-    Protected.AvlTree::AvlNodeStruc *node
+  Procedure FindStatesSet(Array eClosures.EClosureStruc(1), List *states.NfaStateStruc())
     Protected sizeOfArray, dfaState, countOfStates, isFound, result
     
     sizeOfArray = ArraySize(eClosures())
-    countOfStates = *states\itemsCount
+    countOfStates = ListSize(*states())
     
     ; dfaState '0' is the dead state, so it will be skipped.
     
@@ -1464,19 +1464,18 @@ Module RegEx
       
       isFound = #True
       
-      If eClosures(dfaState)\nfaStates\itemsCount <> countOfStates
+      If ListSize(eClosures(dfaState)\nfaStates()) <> countOfStates
         Continue
       EndIf
       
-      AvlTree::ResetTree(eClosures(dfaState)\nfaStates)
+      ResetList(*states())
+      ResetList(eClosures(dfaState)\nfaStates())
       
-      *node = AvlTree::NextNode(eClosures(dfaState)\nfaStates)
-      While *node
-        If AvlTree::Search(*states, *node\key) = 0
+      While NextElement(*states()) And NextElement(eClosures(dfaState)\nfaStates())
+        If eClosures(dfaState)\nfaStates() <> *states()
           isFound = #False
           Break
         EndIf
-        *node = AvlTree::NextNode(eClosures(dfaState)\nfaStates)
       Wend
       
       If isFound
@@ -1492,7 +1491,6 @@ Module RegEx
   Procedure CreateDfa(*regExEngine.RegExEngineStruc, clearNfa = #True)
     Protected.EClosureStruc Dim eClosures(1), NewMap symbols()
     Protected.NfaStateStruc *state
-    Protected.AvlTree::AvlNodeStruc *node
     Protected sizeOfArray, dfaState, result, symbol
     Protected *newMemory
     
@@ -1515,45 +1513,32 @@ Module RegEx
     ; dfaState '0' is the dead state, so it will be skipped.
     ; eClosures(0) is then always unused, but it is easier that way.
     
-    eClosures(dfaState)\nfaStates = AvlTree::Init()
-    
     ForEach *regExEngine\nfaPools()
-      AddState(*regExEngine\nfaPools()\initialNfaState, eClosures(dfaState)\nfaStates)
+      AddState(*regExEngine\nfaPools()\initialNfaState, eClosures(dfaState)\nfaStates())
     Next
     
     For dfaState = 1 To ArraySize(eClosures())
       
-      ForEach symbols()
-        AvlTree::Free(symbols()\nfaStates)
-      Next
       ClearMap(symbols())
       
-      AvlTree::ResetTree(eClosures(dfaState)\nfaStates)
-      
-      *node = AvlTree::NextNode(eClosures(dfaState)\nfaStates)
-      While *node
-        *state = *node\key
+      ForEach eClosures(dfaState)\nfaStates()
+        *state = eClosures(dfaState)\nfaStates()
         If *state\stateType => #StateType_Final
           *regExEngine\dfaStatesPool\states[dfaState]\isFinalState = *state\stateType - #StateType_Final + 1
         Else
           For symbol = *state\byteRange\min To *state\byteRange\max
-            If symbols(Chr(symbol))\nfaStates = 0
-              symbols(Chr(symbol))\nfaStates = AvlTree::Init()
-            EndIf
-            AddState(*state\nextState1, symbols(Chr(symbol))\nfaStates)
+            AddState(*state\nextState1, symbols(Chr(symbol))\nfaStates())
           Next
         EndIf
-        *node = AvlTree::NextNode(eClosures(dfaState)\nfaStates)
-      Wend
+      Next
       
       ForEach symbols()
-        result = FindStatesSet(eClosures(), symbols()\nfaStates)
+        result = FindStatesSet(eClosures(), symbols()\nfaStates())
         If result
           *regExEngine\dfaStatesPool\states[dfaState]\nextState[Asc(MapKey(symbols()))] = result
         Else
           sizeOfArray = ArraySize(eClosures())
           ReDim eClosures(sizeOfArray + 1)
-          eClosures(sizeOfArray + 1)\nfaStates = AvlTree::Init()
           *newMemory = ReAllocateMemory(*regExEngine\dfaStatesPool,
                                         MemorySize(*regExEngine\dfaStatesPool) +
                                         SizeOf(DfaStateStruc))
@@ -1562,15 +1547,11 @@ Module RegEx
           Else
             FreeMemory(*regExEngine\dfaStatesPool)
             *regExEngine\dfaStatesPool = 0
-            For dfaState = 1 To ArraySize(eClosures())
-              AvlTree::Free(eClosures(dfaState)\nfaStates)
-            Next
-            ForEach symbols()
-              AvlTree::Free(symbols()\nfaStates)
-            Next
             ProcedureReturn #False
           EndIf
-          AvlTree::InsertTree(symbols()\nfaStates, eClosures(sizeOfArray + 1)\nfaStates)
+          If Not CopyList(symbols()\nfaStates(), eClosures(sizeOfArray + 1)\nfaStates())
+            ProcedureReturn #False
+          EndIf
           *regExEngine\dfaStatesPool\states[dfaState]\nextState[Asc(MapKey(symbols()))] = sizeOfArray + 1
         EndIf
       Next
@@ -1580,14 +1561,6 @@ Module RegEx
     If clearNfa
       ClearList(*regExEngine\nfaPools())
     EndIf
-    
-    For dfaState = 1 To ArraySize(eClosures())
-      AvlTree::Free(eClosures(dfaState)\nfaStates)
-    Next
-    
-    ForEach symbols()
-      AvlTree::Free(symbols()\nfaStates)
-    Next
     
     ProcedureReturn #True
   EndProcedure
@@ -1621,36 +1594,30 @@ Module RegEx
   ; Returns the longest match as byte length
   Procedure NfaMatch(*regExEngine.RegExEngineStruc, *string.CharacterStruc, *regExId.Integer)
     Protected.NfaStateStruc *state
-    Protected.AvlTree::AvlTreeStruc *currentStates, *nextStates
-    Protected.AvlTree::AvlNodeStruc *node
+    Protected.NfaStateStruc NewList *currentStates(), NewList *nextStates()
     Protected *stringStartPos
     Protected lastFinalStateMatchLength
     
     *stringStartPos = *string
     
-    *currentStates = AvlTree::Init()
-    *nextStates = AvlTree::Init()
-    
     ForEach *regExEngine\nfaPools()
-      AddState(*regExEngine\nfaPools()\initialNfaState, *currentStates)
+      AddState(*regExEngine\nfaPools()\initialNfaState, *currentStates())
     Next
     
     Repeat
-      AvlTree::ResetTree(*currentStates)
-      *node = AvlTree::NextNode(*currentStates)
-      While *node
-        *state = *node\key
+      ForEach *currentStates()
+        *state = *currentStates()
         If *state\stateType = #StateType_SymbolMove
           If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
             If *string\u > $FF
               Break
             EndIf
             If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
-              AddState(*state\nextState1, *nextStates)
+              AddState(*state\nextState1, *nextStates())
             EndIf
           Else
             If *state\byteRange\min =< *string\a[0] And *state\byteRange\max => *string\a[0]
-              AddState(*state\nextState1, *nextStates)
+              AddState(*state\nextState1, *nextStates())
             EndIf
           EndIf
         ElseIf *state\stateType => #StateType_Final
@@ -1659,16 +1626,14 @@ Module RegEx
             *regExId\i = *state\stateType - #StateType_Final
           EndIf
         EndIf
-        *node = AvlTree::NextNode(*currentStates)
-      Wend
+      Next
       
-      If *nextStates\itemsCount = 0
+      If ListSize(*nextStates()) = 0
         Break
       EndIf
       
-      AvlTree::Free(*currentStates)
-      *currentStates = *nextStates
-      *nextStates = AvlTree::Init()
+      ClearList(*currentStates())
+      MergeLists(*nextStates(), *currentStates())
       
       If *regExEngine\regExEngineModes & #RegExEngineMode_SingleByte
         *string + SizeOf(Unicode) ; Skip also the second byte of the UCS-2 character
@@ -1676,9 +1641,6 @@ Module RegEx
         *string + SizeOf(Ascii)
       EndIf
     ForEver
-    
-    AvlTree::Free(*currentStates)
-    AvlTree::Free(*nextStates)
     
     ProcedureReturn lastFinalStateMatchLength
   EndProcedure
