@@ -1,3 +1,13 @@
+## [1.2.0] (2025-10-18)
+
+**New:**
+
+- New public constant `#ModuleVersion$` to determine the module version.
+
+**Fixed:**
+
+- Speed increase implemented in version `1.1.0` was reversed because, in the case of multiple `AddNfa()` calls whose RegEx could match the same string, the `regExId` of the last `AddNfa()` call was not always taken.
+
 ## [1.1.0] (2025-02-16)
 
 **New:**
@@ -27,6 +37,7 @@ First final version.
 
 <!--------------------------------------------------------------------------->
 
+[1.2.0]: https://github.com/SicroAtGit/RegEx-Engine/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/SicroAtGit/RegEx-Engine/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/SicroAtGit/RegEx-Engine/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/SicroAtGit/RegEx-Engine/tree/v1.0.0
