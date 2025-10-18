@@ -3,6 +3,8 @@ DeclareModule RegEx
   
   EnableExplicit
   
+  #ModuleVersion$ = "1.2.0" ; The module version (SemVer 2.0 specification)
+  
   EnumerationBinary RegExEngineModes
     #RegExEngineMode_SingleByte ; Activates single-byte mode
   EndEnumeration

@@ -124,6 +124,10 @@ Since the second byte must always be zero, this check is then done in the `Match
 ## Public Constants
 
 ```purebasic
+#ModuleVersion$ ; The module version (SemVer 2.0 specification)
+```
+
+```purebasic
 EnumerationBinary RegExEngineModes
   #RegExEngineMode_SingleByte ; Activates single-byte mode
 EndEnumeration
@@ -241,6 +245,10 @@ The reduced module `DfaMatcher` provides only a DFA matcher which uses the preco
 If only the precompiled DFAs are needed in the software, for matching, and no new NFAs/DFAs are to be created at runtime, then the reduced module can be used. This way the software is not unnecessarily bloated with the large Unicode tables and the rest of the code found in the main module.
 
 ### Public Constants
+
+```purebasic
+#ModuleVersion$ ; The module version (SemVer 2.0 specification)
+```
 
 ```purebasic
 EnumerationBinary RegExEngineModes
